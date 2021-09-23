@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-22 Wed 20:58 -->
+<!-- 2021-09-22 Wed 21:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java Basics</title>
@@ -352,7 +352,7 @@ When creating an instance of a <code>SimpleWriter1L</code>, if you pass a file n
 <code>SimpleReader</code> is very similar to <code>SimpleWritter</code> in how it is created. However, instead of handling output, <code>SimpleReader</code> handles input.
 </p>
 
-<pre class="example" id="org7399785">
+<pre class="example" id="orgb7a87fa">
 SimpleReader keyboardIn = new SimpleReader1L();
 SimpleReader fileIn = new SimpleReader1L("foo.txt");
 
@@ -501,7 +501,7 @@ When you <i>declare</i> a variable, You provide both a name for it to store its 
 <ul class="org-ul">
 <li>When a value is assigned to a variable, it becomes <b>initialized</b></li>
 </ul>
-<pre class="example" id="orgc0009f5">
+<pre class="example" id="orged897e7">
 // These are two valid variable declarations
 int j;
 int i = 100;
@@ -516,7 +516,7 @@ int i = 100;
 A date value appearing, literally, in a program is called a <b>Literal</b>. Anytime you see a value in a program, it is a <b>Literal</b>.
 </p>
 
-<pre class="example" id="org8310ad9">
+<pre class="example" id="org52a9509">
 int i = 27;
 
 int q = i + 32;
@@ -533,7 +533,7 @@ String s = i.toString() + " is a literal";
 <p>
 A <b>constant</b> is a <b>variable</b> that is initialized (assigned a value) but <i>never changed</i>. They are declared with the <b>keyword</b> <code>final</code>. <b>Constants</b> typically have a name that is in all caps and spaces are represented with a &ldquo;<code>_</code>&rdquo; (underscore) character.
 </p>
-<pre class="example" id="orge697ea3">
+<pre class="example" id="org093251f">
 final int MY_CONSTANT = 123456;
 </pre>
 </div>
@@ -682,11 +682,8 @@ An <b>expression</b> is a &ldquo;syntactically well-formed and meaningful fragme
 <b>Conditional Statements</b> inculde <code>if</code> <code>if/else</code> and <code>if/else/if</code>, but these are all variations on a normal <code>if</code> statement. <code>if</code> statements have the following structure:
 </p>
 
-<p>
-#+name; if-statement
-</p>
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">if</span> (testToBeDone) {
+<pre class="src src-java" id="orgafaca7a"><span style="color: #81a2be;">if</span> (testToBeDone) {
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">code to be executed</span>
 }
 </pre>
@@ -794,7 +791,7 @@ This creates an array full of default values, in this case <code>0</code>. Howev
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-09-22 Wed 20:58</p>
+<p class="date">Created: 2021-09-22 Wed 21:24</p>
 </div>
 </body>
 </html>
