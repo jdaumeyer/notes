@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
+* {
+    --background: #e4e4e5;
+    --foreground: #2a2a29;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Karla', sans-serif;
+}
+
+/*
+ *
+ * = Headers =
+ *
+ */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Libre Baskerville", serif;
+}
+h1 {
+    font-size: 4em;
+    font-weight:  700;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+h5 {
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+/*
+ * Outlines
+ */
+.outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
+    margin-bottom: 4em;
+}
+
+
+/*
+ *
+ * = Document Setup =
+ *
+ */
+#content {
+    width: min(75ch, 50%);
+    margin: 0 auto;
+}
+
+
+/*
+ *
+ * = Better Definitions =
+ *
+ */
+
+dl {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 1em;
+}
+
+dt {
+    text-align: right;
+}
+
+dd {
+    text-align: left;
+}
