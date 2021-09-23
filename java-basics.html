@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-22 Wed 21:24 -->
+<!-- 2021-09-23 Thu 10:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java Basics</title>
@@ -11,8 +11,8 @@
 <meta name="description" content="The last value in each of these statements is a literal.
 I have a problem with the organization of this table" />
 <meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -33,9 +33,8 @@ I have a problem with the organization of this table" />
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -44,21 +43,21 @@ I have a problem with the organization of this table" />
   pre.src {
     position: relative;
     overflow: auto;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -194,8 +193,31 @@ I have a problem with the organization of this table" />
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -216,10 +238,11 @@ I have a problem with the organization of this table" />
              }
 });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">Java Basics
 <br />
 <span class="subtitle">CSE 2221</span>
@@ -228,13 +251,13 @@ I have a problem with the organization of this table" />
 Procedures are methods that don&rsquo;t return a value and functions are methods that do return.
 </p>
 
-<div id="outline-container-orgbffe6b1" class="outline-2">
-<h2 id="orgbffe6b1">Introduction to Java</h2>
-<div class="outline-text-2" id="text-orgbffe6b1">
+<div id="outline-container-org995cd13" class="outline-2">
+<h2 id="org995cd13">Introduction to Java</h2>
+<div class="outline-text-2" id="text-org995cd13">
 </div>
-<div id="outline-container-org6851cb8" class="outline-3">
-<h3 id="org6851cb8">What is Java</h3>
-<div class="outline-text-3" id="text-org6851cb8">
+<div id="outline-container-orge3017d5" class="outline-3">
+<h3 id="orge3017d5">What is Java</h3>
+<div class="outline-text-3" id="text-orge3017d5">
 <p>
 <b>Java</b> is a fairly popular <i>object-oriented</i> programming language.
 </p>
@@ -246,9 +269,9 @@ Procedures are methods that don&rsquo;t return a value and functions are methods
 </div>
 </div>
 
-<div id="outline-container-orgf0696aa" class="outline-3">
-<h3 id="orgf0696aa">Compilation</h3>
-<div class="outline-text-3" id="text-orgf0696aa">
+<div id="outline-container-org918f634" class="outline-3">
+<h3 id="org918f634">Compilation</h3>
+<div class="outline-text-3" id="text-org918f634">
 <p>
 The Java Compiler runs thorugh the source code of a <code>.java</code> file and generates bytcode from it into a <code>.class</code> file.
 </p>
@@ -259,9 +282,9 @@ The Java Compiler runs thorugh the source code of a <code>.java</code> file and 
 </div>
 </div>
 
-<div id="outline-container-org0454431" class="outline-3">
-<h3 id="org0454431">Java Virtual Machine</h3>
-<div class="outline-text-3" id="text-org0454431">
+<div id="outline-container-orgfad1cad" class="outline-3">
+<h3 id="orgfad1cad">Java Virtual Machine</h3>
+<div class="outline-text-3" id="text-orgfad1cad">
 <p>
 The <b>Java Virtual Machine</b> is essentially a virtual computer.
 </p>
@@ -282,15 +305,15 @@ The <b>JVM</b> is super significant the the <b>Java</b> progamming language beca
 </div>
 </div>
 
-<div id="outline-container-orge46facc" class="outline-2">
-<h2 id="orge46facc">Writing a Java Program</h2>
-<div class="outline-text-2" id="text-orge46facc">
+<div id="outline-container-orgaac7c7f" class="outline-2">
+<h2 id="orgaac7c7f">Writing a Java Program</h2>
+<div class="outline-text-2" id="text-orgaac7c7f">
 </div>
-<div id="outline-container-org9fa20e2" class="outline-3">
-<h3 id="org9fa20e2">Output, Strings and Input</h3>
-<div class="outline-text-3" id="text-org9fa20e2">
+<div id="outline-container-org94d9344" class="outline-3">
+<h3 id="org94d9344">Output, Strings and Input</h3>
+<div class="outline-text-3" id="text-org94d9344">
 <div class="org-src-container">
-<label class="org-src-name"><span class="listing-number">Listing 1: </span>This is the simplest Java Program to print &ldquo;Hello, World!&rdquo;</label><pre class="src src-java" id="org21805e5"><span style="color: #81a2be;">public</span> <span style="color: #81a2be;">class</span> <span style="color: #81a2be;">HelloWorld</span> {
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>This is the simplest Java Program to print &ldquo;Hello, World!&rdquo;</label><pre class="src src-java" id="orgc4d0f6c"><span style="color: #81a2be;">public</span> <span style="color: #81a2be;">class</span> <span style="color: #81a2be;">HelloWorld</span> {
     <span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">main</span> (<span style="color: #81a2be;">String</span>[] <span style="color: #e4e4e5;">args</span>) {
         System.out.print(<span style="color: #60b48a;">"Hello, World!"</span>);
     }
@@ -311,9 +334,9 @@ Hello, World!
 </ul>
 </div>
 
-<div id="outline-container-org0fb2a2e" class="outline-4">
-<h4 id="org0fb2a2e">Another &ldquo;Hello, World!&rdquo; Program</h4>
-<div class="outline-text-4" id="text-org0fb2a2e">
+<div id="outline-container-org3237100" class="outline-4">
+<h4 id="org3237100">Another &ldquo;Hello, World!&rdquo; Program</h4>
+<div class="outline-text-4" id="text-org3237100">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #81a2be;">import</span> <span style="color: #81a2be;">compenents</span>.<span style="color: #81a2be;">simplewriter</span>.<span style="color: #81a2be;">SimpleWriter</span>;
 <span style="color: #81a2be;">import</span> <span style="color: #81a2be;">compents</span>.<span style="color: #81a2be;">simplewriter</span>.<span style="color: #81a2be;">SimpleWriter1L</span>;
@@ -336,23 +359,23 @@ This version of the &ldquo;Hello, world!&rdquo; program uses <b>OSU</b>&rsquo;s 
 </div>
 </div>
 
-<div id="outline-container-org0671b3d" class="outline-4">
-<h4 id="org0671b3d">SimpleWriter</h4>
-<div class="outline-text-4" id="text-org0671b3d">
+<div id="outline-container-org440f9c1" class="outline-4">
+<h4 id="org440f9c1">SimpleWriter</h4>
+<div class="outline-text-4" id="text-org440f9c1">
 <p>
 When creating an instance of a <code>SimpleWriter1L</code>, if you pass a file name then all output will be sent to that file. However, when left blank, the default behavior of console output is used.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9c85a77" class="outline-4">
-<h4 id="org9c85a77">Simple Reader</h4>
-<div class="outline-text-4" id="text-org9c85a77">
+<div id="outline-container-orgefa6883" class="outline-4">
+<h4 id="orgefa6883">Simple Reader</h4>
+<div class="outline-text-4" id="text-orgefa6883">
 <p>
 <code>SimpleReader</code> is very similar to <code>SimpleWritter</code> in how it is created. However, instead of handling output, <code>SimpleReader</code> handles input.
 </p>
 
-<pre class="example" id="orgb7a87fa">
+<pre class="example" id="orgf0972d0">
 SimpleReader keyboardIn = new SimpleReader1L();
 SimpleReader fileIn = new SimpleReader1L("foo.txt");
 
@@ -371,9 +394,9 @@ Just like with <code>SimpleWritter</code>, <code>SimpleReader</code> must be clo
 </div>
 </div>
 
-<div id="outline-container-orgac31131" class="outline-3">
-<h3 id="orgac31131">String Manipulation</h3>
-<div class="outline-text-3" id="text-orgac31131">
+<div id="outline-container-org256f381" class="outline-3">
+<h3 id="org256f381">String Manipulation</h3>
+<div class="outline-text-3" id="text-org256f381">
 <p>
 Two String objects can be added together in <b>Java</b> with the <code>+</code> operator. this simply appends one string to the other in a process called <b>concatenation</b>.
 </p>
@@ -387,17 +410,17 @@ System.out.println(s + <span style="color: #60b48a;">" world!"</span>); <span st
 </div>
 
 
-<div id="outline-container-org3a606a9" class="outline-3">
-<h3 id="org3a606a9">Object Oriented Methodollogy</h3>
-<div class="outline-text-3" id="text-org3a606a9">
+<div id="outline-container-org18b82e6" class="outline-3">
+<h3 id="org18b82e6">Object Oriented Methodollogy</h3>
+<div class="outline-text-3" id="text-org18b82e6">
 <p>
 In <b>Java</b> there are two very imporant concepts; <b>Classes</b> and <b>Objects</b>
 </p>
 </div>
 
-<div id="outline-container-org2b361f5" class="outline-4">
-<h4 id="org2b361f5">Classes</h4>
-<div class="outline-text-4" id="text-org2b361f5">
+<div id="outline-container-orgf81181d" class="outline-4">
+<h4 id="orgf81181d">Classes</h4>
+<div class="outline-text-4" id="text-orgf81181d">
 <p>
 <b>Classes</b> can be thought of as a <i>mold</i>. This mold can be used to create <b>objects</b>. When an <b>Object</b> is created from a <b>Class</b> it is reffered to as a <b>Child</b> of the class.
 </p>
@@ -408,9 +431,9 @@ In <b>Java</b> there are two very imporant concepts; <b>Classes</b> and <b>Objec
 </div>
 </div>
 
-<div id="outline-container-org31ab597" class="outline-4">
-<h4 id="org31ab597">Objects</h4>
-<div class="outline-text-4" id="text-org31ab597">
+<div id="outline-container-org8bd6712" class="outline-4">
+<h4 id="org8bd6712">Objects</h4>
+<div class="outline-text-4" id="text-org8bd6712">
 <p>
 <b>Objects</b> are essentially boxes that hold <b>methods</b> and <b>properties</b>. These can be called upon, changed or accessed like any data but they are associated with the object that contains them.
 </p>
@@ -419,13 +442,13 @@ In <b>Java</b> there are two very imporant concepts; <b>Classes</b> and <b>Objec
 </div>
 </div>
 
-<div id="outline-container-orga684e49" class="outline-2">
-<h2 id="orga684e49">Variables, Types and Values</h2>
-<div class="outline-text-2" id="text-orga684e49">
+<div id="outline-container-orgb93c14e" class="outline-2">
+<h2 id="orgb93c14e">Variables, Types and Values</h2>
+<div class="outline-text-2" id="text-orgb93c14e">
 </div>
-<div id="outline-container-orgc832830" class="outline-3">
-<h3 id="orgc832830">Variables</h3>
-<div class="outline-text-3" id="text-orgc832830">
+<div id="outline-container-org4f65b3b" class="outline-3">
+<h3 id="org4f65b3b">Variables</h3>
+<div class="outline-text-3" id="text-org4f65b3b">
 <p>
 A <b>variable</b> is the name of a &ldquo;location&rdquo; that &ldquo;stores&rdquo; the value of a particular <b>type</b>.
 </p>
@@ -440,9 +463,9 @@ In this example, <b>String</b> is  the <b>type</b> of the variable and <code>"He
 </p>
 </div>
 
-<div id="outline-container-org9612cfa" class="outline-4">
-<h4 id="org9612cfa">Program Variables vs. Mathematical Variables</h4>
-<div class="outline-text-4" id="text-org9612cfa">
+<div id="outline-container-org1961422" class="outline-4">
+<h4 id="org1961422">Program Variables vs. Mathematical Variables</h4>
+<div class="outline-text-4" id="text-org1961422">
 <p>
 It is important to draw the distinction between <b>program variables</b> and <b>mathematical variables</b> because despite both being <b>variables</b> they function in discretely different ways.
 </p>
@@ -492,16 +515,16 @@ A <b>program variable</b> has a corresponding <b>mathematical type</b> that <i>m
 </div>
 </div>
 
-<div id="outline-container-org4fec75c" class="outline-4">
-<h4 id="org4fec75c">Declaring a variable</h4>
-<div class="outline-text-4" id="text-org4fec75c">
+<div id="outline-container-org9758057" class="outline-4">
+<h4 id="org9758057">Declaring a variable</h4>
+<div class="outline-text-4" id="text-org9758057">
 <p>
 When you <i>declare</i> a variable, You provide both a name for it to store its value and indicate its <b>type</b>. Then you can optionally assign its value.
 </p>
 <ul class="org-ul">
 <li>When a value is assigned to a variable, it becomes <b>initialized</b></li>
 </ul>
-<pre class="example" id="orged897e7">
+<pre class="example" id="orgdb70332">
 // These are two valid variable declarations
 int j;
 int i = 100;
@@ -509,14 +532,14 @@ int i = 100;
 </div>
 </div>
 
-<div id="outline-container-orgef839ab" class="outline-4">
-<h4 id="orgef839ab">Literals</h4>
-<div class="outline-text-4" id="text-orgef839ab">
+<div id="outline-container-orgb991677" class="outline-4">
+<h4 id="orgb991677">Literals</h4>
+<div class="outline-text-4" id="text-orgb991677">
 <p>
 A date value appearing, literally, in a program is called a <b>Literal</b>. Anytime you see a value in a program, it is a <b>Literal</b>.
 </p>
 
-<pre class="example" id="org52a9509">
+<pre class="example" id="org3efae25">
 int i = 27;
 
 int q = i + 32;
@@ -527,22 +550,22 @@ String s = i.toString() + " is a literal";
 </div>
 </div>
 
-<div id="outline-container-org4b8ad50" class="outline-4">
-<h4 id="org4b8ad50">Contants</h4>
-<div class="outline-text-4" id="text-org4b8ad50">
+<div id="outline-container-orga94acdd" class="outline-4">
+<h4 id="orga94acdd">Contants</h4>
+<div class="outline-text-4" id="text-orga94acdd">
 <p>
 A <b>constant</b> is a <b>variable</b> that is initialized (assigned a value) but <i>never changed</i>. They are declared with the <b>keyword</b> <code>final</code>. <b>Constants</b> typically have a name that is in all caps and spaces are represented with a &ldquo;<code>_</code>&rdquo; (underscore) character.
 </p>
-<pre class="example" id="org093251f">
+<pre class="example" id="org8d9668b">
 final int MY_CONSTANT = 123456;
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2bb9644" class="outline-3">
-<h3 id="org2bb9644">Types</h3>
-<div class="outline-text-3" id="text-org2bb9644">
+<div id="outline-container-org1128158" class="outline-3">
+<h3 id="org1128158">Types</h3>
+<div class="outline-text-3" id="text-org1128158">
 <p>
 A <b>type</b> is the name of the set of all possible values that a variable might have.
 Some examples of types are:
@@ -558,13 +581,13 @@ Some examples of types are:
 </div>
 </div>
 
-<div id="outline-container-orga100854" class="outline-2">
-<h2 id="orga100854">Operators, Expressions, Statements and Control Flow</h2>
-<div class="outline-text-2" id="text-orga100854">
+<div id="outline-container-orgb76e30b" class="outline-2">
+<h2 id="orgb76e30b">Operators, Expressions, Statements and Control Flow</h2>
+<div class="outline-text-2" id="text-orgb76e30b">
 </div>
-<div id="outline-container-orgdfae72b" class="outline-3">
-<h3 id="orgdfae72b">Operators</h3>
-<div class="outline-text-3" id="text-orgdfae72b">
+<div id="outline-container-org642c4d5" class="outline-3">
+<h3 id="org642c4d5">Operators</h3>
+<div class="outline-text-3" id="text-org642c4d5">
 <p>
 An <b>Operator</b> is a symbol that is used to represent a certain function. They are used with variables and values to simplify certain expressions.
 </p>
@@ -649,41 +672,41 @@ It is also best practice to never use <code>==</code> or <code>!=</code> with st
 </div>
 </div>
 
-<div id="outline-container-org6887640" class="outline-3">
-<h3 id="org6887640">Expressions</h3>
-<div class="outline-text-3" id="text-org6887640">
+<div id="outline-container-org51e5ebf" class="outline-3">
+<h3 id="org51e5ebf">Expressions</h3>
+<div class="outline-text-3" id="text-org51e5ebf">
 <p>
 An <b>expression</b> is a &ldquo;syntactically well-formed and meaningful fragment&rdquo;. This is essentially a bit of code that does <i>something</i>, either making an assignment or calling a function.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgecfdeb8" class="outline-3">
-<h3 id="orgecfdeb8">Statements</h3>
-<div class="outline-text-3" id="text-orgecfdeb8">
+<div id="outline-container-org595b25b" class="outline-3">
+<h3 id="org595b25b">Statements</h3>
+<div class="outline-text-3" id="text-org595b25b">
 <p>
 <b>Statements</b> are essentially a &ldquo;<i>sentance</i>&rdquo; of code. In Java these are lines of code, that are ended with a semicolon (<code>;</code>). Although not all <b>Statements</b> are one line, any code surronded by curly braces (<code>{}</code>) is also counted as a statement. This menas that in Java it is possible to have statements inside of statements.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org060cdcb" class="outline-3">
-<h3 id="org060cdcb">Control Flow</h3>
-<div class="outline-text-3" id="text-org060cdcb">
+<div id="outline-container-orgbc30266" class="outline-3">
+<h3 id="orgbc30266">Control Flow</h3>
+<div class="outline-text-3" id="text-orgbc30266">
 <p>
 <b>Control Flow</b> is broken up into two main types. <b>Conditional / Selectional</b> statements and <b>Looping / Iterative</b> statements.
 </p>
 </div>
 
-<div id="outline-container-orgad1d2cc" class="outline-4">
-<h4 id="orgad1d2cc">Conditionals</h4>
-<div class="outline-text-4" id="text-orgad1d2cc">
+<div id="outline-container-orgafb6cb7" class="outline-4">
+<h4 id="orgafb6cb7">Conditionals</h4>
+<div class="outline-text-4" id="text-orgafb6cb7">
 <p>
 <b>Conditional Statements</b> inculde <code>if</code> <code>if/else</code> and <code>if/else/if</code>, but these are all variations on a normal <code>if</code> statement. <code>if</code> statements have the following structure:
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="orgafaca7a"><span style="color: #81a2be;">if</span> (testToBeDone) {
+<pre class="src src-java" id="orgd3bcb8f"><span style="color: #81a2be;">if</span> (testToBeDone) {
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">code to be executed</span>
 }
 </pre>
@@ -708,17 +731,17 @@ We can
 </div>
 </div>
 
-<div id="outline-container-orgd9983b2" class="outline-4">
-<h4 id="orgd9983b2">Iteratives</h4>
-<div class="outline-text-4" id="text-orgd9983b2">
+<div id="outline-container-org06dd852" class="outline-4">
+<h4 id="org06dd852">Iteratives</h4>
+<div class="outline-text-4" id="text-org06dd852">
 <p>
 <b>Iteratives</b> are a type of statment that can execute a single block of code multiple times. The two main types of <b>iterative</b> statements are <code>while</code> loops and <code>for</code> loops.
 </p>
 </div>
 
-<div id="outline-container-org3b638dc" class="outline-5">
-<h5 id="org3b638dc">While Loop</h5>
-<div class="outline-text-5" id="text-org3b638dc">
+<div id="outline-container-org30e61cb" class="outline-5">
+<h5 id="org30e61cb">While Loop</h5>
+<div class="outline-text-5" id="text-org30e61cb">
 <p>
 A <code>while</code> loop continuosly executes code while a statment is <code>true</code> and ends when it&rsquo;s <code>false</code>.
 </p>
@@ -732,18 +755,18 @@ A <code>while</code> loop continuosly executes code while a statment is <code>tr
 </div>
 </div>
 
-<div id="outline-container-org9d58361" class="outline-5">
-<h5 id="org9d58361"><span class="todo TODO">TODO</span> For Loop</h5>
+<div id="outline-container-org095c0e6" class="outline-5">
+<h5 id="org095c0e6"><span class="todo TODO">TODO</span> For Loop</h5>
 </div>
-<div id="outline-container-orgd4238be" class="outline-5">
-<h5 id="orgd4238be"><span class="todo TODO">TODO</span> do-while</h5>
-</div>
-</div>
+<div id="outline-container-orgf761ea4" class="outline-5">
+<h5 id="orgf761ea4"><span class="todo TODO">TODO</span> do-while</h5>
 </div>
 </div>
-<div id="outline-container-orge65fa28" class="outline-2">
-<h2 id="orge65fa28">Parameters</h2>
-<div class="outline-text-2" id="text-orge65fa28">
+</div>
+</div>
+<div id="outline-container-org6070ff4" class="outline-2">
+<h2 id="org6070ff4">Parameters</h2>
+<div class="outline-text-2" id="text-org6070ff4">
 <p>
 Inside of the  parenthesis of a method declaration are where <b>parameters</b> are defined. <b>Parameters</b> essentially define the information the needs to be provided to the function in order to run. They are incredibly useful for getting values to a method that would otherwise not have access to them due to <b>scope</b>.
 </p>
@@ -755,9 +778,9 @@ Inside of the  parenthesis of a method declaration are where <b>parameters</b> a
 </div>
 </div>
 
-<div id="outline-container-org65c7664" class="outline-2">
-<h2 id="org65c7664">Arrays</h2>
-<div class="outline-text-2" id="text-org65c7664">
+<div id="outline-container-org31b8097" class="outline-2">
+<h2 id="org31b8097">Arrays</h2>
+<div class="outline-text-2" id="text-org31b8097">
 <blockquote>
 <p>
 One of if not the most important topics for Software I
@@ -788,10 +811,98 @@ This creates an array full of default values, in this case <code>0</code>. Howev
 </div>
 </div>
 </div>
+
+<div id="outline-container-org867275d" class="outline-2">
+<h2 id="org867275d">While Loops</h2>
+<div class="outline-text-2" id="text-org867275d">
+</div>
+<div id="outline-container-org10cbd45" class="outline-3">
+<h3 id="org10cbd45">Tracing</h3>
+</div>
+</div>
+
+<div id="outline-container-orgd436940" class="outline-2">
+<h2 id="orgd436940">Static Methods</h2>
+<div class="outline-text-2" id="text-orgd436940">
+<p>
+A <b>Static method</b> is a block of code with a name. This allows it to be easily run again my simply <i>calling</i> the method name in the format <code>methodName()</code>. The method essentially takes over comptutation when it is called until it <b>returns</b> where computation resumes after where the method was called.
+</p>
+</div>
+<div id="outline-container-org4e2ed4f" class="outline-3">
+<h3 id="org4e2ed4f">Anatomy of a Static Method</h3>
+<div class="outline-text-3" id="text-org4e2ed4f">
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">distance</span>(<span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">b</span>) {
+    <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">c</span> = a - b;
+    <span style="color: #81a2be;">return</span> c;
+}
+</pre>
+</div>
+
+<p>
+The first line of a method is its <b>declaration</b>.
+</p>
+<ul class="org-ul">
+<li>The <code>private static</code> tells us that the method is static</li>
+<li><code>int</code> is the <i>return type</i> of the method meaning that the method will return something with the type <code>int</code>.</li>
+<li><code>distance</code> is the name of the method, it&rsquo;s what&rsquo;s used to <b>call</b> this method.</li>
+</ul>
+<ul class="org-ul">
+<li><code>(int a, int b)</code> specifies that this method takes two <b>parameters</b> of the type <code>int</code>. <b>Parameters</b> are values that are passed to the method when it&rsquo;s called.</li>
+</ul>
+
+<p>
+Everything inside of the two curly braces (<code>{}</code>) is referred to as the <b>Method Body</b>. This is the code that is executed when the method is called.
+</p>
+<ul class="org-ul">
+<li><code>int c = a - b</code> is a line that uses the <b>parameters</b> in a calculation. Notice how the parameters don&rsquo;t have to be <i>initialized</i>.
+<ul class="org-ul">
+<li><code>int c</code> is a <b>local variable</b>, meaning that it only exists inside the method and cannot be accessed anywhere else.</li>
+</ul></li>
+<li><code>return c</code> means that this method will send whatever the value of <code>c</code> is to where it was called. Since this method is of type <code>int</code>, the value it returns <i>must</i> be an <code>int</code>.</li>
+</ul>
+
+<p>
+Also most methods are named using <b>camelCase</b>. This format starts with a lower-case word and each subsequent word is added to the end of the name (with no spaces) with the first letter capital.
+</p>
+<pre class="example" id="org5ce3a5a">
+thisIsALongCamelCaseName
+camelCaseIsFun
+amISpellingCamelRight
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1d224ca" class="outline-3">
+<h3 id="org1d224ca"><span class="todo TODO">TODO</span> Return Statments</h3>
+<div class="outline-text-3" id="text-org1d224ca">
+<p>
+Every <b>path of execution</b> throuh a method that returns a value
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org93a9190" class="outline-2">
+<h2 id="org93a9190">Important Rules</h2>
+<div class="outline-text-2" id="text-org93a9190">
+<ul class="org-ul">
+<li>Do not use <code>break</code> to end loops</li>
+<li>Use only one <code>return</code> in functions</li>
+<li>Do not use <code>return</code> in procedures</li>
+<li>Try to remove all warnings (compilier, Checkstyle, Spotbugs) from your program in particular:
+<ul class="org-ul">
+<li>Follow the naming conventions</li>
+<li>Declare named constants for every literal that is a <i>magic number</i></li>
+<li>Do not assign new values to formal parameters</li>
+</ul></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-09-22 Wed 21:24</p>
+<p class="date">Created: 2021-09-23 Thu 10:50</p>
 </div>
 </body>
 </html>

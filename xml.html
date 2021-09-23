@@ -3,14 +3,14 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-22 Wed 21:24 -->
+<!-- 2021-09-23 Thu 10:50 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>XML and XMLTree</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
-<style>
-  #content { max-width: 60em; margin: auto; }
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
   .title  { text-align: center;
              margin-bottom: .2em; }
   .subtitle { text-align: center;
@@ -31,9 +31,8 @@
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
   pre {
-    border: 1px solid #e6e6e6;
-    border-radius: 3px;
-    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
     padding: 8pt;
     font-family: monospace;
     overflow: auto;
@@ -42,21 +41,21 @@
   pre.src {
     position: relative;
     overflow: auto;
+    padding-top: 1.2em;
   }
   pre.src:before {
     display: none;
     position: absolute;
-    top: -8px;
-    right: 12px;
+    background-color: white;
+    top: -10px;
+    right: 10px;
     padding: 3px;
-    color: #555;
-    background-color: #f2f2f299;
+    border: 1px solid black;
   }
   pre.src:hover:before { display: inline; margin-top: 14px;}
   /* Languages per Org manual */
   pre.src-asymptote:before { content: 'Asymptote'; }
   pre.src-awk:before { content: 'Awk'; }
-  pre.src-authinfo::before { content: 'Authinfo'; }
   pre.src-C:before { content: 'C'; }
   /* pre.src-C++ doesn't work in CSS */
   pre.src-clojure:before { content: 'Clojure'; }
@@ -192,27 +191,50 @@
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
+  /*]]>*/-->
 </style>
 <link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/javascript">
+// @license magnet:?xt=urn:btih:e95b018ef3580986a04669f1b5879592219e2a7a&dn=public-domain.txt Public Domain
+<!--/*--><![CDATA[/*><!--*/
+     function CodeHighlightOn(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.add("code-highlighted");
+         target.classList.add("code-highlighted");
+       }
+     }
+     function CodeHighlightOff(elem, id)
+     {
+       var target = document.getElementById(id);
+       if(null != target) {
+         elem.classList.remove("code-highlighted");
+         target.classList.remove("code-highlighted");
+       }
+     }
+    /*]]>*///-->
+// @license-end
+</script>
 </head>
 <body>
-<div id="content" class="content">
+<div id="content">
 <h1 class="title">XML and XMLTree
 <br />
 <span class="subtitle">CSE 2221</span>
 </h1>
 
-<div id="outline-container-org2b923de" class="outline-2">
-<h2 id="org2b923de">Trees</h2>
-<div class="outline-text-2" id="text-org2b923de">
+<div id="outline-container-orgca42a05" class="outline-2">
+<h2 id="orgca42a05">Trees</h2>
+<div class="outline-text-2" id="text-orgca42a05">
 <p>
 <b>Trees</b> are a very common concept seen in computer science.
 </p>
 </div>
 
-<div id="outline-container-orgcc52735" class="outline-3">
-<h3 id="orgcc52735">Composition of Trees</h3>
-<div class="outline-text-3" id="text-orgcc52735">
+<div id="outline-container-org1b05110" class="outline-3">
+<h3 id="org1b05110">Composition of Trees</h3>
+<div class="outline-text-3" id="text-org1b05110">
 <p>
 A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is called a <b>root node</b>. The <b>root node</b> will always be seen at the top of the tree with its <i>children</i> connected unterneath. The thing that connects these nodes are called <b>branches</b>.
 </p>
@@ -222,9 +244,9 @@ A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is cal
 </div>
 </div>
 
-<div id="outline-container-orga3c34b8" class="outline-3">
-<h3 id="orga3c34b8">Properties of a Tree</h3>
-<div class="outline-text-3" id="text-orga3c34b8">
+<div id="outline-container-orgd5b44e1" class="outline-3">
+<h3 id="orgd5b44e1">Properties of a Tree</h3>
+<div class="outline-text-3" id="text-orgd5b44e1">
 <dl class="org-dl">
 <dt>Size</dt><dd>the size of a tree is the total number of nodes it contains.</dd>
 <dt>Path</dt><dd>a path is the connection between two nodes, all paths have a length.</dd>
@@ -237,26 +259,26 @@ A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is cal
 </div>
 </div>
 
-<div id="outline-container-orgb77ca8b" class="outline-2">
-<h2 id="orgb77ca8b">XML</h2>
-<div class="outline-text-2" id="text-orgb77ca8b">
+<div id="outline-container-org25197c9" class="outline-2">
+<h2 id="org25197c9">XML</h2>
+<div class="outline-text-2" id="text-org25197c9">
 <p>
 <b>XML</b> stands for Extensible Markup Language. It is created to make a heirachical structure of information that is easier for the computer to process.
 </p>
 </div>
 
-<div id="outline-container-orgf9b0425" class="outline-3">
-<h3 id="orgf9b0425">Creating an XML file</h3>
-<div class="outline-text-3" id="text-orgf9b0425">
+<div id="outline-container-org44e33d7" class="outline-3">
+<h3 id="org44e33d7">Creating an XML file</h3>
+<div class="outline-text-3" id="text-org44e33d7">
 <p>
 All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lind of every <b>XML</b> file and tells the computer what type of file it is.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org66a3a2b" class="outline-3">
-<h3 id="org66a3a2b">Tags</h3>
-<div class="outline-text-3" id="text-org66a3a2b">
+<div id="outline-container-org8e4e35b" class="outline-3">
+<h3 id="org8e4e35b">Tags</h3>
+<div class="outline-text-3" id="text-org8e4e35b">
 <p>
 <b>XML</b> files are made up of <b>tags</b>. <b>Tags</b> have several parts to them:
 </p>
@@ -271,9 +293,9 @@ All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lin
 
 
 
-<div id="outline-container-org88a9844" class="outline-3">
-<h3 id="org88a9844">XML Tree Structure</h3>
-<div class="outline-text-3" id="text-org88a9844">
+<div id="outline-container-org9d71fe4" class="outline-3">
+<h3 id="org9d71fe4">XML Tree Structure</h3>
+<div class="outline-text-3" id="text-org9d71fe4">
 <p>
 The <code>XMLTree</code> component family is included in the Ohio State Library and provides several methods for handling <b>XML</b> documents. This <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/12.XMLTree-Model.pdf#page=4">slide</a>
  contains a good visual for how an <b>XML</b> file can be represented as a <b>tree</b>.
@@ -281,17 +303,17 @@ The <code>XMLTree</code> component family is included in the Ohio State Library 
 </div>
 </div>
 </div>
-<div id="outline-container-orgb1be5b4" class="outline-2">
-<h2 id="orgb1be5b4"><code>XMLTree</code> Methods</h2>
-<div class="outline-text-2" id="text-orgb1be5b4">
+<div id="outline-container-orga7fe3e8" class="outline-2">
+<h2 id="orga7fe3e8"><code>XMLTree</code> Methods</h2>
+<div class="outline-text-2" id="text-orga7fe3e8">
 <p>
 All <code>XMLTree</code> methods are <b>instance methods</b>, meaning they must be called from an <i>initialized variable</i>. This variable must be of type <code>XMLTree</code>. This is the same model that <code>SimpleReader</code> and <code>SimpleWritter</code> use.
 </p>
 </div>
 
-<div id="outline-container-org265dfd2" class="outline-3">
-<h3 id="org265dfd2">Constructors</h3>
-<div class="outline-text-3" id="text-org265dfd2">
+<div id="outline-container-org840a2cd" class="outline-3">
+<h3 id="org840a2cd">Constructors</h3>
+<div class="outline-text-3" id="text-org840a2cd">
 <p>
 There are two <b>contructors</b> for <code>XMLTree</code>, they only differ in the parameters they require. To create an <code>XMLTree</code>, you need either a valid XML file or link. Then construct an <code>XMLTree</code> with the name of this file.
 </p>
@@ -302,9 +324,9 @@ There are two <b>contructors</b> for <code>XMLTree</code>, they only differ in t
 </div>
 </div>
 
-<div id="outline-container-org0fbb7a5" class="outline-3">
-<h3 id="org0fbb7a5">Methods</h3>
-<div class="outline-text-3" id="text-org0fbb7a5">
+<div id="outline-container-orgc2a0328" class="outline-3">
+<h3 id="orgc2a0328">Methods</h3>
+<div class="outline-text-3" id="text-orgc2a0328">
 <p>
 A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/xmltree/XMLTree.html">here</a>.
 </p>
@@ -320,9 +342,9 @@ A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.
 </div>
 </div>
 
-<div id="outline-container-orge3af883" class="outline-2">
-<h2 id="orge3af883">Really Simple Syndication</h2>
-<div class="outline-text-2" id="text-orge3af883">
+<div id="outline-container-org998a56e" class="outline-2">
+<h2 id="org998a56e">Really Simple Syndication</h2>
+<div class="outline-text-2" id="text-org998a56e">
 <p>
 <b>RSS</b> is used for web based &ldquo;feeds&rdquo; of information. of information. There are a few version of <b>RSS</b> but in this class we will focus on version <code>2.0</code>. <b>RSS</b> is just a strict format of <b>XML</b>.
 </p>
@@ -355,7 +377,7 @@ Important things to note about the <i>syntax</i> of an <b>RSS</b> feed is that t
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-09-22 Wed 21:24</p>
+<p class="date">Created: 2021-09-23 Thu 10:50</p>
 </div>
 </body>
 </html>
