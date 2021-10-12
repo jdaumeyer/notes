@@ -1,0 +1,4 @@
+** OSU CSE2221
+*** Software 1
+
+This a page for the digital documentation of my CSE 2221 notes. The notes can be found at [[https://moderntypewritter.github.io/cse2221-notes/][moderntypewritter.github.io/cse2221-notes/]]
