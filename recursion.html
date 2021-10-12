@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-12 Tue 17:08 -->
+<!-- 2021-10-12 Tue 17:59 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Recursion</title>
@@ -283,6 +283,9 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 <b>Recursion</b> is a very important and influential topic in computer science. At its most fundamental level, <b>recursion</b> is simply when a function calls itself. This is done by breaking up a larger problem into a smaller problem.
 </p>
 
+<p>
+#+header :cmdline -cp ../components.jar
+</p>
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">power</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">p</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>p == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
@@ -299,11 +302,107 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 </pre>
 </div>
 </div>
+<div id="outline-container-orgaba0800" class="outline-3">
+<h3 id="orgaba0800">Base Case</h3>
+<div class="outline-text-3" id="text-orgaba0800">
+<p>
+All recursive functions need one key element, a <b>base case</b>. This is a situation where the method returns a value without calling itself. This is what prevents a <b>recursive function</b> from executing <i>infinitely</i>.
+</p>
+<ul class="org-ul">
+<li>When a function does execute infinitely, <b>Java</b> will return a <i>StackOverflowError</i>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org356ec8c" class="outline-3">
+<h3 id="org356ec8c">Examples</h3>
+<div class="outline-text-3" id="text-org356ec8c">
+</div>
+<div id="outline-container-orgc7469fe" class="outline-4">
+<h4 id="orgc7469fe">Recursive Factorial</h4>
+<div class="outline-text-4" id="text-orgc7469fe">
+<p>
+Program a function that recursively calculates the factorial \(n!\). This would be \(n \times n-1 \times n-2 \times n-\ldots\)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="org748befa"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
+    <span style="color: #85678f;">}</span> <span style="color: #81a2be;">else</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> n * factorial<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+-2102132736
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgdb53bc3" class="outline-4">
+<h4 id="orgdb53bc3">Fibonacci Sequence</h4>
+<div class="outline-text-4" id="text-orgdb53bc3">
+<p>
+The <i>Fibonacci Sequence</i> is a common mathematical sequence most known for its use in the <i>Golden Ratio</i>. The sequence is defined as \(F_n = F_{n-1} + F_{n-2}\) where \(F_0 = 0\) and \(F_1 = 1\). Program a recursive function that calculates the \(n^{th}\) <i>Fibonacci Number</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="org611e83a"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">fibonacci</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span> || n == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> n;
+    <span style="color: #85678f;">}</span> <span style="color: #81a2be;">else</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> fibonacci<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span> + fibonacci<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+6765
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgb316b96" class="outline-4">
+<h4 id="orgb316b96">Cutting Logs</h4>
+<div class="outline-text-4" id="text-orgb316b96">
+<p>
+You have a tool that can cut logs that are length 1, 2, and 4. Given a log of length \(L\), how many possible times could you cut the log?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="org0e349f5"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">cutLog</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">l</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    sum = <span style="color: #d0b75a; font-weight: bold;">0</span>
+
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutlog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutLog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">4</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutLog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">4</span><span style="color: #60b48a;">)</span>
+    <span style="color: #85678f;">}</span>
+
+    <span style="color: #81a2be;">return</span> sum
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-12 Tue 17:08</p>
+<p class="date">Created: 2021-10-12 Tue 17:59</p>
 </div>
 </body>
 </html>
