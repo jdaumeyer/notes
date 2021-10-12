@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-09-29 Wed 16:28 -->
+<!-- 2021-10-12 Tue 17:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Design By Contract</title>
+<title>Recursion</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,159 +193,117 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="style.css" />
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Design By Contract
+<h1 class="title">Recursion
 <br />
 <span class="subtitle">CSE 2221</span>
 </h1>
 
-<div id="outline-container-org1e1e48e" class="outline-2">
-<h2 id="org1e1e48e">System Thinking</h2>
-<div class="outline-text-2" id="text-org1e1e48e">
-</div>
-<div id="outline-container-orgc76e8fc" class="outline-3">
-<h3 id="orgc76e8fc">System</h3>
-<div class="outline-text-3" id="text-orgc76e8fc">
+<div id="outline-container-org946f610" class="outline-2">
+<h2 id="org946f610">Mathematical String Notation</h2>
+<div class="outline-text-2" id="text-org946f610">
 <p>
-A <b>system</b> is any part of anything that you want to think about as an individual unit.
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/20.String-Theory.pdf">Lecture Slides</a>
+A <b>mathematical string</b> is a series of zero or more entries of any <i>other</i> mathematical type. This automatically makes it a bit different then the <b>Java</b> <code>String</code> type which is only a series of <code>char</code> types. This type is going to be used in the examples for <b>recursion</b> below.
 </p>
 </div>
-</div>
 
-<div id="outline-container-orgbe02f94" class="outline-3">
-<h3 id="orgbe02f94">Interface</h3>
-<div class="outline-text-3" id="text-orgbe02f94">
+<div id="outline-container-org1239352" class="outline-3">
+<h3 id="org1239352">Notation</h3>
+<div class="outline-text-3" id="text-org1239352">
 <p>
-An <b>Interface</b> is a description of the &ldquo;boundary&rdquo; between a system and everything else.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgd863876" class="outline-3">
-<h3 id="orgd863876">Subsystem (Component)</h3>
-<div class="outline-text-3" id="text-orgd863876">
-<p>
-A <b>subsystem</b> is a system that is used inside another system.
-</p>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org25495cc" class="outline-2">
-<h2 id="org25495cc">Client V. Implementer</h2>
-<div class="outline-text-2" id="text-org25495cc">
-<p>
-A <b>client</b> is a person (or role played by some person) viewing a system &ldquo;from the outside&rdquo;. These are agents that use a system.
-</p>
-
-<p>
-An <b>implementer</b> is a person (or role played by some agent) viewing a system &ldquo;from the inside&rdquo;. These are the agents that make/design a system.
-</p>
-
-<p>
-An agent can be both a <b>client</b> and an <b>implementer</b>. For example, when you write a method that you later use, you are both the <b>client</b> and <b>implementer</b> of that method.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org65e22ca" class="outline-2">
-<h2 id="org65e22ca">Describing Behavior</h2>
-<div class="outline-text-2" id="text-org65e22ca">
-</div>
-<div id="outline-container-org0f8a1d6" class="outline-3">
-<h3 id="org0f8a1d6">Information Hiding</h3>
-<div class="outline-text-3" id="text-org0f8a1d6">
-<p>
-<b>Information</b> hiding is a technique for describing system information while <i>intenionally leaving out</i> more specific details.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org2bfb4b9" class="outline-3">
-<h3 id="org2bfb4b9">Abstraction</h3>
-<div class="outline-text-3" id="text-org2bfb4b9">
-<p>
-<b>Abstraction</b> is a consequence of <b>Information Hiding</b> where we need to create a valid <i>cover story</i> in order to counteract the effects of hiding some details.
+The notation for a <b>mathematical string</b> is by having a series of elements between \(<,>\).
 </p>
 <ul class="org-ul">
-<li>This is because the hidden information is still important so its presence still needs to be accounted for.</li>
+<li>\(< 1, 2, 3, 4>\)</li>
+<li>\(< `G`, `o`, `o`, `g`, `l`, `e`>\)</li>
+<li>\(< 1, 2, `a`, `b`>\)</li>
+</ul>
+</div>
+<div id="outline-container-orgf9178c1" class="outline-4">
+<h4 id="orgf9178c1">Concatenation</h4>
+<div class="outline-text-4" id="text-orgf9178c1">
+<p>
+<b>Mathematical string</b> concatenation is represented by a \(*\) symbol as oppossed to the <b>Java</b> <code>+</code> symbol for concatenation.
+</p>
+</div>
+</div>
+<div id="outline-container-orgf88ec27" class="outline-4">
+<h4 id="orgf88ec27">Length</h4>
+<div class="outline-text-4" id="text-orgf88ec27">
+<p>
+<b>Mathematical string</b> length is denoted by \(| |\). So \(|< 1, 2, 3, 4>|\) would be 4
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org52a3503" class="outline-3">
+<h3 id="org52a3503">Substrings</h3>
+<div class="outline-text-3" id="text-org52a3503">
+<p>
+A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the entries of \(s\) appear consecutively in \(t\)
+</p>
+<ul class="org-ul">
+<li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>start</i> of \(t\)</li>
+<li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>end</i> of \(t\)</li>
 </ul>
 </div>
 </div>
 </div>
 
-
-<div id="outline-container-orgcf3eacb" class="outline-2">
-<h2 id="orgcf3eacb">Models</h2>
-<div class="outline-text-2" id="text-orgcf3eacb">
-</div>
-<div id="outline-container-org84e7451" class="outline-3">
-<h3 id="org84e7451">Mathematical Models</h3>
-<div class="outline-text-3" id="text-org84e7451">
+<div id="outline-container-orgc6eafd6" class="outline-2">
+<h2 id="orgc6eafd6">Recursion</h2>
+<div class="outline-text-2" id="text-orgc6eafd6">
 <p>
-Each <i>type</i> in programming (<code>int</code>, <code>double</code>, etc) has a <i>mathematical type</i> that is models. This means that they represent these <i>mathematical models</i> but in a program.
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/21.Recursion-Thinking.pdf">Lecture Slides</a>
+<b>Recursion</b> is a very important and influential topic in computer science. At its most fundamental level, <b>recursion</b> is simply when a function calls itself. This is done by breaking up a larger problem into a smaller problem.
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgc3c586d" class="outline-3">
-<h3 id="orgc3c586d">Informal Models</h3>
-<div class="outline-text-3" id="text-orgc3c586d">
-<p>
-Models are not always based an a <i>mathematical model</i> instead we have <b>Informal Models</b> are a way to model information
-</p>
-</div>
-</div>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">power</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">p</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>p == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">return</span> n * power<span style="color: #85678f;">(</span>n, p - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span>;
+<span style="color: #81a2be;">}</span>
 
-<div id="outline-container-orgdf7b0f8" class="outline-3">
-<h3 id="orgdf7b0f8">Method Contract</h3>
-<div class="outline-text-3" id="text-orgdf7b0f8">
-</div>
-<div id="outline-container-org842e54f" class="outline-4">
-<h4 id="org842e54f">Structure</h4>
-<div class="outline-text-4" id="text-org842e54f">
-<p>
-Each method has a <b>precondition</b> ( requires clause ) that characterizes the responsibility of the progam that <i>calls</i> that method, and a <b>postcondition</b> (ensures clause) that characterizes the responsibility of the program that <a href="#org25495cc">implements</a> that method.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7a0dc6f" class="outline-4">
-<h4 id="org7a0dc6f">Responsibilities and Rewards</h4>
-<div class="outline-text-4" id="text-org7a0dc6f">
-<p>
-The <b>implementer</b> and <b>client</b> both have responsibilites that the must fufill in this model, and for completing these requirements they also receive a reward. For the <b>Method Contract</b>, this <b>responsibilites</b> and <b>rewards</b> are:
-</p>
-<ul class="org-ul">
-<li>The clients <b>responsibility</b> is to make sure the <b>precondition</b> is true and their reward is that they may assume the postcondition is true when the method returns</li>
-<li>The implementer&rsquo;s <b>responsibility</b> is to make sure the <b>postcondition</b> is true, and for this their <b>reward</b> is that they may assume the precondition is true.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org03fae65" class="outline-4">
-<h4 id="org03fae65">Javadoc</h4>
-<div class="outline-text-4" id="text-org03fae65">
-<p>
-<b>Javadocs</b> are comments used by Java to make your program more client accessible and document your work. <b>Javadocs</b> are separated into different tags that specify different aspects of the method.
-</p>
-<dl class="org-dl">
-<dt><code>@param</code></dt><dd>defines the parameters of the method, one is needed for each parameter</dd>
-<dt><code>@return</code></dt><dd>specifies what the method returns.</dd>
-<dt><code>@requires</code></dt><dd>This defines the <b>preconditions</b> of the method. Essentially what it expects its parameters to be.</dd>
-<dt><code>@ensures</code></dt><dd>This defines the <b>postcondition</b> of the method, or what the <b>client</b> can expect the return value to be.</dd>
-</dl>
-</div>
+<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">main</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">String</span><span style="color: #85678f;">[]</span> <span style="color: #e4e4e5;">args</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">SimpleWriter</span> <span style="color: #e4e4e5;">out</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">SimpleWriter1L</span><span style="color: #85678f;">()</span>;
+    out.print<span style="color: #85678f;">(</span>power<span style="color: #60b48a;">(</span><span style="color: #d0b75a; font-weight: bold;">5</span>, <span style="color: #d0b75a; font-weight: bold;">5</span><span style="color: #60b48a;">)</span><span style="color: #85678f;">)</span>;
+    out.close<span style="color: #85678f;">()</span>;
+<span style="color: #81a2be;">}</span>
+</pre>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-09-29 Wed 16:28</p>
+<p class="date">Created: 2021-10-12 Tue 17:08</p>
 </div>
 </body>
 </html>
