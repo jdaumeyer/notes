@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-19 Tue 13:17 -->
+<!-- 2021-10-19 Tue 13:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>XML and XMLTree</title>
@@ -202,17 +202,17 @@
 <span class="subtitle">CSE 2221</span>
 </h1>
 
-<div id="outline-container-org7798827" class="outline-2">
-<h2 id="org7798827">Trees</h2>
-<div class="outline-text-2" id="text-org7798827">
+<div id="outline-container-org7a538fa" class="outline-2">
+<h2 id="org7a538fa">Trees</h2>
+<div class="outline-text-2" id="text-org7a538fa">
 <p>
 <b>Trees</b> are a very common concept seen in computer science.
 </p>
 </div>
 
-<div id="outline-container-org5fa101e" class="outline-3">
-<h3 id="org5fa101e">Composition of Trees</h3>
-<div class="outline-text-3" id="text-org5fa101e">
+<div id="outline-container-org42c371e" class="outline-3">
+<h3 id="org42c371e">Composition of Trees</h3>
+<div class="outline-text-3" id="text-org42c371e">
 <p>
 A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is called a <b>root node</b>. The <b>root node</b> will always be seen at the top of the tree with its <i>children</i> connected unterneath. The thing that connects these nodes are called <b>branches</b>.
 </p>
@@ -222,9 +222,9 @@ A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is cal
 </div>
 </div>
 
-<div id="outline-container-orge22032f" class="outline-3">
-<h3 id="orge22032f">Properties of a Tree</h3>
-<div class="outline-text-3" id="text-orge22032f">
+<div id="outline-container-org316bcbb" class="outline-3">
+<h3 id="org316bcbb">Properties of a Tree</h3>
+<div class="outline-text-3" id="text-org316bcbb">
 <dl class="org-dl">
 <dt>Size</dt><dd>the size of a tree is the total number of nodes it contains.</dd>
 <dt>Path</dt><dd>a path is the connection between two nodes, all paths have a length.</dd>
@@ -237,26 +237,26 @@ A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is cal
 </div>
 </div>
 
-<div id="outline-container-org3ab7346" class="outline-2">
-<h2 id="org3ab7346">XML</h2>
-<div class="outline-text-2" id="text-org3ab7346">
+<div id="outline-container-org1cbd2a7" class="outline-2">
+<h2 id="org1cbd2a7">XML</h2>
+<div class="outline-text-2" id="text-org1cbd2a7">
 <p>
 <b>XML</b> stands for Extensible Markup Language. It is created to make a heirachical structure of information that is easier for the computer to process.
 </p>
 </div>
 
-<div id="outline-container-orge9d53f0" class="outline-3">
-<h3 id="orge9d53f0">Creating an XML file</h3>
-<div class="outline-text-3" id="text-orge9d53f0">
+<div id="outline-container-org7487bd2" class="outline-3">
+<h3 id="org7487bd2">Creating an XML file</h3>
+<div class="outline-text-3" id="text-org7487bd2">
 <p>
 All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lind of every <b>XML</b> file and tells the computer what type of file it is.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org5e5dd50" class="outline-3">
-<h3 id="org5e5dd50">Tags</h3>
-<div class="outline-text-3" id="text-org5e5dd50">
+<div id="outline-container-orge687b65" class="outline-3">
+<h3 id="orge687b65">Tags</h3>
+<div class="outline-text-3" id="text-orge687b65">
 <p>
 <b>XML</b> files are made up of <b>tags</b>. <b>Tags</b> have several parts to them:
 </p>
@@ -271,9 +271,9 @@ All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lin
 
 
 
-<div id="outline-container-org51ab212" class="outline-3">
-<h3 id="org51ab212">XML Tree Structure</h3>
-<div class="outline-text-3" id="text-org51ab212">
+<div id="outline-container-orgeb9dd82" class="outline-3">
+<h3 id="orgeb9dd82">XML Tree Structure</h3>
+<div class="outline-text-3" id="text-orgeb9dd82">
 <p>
 The <code>XMLTree</code> component family is included in the Ohio State Library and provides several methods for handling <b>XML</b> documents. This <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/12.XMLTree-Model.pdf#page=4">slide</a>
  contains a good visual for how an <b>XML</b> file can be represented as a <b>tree</b>.
@@ -281,17 +281,17 @@ The <code>XMLTree</code> component family is included in the Ohio State Library 
 </div>
 </div>
 </div>
-<div id="outline-container-orgb90b69a" class="outline-2">
-<h2 id="orgb90b69a"><code>XMLTree</code> Methods</h2>
-<div class="outline-text-2" id="text-orgb90b69a">
+<div id="outline-container-org926c2eb" class="outline-2">
+<h2 id="org926c2eb"><code>XMLTree</code> Methods</h2>
+<div class="outline-text-2" id="text-org926c2eb">
 <p>
 All <code>XMLTree</code> methods are <b>instance methods</b>, meaning they must be called from an <i>initialized variable</i>. This variable must be of type <code>XMLTree</code>. This is the same model that <code>SimpleReader</code> and <code>SimpleWritter</code> use.
 </p>
 </div>
 
-<div id="outline-container-org637b75c" class="outline-3">
-<h3 id="org637b75c">Constructors</h3>
-<div class="outline-text-3" id="text-org637b75c">
+<div id="outline-container-org5a731da" class="outline-3">
+<h3 id="org5a731da">Constructors</h3>
+<div class="outline-text-3" id="text-org5a731da">
 <p>
 There are two <b>constructors</b> for <code>XMLTree</code>, they only differ in the parameters they require. To create an <code>XMLTree</code>, you need either a valid XML file or link. Then construct an <code>XMLTree</code> with the name of this file.
 </p>
@@ -302,9 +302,9 @@ There are two <b>constructors</b> for <code>XMLTree</code>, they only differ in 
 </div>
 </div>
 
-<div id="outline-container-org3cb4e35" class="outline-3">
-<h3 id="org3cb4e35">Methods</h3>
-<div class="outline-text-3" id="text-org3cb4e35">
+<div id="outline-container-orgc77b0d8" class="outline-3">
+<h3 id="orgc77b0d8">Methods</h3>
+<div class="outline-text-3" id="text-orgc77b0d8">
 <p>
 A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/xmltree/XMLTree.html">here</a>.
 </p>
@@ -320,9 +320,9 @@ A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.
 </div>
 </div>
 
-<div id="outline-container-org82d6ba3" class="outline-2">
-<h2 id="org82d6ba3">Really Simple Syndication</h2>
-<div class="outline-text-2" id="text-org82d6ba3">
+<div id="outline-container-org931b8f9" class="outline-2">
+<h2 id="org931b8f9">Really Simple Syndication</h2>
+<div class="outline-text-2" id="text-org931b8f9">
 <p>
 <b>RSS</b> is used for web based &ldquo;feeds&rdquo; of information. of information. There are a few version of <b>RSS</b> but in this class we will focus on version <code>2.0</code>. <b>RSS</b> is just a strict format of <b>XML</b>.
 </p>
@@ -355,7 +355,7 @@ Important things to note about the <i>syntax</i> of an <b>RSS</b> feed is that t
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-19 Tue 13:17</p>
+<p class="date">Created: 2021-10-19 Tue 13:21</p>
 </div>
 </body>
 </html>
