@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-19 Tue 13:21 -->
+<!-- 2021-10-19 Tue 13:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Lecture 9/02/21</title>
@@ -204,41 +204,41 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org8051bab">1. While Loops</a>
+<li><a href="#orga5cc655">1. While Loops</a>
 <ul>
-<li><a href="#org0fbdf78">1.1. Tracing</a></li>
+<li><a href="#org502d6d4">1.1. Tracing</a></li>
 </ul>
 </li>
-<li><a href="#orgcecd92f">2. Static Methods</a>
+<li><a href="#org8848fb3">2. Static Methods</a>
 <ul>
-<li><a href="#org81f4645">2.1. Anatomy of a Static Method</a></li>
-<li><a href="#org54f0944">2.2. <span class="todo TODO">TODO</span> Return Statments</a></li>
+<li><a href="#orge3437fd">2.1. Anatomy of a Static Method</a></li>
+<li><a href="#org6fe82a7">2.2. <span class="todo TODO">TODO</span> Return Statments</a></li>
 </ul>
 </li>
-<li><a href="#org65f6b86">3. Important Rules</a></li>
+<li><a href="#org67f2c06">3. Important Rules</a></li>
 </ul>
 </div>
 </div>
 
 
-<div id="outline-container-org8051bab" class="outline-2">
-<h2 id="org8051bab"><span class="section-number-2">1.</span> While Loops</h2>
+<div id="outline-container-orga5cc655" class="outline-2">
+<h2 id="orga5cc655"><span class="section-number-2">1.</span> While Loops</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org0fbdf78" class="outline-3">
-<h3 id="org0fbdf78"><span class="section-number-3">1.1.</span> Tracing</h3>
+<div id="outline-container-org502d6d4" class="outline-3">
+<h3 id="org502d6d4"><span class="section-number-3">1.1.</span> Tracing</h3>
 </div>
 </div>
 
-<div id="outline-container-orgcecd92f" class="outline-2">
-<h2 id="orgcecd92f"><span class="section-number-2">2.</span> Static Methods</h2>
+<div id="outline-container-org8848fb3" class="outline-2">
+<h2 id="org8848fb3"><span class="section-number-2">2.</span> Static Methods</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 A <b>Static method</b> is a block of code with a name. This allows it to be easily run again my simply <i>calling</i> the method name in the format <code>methodName()</code>. The method essentially takes over comptutation when it is called until it <b>returns</b> where computation resumes after where the method was called.
 </p>
 </div>
-<div id="outline-container-org81f4645" class="outline-3">
-<h3 id="org81f4645"><span class="section-number-3">2.1.</span> Anatomy of a Static Method</h3>
+<div id="outline-container-orge3437fd" class="outline-3">
+<h3 id="orge3437fd"><span class="section-number-3">2.1.</span> Anatomy of a Static Method</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="org-src-container">
 <pre class="src src-java"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">distance</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">b</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
@@ -274,7 +274,7 @@ Everything inside of the two curly braces (<code>{}</code>) is referred to as th
 <p>
 Also most methods are named using <b>camelCase</b>. This format starts with a lower-case word and each subsequent word is added to the end of the name (with no spaces) with the first letter capital.
 </p>
-<pre class="example" id="org716310f">
+<pre class="example" id="orgde930dc">
 thisIsALongCamelCaseName
 camelCaseIsFun
 amISpellingCamelRight
@@ -282,8 +282,8 @@ amISpellingCamelRight
 </div>
 </div>
 
-<div id="outline-container-org54f0944" class="outline-3">
-<h3 id="org54f0944"><span class="section-number-3">2.2.</span> <span class="todo TODO">TODO</span> Return Statments</h3>
+<div id="outline-container-org6fe82a7" class="outline-3">
+<h3 id="org6fe82a7"><span class="section-number-3">2.2.</span> <span class="todo TODO">TODO</span> Return Statments</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 Every <b>path of execution</b> throuh a method that returns a value
@@ -292,8 +292,8 @@ Every <b>path of execution</b> throuh a method that returns a value
 </div>
 </div>
 
-<div id="outline-container-org65f6b86" class="outline-2">
-<h2 id="org65f6b86"><span class="section-number-2">3.</span> Important Rules</h2>
+<div id="outline-container-org67f2c06" class="outline-2">
+<h2 id="org67f2c06"><span class="section-number-2">3.</span> Important Rules</h2>
 <div class="outline-text-2" id="text-3">
 <ul class="org-ul">
 <li>Do not use <code>break</code> to end loops</li>
@@ -311,7 +311,7 @@ Every <b>path of execution</b> throuh a method that returns a value
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-19 Tue 13:21</p>
+<p class="date">Created: 2021-10-19 Tue 13:45</p>
 </div>
 </body>
 </html>

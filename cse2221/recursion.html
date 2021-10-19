@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-19 Tue 13:21 -->
+<!-- 2021-10-19 Tue 13:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Recursion</title>
@@ -193,7 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="https://github.com/jdaumeyer/notes/blob/main/css/style.css" />
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -223,18 +223,18 @@
 <span class="subtitle">CSE 2221</span>
 </h1>
 
-<div id="outline-container-orgdc69f77" class="outline-2">
-<h2 id="orgdc69f77">Mathematical String Notation</h2>
-<div class="outline-text-2" id="text-orgdc69f77">
+<div id="outline-container-orgdd14f58" class="outline-2">
+<h2 id="orgdd14f58">Mathematical String Notation</h2>
+<div class="outline-text-2" id="text-orgdd14f58">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/20.String-Theory.pdf">Lecture Slides</a>
 A <b>mathematical string</b> is a series of zero or more entries of any <i>other</i> mathematical type. This automatically makes it a bit different then the <b>Java</b> <code>String</code> type which is only a series of <code>char</code> types. This type is going to be used in the examples for <b>recursion</b> below.
 </p>
 </div>
 
-<div id="outline-container-org4535fbe" class="outline-3">
-<h3 id="org4535fbe">Notation</h3>
-<div class="outline-text-3" id="text-org4535fbe">
+<div id="outline-container-orgbebcaef" class="outline-3">
+<h3 id="orgbebcaef">Notation</h3>
+<div class="outline-text-3" id="text-orgbebcaef">
 <p>
 The notation for a <b>mathematical string</b> is by having a series of elements between \(<,>\).
 </p>
@@ -244,26 +244,26 @@ The notation for a <b>mathematical string</b> is by having a series of elements 
 <li>\(< 1, 2, `a`, `b`>\)</li>
 </ul>
 </div>
-<div id="outline-container-orgc7e8ed2" class="outline-4">
-<h4 id="orgc7e8ed2">Concatenation</h4>
-<div class="outline-text-4" id="text-orgc7e8ed2">
+<div id="outline-container-org8e61d6c" class="outline-4">
+<h4 id="org8e61d6c">Concatenation</h4>
+<div class="outline-text-4" id="text-org8e61d6c">
 <p>
 <b>Mathematical string</b> concatenation is represented by a \(*\) symbol as oppossed to the <b>Java</b> <code>+</code> symbol for concatenation.
 </p>
 </div>
 </div>
-<div id="outline-container-orge9ecd22" class="outline-4">
-<h4 id="orge9ecd22">Length</h4>
-<div class="outline-text-4" id="text-orge9ecd22">
+<div id="outline-container-orgf90a0ff" class="outline-4">
+<h4 id="orgf90a0ff">Length</h4>
+<div class="outline-text-4" id="text-orgf90a0ff">
 <p>
 <b>Mathematical string</b> length is denoted by \(| |\). So \(|< 1, 2, 3, 4>|\) would be 4
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org8dfbd98" class="outline-3">
-<h3 id="org8dfbd98">Substrings</h3>
-<div class="outline-text-3" id="text-org8dfbd98">
+<div id="outline-container-orge18700d" class="outline-3">
+<h3 id="orge18700d">Substrings</h3>
+<div class="outline-text-3" id="text-orge18700d">
 <p>
 A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the entries of \(s\) appear consecutively in \(t\)
 </p>
@@ -276,9 +276,9 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 </div>
 
 
-<div id="outline-container-org54d9004" class="outline-2">
-<h2 id="org54d9004">Recursion</h2>
-<div class="outline-text-2" id="text-org54d9004">
+<div id="outline-container-orgf4ead1d" class="outline-2">
+<h2 id="orgf4ead1d">Recursion</h2>
+<div class="outline-text-2" id="text-orgf4ead1d">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/21.Recursion-Thinking.pdf">Lecture Slides</a>
 </p>
@@ -304,9 +304,9 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 </div>
 </div>
 
-<div id="outline-container-org2ba33d9" class="outline-3">
-<h3 id="org2ba33d9">Base Case</h3>
-<div class="outline-text-3" id="text-org2ba33d9">
+<div id="outline-container-org51a8e74" class="outline-3">
+<h3 id="org51a8e74">Base Case</h3>
+<div class="outline-text-3" id="text-org51a8e74">
 <p>
 All recursive functions need one key element, a <b>base case</b>. This is a situation where the method returns a value without calling itself. This is what prevents a <b>recursive function</b> from executing <i>infinitely</i>.
 </p>
@@ -316,19 +316,19 @@ All recursive functions need one key element, a <b>base case</b>. This is a situ
 </div>
 </div>
 
-<div id="outline-container-org26c6d56" class="outline-3">
-<h3 id="org26c6d56">Examples</h3>
-<div class="outline-text-3" id="text-org26c6d56">
+<div id="outline-container-org8c823ee" class="outline-3">
+<h3 id="org8c823ee">Examples</h3>
+<div class="outline-text-3" id="text-org8c823ee">
 </div>
-<div id="outline-container-org0b10baf" class="outline-4">
-<h4 id="org0b10baf">Recursive Factorial</h4>
-<div class="outline-text-4" id="text-org0b10baf">
+<div id="outline-container-org3cd3f97" class="outline-4">
+<h4 id="org3cd3f97">Recursive Factorial</h4>
+<div class="outline-text-4" id="text-org3cd3f97">
 <p>
 Program a function that recursively calculates the factorial \(n!\). This would be \(n \times n-1 \times n-2 \times n-\ldots\)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="org5828900"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+<pre class="src src-java" id="org90f806b"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
         <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
@@ -345,15 +345,15 @@ Program a function that recursively calculates the factorial \(n!\). This would 
 </div>
 </div>
 
-<div id="outline-container-org02aa259" class="outline-4">
-<h4 id="org02aa259">Fibonacci Sequence</h4>
-<div class="outline-text-4" id="text-org02aa259">
+<div id="outline-container-org2fa5327" class="outline-4">
+<h4 id="org2fa5327">Fibonacci Sequence</h4>
+<div class="outline-text-4" id="text-org2fa5327">
 <p>
 The <i>Fibonacci Sequence</i> is a common mathematical sequence most known for its use in the <i>Golden Ratio</i>. The sequence is defined as \(F_n = F_{n-1} + F_{n-2}\) where \(F_0 = 0\) and \(F_1 = 1\). Program a recursive function that calculates the \(n^{th}\) <i>Fibonacci Number</i>.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="org59a427a"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">fibonacci</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+<pre class="src src-java" id="orgd7a3c69"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">fibonacci</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span> || n == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
         <span style="color: #81a2be;">return</span> n;
@@ -372,15 +372,15 @@ The <i>Fibonacci Sequence</i> is a common mathematical sequence most known for i
 
 
 
-<div id="outline-container-orgebe0179" class="outline-4">
-<h4 id="orgebe0179">Cutting Logs</h4>
-<div class="outline-text-4" id="text-orgebe0179">
+<div id="outline-container-orgcc01e10" class="outline-4">
+<h4 id="orgcc01e10">Cutting Logs</h4>
+<div class="outline-text-4" id="text-orgcc01e10">
 <p>
 You have a tool that can cut logs that are length 1, 2, and 4. Given a log of length \(L\), how many possible times could you cut the log?
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="orge39875c"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">cutLog</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">l</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+<pre class="src src-java" id="org971a544"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">cutLog</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">l</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     sum = <span style="color: #d0b75a; font-weight: bold;">0</span>
 
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
@@ -404,7 +404,7 @@ You have a tool that can cut logs that are length 1, 2, and 4. Given a log of le
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-19 Tue 13:21</p>
+<p class="date">Created: 2021-10-19 Tue 13:45</p>
 </div>
 </body>
 </html>
