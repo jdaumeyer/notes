@@ -1,0 +1,4 @@
+* Notes
+This is a repository that will hold all of my notes from my classes at The Ohio State University. 
+
+These notes can be viewed at [[jdaumeyer.github.io/notes/]].
