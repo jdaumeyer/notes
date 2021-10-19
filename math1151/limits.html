@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-19 Tue 13:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Limits</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Limits
+<br />
+<span class="subtitle">MATH 1151</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge4fbb52">What is a Limit?</a>
+<ul>
+<li><a href="#org3f9b8bb">Limits as a Physics Problem</a></li>
+<li><a href="#org65fc4f0">Notation</a></li>
+<li><a href="#org4284419">One-Sided Limits</a></li>
+</ul>
+</li>
+<li><a href="#org6dc25c5">Continuity</a>
+<ul>
+<li><a href="#orgad4a576">One-Sided Continuity</a></li>
+<li><a href="#orga1e806c">Intervals of Continuity</a></li>
+</ul>
+</li>
+<li><a href="#orgd9a5a52">Limit Laws</a>
+<ul>
+<li><a href="#org4a801dd">Limit Laws and Continuity</a></li>
+<li><a href="#org0b58121">Squeeze Theorem</a></li>
+</ul>
+</li>
+<li><a href="#orgb2a8831">Indeterminate Forms</a>
+<ul>
+<li><a href="#org0523f3c">Sign Charts</a>
+<ul>
+<li><a href="#org65d6592"><span class="todo TODO">TODO</span> Add Example</a></li>
+</ul>
+</li>
+<li><a href="#org4552069">What are forms?</a>
+<ul>
+<li><a href="#orge5625e7">Key Notation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6e9f7fd">Asymptotes</a>
+<ul>
+<li><a href="#orgc1b60c7">Vertical Asymptotes</a></li>
+<li><a href="#org74bd2b2">Horizontal Asymptotes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge4fbb52" class="outline-2">
+<h2 id="orge4fbb52">What is a Limit?</h2>
+<div class="outline-text-2" id="text-orge4fbb52">
+</div>
+<div id="outline-container-org3f9b8bb" class="outline-3">
+<h3 id="org3f9b8bb">Limits as a Physics Problem</h3>
+<div class="outline-text-3" id="text-org3f9b8bb">
+<p>
+<b>Limits</b> were actually created by Physicists to solve the problem of finding out the speed of something at a certain time. The problem being that if we use our equation for speed at a certain time, we get a division by zero. So <b>limits</b> are used to look near the point but not at the point.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org65fc4f0" class="outline-3">
+<h3 id="org65fc4f0">Notation</h3>
+<div class="outline-text-3" id="text-org65fc4f0">
+<p>
+\(\lim\limits_{x \to 1} f(x) = 1\) the \(x \to 1\) shows the variable and value we&rsquo;re looking at. \(f(x)\)  is the function we are looking at and the \(= 1\) is the value the function is approaching.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4284419" class="outline-3">
+<h3 id="org4284419">One-Sided Limits</h3>
+<div class="outline-text-3" id="text-org4284419">
+<p>
+A function may actually behave differently on different sides of a point, so we need a way to analyze each side seperately.
+</p>
+<dl class="org-dl">
+<dt><b>Left-Sided Limits</b></dt><dd>or limits that are approaching a value slightly <i>less</i> than \(a\) are represented by \(\lim\limits_{x \to a^-} f(x)\)</dd>
+<dt><b>Right-Sided Limits</b></dt><dd>or limits that are approaching a value slightly <i>more</i> than \(a\) are represented by \(\lim\limits_{x \to a^+} f(x)\)</dd>
+</dl>
+
+<p>
+<b>One-Sided Limits</b> implictly prove the existance of <b>Two-Sided Limits</b>. These are actually what a normal <b>Limit</b> is, <b>Two-Sided Limits</b> only exist if both <b>One-Sided Limits</b> exist and they are equal to eachother.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6dc25c5" class="outline-2">
+<h2 id="org6dc25c5">Continuity</h2>
+<div class="outline-text-2" id="text-org6dc25c5">
+<p>
+Graphs that are <b>Continuous</b> are simple and easy to use. However, graphs that have <b>Discontinuity</b> can be tricky to deal with. We need to develop a language to deal with <b>Continuity</b>.
+</p>
+
+<p>
+The definition of <b>continuity</b> is \(\lim\limits_{x \to a} f(a)\). If this equation is true, then \(f(x)\) is <b>continuous</b> at \(a\). This definition is really making three statements:
+</p>
+<ul class="org-ul">
+<li>\(f(a)\) is defined, That is, \(a\) is in the domain of \(f\)</li>
+<li>\(\lim\limits_{x \to a} f(x)\) exits</li>
+</ul>
+<ul class="org-ul">
+<li>\(\lim\limits_{x \to a} f(x) = f(a)\)</li>
+</ul>
+</div>
+
+<div id="outline-container-orgad4a576" class="outline-3">
+<h3 id="orgad4a576">One-Sided Continuity</h3>
+<div class="outline-text-3" id="text-orgad4a576">
+<p>
+Since our definition of <b>Continuity</b> is built on <b>Limits</b> and limits have sides, this means that there is also <b>One-Sided Continuity</b>.
+</p>
+
+<p>
+A function \(f\) is <b>Left Continuous</b> at a point \(a\) if \(\lim\limits_{x \to a^-} f(x) = f(a)\) and a function \(f\) is <b>Right Continuous</b> at a point \(a\) if \(\lim\limits_{x \to x^+} f(x) =f(x)\).
+</p>
+<ul class="org-ul">
+<li>If a function is <b>Continuous</b> at \(x=a\), then it is also <b>Left-Continuous</b> and <b>Right-Continuous</b>.</li>
+<li>If a function is <b>Left-Continuous</b> and <b>Right-Continuous</b> at \(x=a\), then is is also <b>Continuous</b> at \(x=a\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga1e806c" class="outline-3">
+<h3 id="orga1e806c">Intervals of Continuity</h3>
+<div class="outline-text-3" id="text-orga1e806c">
+<p>
+Our previous definitions of <b>Continuity</b> have been based on points. However, we can also judge is a function is <b>Continous</b> on an interval.
+</p>
+
+<p>
+\(f(x)\) is continuous over the interval \((a, b)\) if it is continuous at every point in the interval.
+</p>
+<ul class="org-ul">
+<li>When looking at <b>Intervals of Continuity</b>, it is very important to check endpoints.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd9a5a52" class="outline-2">
+<h2 id="orgd9a5a52">Limit Laws</h2>
+<div class="outline-text-2" id="text-orgd9a5a52">
+<p>
+We really care about <b>Limit Laws</b> because our current definition of <b>Limits</b> is very vague and makes it hard to actually evauluate limits. So <b>Limit Laws</b> are the first <i>tool</i> in our <i>toolbox</i>.
+</p>
+
+<p>
+The Laws, for these examples assume \(\lim\limits_{x \to a} f(x) = L\) and \(\lim\limits_{x \to a} g(x) = M\) and both \(L\) and \(M\) exist. If any limit doesn&rsquo;t exit when using a limit law, then it can&rsquo;t be solved with limit laws.
+</p>
+<dl class="org-dl">
+<dt>Law 1</dt><dd>All <a href="functions.html#org6e4e606">Famous Functions</a> are continuous over their domain.</dd>
+<dt>Law 2</dt><dd>The Sum Law, if we have two functions begin added together, we can break them into two smaller limits. \(\lim\limits_{x \to a} (f(x) \pm g(x)) = [ \lim\limits_{x \to a} f(x) ] \pm [ \lim\limits_{x \to a} g(x)] = L * M\)</dd>
+<dt>Law 3</dt><dd>The Product Law. \(\lim\limits_{x \to a} (f(x) * g(x)) = [\lim\limits_{x \to a} f(x)] * [\lim\limits_{x \to a} g(x)] = L * M\)</dd>
+<dt>Law 4</dt><dd>The Quotient Law, \(\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{ [\lim\limits_{x \to a } f(x)] } {[\lim\limits_{x \to a} g(x)]} = \frac{L}{M}\). However the Quotient Law only works if \(M \neq 0\)</dd>
+<dt>Law 5</dt><dd>The Composition Law, \(\lim\limits_{x \to a} [f(g(x)] = f( [ \lim\limits_{x \to a } g(x)]) = f(M)\)</dd>
+</dl>
+</div>
+
+<div id="outline-container-org4a801dd" class="outline-3">
+<h3 id="org4a801dd">Limit Laws and Continuity</h3>
+<div class="outline-text-3" id="text-org4a801dd">
+<ul class="org-ul">
+<li>If \(f\) and \(g\) are continuous on an interval \(I\), then \(f \pm g\) is also continuous on \(I\)</li>
+
+<li>If \(f\) and \(g\) are continuous on an interval \(I\), then \(f * g\) is also continuous on \(I\)</li>
+
+<li>If \(f\) and \(g\) are continuous on an interval \(I\), then \(\frac{f}{g}\) is also on continuous on \(I\) <i>only if</i> \(g(x) \neq 0\)</li>
+
+<li>If \(f\) and \(g\) are continuous on \(x = a\), then \(f(g(x))\) on is <i>not</i> continuous at \(x = a\). This would only work if \(f(x)\) is continuous at \(x = g(a)\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0b58121" class="outline-3">
+<h3 id="org0b58121">Squeeze Theorem</h3>
+<div class="outline-text-3" id="text-org0b58121">
+<p>
+Take for example \(\lim\limits_{x \to 0} x * sin(1/x)\). This problem looks like it can be solved with our <b>Limit Laws</b> however to use our laws we need both limits to exits and \(\lim\limits_{x \to o} sin(1/x)\) does not exist. This means that we can&rsquo;t use the <b>Product Law</b> to get the \(x\) separated.
+</p>
+
+<p>
+To solve for a limit like this, we can use the <b>Squeeze Theorem</b>.
+</p>
+<ul class="org-ul">
+<li>The <b>Squeeze Theorem</b> is based on the fact that if both \(f(x)\) and \(g(x)\) are defined over an interval \((a, b)\) and \(c\) is a <i>real number</i> where \(a < c < b\). And if \(f(x) \leq g(x)\) for all \(x\) in \((a, b)\) and both \(\lim\limits_{x \to c} f(x)\) and \(\lim\limits_{x \to c} g(x)\) both exit, then \([\lim\limits_{x \to c} f(x)] \leq [\lim\limits_{x \to c} g(x)]\)</li>
+</ul>
+
+<p>
+The <b>Squeeze Theorem</b> uses this fact to suppose that \(g(x) \leq f(x) \leq h(x)\) for all \(x\) near \(a\) but not necessarily \(x = a\). Then if \(\lim\limits_{x \to a} g(x) = L = \lim\limits_{x \to a} h(x)\), then \(\lim\limits_{x \to a} f(x)  = L\).
+</p>
+
+<p>
+When using the <b>Squeeze Theroum</b> on test, be <i>sure</i> to note that you are using the <b>Squeeze Theorem</b>!
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb2a8831" class="outline-2">
+<h2 id="orgb2a8831">Indeterminate Forms</h2>
+<div class="outline-text-2" id="text-orgb2a8831">
+</div>
+<div id="outline-container-org0523f3c" class="outline-3">
+<h3 id="org0523f3c">Sign Charts</h3>
+<div class="outline-text-3" id="text-org0523f3c">
+<p>
+For most functions, they change sign (i.e. crossing the x-axis) when they reach zero or when the function does not exist. So we solve the fuinction for these points and plot them on a number line, then we need to figure out what the sign of the function is at these points.
+</p>
+<ul class="org-ul">
+<li>An easy way to do this is to break up the factors of a function and then plot those on a sign chart in order to determine the overall sign of the function.</li>
+</ul>
+</div>
+
+<div id="outline-container-org65d6592" class="outline-4">
+<h4 id="org65d6592"><span class="todo TODO">TODO</span> Add Example</h4>
+</div>
+</div>
+
+<div id="outline-container-org4552069" class="outline-3">
+<h3 id="org4552069">What are forms?</h3>
+<div class="outline-text-3" id="text-org4552069">
+<p>
+Forms are what you get as a result of plugging in the number of a limit. There are a lot of forms but the ones we&rsquo;re focusing on right now are:
+</p>
+<dl class="org-dl">
+<dt>Non-zero over non-zero</dt><dd>\(\frac{\#}{\#}\)</dd>
+<dt>Zero over non-zero</dt><dd>\(\frac{0}{\#}\)</dd>
+<dt>Non-zero over zero</dt><dd>\(\frac{\#}{0}\)</dd>
+<dt>Zero over zero</dt><dd>\(\frac{0}{0}\)</dd>
+</dl>
+
+<p>
+Forms are used to show us the method we should use to solve for a limit.
+</p>
+</div>
+
+<div id="outline-container-orge5625e7" class="outline-4">
+<h4 id="orge5625e7">Key Notation</h4>
+<div class="outline-text-4" id="text-orge5625e7">
+<p>
+When describing the form of a limit, <i>do not say</i> \(\lim\limits_{x \to 0} \frac{sin(x)}{x} = \frac{0}{0}\), instead say &ldquo;\(\lim\limits_{x \to 0} \frac{sin(x)}{x}\) is in the form of \(\frac{0}{0}\)&rdquo;.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org6e9f7fd" class="outline-2">
+<h2 id="org6e9f7fd">Asymptotes</h2>
+<div class="outline-text-2" id="text-org6e9f7fd">
+</div>
+<div id="outline-container-orgc1b60c7" class="outline-3">
+<h3 id="orgc1b60c7">Vertical Asymptotes</h3>
+<div class="outline-text-3" id="text-orgc1b60c7">
+<p>
+<b>Vertical Asymptotes</b> are places where the limits of a function approaches infinity. These occur when in the function \(\frac{f(x)}{g(x)}, g(x) = 0\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org74bd2b2" class="outline-3">
+<h3 id="org74bd2b2">Horizontal Asymptotes</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2021-10-19 Tue 13:13</p>
+</div>
+</body>
+</html>

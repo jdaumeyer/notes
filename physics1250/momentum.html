@@ -6,7 +6,7 @@
 <!-- 2021-10-19 Tue 13:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>XML and XMLTree</title>
+<title>Momentum</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -194,161 +194,107 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" type="text/css" href="~/.css/notes/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">XML and XMLTree
+<h1 class="title">Momentum
 <br />
-<span class="subtitle">CSE 2221</span>
+<span class="subtitle">Physics 1250</span>
 </h1>
 
-<div id="outline-container-orgff40ec6" class="outline-2">
-<h2 id="orgff40ec6">Trees</h2>
-<div class="outline-text-2" id="text-orgff40ec6">
+<div id="outline-container-org80891e4" class="outline-2">
+<h2 id="org80891e4">Linear Momentum and Force</h2>
+<div class="outline-text-2" id="text-org80891e4">
 <p>
-<b>Trees</b> are a very common concept seen in computer science.
+Linear Momentum is the product of a system&rsquo;s mass and its velocity, \(P = m * v\). <b>Momentum</b> and <b>Force</b> are closely related, because a force acting over a time can change the momentum of an object.
+</p>
+
+<p>
+<b>Newton&rsquo;s Second Law of Motion</b> was actually first defined in terms of momentum, where \(F_{net} = \frac{\Delta p}{\Delta t}\).
 </p>
 </div>
+</div>
 
-<div id="outline-container-org0316e84" class="outline-3">
-<h3 id="org0316e84">Composition of Trees</h3>
-<div class="outline-text-3" id="text-org0316e84">
+<div id="outline-container-orgb5973b2" class="outline-2">
+<h2 id="orgb5973b2">Impulse</h2>
+<div class="outline-text-2" id="text-orgb5973b2">
 <p>
-A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is called a <b>root node</b>. The <b>root node</b> will always be seen at the top of the tree with its <i>children</i> connected unterneath. The thing that connects these nodes are called <b>branches</b>.
+The <i>change in momentum</i> over a time is called <b>Impulse</b>. This value can be found be rearranging the equation \(F_{net} = \frac{\Delta p}{\Delta t}\), into \(\Delta p = F_{net} * \Delta t\).
 </p>
 <ul class="org-ul">
-<li>The opposite of <b>root nodes</b>, nodes with no branches connected to them are named <b>leaf nodes</b>.</li>
+<li>A common example for <b>impulse</b> is that of <i>seatbelts</i>. What a seatbelt is doing is decreasing the <b>impulse</b> of a collision on your body by increasing the time it takes.</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org76f1134" class="outline-3">
-<h3 id="org76f1134">Properties of a Tree</h3>
-<div class="outline-text-3" id="text-org76f1134">
-<dl class="org-dl">
-<dt>Size</dt><dd>the size of a tree is the total number of nodes it contains.</dd>
-<dt>Path</dt><dd>a path is the connection between two nodes, all paths have a length.</dd>
-</dl>
-<dl class="org-dl">
-<dt>Height</dt><dd>is the length of its longest <b>path</b> from the root.</dd>
-<dt>Subtree</dt><dd>a subtree is a section of a tree that can be isolated into its own tree.</dd>
-</dl>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org6c32365" class="outline-2">
-<h2 id="org6c32365">XML</h2>
-<div class="outline-text-2" id="text-org6c32365">
+<div id="outline-container-org1ef2321" class="outline-2">
+<h2 id="org1ef2321">Conservation of Momentum</h2>
+<div class="outline-text-2" id="text-org1ef2321">
 <p>
-<b>XML</b> stands for Extensible Markup Language. It is created to make a heirachical structure of information that is easier for the computer to process.
-</p>
-</div>
-
-<div id="outline-container-orgee5e873" class="outline-3">
-<h3 id="orgee5e873">Creating an XML file</h3>
-<div class="outline-text-3" id="text-orgee5e873">
-<p>
-All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lind of every <b>XML</b> file and tells the computer what type of file it is.
+<b>Momentum</b> is a useful quality because it is conserved. This means that when two systems get into a collision, we can use <b>momentum</b> to analyze them. The <b>Conservation of momentum</b> is defined as \(\overrightarrow{P_i} + I = \overrightarrow{P_f}\). Where both momenta can be <i>vectors</i>.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1e333ec" class="outline-3">
-<h3 id="org1e333ec">Tags</h3>
-<div class="outline-text-3" id="text-org1e333ec">
+<div id="outline-container-org0c01340" class="outline-2">
+<h2 id="org0c01340">Elastic and Inelastic</h2>
+<div class="outline-text-2" id="text-org0c01340">
 <p>
-<b>XML</b> files are made up of <b>tags</b>. <b>Tags</b> have several parts to them:
-</p>
-<dl class="org-dl">
-<dt>Starting Tag</dt><dd>a word contained in <code>&lt;&gt;</code> i.e. <code>&lt;author&gt;</code>.</dd>
-<dt>Contents</dt><dd>Plain text in between a <i>starting</i> and <i>closing</i> tag.</dd>
-<dt>Closing Tag</dt><dd>the same word as the <i>starting</i> tag but with a <code>/</code> in front. I.e. <code>&lt;/author&gt;</code></dd>
-<dt>Attributes</dt><dd>These are values assigned to a tag. They are included inside the <code>&lt;&gt;</code> of the <i>starting</i> tag and are space separated. Attributes also have values assigned to them in quotes. I.e. <code>&lt;author attribute="value"&gt;</code>.</dd>
-</dl>
-</div>
-</div>
-
-
-
-<div id="outline-container-org1d678fa" class="outline-3">
-<h3 id="org1d678fa">XML Tree Structure</h3>
-<div class="outline-text-3" id="text-org1d678fa">
-<p>
-The <code>XMLTree</code> component family is included in the Ohio State Library and provides several methods for handling <b>XML</b> documents. This <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/12.XMLTree-Model.pdf#page=4">slide</a>
- contains a good visual for how an <b>XML</b> file can be represented as a <b>tree</b>.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-org061027a" class="outline-2">
-<h2 id="org061027a"><code>XMLTree</code> Methods</h2>
-<div class="outline-text-2" id="text-org061027a">
-<p>
-All <code>XMLTree</code> methods are <b>instance methods</b>, meaning they must be called from an <i>initialized variable</i>. This variable must be of type <code>XMLTree</code>. This is the same model that <code>SimpleReader</code> and <code>SimpleWritter</code> use.
+There are two different types of collisions, <b>Elastic</b> and <b>Inelastic</b>. The main difference between the two being if they conserve their <b>Internal Kinetic Energy</b> or not.
 </p>
 </div>
 
-<div id="outline-container-org158a6ea" class="outline-3">
-<h3 id="org158a6ea">Constructors</h3>
-<div class="outline-text-3" id="text-org158a6ea">
+<div id="outline-container-org342df1b" class="outline-3">
+<h3 id="org342df1b">Elastic</h3>
+<div class="outline-text-3" id="text-org342df1b">
 <p>
-There are two <b>constructors</b> for <code>XMLTree</code>, they only differ in the parameters they require. To create an <code>XMLTree</code>, you need either a valid XML file or link. Then construct an <code>XMLTree</code> with the name of this file.
+An <b>Elastic Collision</b> is one where the objects essentially <i>bounce</i> off of each other and head in opposite directions after a collision. During an <b>Elastic Collision</b>, <b>Internal Kinetic Energy</b> is conserved.
 </p>
-<div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">XMLTree</span> <span style="color: #e4e4e5;">t</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">XMLTree1</span><span style="color: #81a2be;">(</span><span style="color: #60b48a;">"file.xml"</span><span style="color: #81a2be;">)</span>;
-</pre>
-</div>
+<ul class="org-ul">
+<li>Because <b>Total Kinetic Energy</b> is conserved we know that \(p_{1i} + p_{2i} = p_{1f} + p_{2f}\) and \(K_{1i} + K_{2i} = K_{1f} + K_{2f}\)</li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orge01725b" class="outline-3">
-<h3 id="orge01725b">Methods</h3>
-<div class="outline-text-3" id="text-orge01725b">
+<div id="outline-container-org6921811" class="outline-3">
+<h3 id="org6921811">Inelastic</h3>
+<div class="outline-text-3" id="text-org6921811">
 <p>
-A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/xmltree/XMLTree.html">here</a>.
+An <b>Inelastic Collision</b> happens when some other force takes energy out of the system during the collision. Because of this <b>Internal Kinetic Energy</b> is <i>not</i> conserved.
 </p>
-<dl class="org-dl">
-<dt><code>String label()</code></dt><dd>returns the label of the root of <b>this</b>.</dd>
-<dt><code>boolean isTag()</code></dt><dd>returns whether the label of the root of this is a tag or text</dd>
-<dt><code>boolean hasAttribute(String name)</code></dt><dd>Returns true if this has an attribute of <code>name</code></dd>
-<dt><code>String attributeValue(String name)</code></dt><dd>returns the value associated with the attribute with name of <code>name</code> of the root node.</dd>
-<dt><code>int numberOfChildren()</code></dt><dd>returns the number of children of the root node.</dd>
-<dt><code>XMLTree child(int k)</code></dt><dd>returns the subtree of the kth child of the rood node this.</dd>
-</dl>
+<ul class="org-ul">
+<li>A <b>Perfectly Inelastic Collision</b> is one where the objects are <i>stuck</i> together after the collision.</li>
+</ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org976815b" class="outline-2">
-<h2 id="org976815b">Really Simple Syndication</h2>
-<div class="outline-text-2" id="text-org976815b">
+<div id="outline-container-org65a977d" class="outline-2">
+<h2 id="org65a977d">Collisions in Two Dimensions</h2>
+<div class="outline-text-2" id="text-org65a977d">
 <p>
-<b>RSS</b> is used for web based &ldquo;feeds&rdquo; of information. of information. There are a few version of <b>RSS</b> but in this class we will focus on version <code>2.0</code>. <b>RSS</b> is just a strict format of <b>XML</b>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #81a2be;">xml</span> <span style="color: #655c5a;">version="1.0" encoding="utf-8"</span>?&gt;
-&lt;<span style="color: #de935f;">rss</span> <span style="color: #e4e4e5;">version</span>=<span style="color: #60b48a;">"2.0"</span>&gt;
-    &lt;<span style="color: #de935f;">channel</span>&gt;
-        &lt;<span style="color: #de935f;">title</span>&gt;Yahoo! News&lt;/<span style="color: #de935f;">title</span>&gt;
-        &lt;<span style="color: #de935f;">link</span>&gt;http://news.yahoo.com&lt;/<span style="color: #de935f;">link</span>&gt;
-        &lt;<span style="color: #de935f;">description</span>&gt;The latest news and headlines from Yahoo! News.&lt;/<span style="color: #de935f;">description</span>&gt;
-        &lt;<span style="color: #de935f;">item</span>&gt;
-            &lt;<span style="color: #de935f;">title</span>&gt;Apple seeks to stop...&lt;/<span style="color: #de935f;">title</span>&gt;
-            &lt;<span style="color: #de935f;">link</span>&gt;http://news.yahoo.com/...&lt;/<span style="color: #de935f;">link</span>&gt;
-            &lt;<span style="color: #de935f;">description</span>&gt;Apple Inc will seek a...&lt;/<span style="color: #de935f;">description</span>&gt;
-            &lt;<span style="color: #de935f;">pubDate</span>&gt;Mon, 27 Aug 2012 14:40:49&lt;/<span style="color: #de935f;">pubDate</span>&gt;
-            &lt;<span style="color: #de935f;">source</span> <span style="color: #e4e4e5;">url</span>=<span style="color: #60b48a;">"http://www.reuters.com"</span>&gt;Reuters&lt;/<span style="color: #de935f;">source</span>&gt;
-        &lt;/<span style="color: #de935f;">item</span>&gt;
-        ...
-      &lt;/<span style="color: #de935f;">channel</span>&gt;
-&lt;/<span style="color: #de935f;">rss</span>&gt;
-</pre>
-</div>
-
-<p>
-Important things to note about the <i>syntax</i> of an <b>RSS</b> feed is that the root node is always <code>&lt;rss version="X.X"&gt;</code> and that the order of children for every node is not garunteed.
+Solving for <b>Collisions</b> in two dimensions is very similar to the method of solving for <b>Kinematics</b> in two dimensions, where we must break up the problem into two axis.
 </p>
 </div>
 </div>

@@ -6,7 +6,7 @@
 <!-- 2021-10-19 Tue 13:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>XML and XMLTree</title>
+<title>Rotation</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -194,162 +194,199 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" type="text/css" href="~/.css/notes/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">XML and XMLTree
-<br />
-<span class="subtitle">CSE 2221</span>
-</h1>
+<h1 class="title">Rotation</h1>
 
-<div id="outline-container-orgff40ec6" class="outline-2">
-<h2 id="orgff40ec6">Trees</h2>
-<div class="outline-text-2" id="text-orgff40ec6">
+<div id="outline-container-orgf539bc0" class="outline-2">
+<h2 id="orgf539bc0">Angular Acceleration</h2>
+<div class="outline-text-2" id="text-orgf539bc0">
 <p>
-<b>Trees</b> are a very common concept seen in computer science.
+<b>Angular Velocity</b> form [][Circular Motion]] was defined as \(\omega = \frac{\Delta \theta}{\Delta t}\) and the relationship between <b>Angular Velocity</b> and <b>Linear Velocity</b> is defined as \(v = \omega r\). However, like most speeds, <b>Angular Velocity</b> does not have to be constant, it can be effected by <b>Angular Acceleration (\(\alpha\))</b> where \(\alpha = \frac{\Delta \omega}{\Delta t}\). Just like <b>ANgular Velocity</b>, <b>Angular Acceleration</b> can be found in relation to <b>Translational Acceleration</b> with the equation \(a = r  \alpha\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4451c8" class="outline-2">
+<h2 id="orgc4451c8">Rotational Kinematics</h2>
+<div class="outline-text-2" id="text-orgc4451c8">
+<p>
+The <b>Kinematics</b> for <b>Rotational Motion</b> describes the relationship between rotation angle, angular velocity, angular acceleration and time. Much like normal kinematics do for translational motion, in-fact they&rsquo;re so similar they use essentially the same equations.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Kinematics of Rotational Motion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(\theta = \omega t\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\omega = \omega_0 + \alpha t\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\omega^2 - \omega^2_0 = 2\alpha \times \Delta \theta\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\Delta \theta = \omega_0 t + \frac{1}{2}\alpha t^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">\(\Delta \theta = \frac{1}{2} ( \omega_0 + \omega ) t\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org908c3fe" class="outline-2">
+<h2 id="org908c3fe">Rotational Dynamics</h2>
+<div class="outline-text-2" id="text-org908c3fe">
+<p>
+Forces also play a role on <b>Angular Velocity</b> and as such the equation \(F = ma\) can be rewritten for rotational dynamics using \(a = r \alpha\), so \(F = mr\alpha\).
+</p>
+
+<p>
+Now using <b>Torque</b>, <i>the turning effectiveness of a force</i> from [][Circular Motion]], we know that torque is \(\tau = Fr\) because the force is <i>perpendicular</i> to \(r\). Now this also means that \(\tau = mr^2\alpha\). Here the quantity \(mr^2\) is referred to as <b>rotational inertia</b> or the <b>moment of inertia</b>.
 </p>
 </div>
 
-<div id="outline-container-org0316e84" class="outline-3">
-<h3 id="org0316e84">Composition of Trees</h3>
-<div class="outline-text-3" id="text-org0316e84">
+<div id="outline-container-org940f570" class="outline-3">
+<h3 id="org940f570">Moment of Inertia</h3>
+<div class="outline-text-3" id="text-org940f570">
 <p>
-A <b>tree</b> is made up of <b>nodes</b>. The first of these <b>nodes</b> is called a <b>root node</b>. The <b>root node</b> will always be seen at the top of the tree with its <i>children</i> connected unterneath. The thing that connects these nodes are called <b>branches</b>.
+The <b>moment of inertia \(I\)</b> is a sum of \(mr^2\) for all masses it is made of so \(I \sum_{i}{m_i r_i^2}\). this is because <b>moment of inertia</b> changes based on the shape of an object. The <b>net torque</b> of is defined using <b>moment of inertia</b> where \(\sum{\tau} = I\overrightarrow\alpha\).
+</p>
+
+<p>
+Because <b>moment of inertia</b> changes based on the shape of the object, it is helpful to know the <b>moment of inertia</b> for different objects. Note that these will be provided on tests.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Shape</th>
+<th scope="col" class="org-left">Inertia</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Hoop</td>
+<td class="org-left">\(MR^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Disk</td>
+<td class="org-left">\(\frac{1}{2}MR^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Rod about Center</td>
+<td class="org-left">\(\frac{1}{12}ML^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Rod about End</td>
+<td class="org-left">\(\frac{1}{3}ML^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Solid Sphere</td>
+<td class="org-left">\(\frac{2}{5}MR^2\)</td>
+</tr>
+
+<tr>
+<td class="org-left">Hollow Sphere</td>
+<td class="org-left">\(\frac{2}{3}MR^2\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf1fae79" class="outline-2">
+<h2 id="orgf1fae79">Rotational Energy</h2>
+<div class="outline-text-2" id="text-orgf1fae79">
+<p>
+The equation for <b>Rotational Work</b> is \(W_{net} = \tau \times \Delta \theta\). Using this and the <b>work-energy theorem</b>, <b>Rotational Kinetic Energy (\(K_{rot}\))</b> can be found to be \(K_{rot} = \frac{1}{2}I\omega^2\).
+</p>
+</div>
+
+<div id="outline-container-orgecfe34a" class="outline-3">
+<h3 id="orgecfe34a">An example or why objects don&rsquo;t roll downhill at the same rate</h3>
+<div class="outline-text-3" id="text-orgecfe34a">
+<p>
+Soup companies will often test their soup cans by rolling down an incline, the soups that roll too fast are too thin and the slowest ones are too thick. But why is this?
 </p>
 <ul class="org-ul">
-<li>The opposite of <b>root nodes</b>, nodes with no branches connected to them are named <b>leaf nodes</b>.</li>
+<li>Assuming there is no friction, the only work on the soup cans is that of gravity.</li>
+<li>This means that \(mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\). Where the greater the \(I\) is, the less energy can be in the translation and vise versa.</li>
 </ul>
 </div>
 </div>
-
-<div id="outline-container-org76f1134" class="outline-3">
-<h3 id="org76f1134">Properties of a Tree</h3>
-<div class="outline-text-3" id="text-org76f1134">
-<dl class="org-dl">
-<dt>Size</dt><dd>the size of a tree is the total number of nodes it contains.</dd>
-<dt>Path</dt><dd>a path is the connection between two nodes, all paths have a length.</dd>
-</dl>
-<dl class="org-dl">
-<dt>Height</dt><dd>is the length of its longest <b>path</b> from the root.</dd>
-<dt>Subtree</dt><dd>a subtree is a section of a tree that can be isolated into its own tree.</dd>
-</dl>
-</div>
-</div>
 </div>
 
-<div id="outline-container-org6c32365" class="outline-2">
-<h2 id="org6c32365">XML</h2>
-<div class="outline-text-2" id="text-org6c32365">
+<div id="outline-container-orgc9bf467" class="outline-2">
+<h2 id="orgc9bf467">Angular Momentum</h2>
+<div class="outline-text-2" id="text-orgc9bf467">
 <p>
-<b>XML</b> stands for Extensible Markup Language. It is created to make a heirachical structure of information that is easier for the computer to process.
-</p>
-</div>
-
-<div id="outline-container-orgee5e873" class="outline-3">
-<h3 id="orgee5e873">Creating an XML file</h3>
-<div class="outline-text-3" id="text-orgee5e873">
-<p>
-All <b>XML</b> files have to contain a <i>declaration</i>. This is the first lind of every <b>XML</b> file and tells the computer what type of file it is.
+<b>Angular Momentum (\(L\))</b> is defined as \(L=I\omega\), which is an analog of <b>linear momentum</b>. And just like linear momentum, <b>Angular Momentum</b> is conserved. So \(L_i + \Delta L = L_f\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1e333ec" class="outline-3">
-<h3 id="org1e333ec">Tags</h3>
-<div class="outline-text-3" id="text-org1e333ec">
-<p>
-<b>XML</b> files are made up of <b>tags</b>. <b>Tags</b> have several parts to them:
-</p>
-<dl class="org-dl">
-<dt>Starting Tag</dt><dd>a word contained in <code>&lt;&gt;</code> i.e. <code>&lt;author&gt;</code>.</dd>
-<dt>Contents</dt><dd>Plain text in between a <i>starting</i> and <i>closing</i> tag.</dd>
-<dt>Closing Tag</dt><dd>the same word as the <i>starting</i> tag but with a <code>/</code> in front. I.e. <code>&lt;/author&gt;</code></dd>
-<dt>Attributes</dt><dd>These are values assigned to a tag. They are included inside the <code>&lt;&gt;</code> of the <i>starting</i> tag and are space separated. Attributes also have values assigned to them in quotes. I.e. <code>&lt;author attribute="value"&gt;</code>.</dd>
-</dl>
-</div>
-</div>
 
 
-
-<div id="outline-container-org1d678fa" class="outline-3">
-<h3 id="org1d678fa">XML Tree Structure</h3>
-<div class="outline-text-3" id="text-org1d678fa">
-<p>
-The <code>XMLTree</code> component family is included in the Ohio State Library and provides several methods for handling <b>XML</b> documents. This <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/12.XMLTree-Model.pdf#page=4">slide</a>
- contains a good visual for how an <b>XML</b> file can be represented as a <b>tree</b>.
-</p>
+<div id="outline-container-org3ad57e8" class="outline-2">
+<h2 id="org3ad57e8">Rolling</h2>
+<div class="outline-text-2" id="text-org3ad57e8">
 </div>
+<div id="outline-container-org70a222f" class="outline-3">
+<h3 id="org70a222f">Flipping</h3>
 </div>
-</div>
-<div id="outline-container-org061027a" class="outline-2">
-<h2 id="org061027a"><code>XMLTree</code> Methods</h2>
-<div class="outline-text-2" id="text-org061027a">
-<p>
-All <code>XMLTree</code> methods are <b>instance methods</b>, meaning they must be called from an <i>initialized variable</i>. This variable must be of type <code>XMLTree</code>. This is the same model that <code>SimpleReader</code> and <code>SimpleWritter</code> use.
-</p>
-</div>
-
-<div id="outline-container-org158a6ea" class="outline-3">
-<h3 id="org158a6ea">Constructors</h3>
-<div class="outline-text-3" id="text-org158a6ea">
-<p>
-There are two <b>constructors</b> for <code>XMLTree</code>, they only differ in the parameters they require. To create an <code>XMLTree</code>, you need either a valid XML file or link. Then construct an <code>XMLTree</code> with the name of this file.
-</p>
-<div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">XMLTree</span> <span style="color: #e4e4e5;">t</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">XMLTree1</span><span style="color: #81a2be;">(</span><span style="color: #60b48a;">"file.xml"</span><span style="color: #81a2be;">)</span>;
-</pre>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orge01725b" class="outline-3">
-<h3 id="orge01725b">Methods</h3>
-<div class="outline-text-3" id="text-orge01725b">
-<p>
-A list of all <code>XMLTree</code> methods can be found <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/xmltree/XMLTree.html">here</a>.
-</p>
-<dl class="org-dl">
-<dt><code>String label()</code></dt><dd>returns the label of the root of <b>this</b>.</dd>
-<dt><code>boolean isTag()</code></dt><dd>returns whether the label of the root of this is a tag or text</dd>
-<dt><code>boolean hasAttribute(String name)</code></dt><dd>Returns true if this has an attribute of <code>name</code></dd>
-<dt><code>String attributeValue(String name)</code></dt><dd>returns the value associated with the attribute with name of <code>name</code> of the root node.</dd>
-<dt><code>int numberOfChildren()</code></dt><dd>returns the number of children of the root node.</dd>
-<dt><code>XMLTree child(int k)</code></dt><dd>returns the subtree of the kth child of the rood node this.</dd>
-</dl>
-</div>
-</div>
-</div>
-
-<div id="outline-container-org976815b" class="outline-2">
-<h2 id="org976815b">Really Simple Syndication</h2>
-<div class="outline-text-2" id="text-org976815b">
-<p>
-<b>RSS</b> is used for web based &ldquo;feeds&rdquo; of information. of information. There are a few version of <b>RSS</b> but in this class we will focus on version <code>2.0</code>. <b>RSS</b> is just a strict format of <b>XML</b>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-xml">&lt;?<span style="color: #81a2be;">xml</span> <span style="color: #655c5a;">version="1.0" encoding="utf-8"</span>?&gt;
-&lt;<span style="color: #de935f;">rss</span> <span style="color: #e4e4e5;">version</span>=<span style="color: #60b48a;">"2.0"</span>&gt;
-    &lt;<span style="color: #de935f;">channel</span>&gt;
-        &lt;<span style="color: #de935f;">title</span>&gt;Yahoo! News&lt;/<span style="color: #de935f;">title</span>&gt;
-        &lt;<span style="color: #de935f;">link</span>&gt;http://news.yahoo.com&lt;/<span style="color: #de935f;">link</span>&gt;
-        &lt;<span style="color: #de935f;">description</span>&gt;The latest news and headlines from Yahoo! News.&lt;/<span style="color: #de935f;">description</span>&gt;
-        &lt;<span style="color: #de935f;">item</span>&gt;
-            &lt;<span style="color: #de935f;">title</span>&gt;Apple seeks to stop...&lt;/<span style="color: #de935f;">title</span>&gt;
-            &lt;<span style="color: #de935f;">link</span>&gt;http://news.yahoo.com/...&lt;/<span style="color: #de935f;">link</span>&gt;
-            &lt;<span style="color: #de935f;">description</span>&gt;Apple Inc will seek a...&lt;/<span style="color: #de935f;">description</span>&gt;
-            &lt;<span style="color: #de935f;">pubDate</span>&gt;Mon, 27 Aug 2012 14:40:49&lt;/<span style="color: #de935f;">pubDate</span>&gt;
-            &lt;<span style="color: #de935f;">source</span> <span style="color: #e4e4e5;">url</span>=<span style="color: #60b48a;">"http://www.reuters.com"</span>&gt;Reuters&lt;/<span style="color: #de935f;">source</span>&gt;
-        &lt;/<span style="color: #de935f;">item</span>&gt;
-        ...
-      &lt;/<span style="color: #de935f;">channel</span>&gt;
-&lt;/<span style="color: #de935f;">rss</span>&gt;
-</pre>
-</div>
-
-<p>
-Important things to note about the <i>syntax</i> of an <b>RSS</b> feed is that the root node is always <code>&lt;rss version="X.X"&gt;</code> and that the order of children for every node is not garunteed.
-</p>
+<div id="outline-container-orgbf353fd" class="outline-3">
+<h3 id="orgbf353fd">Not Flipping</h3>
 </div>
 </div>
 </div>

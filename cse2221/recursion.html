@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-10-19 Tue 13:13 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Recursion</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="~/.css/notes/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Recursion
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+
+<div id="outline-container-org2b6e3f0" class="outline-2">
+<h2 id="org2b6e3f0">Mathematical String Notation</h2>
+<div class="outline-text-2" id="text-org2b6e3f0">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/20.String-Theory.pdf">Lecture Slides</a>
+A <b>mathematical string</b> is a series of zero or more entries of any <i>other</i> mathematical type. This automatically makes it a bit different then the <b>Java</b> <code>String</code> type which is only a series of <code>char</code> types. This type is going to be used in the examples for <b>recursion</b> below.
+</p>
+</div>
+
+<div id="outline-container-orgfa2b222" class="outline-3">
+<h3 id="orgfa2b222">Notation</h3>
+<div class="outline-text-3" id="text-orgfa2b222">
+<p>
+The notation for a <b>mathematical string</b> is by having a series of elements between \(<,>\).
+</p>
+<ul class="org-ul">
+<li>\(< 1, 2, 3, 4>\)</li>
+<li>\(< `G`, `o`, `o`, `g`, `l`, `e`>\)</li>
+<li>\(< 1, 2, `a`, `b`>\)</li>
+</ul>
+</div>
+<div id="outline-container-orgcd6201f" class="outline-4">
+<h4 id="orgcd6201f">Concatenation</h4>
+<div class="outline-text-4" id="text-orgcd6201f">
+<p>
+<b>Mathematical string</b> concatenation is represented by a \(*\) symbol as oppossed to the <b>Java</b> <code>+</code> symbol for concatenation.
+</p>
+</div>
+</div>
+<div id="outline-container-org36a522a" class="outline-4">
+<h4 id="org36a522a">Length</h4>
+<div class="outline-text-4" id="text-org36a522a">
+<p>
+<b>Mathematical string</b> length is denoted by \(| |\). So \(|< 1, 2, 3, 4>|\) would be 4
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orge457f64" class="outline-3">
+<h3 id="orge457f64">Substrings</h3>
+<div class="outline-text-3" id="text-orge457f64">
+<p>
+A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the entries of \(s\) appear consecutively in \(t\)
+</p>
+<ul class="org-ul">
+<li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>start</i> of \(t\)</li>
+<li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>end</i> of \(t\)</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org2d944d9" class="outline-2">
+<h2 id="org2d944d9">Recursion</h2>
+<div class="outline-text-2" id="text-org2d944d9">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/21.Recursion-Thinking.pdf">Lecture Slides</a>
+</p>
+
+<p>
+<b>Recursion</b> is a very important and influential topic in computer science. At its most fundamental level, <b>recursion</b> is simply when a function calls itself. This is done by breaking up a larger problem into a smaller problem.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">power</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">p</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>p == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">return</span> n * power<span style="color: #85678f;">(</span>n, p - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span>;
+<span style="color: #81a2be;">}</span>
+
+<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">main</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">String</span><span style="color: #85678f;">[]</span> <span style="color: #e4e4e5;">args</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">SimpleWriter</span> <span style="color: #e4e4e5;">out</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">SimpleWriter1L</span><span style="color: #85678f;">()</span>;
+    out.print<span style="color: #85678f;">(</span>power<span style="color: #60b48a;">(</span><span style="color: #d0b75a; font-weight: bold;">5</span>, <span style="color: #d0b75a; font-weight: bold;">5</span><span style="color: #60b48a;">)</span><span style="color: #85678f;">)</span>;
+    out.close<span style="color: #85678f;">()</span>;
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org962bdb8" class="outline-3">
+<h3 id="org962bdb8">Base Case</h3>
+<div class="outline-text-3" id="text-org962bdb8">
+<p>
+All recursive functions need one key element, a <b>base case</b>. This is a situation where the method returns a value without calling itself. This is what prevents a <b>recursive function</b> from executing <i>infinitely</i>.
+</p>
+<ul class="org-ul">
+<li>When a function does execute infinitely, <b>Java</b> will return a <i>StackOverflowError</i>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org83f9bb2" class="outline-3">
+<h3 id="org83f9bb2">Examples</h3>
+<div class="outline-text-3" id="text-org83f9bb2">
+</div>
+<div id="outline-container-org6a941f0" class="outline-4">
+<h4 id="org6a941f0">Recursive Factorial</h4>
+<div class="outline-text-4" id="text-org6a941f0">
+<p>
+Program a function that recursively calculates the factorial \(n!\). This would be \(n \times n-1 \times n-2 \times n-\ldots\)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="org45bd1bc"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
+    <span style="color: #85678f;">}</span> <span style="color: #81a2be;">else</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> n * factorial<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+-2102132736
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7069252" class="outline-4">
+<h4 id="org7069252">Fibonacci Sequence</h4>
+<div class="outline-text-4" id="text-org7069252">
+<p>
+The <i>Fibonacci Sequence</i> is a common mathematical sequence most known for its use in the <i>Golden Ratio</i>. The sequence is defined as \(F_n = F_{n-1} + F_{n-2}\) where \(F_0 = 0\) and \(F_1 = 1\). Program a recursive function that calculates the \(n^{th}\) <i>Fibonacci Number</i>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="orga06a67c"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">fibonacci</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span> || n == <span style="color: #d0b75a; font-weight: bold;">0</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> n;
+    <span style="color: #85678f;">}</span> <span style="color: #81a2be;">else</span> <span style="color: #85678f;">{</span>
+        <span style="color: #81a2be;">return</span> fibonacci<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span> + fibonacci<span style="color: #60b48a;">(</span>n - <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+
+<pre class="example">
+6765
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-org36ee887" class="outline-4">
+<h4 id="org36ee887">Cutting Logs</h4>
+<div class="outline-text-4" id="text-org36ee887">
+<p>
+You have a tool that can cut logs that are length 1, 2, and 4. Given a log of length \(L\), how many possible times could you cut the log?
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java" id="orgb85ab4d"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">cutLog</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">l</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    sum = <span style="color: #d0b75a; font-weight: bold;">0</span>
+
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutlog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutLog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #60b48a;">)</span>;
+    <span style="color: #85678f;">}</span>
+    <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>l &gt; <span style="color: #d0b75a; font-weight: bold;">4</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
+        sum += cutLog<span style="color: #60b48a;">(</span>l - <span style="color: #d0b75a; font-weight: bold;">4</span><span style="color: #60b48a;">)</span>
+    <span style="color: #85678f;">}</span>
+
+    <span style="color: #81a2be;">return</span> sum
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2021-10-19 Tue 13:13</p>
+</div>
+</body>
+</html>
