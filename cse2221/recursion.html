@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-19 Tue 14:31 -->
+<!-- 2021-10-25 Mon 13:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Recursion</title>
@@ -283,6 +283,7 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/21.Recursion-Thinking.pdf">Lecture Slides</a>
 </p>
 
+
 <p>
 <b>Recursion</b> is a very important and influential topic in computer science. At its most fundamental level, <b>recursion</b> is simply when a function calls itself. This is done by breaking up a larger problem into a smaller problem.
 </p>
@@ -320,15 +321,15 @@ All recursive functions need one key element, a <b>base case</b>. This is a situ
 <h3 id="org8c823ee">Examples</h3>
 <div class="outline-text-3" id="text-org8c823ee">
 </div>
-<div id="outline-container-org18eada5" class="outline-4">
-<h4 id="org18eada5">Recursive Factorial</h4>
-<div class="outline-text-4" id="text-org18eada5">
+<div id="outline-container-org09a980d" class="outline-4">
+<h4 id="org09a980d">Recursive Factorial</h4>
+<div class="outline-text-4" id="text-org09a980d">
 <p>
 Program a function that recursively calculates the factorial \(n!\). This would be \(n \times n-1 \times n-2 \times n-\ldots\)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="org3cd3f97"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+<pre class="src src-java" id="org18eada5"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
         <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
@@ -408,11 +409,24 @@ You have a tool that can cut logs that are length 1, 2, and 4. Given a log of le
 </div>
 </div>
 </div>
+
+<div id="outline-container-org7ccecc1" class="outline-3">
+<h3 id="org7ccecc1">Recursion on Trees</h3>
+<div class="outline-text-3" id="text-org7ccecc1">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/24.Recursion-Trees.pdf">Lecture Slides</a>
+</p>
+
+<p>
+Because <b>Trees</b> are essentially made up of smaller <b>trees</b>, they can be easily managed with <b>recursion</b>.
+</p>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-19 Tue 14:31</p>
+<p class="date">Created: 2021-10-25 Mon 13:53</p>
 </div>
 </body>
 </html>
