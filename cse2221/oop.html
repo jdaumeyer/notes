@@ -6,7 +6,7 @@
 <!-- 2021-10-26 Tue 17:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rotation</title>
+<title>Object-Oriented Programming</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,200 +193,78 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Rotation</h1>
-
-<div id="outline-container-orge370b20" class="outline-2">
-<h2 id="orge370b20">Angular Acceleration</h2>
-<div class="outline-text-2" id="text-orge370b20">
-<p>
-<b>Angular Velocity</b> form [][Circular Motion]] was defined as \(\omega = \frac{\Delta \theta}{\Delta t}\) and the relationship between <b>Angular Velocity</b> and <b>Linear Velocity</b> is defined as \(v = \omega r\). However, like most speeds, <b>Angular Velocity</b> does not have to be constant, it can be effected by <b>Angular Acceleration (\(\alpha\))</b> where \(\alpha = \frac{\Delta \omega}{\Delta t}\). Just like <b>Angular Velocity</b>, <b>Angular Acceleration</b> can be found in relation to <b>Translational Acceleration</b> with the equation \(a = r  \alpha\).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org12088a6" class="outline-2">
-<h2 id="org12088a6">Rotational Kinematics</h2>
-<div class="outline-text-2" id="text-org12088a6">
-<p>
-The <b>Kinematics</b> for <b>Rotational Motion</b> describes the relationship between rotation angle, angular velocity, angular acceleration and time. Much like normal kinematics do for translational motion, in-fact they&rsquo;re so similar they use essentially the same equations.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Kinematics of Rotational Motion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">\(\theta = \omega t\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\omega = \omega_0 + \alpha t\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\omega^2 - \omega^2_0 = 2\alpha \times \Delta \theta\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\Delta \theta = \omega_0 t + \frac{1}{2}\alpha t^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\Delta \theta = \frac{1}{2} ( \omega_0 + \omega ) t\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org14a1533" class="outline-2">
-<h2 id="org14a1533">Rotational Dynamics</h2>
-<div class="outline-text-2" id="text-org14a1533">
-<p>
-Forces also play a role on <b>Angular Velocity</b> and as such the equation \(F = ma\) can be rewritten for rotational dynamics using \(a = r \alpha\), so \(F = mr\alpha\).
-</p>
-
-<p>
-Now using <b>Torque</b>, <i>the turning effectiveness of a force</i> from [][Circular Motion]], we know that torque is \(\tau = Fr\) because the force is <i>perpendicular</i> to \(r\). Now this also means that \(\tau = mr^2\alpha\). Here the quantity \(mr^2\) is referred to as <b>rotational inertia</b> or the <b>moment of inertia</b>.
-</p>
-</div>
-
-<div id="outline-container-org89c7f87" class="outline-3">
-<h3 id="org89c7f87">Moment of Inertia</h3>
-<div class="outline-text-3" id="text-org89c7f87">
-<p>
-The <b>moment of inertia \(I\)</b> is a sum of \(mr^2\) for all masses it is made of so \(I \sum_{i}{m_i r_i^2}\). this is because <b>moment of inertia</b> changes based on the shape of an object. The <b>net torque</b> of is defined using <b>moment of inertia</b> where \(\sum{\tau} = I\overrightarrow\alpha\).
-</p>
-
-<p>
-Because <b>moment of inertia</b> changes based on the shape of the object, it is helpful to know the <b>moment of inertia</b> for different objects. Note that these will be provided on tests.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Shape</th>
-<th scope="col" class="org-left">Inertia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Hoop</td>
-<td class="org-left">\(MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Disk</td>
-<td class="org-left">\(\frac{1}{2}MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Rod about Center</td>
-<td class="org-left">\(\frac{1}{12}ML^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Rod about End</td>
-<td class="org-left">\(\frac{1}{3}ML^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Solid Sphere</td>
-<td class="org-left">\(\frac{2}{5}MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Hollow Sphere</td>
-<td class="org-left">\(\frac{2}{3}MR^2\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc00f991" class="outline-2">
-<h2 id="orgc00f991">Rotational Energy</h2>
-<div class="outline-text-2" id="text-orgc00f991">
-<p>
-The equation for <b>Rotational Work</b> is \(W_{net} = \tau \times \Delta \theta\). Using this and the <b>work-energy theorem</b>, <b>Rotational Kinetic Energy (\(K_{rot}\))</b> can be found to be \(K_{rot} = \frac{1}{2}I\omega^2\).
-</p>
-</div>
-
-<div id="outline-container-orgc0e0da9" class="outline-3">
-<h3 id="orgc0e0da9">An example or why objects don&rsquo;t roll downhill at the same rate</h3>
-<div class="outline-text-3" id="text-orgc0e0da9">
-<p>
-Soup companies will often test their soup cans by rolling down an incline, the soups that roll too fast are too thin and the slowest ones are too thick. But why is this?
-</p>
-<ul class="org-ul">
-<li>Assuming there is no friction, the only work on the soup cans is that of gravity.</li>
-<li>This means that \(mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\). Where the greater the \(I\) is, the less energy can be in the translation and vise versa.</li>
+<h1 class="title">Object-Oriented Programming
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org84bc7ae">1. Building Blocks of OOP</a>
+<ul>
+<li><a href="#org4113b2c">1.1. Classes</a></li>
+<li><a href="#org7406d3c">1.2. Objects</a></li>
+<li><a href="#orgd6cf3a1">1.3. Interfaces</a></li>
+</ul>
+</li>
+<li><a href="#orgc169aad">2. Inheritance</a></li>
+<li><a href="#orga432032">3. Static and Instance Methods</a></li>
+<li><a href="#orgf8830b4">4. Polymorphism</a></li>
 </ul>
 </div>
 </div>
+
+<div id="outline-container-org84bc7ae" class="outline-2">
+<h2 id="org84bc7ae"><span class="section-number-2">1.</span> Building Blocks of OOP</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org4113b2c" class="outline-3">
+<h3 id="org4113b2c"><span class="section-number-3">1.1.</span> Classes</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+That bit of code near the top of every <b>Java</b> file that we&rsquo;ve been writing up until now, <code>public class</code>, has actually been foreshadowing this part of the course. Every file that you&rsquo;ve written has actually been a <b>class</b>, but what is a <b>class</b>?
+</p>
+</div>
+</div>
+<div id="outline-container-org7406d3c" class="outline-3">
+<h3 id="org7406d3c"><span class="section-number-3">1.2.</span> Objects</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>An object can be referenced inside of its class with the <code>this</code> keyword.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgd6cf3a1" class="outline-3">
+<h3 id="orgd6cf3a1"><span class="section-number-3">1.3.</span> Interfaces</h3>
+</div>
+</div>
+<div id="outline-container-orgc169aad" class="outline-2">
+<h2 id="orgc169aad"><span class="section-number-2">2.</span> Inheritance</h2>
 </div>
 
-<div id="outline-container-org5e359c8" class="outline-2">
-<h2 id="org5e359c8">Angular Momentum</h2>
-<div class="outline-text-2" id="text-org5e359c8">
+<div id="outline-container-orga432032" class="outline-2">
+<h2 id="orga432032"><span class="section-number-2">3.</span> Static and Instance Methods</h2>
+<div class="outline-text-2" id="text-3">
 <p>
-<b>Angular Momentum (\(L\))</b> is defined as \(L=I\omega\), which is an analog of <b>linear momentum</b>. And just like linear momentum, <b>Angular Momentum</b> is conserved. So \(L_i + \Delta L = L_f\).
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/22a.Static-vs-Instance-Methods.pdf">Lecture Slides</a>
+</p>
+
+<p>
+<b>Static Methods</b> are called without a receiver while <b>Instance Methods</b> are called from an object called a <i>receiver</i>.
 </p>
 </div>
 </div>
 
-
-
-<div id="outline-container-orgd8424e1" class="outline-2">
-<h2 id="orgd8424e1">Rolling</h2>
-<div class="outline-text-2" id="text-orgd8424e1">
-</div>
-<div id="outline-container-org8ad9f3c" class="outline-3">
-<h3 id="org8ad9f3c">Flipping</h3>
-</div>
-<div id="outline-container-orgcf6b358" class="outline-3">
-<h3 id="orgcf6b358">Not Flipping</h3>
+<div id="outline-container-orgf8830b4" class="outline-2">
+<h2 id="orgf8830b4"><span class="section-number-2">4.</span> Polymorphism</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Refers to calling the same <b>Instance method</b> but on different implementations of a class.
+</p>
 </div>
 </div>
 </div>

@@ -63,21 +63,10 @@ h5 {
     margin: 0 auto;
 }
 
-/*
- *
- * = Tables =
- *
- */
-table {
-    margin: 0 auto;
-    border-top: 0px !important;
-    border-bottom: 0px !important;
+#postable {
+    margin: 1em auto;
+    text-align: center;
 }
-
-thead {
-    border-bottom: 2px solid var(--background);
-}
-
 
 /*
  *

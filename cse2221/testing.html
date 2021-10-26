@@ -6,7 +6,7 @@
 <!-- 2021-10-26 Tue 17:40 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rotation</title>
+<title>Testing</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,201 +193,122 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Rotation</h1>
-
-<div id="outline-container-orge370b20" class="outline-2">
-<h2 id="orge370b20">Angular Acceleration</h2>
-<div class="outline-text-2" id="text-orge370b20">
-<p>
-<b>Angular Velocity</b> form [][Circular Motion]] was defined as \(\omega = \frac{\Delta \theta}{\Delta t}\) and the relationship between <b>Angular Velocity</b> and <b>Linear Velocity</b> is defined as \(v = \omega r\). However, like most speeds, <b>Angular Velocity</b> does not have to be constant, it can be effected by <b>Angular Acceleration (\(\alpha\))</b> where \(\alpha = \frac{\Delta \omega}{\Delta t}\). Just like <b>Angular Velocity</b>, <b>Angular Acceleration</b> can be found in relation to <b>Translational Acceleration</b> with the equation \(a = r  \alpha\).
-</p>
-</div>
-</div>
-
-<div id="outline-container-org12088a6" class="outline-2">
-<h2 id="org12088a6">Rotational Kinematics</h2>
-<div class="outline-text-2" id="text-org12088a6">
-<p>
-The <b>Kinematics</b> for <b>Rotational Motion</b> describes the relationship between rotation angle, angular velocity, angular acceleration and time. Much like normal kinematics do for translational motion, in-fact they&rsquo;re so similar they use essentially the same equations.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Kinematics of Rotational Motion</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">\(\theta = \omega t\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\omega = \omega_0 + \alpha t\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\omega^2 - \omega^2_0 = 2\alpha \times \Delta \theta\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\Delta \theta = \omega_0 t + \frac{1}{2}\alpha t^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">\(\Delta \theta = \frac{1}{2} ( \omega_0 + \omega ) t\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-
-<div id="outline-container-org14a1533" class="outline-2">
-<h2 id="org14a1533">Rotational Dynamics</h2>
-<div class="outline-text-2" id="text-org14a1533">
-<p>
-Forces also play a role on <b>Angular Velocity</b> and as such the equation \(F = ma\) can be rewritten for rotational dynamics using \(a = r \alpha\), so \(F = mr\alpha\).
-</p>
-
-<p>
-Now using <b>Torque</b>, <i>the turning effectiveness of a force</i> from [][Circular Motion]], we know that torque is \(\tau = Fr\) because the force is <i>perpendicular</i> to \(r\). Now this also means that \(\tau = mr^2\alpha\). Here the quantity \(mr^2\) is referred to as <b>rotational inertia</b> or the <b>moment of inertia</b>.
-</p>
-</div>
-
-<div id="outline-container-org89c7f87" class="outline-3">
-<h3 id="org89c7f87">Moment of Inertia</h3>
-<div class="outline-text-3" id="text-org89c7f87">
-<p>
-The <b>moment of inertia \(I\)</b> is a sum of \(mr^2\) for all masses it is made of so \(I \sum_{i}{m_i r_i^2}\). this is because <b>moment of inertia</b> changes based on the shape of an object. The <b>net torque</b> of is defined using <b>moment of inertia</b> where \(\sum{\tau} = I\overrightarrow\alpha\).
-</p>
-
-<p>
-Because <b>moment of inertia</b> changes based on the shape of the object, it is helpful to know the <b>moment of inertia</b> for different objects. Note that these will be provided on tests.
-</p>
-
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<thead>
-<tr>
-<th scope="col" class="org-left">Shape</th>
-<th scope="col" class="org-left">Inertia</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="org-left">Hoop</td>
-<td class="org-left">\(MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Disk</td>
-<td class="org-left">\(\frac{1}{2}MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Rod about Center</td>
-<td class="org-left">\(\frac{1}{12}ML^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Rod about End</td>
-<td class="org-left">\(\frac{1}{3}ML^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Solid Sphere</td>
-<td class="org-left">\(\frac{2}{5}MR^2\)</td>
-</tr>
-
-<tr>
-<td class="org-left">Hollow Sphere</td>
-<td class="org-left">\(\frac{2}{3}MR^2\)</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-
-<div id="outline-container-orgc00f991" class="outline-2">
-<h2 id="orgc00f991">Rotational Energy</h2>
-<div class="outline-text-2" id="text-orgc00f991">
-<p>
-The equation for <b>Rotational Work</b> is \(W_{net} = \tau \times \Delta \theta\). Using this and the <b>work-energy theorem</b>, <b>Rotational Kinetic Energy (\(K_{rot}\))</b> can be found to be \(K_{rot} = \frac{1}{2}I\omega^2\).
-</p>
-</div>
-
-<div id="outline-container-orgc0e0da9" class="outline-3">
-<h3 id="orgc0e0da9">An example or why objects don&rsquo;t roll downhill at the same rate</h3>
-<div class="outline-text-3" id="text-orgc0e0da9">
-<p>
-Soup companies will often test their soup cans by rolling down an incline, the soups that roll too fast are too thin and the slowest ones are too thick. But why is this?
-</p>
-<ul class="org-ul">
-<li>Assuming there is no friction, the only work on the soup cans is that of gravity.</li>
-<li>This means that \(mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2\). Where the greater the \(I\) is, the less energy can be in the translation and vise versa.</li>
+<h1 class="title">Testing
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org2f90ab9">1. Unit Testing</a>
+<ul>
+<li><a href="#orgdc9f049">1.1. Determining Correctness</a></li>
+<li><a href="#org6d78581">1.2. Test Cases</a></li>
+</ul>
+</li>
+<li><a href="#orgeec5e32">2. JUnit</a>
+<ul>
+<li><a href="#org7c0a6ac">2.1. The <code>assert</code> Keyword</a></li>
+</ul>
+</li>
+<li><a href="#org5168e93">3. Test Driven Development</a></li>
 </ul>
 </div>
 </div>
+<p>
+<b>Testing</b> is a very common software engineering activity and is critical to ensure proper program execution. Because of this, there are many different testing methodologies. The one we will be covering in this class is <b>Unit Testing</b>.
+</p>
+
+
+<div id="outline-container-org2f90ab9" class="outline-2">
+<h2 id="org2f90ab9"><span class="section-number-2">1.</span> Unit Testing</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+The process of <b>Unit Testing</b> involves testing an individual <i>unit</i> of code at a time. A <i>unit</i> can be something like a method or a class.
+</p>
+<ul class="org-ul">
+<li>Testing what happens when multiple <i>units</i> are put together is called <b>Integration Testing</b></li>
+<li>Testing a entire end-user application is called <b>System Testing</b></li>
+</ul>
 </div>
 
-<div id="outline-container-org5e359c8" class="outline-2">
-<h2 id="org5e359c8">Angular Momentum</h2>
-<div class="outline-text-2" id="text-org5e359c8">
+<div id="outline-container-orgdc9f049" class="outline-3">
+<h3 id="orgdc9f049"><span class="section-number-3">1.1.</span> Determining Correctness</h3>
+<div class="outline-text-3" id="text-1-1">
 <p>
-<b>Angular Momentum (\(L\))</b> is defined as \(L=I\omega\), which is an analog of <b>linear momentum</b>. And just like linear momentum, <b>Angular Momentum</b> is conserved. So \(L_i + \Delta L = L_f\).
+To test a <i>unit</i> means that we must determine whether what it&rsquo;s doing it correct or not. We can actually determine the correctness by looking at the [Contract][]]. If the method fulfills its <b>contract</b> then it is correct.
+</p>
+
+<p>
+It is the job of a test to prove that something <i>doesn&rsquo;t</i> work, not why is doesn&rsquo;t work. Determining the <i>why</i> is the job of <b>Debugging</b>.
 </p>
 </div>
 </div>
 
+<div id="outline-container-org6d78581" class="outline-3">
+<h3 id="org6d78581"><span class="section-number-3">1.2.</span> Test Cases</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The <b>Test Cases</b> of an application need to be very deliberately created. These will typically follow a <b>Test Plan</b>.
+</p>
+
+<p>
+The best Practices for making a test plan include:
+</p>
+<ul class="org-ul">
+<li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
+</ul>
+<ul class="org-ul">
+<li>Testing <i>routine</i> cases</li>
+<li>Testing <i>challenging</i> cases</li>
+</ul>
+
+<p>
+A little joke about test cases:
+</p>
+<blockquote>
+<p>
+A Quality Assurance Tester walks into a bar,
+They ask for a beer
+They ask for 999 beers
+They ask for a water
+They ask for -1 beers
+They ask for a pink panda
+They ask for ::{}{  beers
+They leave
+</p>
+
+<p>
+A customer walks into a bar,
+They ask where the restroom is,
+The whole bar catches fire.
+</p>
+</blockquote>
+</div>
+</div>
+</div>
 
 
-<div id="outline-container-orgd8424e1" class="outline-2">
-<h2 id="orgd8424e1">Rolling</h2>
-<div class="outline-text-2" id="text-orgd8424e1">
+<div id="outline-container-orgeec5e32" class="outline-2">
+<h2 id="orgeec5e32"><span class="section-number-2">2.</span> JUnit</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+What we have been doing up until this point is creating test code and running the program with it. This is a very <i>primitive</i> method of testing and not recommended for actual testing. The best practice for <b>Java</b> is using <b>JUnit</b>.
+</p>
 </div>
-<div id="outline-container-org8ad9f3c" class="outline-3">
-<h3 id="org8ad9f3c">Flipping</h3>
+
+
+<div id="outline-container-org7c0a6ac" class="outline-3">
+<h3 id="org7c0a6ac"><span class="section-number-3">2.1.</span> The <code>assert</code> Keyword</h3>
 </div>
-<div id="outline-container-orgcf6b358" class="outline-3">
-<h3 id="orgcf6b358">Not Flipping</h3>
 </div>
+
+<div id="outline-container-org5168e93" class="outline-2">
+<h2 id="org5168e93"><span class="section-number-2">3.</span> Test Driven Development</h2>
 </div>
 </div>
 <div id="postamble" class="status">
