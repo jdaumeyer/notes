@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-26 Tue 17:40 -->
+<!-- 2021-10-26 Tue 18:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Testing</title>
@@ -212,7 +212,8 @@
 </li>
 <li><a href="#orgeec5e32">2. JUnit</a>
 <ul>
-<li><a href="#org7c0a6ac">2.1. The <code>assert</code> Keyword</a></li>
+<li><a href="#orge0cf52a">2.1. <code>@Test</code> Methods</a></li>
+<li><a href="#org7c0a6ac">2.2. The <code>assert</code> Keyword</a></li>
 </ul>
 </li>
 <li><a href="#org5168e93">3. Test Driven Development</a></li>
@@ -301,9 +302,24 @@ What we have been doing up until this point is creating test code and running th
 </p>
 </div>
 
+<div id="outline-container-orge0cf52a" class="outline-3">
+<h3 id="orge0cf52a"><span class="section-number-3">2.1.</span> <code>@Test</code> Methods</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+You can create test methods easily by writing whatever testing that you would have in the main method into its own method and prefixing it with <code>@Test</code>.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">@Test</span>
+<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
+</pre>
+</div>
+</div>
+</div>
+
 
 <div id="outline-container-org7c0a6ac" class="outline-3">
-<h3 id="org7c0a6ac"><span class="section-number-3">2.1.</span> The <code>assert</code> Keyword</h3>
+<h3 id="org7c0a6ac"><span class="section-number-3">2.2.</span> The <code>assert</code> Keyword</h3>
 </div>
 </div>
 
@@ -313,7 +329,7 @@ What we have been doing up until this point is creating test code and running th
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-26 Tue 17:40</p>
+<p class="date">Created: 2021-10-26 Tue 18:16</p>
 </div>
 </body>
 </html>
