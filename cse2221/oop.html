@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-26 Tue 18:16 -->
+<!-- 2021-10-28 Thu 14:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Object-Oriented Programming</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
@@ -200,63 +201,66 @@
 <br />
 <span class="subtitle">CSE 2221</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org84bc7ae">1. Building Blocks of OOP</a>
-<ul>
-<li><a href="#org4113b2c">1.1. Classes</a></li>
-<li><a href="#org7406d3c">1.2. Objects</a></li>
-<li><a href="#orgd6cf3a1">1.3. Interfaces</a></li>
-</ul>
-</li>
-<li><a href="#orgc169aad">2. Inheritance</a></li>
-<li><a href="#orga432032">3. Static and Instance Methods</a></li>
-<li><a href="#orgf8830b4">4. Polymorphism</a></li>
-<li><a href="#org9f6f6df">5. References</a>
-<ul>
-<li><a href="#org4acc7a6">5.1. Reference Type</a></li>
-<li><a href="#org5150aa2">5.2. Reference Value</a></li>
-<li><a href="#org47a4ce8">5.3. Aliases</a></li>
-<li><a href="#org7866819">5.4. Immutable Types</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
 <div id="outline-container-org84bc7ae" class="outline-2">
-<h2 id="org84bc7ae"><span class="section-number-2">1.</span> Building Blocks of OOP</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="org84bc7ae">Building Blocks of OOP</h2>
+<div class="outline-text-2" id="text-org84bc7ae">
 </div>
 <div id="outline-container-org4113b2c" class="outline-3">
-<h3 id="org4113b2c"><span class="section-number-3">1.1.</span> Classes</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="org4113b2c">Classes</h3>
+<div class="outline-text-3" id="text-org4113b2c">
 <p>
 That bit of code near the top of every <b>Java</b> file that we&rsquo;ve been writing up until now, <code>public class</code>, has actually been foreshadowing this part of the course. Every file that you&rsquo;ve written has actually been a <b>class</b>, but what is a <b>class</b>?
 </p>
+
+<p>
+A <b>class</b> is a framework that an object follows. They have methods that are both <i>declared</i> and <i>implemented</i> and objects can be instantiated from them. These objects will have all of the methods from the class and they <b>type</b> of the object will be the name of the class it is.
+</p>
 </div>
 </div>
+
 <div id="outline-container-org7406d3c" class="outline-3">
-<h3 id="org7406d3c"><span class="section-number-3">1.2.</span> Objects</h3>
-<div class="outline-text-3" id="text-1-2">
+<h3 id="org7406d3c">Objects</h3>
+<div class="outline-text-3" id="text-org7406d3c">
+<p>
+An <b>object</b> is simply an instantiated <b>class</b>. We have been working with <b>objects</b> all year, the code
+</p>
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">NaturalNumber</span> <span style="color: #e4e4e5;">n</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">NaturalNumber2</span><span style="color: #81a2be;">()</span>;
+</pre>
+</div>
+<p>
+Creates an <b>object</b> <code>n</code> that instantiates the class <code>NaturalNumber</code>.
+</p>
 <ul class="org-ul">
 <li>An object can be referenced inside of its class with the <code>this</code> keyword.</li>
 </ul>
 </div>
 </div>
+
 <div id="outline-container-orgd6cf3a1" class="outline-3">
-<h3 id="orgd6cf3a1"><span class="section-number-3">1.3.</span> Interfaces</h3>
+<h3 id="orgd6cf3a1">Interfaces</h3>
+<div class="outline-text-3" id="text-orgd6cf3a1">
+<p>
+And <b>Interface</b> is similar to a class but instead of <i>implementing</i> methods, it only <i>declares</i> them. They are made to define a loose framework for a <b>class</b> to follow. Any class that inherits from an <b>interface</b> has to implement all of the methods defined by the
+<b>interface</b> as well as any other methods it needs that are not declared by the <b>interface</b>.
+</p>
 </div>
 </div>
+</div>
+
 <div id="outline-container-orgc169aad" class="outline-2">
-<h2 id="orgc169aad"><span class="section-number-2">2.</span> Inheritance</h2>
+<h2 id="orgc169aad">Inheritance</h2>
+<div class="outline-text-2" id="text-orgc169aad">
+<p>
+<b>Inheritance</b> is a central idea of <b>Object-oriented programming</b>. It is the idea that <b>Classes</b> can <i>extend</i> other <b>classes</b> and <i>implement</i> <b>interfaces</b>.
+</p>
+</div>
 </div>
 
 <div id="outline-container-orga432032" class="outline-2">
-<h2 id="orga432032"><span class="section-number-2">3.</span> Static and Instance Methods</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="orga432032">Static and Instance Methods</h2>
+<div class="outline-text-2" id="text-orga432032">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/22a.Static-vs-Instance-Methods.pdf">Lecture Slides</a>
 </p>
@@ -264,12 +268,42 @@ That bit of code near the top of every <b>Java</b> file that we&rsquo;ve been wr
 <p>
 <b>Static Methods</b> are called without a receiver while <b>Instance Methods</b> are called from an object called a <i>receiver</i>.
 </p>
+<ul class="org-ul">
+<li><b>Static Methods</b> can be called from a class that implements them but not an object.</li>
+</ul>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Static Methods</th>
+<th scope="col" class="org-left">Instance Methods</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>staticMethod()</code></td>
+<td class="org-left"><code>object.instanceMethod()</code></td>
+</tr>
+
+<tr>
+<td class="org-left"><code>Class.staticMethod()</code></td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 
 <div id="outline-container-orgf8830b4" class="outline-2">
-<h2 id="orgf8830b4"><span class="section-number-2">4.</span> Polymorphism</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orgf8830b4">Polymorphism</h2>
+<div class="outline-text-2" id="text-orgf8830b4">
 <p>
 Refers to calling the same <b>Instance method</b> but on different implementations of a class.
 </p>
@@ -277,29 +311,29 @@ Refers to calling the same <b>Instance method</b> but on different implementatio
 </div>
 
 <div id="outline-container-org9f6f6df" class="outline-2">
-<h2 id="org9f6f6df"><span class="section-number-2">5.</span> References</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org9f6f6df">References</h2>
+<div class="outline-text-2" id="text-org9f6f6df">
 <p>
 All <b>Objects</b> are reference types, as opposed to all the base <b>Java</b> types which are not reference types (except for array).
 </p>
 </div>
 <div id="outline-container-org4acc7a6" class="outline-3">
-<h3 id="org4acc7a6"><span class="section-number-3">5.1.</span> Reference Type</h3>
+<h3 id="org4acc7a6">Reference Type</h3>
 </div>
 <div id="outline-container-org5150aa2" class="outline-3">
-<h3 id="org5150aa2"><span class="section-number-3">5.2.</span> Reference Value</h3>
+<h3 id="org5150aa2">Reference Value</h3>
 </div>
 <div id="outline-container-org47a4ce8" class="outline-3">
-<h3 id="org47a4ce8"><span class="section-number-3">5.3.</span> Aliases</h3>
+<h3 id="org47a4ce8">Aliases</h3>
 </div>
 <div id="outline-container-org7866819" class="outline-3">
-<h3 id="org7866819"><span class="section-number-3">5.4.</span> Immutable Types</h3>
+<h3 id="org7866819">Immutable Types</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-26 Tue 18:16</p>
+<p class="date">Created: 2021-10-28 Thu 14:46</p>
 </div>
 </body>
 </html>
