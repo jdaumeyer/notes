@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-28 Thu 14:46 -->
+<!-- 2021-10-30 Sat 17:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Energy</title>
@@ -194,6 +194,27 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -205,13 +226,34 @@
 <div id="outline-container-orgadb4908" class="outline-2">
 <h2 id="orgadb4908">Conservation Laws</h2>
 <div class="outline-text-2" id="text-orgadb4908">
+<p>
+In their most basic form, <b>Conservation Laws</b> essentially just state that a systems ends with what it starts with plus what is put into it. They are able to be used for any quantity that is conserved. So if we said apples were a conserved quantity, we would end with whatever amount of apples we started with minus the apples we eat.
+</p>
+<ul class="org-ul">
+<li><b>Conservation Laws</b> imply that things can&rsquo;t just come out of nowhere, there isn&rsquo;t a change in a quantity unless something causes it to happen.</li>
+<li>Some values are <i>conserved</i> in physics but there are plenty that aren&rsquo;t. Some values that are conserved are <b>Energy</b> and <b>Momentum</b> and even then there are circumstances when they aren&rsquo;t <i>conserved</i>.</li>
+</ul>
 </div>
+
 <div id="outline-container-org9fab589" class="outline-3">
 <h3 id="org9fab589">Work</h3>
 <div class="outline-text-3" id="text-org9fab589">
+<p>
+Because <b>Energy</b> can be conserved, it can only change if there is something put into the system. That something is <b>Work</b>.
+</p>
+
+<p>
+<b>Work (\(W\))</b> is simply a force applied over a distance, so \(W =  \vec{F}\cdot \vec{d}\). Because <i>Force</i> and <i>Distance</i> are both vector quantities, <b>Work</b> is the <i>dot product</i> of these two and we also have to find the force and distance that are in the same dimension that the <b>Energy</b> is changing.
+</p>
 </div>
+
 <div id="outline-container-org36ca3dd" class="outline-4">
 <h4 id="org36ca3dd">Non-Conservative Work</h4>
+<div class="outline-text-4" id="text-org36ca3dd">
+<p>
+<b>Work</b> can also be <i>Non-conservative</i> meaning that it takes energy out of the system. This is represented by the equation \(E_i + W_{external} = E_f\).
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -219,17 +261,40 @@
 <div id="outline-container-org538dc57" class="outline-2">
 <h2 id="org538dc57">Types of Energy</h2>
 <div class="outline-text-2" id="text-org538dc57">
+<p>
+There are two types of <b>Energy</b>, <b>Kinetic Energy (K)</b> which is the energy things have when moving and <b>Potential Energy (U)</b> which is the energy things <i>could</i> have.
+</p>
+<ul class="org-ul">
+<li><b>Potential Energy</b> isn&rsquo;t actually a real quantity. Instead is it a mathematical representation that is used to calculate what the value would be.</li>
+</ul>
 </div>
+
 <div id="outline-container-org24e78d4" class="outline-3">
 <h3 id="org24e78d4">Kinetic Energy</h3>
+<div class="outline-text-3" id="text-org24e78d4">
+<p>
+<b>Kinetic Energy</b> only occurs when things are moving and is represented by \(K = \frac{1}{2} m v^2\).
+</p>
 </div>
-<div id="outline-container-org3481ee1" class="outline-3">
-<h3 id="org3481ee1">Potential Energy</h3>
+</div>
+<div id="outline-container-org79a3657" class="outline-3">
+<h3 id="org79a3657">Gravitational Potential Energy</h3>
+<div class="outline-text-3" id="text-org79a3657">
+<p>
+<b>Gravitational Potential Energy</b> is the represent of how much energy a system has from its height. This is represented as \(U_g = mgh\).
+</p>
+</div>
 </div>
 <div id="outline-container-org021c1b7" class="outline-3">
 <h3 id="org021c1b7">Spring Kinetic Energy</h3>
+<div class="outline-text-3" id="text-org021c1b7">
+<p>
+<b>Spring Potential Energy</b> happens when an object is compressing a spring. It is represented by the equation \(U_s = \frac{1}{2} Kx^2\) where \(K\) is the <i>Spring Constant</i>, a value unique to every spring.
+</p>
 </div>
 </div>
+</div>
+
 
 <div id="outline-container-org3eb78c5" class="outline-2">
 <h2 id="org3eb78c5">Power</h2>
@@ -237,7 +302,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-28 Thu 14:46</p>
+<p class="date">Created: 2021-10-30 Sat 17:05</p>
 </div>
 </body>
 </html>
