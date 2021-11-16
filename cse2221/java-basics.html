@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-10-26 Tue 18:16 -->
+<!-- 2021-11-16 Tue 17:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java Basics</title>
@@ -352,7 +352,7 @@ When creating an instance of a <code>SimpleWriter1L</code>, if you pass a file n
 <code>SimpleReader</code> is very similar to <code>SimpleWritter</code> in how it is created. However, instead of handling output, <code>SimpleReader</code> handles input.
 </p>
 
-<pre class="example" id="org4dfd467">
+<pre class="example" id="org4ff0d74">
 SimpleReader keyboardIn = new SimpleReader1L();
 SimpleReader fileIn = new SimpleReader1L("foo.txt");
 
@@ -501,7 +501,7 @@ When you <i>declare</i> a variable, You provide both a name for it to store its 
 <ul class="org-ul">
 <li>When a value is assigned to a variable, it becomes <b>initialized</b></li>
 </ul>
-<pre class="example" id="orga844e65">
+<pre class="example" id="org514f71c">
 // These are two valid variable declarations
 int j;
 int i = 100;
@@ -516,7 +516,7 @@ int i = 100;
 A date value appearing, literally, in a program is called a <b>Literal</b>. Anytime you see a value in a program, it is a <b>Literal</b>.
 </p>
 
-<pre class="example" id="org365bf93">
+<pre class="example" id="org693b63a">
 int i = 27;
 
 int q = i + 32;
@@ -533,7 +533,7 @@ String s = i.toString() + " is a literal";
 <p>
 A <b>constant</b> is a <b>variable</b> that is initialized (assigned a value) but <i>never changed</i>. They are declared with the <b>keyword</b> <code>final</code>. <b>Constants</b> typically have a name that is in all caps and spaces are represented with a &ldquo;<code>_</code>&rdquo; (underscore) character.
 </p>
-<pre class="example" id="org9945219">
+<pre class="example" id="org37a1c21">
 final int MY_CONSTANT = 123456;
 </pre>
 </div>
@@ -842,7 +842,7 @@ Everything inside of the two curly braces (<code>{}</code>) is referred to as th
 <p>
 Also most methods are named using <b>camelCase</b>. This format starts with a lower-case word and each subsequent word is added to the end of the name (with no spaces) with the first letter capital.
 </p>
-<pre class="example" id="org086b5f7">
+<pre class="example" id="org27a7cdc">
 thisIsALongCamelCaseName
 camelCaseIsFun
 amISpellingCamelRight
@@ -857,6 +857,15 @@ amISpellingCamelRight
 Every <b>path of execution</b> throuh a method that returns a value
 </p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-org6d4a1d4" class="outline-2">
+<h2 id="org6d4a1d4">Wrapper Types</h2>
+<div class="outline-text-2" id="text-org6d4a1d4">
+<p>
+Every <i>Java</i> <b>Primitive</b> type has an object version called a <b>Wrapper</b>. Each wrapper is an <i>immutable</i> value that represents the <b>primitive</b> type that it is associated with. <i>Java</i> wil also automatically <b>unbox</b> these objects when they are being opperated on like the primitive types they represent.
+</p>
 </div>
 </div>
 
@@ -879,7 +888,7 @@ Every <b>path of execution</b> throuh a method that returns a value
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-10-26 Tue 18:16</p>
+<p class="date">Created: 2021-11-16 Tue 17:15</p>
 </div>
 </body>
 </html>
