@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-16 Tue 17:43 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Data Structures</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Data Structures
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+
+<div id="outline-container-orgeb9ed32" class="outline-2">
+<h2 id="orgeb9ed32">Queues</h2>
+<div class="outline-text-2" id="text-orgeb9ed32">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/27.Queue.pdf">Lecture Slides</a>
+</p>
+
+<p>
+The <b>Queue</b> is a data structure which is very common in computer science. It allows you to manipulate a series of entities in <i>FIFO</i> (First in first out)  order.
+There is also a <code>Queue</code> component in the <i>OSU CSE Components</i> library.
+</p>
+</div>
+
+<div id="outline-container-orge549780" class="outline-3">
+<h3 id="orge549780">Queue Component</h3>
+<div class="outline-text-3" id="text-orge549780">
+<p>
+The queue component has a few different methods
+</p>
+</div>
+
+<div id="outline-container-org1fb4e64" class="outline-4">
+<h4 id="org1fb4e64"><code>QueueKernel&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-org1fb4e64">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">enqueue</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">t</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds an item to the queue.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">dequeue</span><span style="color: #81a2be;">()</span> </code></dt><dd>Removes the top item from the queue.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">length</span><span style="color: #81a2be;">()</span></code></dt><dd>Returns the number of items in the queue.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org4eccb35" class="outline-4">
+<h4 id="org4eccb35"><code>Queue&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-org4eccb35">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">front</span><span style="color: #81a2be;">()</span></code></dt><dd>returns the oldest entry in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceFront</span><span style="color: #81a2be;">()</span></code></dt><dd>replaces the front of <code>this</code> and returns the value of the old front</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">append</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Queue</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">q</span><span style="color: #81a2be;">)</span></code></dt><dd>appends another queue <code>q</code> to the end of <code>this</code>, and clears <code>q</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">flip</span><span style="color: #81a2be;">()</span></code></dt><dd>flips the order of the elements in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">sort</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Comparator</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">order</span><span style="color: #81a2be;">)</span></code></dt><dd>Sorts <code>this</code> based on the way defined in <code>order</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">rotate</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">distance</span><span style="color: #81a2be;">)</span></code></dt><dd>Rotates <code>this</code> for <code>distance</code> elements.</dd>
+</dl>
+
+
+<p>
+A <code>Queue&lt;T&gt;</code> can be declared in the following way, where <code>T</code> represents the <i>type</i> of the <b>queue</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-java">  <span style="color: #81a2be;">Queue</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">Integer</span><span style="color: #81a2be;">&gt;</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">Queue1L</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">Integer</span><span style="color: #81a2be;">&gt;()</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgc8ae965" class="outline-2">
+<h2 id="orgc8ae965">Sets</h2>
+<div class="outline-text-2" id="text-orgc8ae965">
+</div>
+<div id="outline-container-org83bdee3" class="outline-3">
+<h3 id="org83bdee3">Mathematical Set Notation</h3>
+<div class="outline-text-3" id="text-org83bdee3">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/28.Set-Theory.pdf">Lecture Slides</a>
+</p>
+
+<p>
+A set can be a collection of zero or more elements of some type \(T\). We call this a <i>finite set</i> of \(T\).
+</p>
+<ul class="org-ul">
+<li>A set cannot have any <i>duplicates</i></li>
+<li>There is <i>no order</i> to the elements</li>
+</ul>
+
+<p>
+An empty set with no elements is denoted by \({  }\). As elements are added, they become comma separated inside of the curly brackets i.e. \({ 1, 4, 3 }\).
+</p>
+</div>
+
+<div id="outline-container-orgbdad0aa" class="outline-4">
+<h4 id="orgbdad0aa">Membership</h4>
+<div class="outline-text-4" id="text-orgbdad0aa">
+<p>
+Because a <b>set</b> has elements inside of it, we have notation for identifying which elements are inside of a <b>set</b>. If an element is in a <b>set</b> it is a <b>member</b> of that set.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5fac64e" class="outline-4">
+<h4 id="org5fac64e">Union</h4>
+<div class="outline-text-4" id="text-org5fac64e">
+<p>
+A <b>union</b> of two sets, is a combination of all the elements in each <b>set</b>.
+</p>
+<ul class="org-ul">
+<li>\(\{1, 2\} union \{2, 3\} \rightarrow \{1, 2, 3\}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org97e1a5b" class="outline-4">
+<h4 id="org97e1a5b">Intersection</h4>
+<div class="outline-text-4" id="text-org97e1a5b">
+<p>
+The <b>intersection</b> of two sets are the elements that only appear in both <b>sets</b>.
+</p>
+<ul class="org-ul">
+<li>\(\{1, 2\} \cap \{2, 3\} \rightarrow \{2\}\)</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd1bd890" class="outline-4">
+<h4 id="orgd1bd890">Difference</h4>
+<div class="outline-text-4" id="text-orgd1bd890">
+<p>
+The <b>difference</b> of two <b>sets</b> are the elements that don&rsquo;t appear in both.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org66502d2" class="outline-4">
+<h4 id="org66502d2">Subsets</h4>
+<div class="outline-text-4" id="text-org66502d2">
+<p>
+<b>Sets</b> can be <b>subsets</b> of another <b>set</b> if all the elements of one <b>set</b> appear in another <b>set</b>. They are a <b>Proper subset</b> if they don&rsquo;t equal each other.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga73688a" class="outline-3">
+<h3 id="orga73688a">Set Component</h3>
+<div class="outline-text-3" id="text-orga73688a">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/29.Set.pdf">Lecture Slides</a>
+</p>
+
+<p>
+There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</code> which represents this mathematical model, where <code>T</code> represents the <i>type</i> of the elements in the set.
+</p>
+</div>
+
+<div id="outline-container-org0eb872a" class="outline-4">
+<h4 id="org0eb872a"><code>Set&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-org0eb872a">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds <code>x</code> to <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>Removes <code>x</code> from <code>this</code> and returns <code>x</code>. When <code>x</code> is a reference, it is removed based on value not reference.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">removeAny</span><span style="color: #81a2be;">()</span></code></dt><dd>Removes and returns an arbitrary element from <code>this</code>. However this is not a random value.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">constains</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>returns <code>true</code> if <code>x</code> is in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">size</span><span style="color: #81a2be;">()</span></code></dt><dd>Returns the size of <code>this</code></dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Set</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds to <code>this</code> all of the elements of <code>s</code> that are not already in <code>this</code> and removes those elements from <code>s</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">Set</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Set</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>removes the elements of <code>s</code> that appear in <code>this</code> and returns a set containing the removed elements.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">isSubset</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Set</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>Checks whether <code>this</code> is a subset of <code>s</code>.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4916127" class="outline-2">
+<h2 id="org4916127">Sequence</h2>
+<div class="outline-text-2" id="text-org4916127">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/31.Sequence.pdf">Lecture Slides</a>
+</p>
+</div>
+
+<div id="outline-container-org0a2c2b0" class="outline-3">
+<h3 id="org0a2c2b0"><code>SequenceKernel&lt;T&gt;</code> interface methods</h3>
+<div class="outline-text-3" id="text-org0a2c2b0">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span>, <span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>adds <code>x</code> at position <code>pos</code> of <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span><span style="color: #81a2be;">)</span></code></dt><dd>removes the element at position <code>pos</code> of <code>this</code> and returns it.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">length</span><span style="color: #81a2be;">()</span></code></dt><dd>returns how many elements are in <code>this</code>.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org97b72da" class="outline-3">
+<h3 id="org97b72da"><code>Sequence&lt;T&gt;</code> class methods</h3>
+<div class="outline-text-3" id="text-org97b72da">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">entry</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span><span style="color: #81a2be;">)</span></code></dt><dd>returns the element of <code>this</code> at position <code>pos</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceEntry</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span>, <span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>replaces the entry at position <code>pos</code> of <code>this</code> with <code>x</code>, returns the previous element.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">append</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Sequence</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>concatenates <code>s</code> to the end of <code>this</code> and <i>clears</i> <code>s</code>. <code>s</code> and <code>this</code> must be of the same type <code>T</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">flip</span><span style="color: #81a2be;">()</span></code></dt><dd><i>&ldquo;flips&rdquo;</i> the order of <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">insert</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span>, <span style="color: #81a2be;">Sequence</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>add the <b>Sequence</b> <code>s</code> to the position <code>pos</code> of <code>this</code> and clears <code>s</code>. <code>s</code> and <code>this</code> must have the same type <code>T</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">extract</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos1</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos2</span>, <span style="color: #81a2be;">Sequence</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">s</span><span style="color: #81a2be;">)</span></code></dt><dd>sets <code>s</code> to the sequence from <code>pos1</code> to <code>pos2</code> and removes it from <code>this</code>.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc1e44cd" class="outline-2">
+<h2 id="orgc1e44cd">Genome Reassembly from Fragments</h2>
+</div>
+<div id="outline-container-org4257b20" class="outline-2">
+<h2 id="org4257b20">Stacks</h2>
+<div class="outline-text-2" id="text-org4257b20">
+<p>
+<b>Stacks</b> are a <i>LIFO</i> (last in first out) data structure.
+</p>
+</div>
+
+<div id="outline-container-org3c79e38" class="outline-4">
+<h4 id="org3c79e38"><code>StackKernel</code> Methods</h4>
+<div class="outline-text-4" id="text-org3c79e38">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/stack/StackKernel.html">Documentation Link</a>
+</p>
+
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">push</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>adds <code>x</code> to the top of <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">pop</span><span style="color: #81a2be;">()</span></code></dt><dd>pops off the top element of <code>this</code> and returns it.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">length</span><span style="color: #81a2be;">()</span></code></dt><dd>returns the amount of elements in <code>this</code></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orgf317edf" class="outline-4">
+<h4 id="orgf317edf"><code>Stack1L</code> Methods</h4>
+<div class="outline-text-4" id="text-orgf317edf">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">top</span><span style="color: #81a2be;">()</span></code></dt><dd>returns the top element of <code>this</code> without actually removing it from <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceTop</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>returns the top element of <code>this</code> and replaces it with <code>x</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">flip</span><span style="color: #81a2be;">()</span></code></dt><dd>flips/reverses <code>this</code>.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2021-11-16 Tue 17:43</p>
+</div>
+</body>
+</html>
