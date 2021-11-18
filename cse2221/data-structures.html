@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-16 Tue 17:43 -->
+<!-- 2021-11-18 Thu 17:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Structures</title>
@@ -429,6 +429,10 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 <h2 id="org4257b20">Stacks</h2>
 <div class="outline-text-2" id="text-org4257b20">
 <p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/32.Stack.pdf">Lecture Slides</a>
+</p>
+
+<p>
 <b>Stacks</b> are a <i>LIFO</i> (last in first out) data structure.
 </p>
 </div>
@@ -439,7 +443,6 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 <p>
 <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/stack/StackKernel.html">Documentation Link</a>
 </p>
-
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">push</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>adds <code>x</code> to the top of <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">pop</span><span style="color: #81a2be;">()</span></code></dt><dd>pops off the top element of <code>this</code> and returns it.</dd>
@@ -459,10 +462,54 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 </div>
 </div>
 </div>
+
+<div id="outline-container-org848c43e" class="outline-2">
+<h2 id="org848c43e">Map</h2>
+<div class="outline-text-2" id="text-org848c43e">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/34.Map.pdf">Lecture Slides</a>
+</p>
+
+<p>
+The <b>Map</b> data structure assigns a <i>key</i> to a <i>value</i>. <b>Maps</b> are <i>one-to-one</i> meaning that every <i>key</i> only has one <i>value</i>.
+</p>
+</div>
+
+<div id="outline-container-org1a954ac" class="outline-3">
+<h3 id="org1a954ac">Component</h3>
+<div class="outline-text-3" id="text-org1a954ac">
+</div>
+<div id="outline-container-org20bb3fc" class="outline-4">
+<h4 id="org20bb3fc"><code>MapKernel</code> Methods</h4>
+<div class="outline-text-4" id="text-org20bb3fc">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span>, <span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds the pair (<code>key</code>, <code>value</code>) to <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">Map</span>.<span style="color: #81a2be;">Pair</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">K</span>,<span style="color: #81a2be;">V</span><span style="color: #81a2be;">&gt;</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span><span style="color: #81a2be;">)</span></code></dt><dd>Removes the <i>pair</i> at <code>key</code> of <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">Map</span>.<span style="color: #81a2be;">Pair</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">K</span>,<span style="color: #81a2be;">V</span><span style="color: #81a2be;">&gt;</span> <span style="color: #de935f;">removeAny</span><span style="color: #81a2be;">()</span></code></dt><dd>Returns an arbitrary <i>pair</i> from <code>this</code>, however it doesn&rsquo;t do this randomly like <b>Set</b>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">V</span> <span style="color: #de935f;">value</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span><span style="color: #81a2be;">)</span></code></dt><dd>Returns the <i>value</i> of the corresponding <code>key</code> in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">hasKey</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span><span style="color: #81a2be;">)</span></code></dt><dd>Reports whether the <code>key</code> exists in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">size</span><span style="color: #81a2be;">()</span></code></dt><dd>Returns the <i>size</i> of <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">V</span> <span style="color: #de935f;">replaceValue</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span>, <span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Replaces the value at <code>key</code> with <code>value</code> and returns the old value.</dd>
+</dl>
+</div>
+</div>
+<div id="outline-container-org80f8da0" class="outline-4">
+<h4 id="org80f8da0"><code>Map1L</code> Methods</h4>
+<div class="outline-text-4" id="text-org80f8da0">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">K</span> <span style="color: #de935f;">key</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Returns a corresponding <i>key</i> of <code>value</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">hasValue</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Reports whether <code>value</code> exists in <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">combineWith</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Map</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">K</span>, <span style="color: #81a2be;">V</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">m</span><span style="color: #81a2be;">)</span></code></dt><dd>Combines <code>m</code> with <code>this</code>.</dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">sharesKeyWith</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">Map</span><span style="color: #85678f;">&lt;</span><span style="color: #81a2be;">K</span>,<span style="color: #81a2be;">V</span><span style="color: #85678f;">&gt;</span> <span style="color: #e4e4e5;">m</span><span style="color: #81a2be;">)</span></code></dt><dd>Reports with <code>this</code> and <code>m</code> have any <i>keys</i> in common.</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-11-16 Tue 17:43</p>
+<p class="date">Created: 2021-11-18 Thu 17:57</p>
 </div>
 </body>
 </html>
