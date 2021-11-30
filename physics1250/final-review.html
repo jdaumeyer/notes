@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-11-30 Tue 16:22 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Final Review</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Final Review</h1>
+
+<div id="outline-container-org9443d35" class="outline-2">
+<h2 id="org9443d35">Short Answer Questions</h2>
+<div class="outline-text-2" id="text-org9443d35">
+</div>
+<div id="outline-container-orgb698f41" class="outline-3">
+<h3 id="orgb698f41">Quizzes</h3>
+<div class="outline-text-3" id="text-orgb698f41">
+</div>
+<div id="outline-container-org2540eb1" class="outline-4">
+<h4 id="org2540eb1">A baseball is thrown up and to the right. At the highest point in its flight, the direction of the velocity and acceleration of the baseball respectively are…</h4>
+<div class="outline-text-4" id="text-org2540eb1">
+<ul class="org-ul">
+<li>zero velocity; zero acceleration</li>
+<li>zero velocity; down</li>
+<li>zero velocity; right</li>
+<li>up; left</li>
+<li>down; up</li>
+<li>left; zero acceleration</li>
+<li>right; zero acceleration</li>
+<li>right; down (Correct)</li>
+<li>right; left</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb8c3449" class="outline-4">
+<h4 id="orgb8c3449">A volleyball crosses the net at a height of 2.6 m.  Rather than letting it fall, a volleyball player hits the volleyball straight downward to reduce the other team’s time to react.  The 2.6 m can be found in which feature of which velocity-time graph?  Upward is positive.</h4>
+<div class="outline-text-4" id="text-orgb8c3449">
+
+<div id="org2b6dd85" class="figure">
+<p><img src="https://cdn.inst-fs-iad-prod.inscloudgate.net/62c3addf-30de-4b1c-92ac-81d3fea85cfc/quiz1.png?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii82MmMzYWRkZi0zMGRlLTRiMWMtOTJhYy04MWQzZmVhODVjZmMvcXVpejEucG5nIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6Ijg1OTcwMDAwMDAwNTQ3MzU2IiwiaWF0IjoxNjM4Mjg4ODk5LCJleHAiOjE2MzgzNzUyOTl9.1JVpZAn9Wi_5nW3ddRvVq2c7gfjbUq8Vdg-nKMJIXjvXIwdmMRoL_399eRH6bfWk8afgvz0SaMR_tKNY7ZGJuw&amp;download=1&amp;content_type=image%2Fpng" alt="quiz1.png?token=eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCIsImtpZCI6ImNkbiJ9.eyJyZXNvdXJjZSI6Ii82MmMzYWRkZi0zMGRlLTRiMWMtOTJhYy04MWQzZmVhODVjZmMvcXVpejEucG5nIiwidGVuYW50IjoiY2FudmFzIiwidXNlcl9pZCI6Ijg1OTcwMDAwMDAwNTQ3MzU2IiwiaWF0IjoxNjM4Mjg4ODk5LCJleHAiOjE2MzgzNzUyOTl9.1JVpZAn9Wi_5nW3ddRvVq2c7gfjbUq8Vdg-nKMJIXjvXIwdmMRoL_399eRH6bfWk8afgvz0SaMR_tKNY7ZGJuw&amp;download=1&amp;content_type=image%2Fpng" />
+</p>
+</div>
+<ul class="org-ul">
+<li>left figure value</li>
+<li>left figure area</li>
+<li>left figure slope</li>
+<li>center figure value</li>
+<li>center figure area</li>
+<li>center figure slope</li>
+<li>right figure value</li>
+<li>right figure area (correct)</li>
+<li>right figure slope</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orged6f9de" class="outline-4">
+<h4 id="orged6f9de">A ball is thrown with a velocity of 25 m/s at an angle of 53° above horizontal.  What are the horizontal and vertical components of its initial velocity respectively in m/s?  Upward is positive.</h4>
+<div class="outline-text-4" id="text-orged6f9de">
+<ul class="org-ul">
+<li>-23; 10</li>
+<li>0; -9.8</li>
+<li>15; 20 (Correct)</li>
+<li>20; -9.8</li>
+<li>20; 15</li>
+<li>25; -9.8</li>
+<li>25; -25</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7403acc" class="outline-4">
+<h4 id="org7403acc">The ball in the previous problem (thrown with a velocity of 25 m/s at an angle of 53° above horizontal) hits a wall 3 seconds later.  What is the vertical displacement of the ball during its flight in m?  Upward is positive.</h4>
+<div class="outline-text-4" id="text-org7403acc">
+<ul class="org-ul">
+<li>-9.8</li>
+<li>-9.4</li>
+<li>0</li>
+<li>3.0</li>
+<li>5.9</li>
+<li>15.0</li>
+<li>15.8 (Correct)</li>
+<li>20.3</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org27204c5" class="outline-4">
+<h4 id="org27204c5">A small moving car runs into a large stationary truck. As they collide, which statement about the magnitude of the forces is correct?</h4>
+<div class="outline-text-4" id="text-org27204c5">
+<ul class="org-ul">
+<li>Fcar-on-truck &gt; Ftruck-on-car = 0</li>
+<li>Ftruck-on-car &gt; Fcar-on-truck &gt; 0</li>
+<li>Fcar-on-truck &gt; Ftruck-on-car &gt; 0</li>
+<li>Ftruck-on-car &gt; Fcar-on-truck = 0</li>
+<li>Ftruck-on-car = Fcar-on-truck &gt; 0 (Correct)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge7ad8d7" class="outline-4">
+<h4 id="orge7ad8d7">You stand at the top of a cliff holding a ball.  You want the ball to land with the least speed possible.  You should&#x2026;</h4>
+<div class="outline-text-4" id="text-orge7ad8d7">
+<ul class="org-ul">
+<li>throw it upward</li>
+<li>throw it downward</li>
+<li>throw it horizontally</li>
+<li>just drop it (Correct)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgf9ad7c6" class="outline-4">
+<h4 id="orgf9ad7c6">You are doing the &rsquo;tablecloth trick&rsquo;, where you pull the tablecloth out from under a plate.  As you pull the tablecloth, the work done by the tablecloth on the plate is&#x2026;  (treat this as a real situation, as shown in the friction video, not one where the tablecloth is yanked with infinite speed)</h4>
+<div class="outline-text-4" id="text-orgf9ad7c6">
+<ul class="org-ul">
+<li>positive from the normal force; positive form the friction force</li>
+<li>positive from the normal force; zero form the friction force</li>
+<li>positive from the normal force; negative form the friction force</li>
+<li>zero from the normal force; positive form the friction force (Correct)</li>
+<li>zero from the normal force; zero form the friction force</li>
+<li>zero from the normal force; negative form the friction force</li>
+<li>negative from the normal force; positive form the friction force</li>
+<li>negative from the normal force; zero form the friction force</li>
+<li>negative from the normal force; negative form the friction force</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5da0fb7" class="outline-4">
+<h4 id="org5da0fb7">Two unequal masses collide as shown (larger object has more mass). No other unseen forces are present. The numbers by the arrows are speeds.  The collision shown could not happen because it violates&#x2026;</h4>
+<div class="outline-text-4" id="text-org5da0fb7">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36210312/preview">https://osu.instructure.com/courses/108137/files/36210312/preview</a>
+</p>
+<ul class="org-ul">
+<li>conservation of energy</li>
+<li>conservation of momentum</li>
+<li>both conservation of energy and momentum</li>
+<li>neither; it could happen (Correct)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgff1d1f9" class="outline-4">
+<h4 id="orgff1d1f9">Two unequal masses collide as shown (larger object has more mass). No other unseen forces are present. The numbers by the arrows are speeds.  The collision shown could not happen because it violates&#x2026;</h4>
+<div class="outline-text-4" id="text-orgff1d1f9">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36210254/preview">https://osu.instructure.com/courses/108137/files/36210254/preview</a>
+</p>
+<ul class="org-ul">
+<li>conservation of energy</li>
+<li>conservation of momentum</li>
+<li>both conservation of energy and momentum (Correct)</li>
+<li>neither; it could happen</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org8ec5915" class="outline-4">
+<h4 id="org8ec5915">A 1800 kg car moving at 19 m/s runs into a stationary 5700 kg truck.  After the collision, the car is observed to be moving backward (opposite it’s original velocity) with a speed of 6 m/s.  What is the speed of the truck after the collision?  Assume that no other horizontal forces are present during the collision.  Hint: the collision is not necessarily elastic.</h4>
+<div class="outline-text-4" id="text-org8ec5915">
+<ul class="org-ul">
+<li>0</li>
+<li>4.1 m/s</li>
+<li>6.0 m/s</li>
+<li>7.9 m/s (Correct)</li>
+<li>9.1 m/s</li>
+<li>19 m/s</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org7d781e6" class="outline-4">
+<h4 id="org7d781e6">In the collision from the previous problem, what is the magnitude of the impulse that the truck puts on the car during the collision?</h4>
+<div class="outline-text-4" id="text-org7d781e6">
+<ul class="org-ul">
+<li>0 Ns</li>
+<li>10 kNs</li>
+<li>23 kNs</li>
+<li>34 kNs</li>
+<li>45 kNs (Correct)</li>
+<li>52 kNs</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgbb76d65" class="outline-4">
+<h4 id="orgbb76d65">An old-fashion vinyl record player takes 2 seconds to spin up from rest to 45 rpm.  What is the angular acceleration in radians/s2?  (Within 1%)</h4>
+<div class="outline-text-4" id="text-orgbb76d65">
+<p>
+2.356 (with margin: 0.04)
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-org14a92b8" class="outline-4">
+<h4 id="org14a92b8">A wheel of radius 5 cm rotates clockwise around its center with a constant angular velocity of 3 rad/s.  Consider the linear acceleration a of the point P.  Which has a greater magnitude, the horizontal or vertical component of the acceleration?  (Horizontal = left-right, vertical = up &amp; down the page/screen)</h4>
+<div class="outline-text-4" id="text-org14a92b8">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36411786/preview">https://osu.instructure.com/courses/108137/files/36411786/preview</a>
+</p>
+<ul class="org-ul">
+<li>The horizontal is greater because the vertical acceleration is zero</li>
+<li>The horizontal is greater but the vertical acceleration is not zero</li>
+<li>The vertical is greater because the horizontal acceleration is zero (Correct)</li>
+<li>The vertical is greater but the horizontal acceleration is not zero</li>
+<li>The horizontal and vertical components have the same non-zero magnitude</li>
+<li>The horizontal and vertical components are both zero</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgacf4241" class="outline-4">
+<h4 id="orgacf4241">A harmonic oscillator with a natural frequency of 80 Hz is continuously driven by an external force with frequency 50 Hz. At what frequency will the oscillator continue to oscillate?</h4>
+<div class="outline-text-4" id="text-orgacf4241">
+<ul class="org-ul">
+<li>30 Hz</li>
+<li>50 Hz (Correct)</li>
+<li>65 Hz</li>
+<li>80 Hz</li>
+<li>no oscillation because the driving frequency is not equal to the natural frequency</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org5ad3159" class="outline-3">
+<h3 id="org5ad3159">Midterms</h3>
+<div class="outline-text-3" id="text-org5ad3159">
+</div>
+<div id="outline-container-orga0d060b" class="outline-5">
+<h5 id="orga0d060b">A man is pushing a large crate across a rough floor at an increasing speed in one direction. There is a friction force between the crate and the floor. The crate increases in speed because&#x2026;   (hint: some answers may be true but do not explain this, so they are incorrect)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="mt1">mt1</span></span></h5>
+<div class="outline-text-5" id="text-orga0d060b">
+<ul class="org-ul">
+<li>the force of the man on the crate is greater than the weight of the crate.</li>
+<li>the normal force of the floor on the crate is equal to the weight of the crate.</li>
+<li>the force of the man on the crate is greater than the force of the crate on the man.</li>
+<li>the force of the man on the crate is equal to the force of the crate on the man.</li>
+<li>the force of the man on the crate is equal to the force of friction on the crate.</li>
+<li>the force of the man on the crate is greater than the force of friction on the crate. (Correct)</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgf8b6150" class="outline-4">
+<h4 id="orgf8b6150">Columbus resident Conn Baker popularized the bicycle loop trick as a circus act around 1905 (he’s the one in the picture).  At the peak of the loop, as depicted in the picture, what is the direction of the net force on the bike and rider? Ignore friction and air resistance.</h4>
+<div class="outline-text-4" id="text-orgf8b6150">
+<ul class="org-ul">
+<li>up</li>
+<li>up and right</li>
+<li>right</li>
+<li>right and down</li>
+<li>down (Correct)</li>
+<li>down and left</li>
+<li>left</li>
+<li>left and up</li>
+<li>zero net force</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgd978127" class="outline-4">
+<h4 id="orgd978127">One person is lifting a 150 N box (the weight, not the mass) using a rope and the system of pulleys shown and applies a force such that the box moves up with a constant velocity. Find the magnitude of the force the person is applying. Assume that the rope and pulleys are massless and frictionless.</h4>
+<div class="outline-text-4" id="text-orgd978127">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/35408281/preview">https://osu.instructure.com/courses/108137/files/35408281/preview</a>
+</p>
+<ul class="org-ul">
+<li>0 N</li>
+<li>9.8 N</li>
+<li>25 N</li>
+<li>50 N</li>
+<li>75 N (Correct)</li>
+<li>100 N</li>
+<li>150 N</li>
+<li>250 N</li>
+<li>300 N</li>
+</ul>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgdb00db3" class="outline-4">
+<h4 id="orgdb00db3">A truck, starting from rest, accelerates to the left. A large box sits in the back of the truck and moves with the truck without sliding. What type of friction force, and in what direction, acts on the box from the bed of the truck?</h4>
+<div class="outline-text-4" id="text-orgdb00db3">
+<ul class="org-ul">
+<li>Kinetic friction to the left</li>
+<li>Kinetic friction to the right</li>
+<li>Static friction to the left (Correct)</li>
+<li>Static friction to the right</li>
+<li>No friction force</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgfa2d5f0" class="outline-4">
+<h4 id="orgfa2d5f0">A soccer player kicks a ball that is on the ground down field. The balls initial speed is 25 m/s and it reaches a maximum height of 15 m. How far in the horizontal direction does the ball land down field? Ignore air resistance.</h4>
+<div class="outline-text-4" id="text-orgfa2d5f0">
+<ul class="org-ul">
+<li>10.2 m</li>
+<li>43.7 m</li>
+<li>59.2 m</li>
+<li>63.7 m (Correct)</li>
+<li>80.7 m</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org64260c6" class="outline-4">
+<h4 id="org64260c6">Alex, a 50.0-kg girl runs at a speed of 10.0 m/s and jumps onto a cart as shown in the figure. The cart is initially at rest. The speed of the cart with Alex on it is 2.50 m/s.</h4>
+<div class="outline-text-4" id="text-org64260c6">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36756335/download?wrap=1">https://osu.instructure.com/courses/108137/files/36756335/download?wrap=1</a>
+As Alex lands on the cart, which is/are conserved (unchanged)?  The questions are about the energy and momentum of just Alex, NOT Alex and the cart.
+</p>
+<ul class="org-ul">
+<li>energy but not momentum</li>
+<li>momentum but not energy</li>
+<li>both energy and momentum</li>
+<li>neither energy nor momentum (Correct)</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org052ccaa" class="outline-4">
+<h4 id="org052ccaa">A ball enters a box with speed 10 m/s (without spinning) along the direction depicted in the diagram. Some time later the ball is observed leaving the box with the same 10 m/s speed (again without spinning) but in a different direction as shown. From this, we can conclude that in the box&#x2026;</h4>
+<div class="outline-text-4" id="text-org052ccaa">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36774503/preview">https://osu.instructure.com/courses/108137/files/36774503/preview</a>
+</p>
+<ul class="org-ul">
+<li>The impulse on the ball was nonzero but the net work done on the ball was zero (Correct)</li>
+<li>The impulse on the ball was nonzero and the net work done on the ball was nonzero</li>
+<li>The impulse on the ball was zero but the net work done on the ball was nonzero</li>
+<li>The impulse on the ball was zero and the net work done on the ball was zero</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org71faef6" class="outline-4">
+<h4 id="org71faef6">A large beetle walks rapidly inward on top of a disk that is freely rotating horizontally about a frictionless axle at P. Consider the system consisting of the beetle plus the disk. While the beetle moves inward, which of the following statements is correct?</h4>
+<div class="outline-text-4" id="text-org71faef6">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36756337/download?wrap=1">https://osu.instructure.com/courses/108137/files/36756337/download?wrap=1</a>
+</p>
+<ul class="org-ul">
+<li>The magnitude of the system’s angular momentum increases</li>
+<li>The magnitude of the system’s angular momentum decreases</li>
+<li>The magnitude of the system’s angular velocity increases (Correct)</li>
+<li>The magnitude of the system’s angular velocity decreases</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org569ae06" class="outline-4">
+<h4 id="org569ae06">A uniform solid disk and a hoop are placed at the top of a ramp.  When released, they each roll down the ramp without slipping.  Which has the greatest speed when reaching the bottom of the ramp? (They might not reach the bottom of the ramp at the same time).</h4>
+<div class="outline-text-4" id="text-org569ae06">
+<ul class="org-ul">
+<li>the solid disk (Correct)</li>
+<li>the hoop</li>
+<li>the one with the greater mass egardless of shape</li>
+<li>they have the same speed</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5475910" class="outline-4">
+<h4 id="org5475910">Initially, a wheel is rotating counterclockwise at a rate of 7.0 rad/s. After 6.0 full revolutions, the wheel is rotating counterclockwise at a rate of 4.0 rad/s. Assuming constant angular acceleration and taking counterclockwise as positive, what is the angular acceleration?</h4>
+<div class="outline-text-4" id="text-org5475910">
+<ul class="org-ul">
+<li>-2.8 rad/s2</li>
+<li>-0.92 rad/s2</li>
+<li>-0.44 rad/s2 (Correct)</li>
+<li>0</li>
+<li>+0.44 rad/s2</li>
+<li>+0.92 rad/s2</li>
+<li>+2.8 rad/s2</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org5ba2e54" class="outline-4">
+<h4 id="org5ba2e54">A 2.0 kg block is attached to a spring with force constant 6.0 N/m. The block sits on a frictionless horizontal surface. The block is pulled 0.5 meters away from the equilibrium position (x=0) and released from rest. What is the speed of the block as it crosses the equilibrium position?</h4>
+<div class="outline-text-4" id="text-org5ba2e54">
+<p>
+<a href="https://osu.instructure.com/courses/108137/files/36776866/preview">https://osu.instructure.com/courses/108137/files/36776866/preview</a>
+</p>
+<ul class="org-ul">
+<li>0 m/s</li>
+<li>0.42 m/s</li>
+<li>0.87 m/s (Correct)</li>
+<li>1.2 m/s</li>
+<li>1.7 m/s</li>
+<li>6.0 m/s</li>
+<li>9.8 m/s</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org48371a5" class="outline-2">
+<h2 id="org48371a5">Extended Response</h2>
+<div class="outline-text-2" id="text-org48371a5">
+</div>
+<div id="outline-container-orgdd772f8" class="outline-3">
+<h3 id="orgdd772f8">Quizzes</h3>
+</div>
+<div id="outline-container-org6c62c4e" class="outline-3">
+<h3 id="org6c62c4e">Midterms</h3>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2021-11-30 Tue 16:22</p>
+</div>
+</body>
+</html>
