@@ -98,3 +98,11 @@ dt {
 dd {
     text-align: left;
 }
+
+/*
+ * Fit Images
+ */
+img {
+    width: 90%;
+    height: auto;
+}
