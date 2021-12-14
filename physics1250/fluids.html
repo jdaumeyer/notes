@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-16 Tue 17:16 -->
+<!-- 2021-12-08 Wed 17:57 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Fluids</title>
@@ -193,6 +193,28 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -200,86 +222,41 @@
 <br />
 <span class="subtitle">PHYSICS 1250</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org9154af8">1. Fluid Statics</a>
-<ul>
-<li><a href="#orgd944dba">1.1. What Fluids are</a>
-<ul>
-<li><a href="#orgbaf7ef0">1.1.1. Density</a></li>
-<li><a href="#orgb5c4944">1.1.2. Pressure</a>
-<ul>
-<li><a href="#org7618285">1.1.2.1. Variation of Pressure</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgd9a4877">1.2. Pascal&rsquo;s Principle</a></li>
-<li><a href="#org4a7dc58">1.3. Archimedes&rsquo; Principle</a></li>
-<li><a href="#org220c55d">1.4. Capillary Action</a></li>
-</ul>
-</li>
-<li><a href="#org18d1c8b">2. Fluid Dynamics</a>
-<ul>
-<li><a href="#org52854a6">2.1. Flow Rate</a></li>
-<li><a href="#org6463b8f">2.2. Bernoulli&rsquo;s Equation</a></li>
-<li><a href="#org7132cee">2.3. Viscosity and Laminar Flow</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-org9154af8" class="outline-2">
-<h2 id="org9154af8"><span class="section-number-2">1.</span> Fluid Statics</h2>
-<div class="outline-text-2" id="text-1">
-</div>
-<div id="outline-container-orgd944dba" class="outline-3">
-<h3 id="orgd944dba"><span class="section-number-3">1.1.</span> What Fluids are</h3>
-<div class="outline-text-3" id="text-1-1">
-</div>
-<div id="outline-container-orgbaf7ef0" class="outline-4">
-<h4 id="orgbaf7ef0"><span class="section-number-4">1.1.1.</span> Density</h4>
-</div>
-<div id="outline-container-orgb5c4944" class="outline-4">
-<h4 id="orgb5c4944"><span class="section-number-4">1.1.2.</span> Pressure</h4>
-<div class="outline-text-4" id="text-1-1-2">
-</div>
-<div id="outline-container-org7618285" class="outline-5">
-<h5 id="org7618285"><span class="section-number-5">1.1.2.1.</span> Variation of Pressure</h5>
+
+<div id="outline-container-org90390a5" class="outline-2">
+<h2 id="org90390a5">Fluid Basics</h2>
+<div class="outline-text-2" id="text-org90390a5">
+<p>
+<b>Liquids</b> are <i>incompressable</i>. Meaning that their volume can never change because of a force acting on them.
+</p>
 </div>
 </div>
+<div id="outline-container-org79fa2ef" class="outline-2">
+<h2 id="org79fa2ef">Bouyancy</h2>
+<div class="outline-text-2" id="text-org79fa2ef">
 </div>
-<div id="outline-container-orgd9a4877" class="outline-3">
-<h3 id="orgd9a4877"><span class="section-number-3">1.2.</span> Pascal&rsquo;s Principle</h3>
-</div>
-<div id="outline-container-org4a7dc58" class="outline-3">
-<h3 id="org4a7dc58"><span class="section-number-3">1.3.</span> Archimedes&rsquo; Principle</h3>
-</div>
-<div id="outline-container-org220c55d" class="outline-3">
-<h3 id="org220c55d"><span class="section-number-3">1.4.</span> Capillary Action</h3>
+<div id="outline-container-org82d1e78" class="outline-3">
+<h3 id="org82d1e78">Archimede&rsquo;s Principle</h3>
 </div>
 </div>
 <div id="outline-container-org18d1c8b" class="outline-2">
-<h2 id="org18d1c8b"><span class="section-number-2">2.</span> Fluid Dynamics</h2>
-<div class="outline-text-2" id="text-2">
-</div>
-<div id="outline-container-org52854a6" class="outline-3">
-<h3 id="org52854a6"><span class="section-number-3">2.1.</span> Flow Rate</h3>
+<h2 id="org18d1c8b">Fluid Dynamics</h2>
+<div class="outline-text-2" id="text-org18d1c8b">
 </div>
 <div id="outline-container-org6463b8f" class="outline-3">
-<h3 id="org6463b8f"><span class="section-number-3">2.2.</span> Bernoulli&rsquo;s Equation</h3>
+<h3 id="org6463b8f">Bernoulli&rsquo;s Equation</h3>
+<div class="outline-text-3" id="text-org6463b8f">
+\begin{align*}
+P_i + \rho g h_i + \frac{\rho v_i^2}{2} = P_f + \rho g h_f + \frac{\rho v_f^2}{2}
+\end{align*}
 </div>
-<div id="outline-container-org7132cee" class="outline-3">
-<h3 id="org7132cee"><span class="section-number-3">2.3.</span> Viscosity and Laminar Flow</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-11-16 Tue 17:16</p>
+<p class="date">Created: 2021-12-08 Wed 17:57</p>
 </div>
 </body>
 </html>

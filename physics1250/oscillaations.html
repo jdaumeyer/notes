@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-16 Tue 17:16 -->
+<!-- 2021-12-06 Mon 16:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Oscillations</title>
@@ -193,6 +193,28 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -200,72 +222,79 @@
 <br />
 <span class="subtitle">PHYSICS 1250</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orga10bb65">1. Hooke&rsquo;s Law</a></li>
-<li><a href="#orgdf34dc6">2. Period and Frequency</a></li>
-<li><a href="#org8800303">3. Simple Harmonic Motion</a>
-<ul>
-<li><a href="#org7c55e0f">3.1. Pendulums</a></li>
-<li><a href="#orge263872">3.2. Energy and the Simple Harmonic Oscillator</a></li>
-<li><a href="#org824111f">3.3. Uniform circular Motion and Simple Harmonic Motion</a></li>
-<li><a href="#orgc3e4aec">3.4. Damped Harmonic Motion</a></li>
-<li><a href="#org831711d">3.5. Forced Oscillations and Resonance</a></li>
-</ul>
-</li>
-<li><a href="#org7fa0d95">4. Waves</a>
-<ul>
-<li><a href="#orgfe19a24">4.1. Superposition and Interference</a></li>
-<li><a href="#orgbd4fc54">4.2. Energy in Waves</a></li>
-</ul>
-</li>
-</ul>
+
+<div id="outline-container-orgecfee08" class="outline-2">
+<h2 id="orgecfee08">Restoring Force</h2>
+<div class="outline-text-2" id="text-orgecfee08">
+<p>
+The thing that makes something <b>oscillate</b> is a <b>restoring force</b>. It is a force that tries to restore the <i>mass</i> to its <b>equilibrium position</b>.
+</p>
+</div>
+
+<div id="outline-container-org320f575" class="outline-3">
+<h3 id="org320f575">Terminology</h3>
+<div class="outline-text-3" id="text-org320f575">
+<dl class="org-dl">
+<dt>Amplitude (\(A\))</dt><dd>The maximum magnitude of displacement for the <b>oscillator</b>.</dd>
+<dt>Period (\(T\))</dt><dd>The time required for an entire <b>Cycle</b></dd>
+<dt>Cycle</dt><dd>When the system reaches the point it started at, it completed a cycle.</dd>
+</dl>
+</div>
 </div>
 </div>
 
-<div id="outline-container-orga10bb65" class="outline-2">
-<h2 id="orga10bb65"><span class="section-number-2">1.</span> Hooke&rsquo;s Law</h2>
+<div id="outline-container-orga7dcb97" class="outline-2">
+<h2 id="orga7dcb97">Simple Harmonic Oscillators</h2>
+<div class="outline-text-2" id="text-orga7dcb97">
+<p>
+<b>Simple Harmonic Oscillators</b> have a <b>restoring force</b> that is relative their <i>displacement</i>. The motion of <b>Simple Harmonic Oscillators</b> can easily be described with the \(\sin\) and \(\cos\) functions.
+</p>
 </div>
-<div id="outline-container-orgdf34dc6" class="outline-2">
-<h2 id="orgdf34dc6"><span class="section-number-2">2.</span> Period and Frequency</h2>
-</div>
-<div id="outline-container-org8800303" class="outline-2">
-<h2 id="org8800303"><span class="section-number-2">3.</span> Simple Harmonic Motion</h2>
-<div class="outline-text-2" id="text-3">
-</div>
-<div id="outline-container-org7c55e0f" class="outline-3">
-<h3 id="org7c55e0f"><span class="section-number-3">3.1.</span> Pendulums</h3>
-</div>
-<div id="outline-container-orge263872" class="outline-3">
-<h3 id="orge263872"><span class="section-number-3">3.2.</span> Energy and the Simple Harmonic Oscillator</h3>
-</div>
-<div id="outline-container-org824111f" class="outline-3">
-<h3 id="org824111f"><span class="section-number-3">3.3.</span> Uniform circular Motion and Simple Harmonic Motion</h3>
-</div>
-<div id="outline-container-orgc3e4aec" class="outline-3">
-<h3 id="orgc3e4aec"><span class="section-number-3">3.4.</span> Damped Harmonic Motion</h3>
-</div>
-<div id="outline-container-org831711d" class="outline-3">
-<h3 id="org831711d"><span class="section-number-3">3.5.</span> Forced Oscillations and Resonance</h3>
+
+
+<div id="outline-container-orga10bb65" class="outline-3">
+<h3 id="orga10bb65">Hooke&rsquo;s Law</h3>
+<div class="outline-text-3" id="text-orga10bb65">
+<p>
+<b>Hooke&rsquo;s Law</b> is what we use to find the magnitude of the <b>restoring force</b> in a <b>Simple Harmonic Oscillators</b>. It&rsquo;s defined in terms of the <b>Spring constant</b>.
+</p>
+
+\begin{equation*}
+F = - k x
+\end{equation*}
 </div>
 </div>
-<div id="outline-container-org7fa0d95" class="outline-2">
-<h2 id="org7fa0d95"><span class="section-number-2">4.</span> Waves</h2>
-<div class="outline-text-2" id="text-4">
+
+<div id="outline-container-org6d10826" class="outline-3">
+<h3 id="org6d10826">Graphing a Simple Harmonic Oscillator</h3>
+<div class="outline-text-3" id="text-org6d10826">
+<p>
+It&rsquo;s easy to describe the motion of a <b>simple harmonic oscillator</b> on a <i>position versus time graph</i>. To do this we need to make an equation that represents the graph. To do this, it&rsquo;s easy to plug in your values into these formulas:
+</p>
+
+\begin{align*}
+x(t) = A \cos{(\frac{2 \pi}{T} t + \phi_0)} && x(t) = A \sin{(\frac{2\pi}{T} t + \phi_0)}
+\end{align*}
+
+<p>
+Using \(\cos\) or \(\sin\) depending on if the <b>oscillator</b> starts at its peak or not.
+</p>
 </div>
-<div id="outline-container-orgfe19a24" class="outline-3">
-<h3 id="orgfe19a24"><span class="section-number-3">4.1.</span> Superposition and Interference</h3>
+
+<div id="outline-container-orgfbc7ddb" class="outline-4">
+<h4 id="orgfbc7ddb">Phase</h4>
+<div class="outline-text-4" id="text-orgfbc7ddb">
+<p>
+Some graphs can describe the same graph but be offset by an amount called <b>Phase</b>. To correct for this in a graphical representation we use a <b>Phase Constant (\(\phi_0\))</b>
+</p>
 </div>
-<div id="outline-container-orgbd4fc54" class="outline-3">
-<h3 id="orgbd4fc54"><span class="section-number-3">4.2.</span> Energy in Waves</h3>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-11-16 Tue 17:16</p>
+<p class="date">Created: 2021-12-06 Mon 16:31</p>
 </div>
 </body>
 </html>
