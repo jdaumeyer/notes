@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-11-16 Tue 17:15 -->
+<!-- 2021-12-14 Tue 18:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Java Basics</title>
@@ -352,13 +352,14 @@ When creating an instance of a <code>SimpleWriter1L</code>, if you pass a file n
 <code>SimpleReader</code> is very similar to <code>SimpleWritter</code> in how it is created. However, instead of handling output, <code>SimpleReader</code> handles input.
 </p>
 
-<pre class="example" id="org4ff0d74">
-SimpleReader keyboardIn = new SimpleReader1L();
-SimpleReader fileIn = new SimpleReader1L("foo.txt");
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">SimpleReader</span> <span style="color: #e4e4e5;">keyboardIn</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">SimpleReader1L</span><span style="color: #81a2be;">()</span>;
+<span style="color: #81a2be;">SimpleReader</span> <span style="color: #e4e4e5;">fileIn</span> = <span style="color: #81a2be;">new</span> <span style="color: #81a2be;">SimpleReader1L</span><span style="color: #81a2be;">(</span><span style="color: #60b48a;">"foo.txt"</span><span style="color: #81a2be;">)</span>;
 
-String line = keyboardin.nextLine();
-line = fileIn.nextLine();
+<span style="color: #81a2be;">String</span> <span style="color: #e4e4e5;">line</span> = keyboardin.nextLine<span style="color: #81a2be;">()</span>;
+line = fileIn.nextLine<span style="color: #81a2be;">()</span>;
 </pre>
+</div>
 
 <p>
 The <code>.nextLine()</code> method reads everything up until a <i>line-separator</i> or the end of console input.
@@ -385,39 +386,9 @@ System.out.println<span style="color: #81a2be;">(</span>s + <span style="color: 
 </div>
 </div>
 </div>
-
-
-<div id="outline-container-org43df47f" class="outline-3">
-<h3 id="org43df47f">Object Oriented Methodollogy</h3>
-<div class="outline-text-3" id="text-org43df47f">
-<p>
-In <b>Java</b> there are two very imporant concepts; <b>Classes</b> and <b>Objects</b>
-</p>
 </div>
 
-<div id="outline-container-orgefefe4a" class="outline-4">
-<h4 id="orgefefe4a">Classes</h4>
-<div class="outline-text-4" id="text-orgefefe4a">
-<p>
-<b>Classes</b> can be thought of as a <i>mold</i>. This mold can be used to create <b>objects</b>. When an <b>Object</b> is created from a <b>Class</b> it is reffered to as a <b>Child</b> of the class.
-</p>
-<ul class="org-ul">
-<li><b>Classes</b> can define certain properties of the <b>Objects</b> created from them. They can also leave properties for their <b>children</b> to define themselves later.</li>
-<li>New <b>classes</b> can also be created based on another <b>class</b>, this process is called <b>Inheritance</b></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-org0aa4323" class="outline-4">
-<h4 id="org0aa4323">Objects</h4>
-<div class="outline-text-4" id="text-org0aa4323">
-<p>
-<b>Objects</b> are essentially boxes that hold <b>methods</b> and <b>properties</b>. These can be called upon, changed or accessed like any data but they are associated with the object that contains them.
-</p>
-</div>
-</div>
-</div>
-</div>
 
 <div id="outline-container-orgde0b1d8" class="outline-2">
 <h2 id="orgde0b1d8">Variables, Types and Values</h2>
@@ -501,11 +472,13 @@ When you <i>declare</i> a variable, You provide both a name for it to store its 
 <ul class="org-ul">
 <li>When a value is assigned to a variable, it becomes <b>initialized</b></li>
 </ul>
-<pre class="example" id="org514f71c">
+<p>
+#+begin<sub>src</sub> java
 // These are two valid variable declarations
 int j;
 int i = 100;
-</pre>
+#+end<sub>example</sub>
+</p>
 </div>
 </div>
 
@@ -516,14 +489,22 @@ int i = 100;
 A date value appearing, literally, in a program is called a <b>Literal</b>. Anytime you see a value in a program, it is a <b>Literal</b>.
 </p>
 
-<pre class="example" id="org693b63a">
+<p>
+#+begin<sub>src</sub> java
 int i = 27;
+</p>
 
+<p>
 int q = i + 32;
+</p>
 
-String s = i.toString() + " is a literal";
+<p>
+String s = i.toString() + &ldquo; is a literal&rdquo;;
+</p>
 
-</pre>
+<p>
+#+end<sub>example</sub>
+</p>
 </div>
 </div>
 
@@ -533,9 +514,10 @@ String s = i.toString() + " is a literal";
 <p>
 A <b>constant</b> is a <b>variable</b> that is initialized (assigned a value) but <i>never changed</i>. They are declared with the <b>keyword</b> <code>final</code>. <b>Constants</b> typically have a name that is in all caps and spaces are represented with a &ldquo;<code>_</code>&rdquo; (underscore) character.
 </p>
-<pre class="example" id="org37a1c21">
-final int MY_CONSTANT = 123456;
+<div class="org-src-container">
+<pre class="src src-java"><span style="color: #81a2be;">final</span> <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">MY_CONSTANT</span> = <span style="color: #d0b75a; font-weight: bold;">123456</span>;
 </pre>
+</div>
 </div>
 </div>
 </div>
@@ -554,6 +536,15 @@ Some examples of types are:
 <dt>Double</dt><dd>A decimal value</dd>
 <dt>String</dt><dd>An expression of multiple characters</dd>
 </dl>
+</div>
+
+<div id="outline-container-org6d4a1d4" class="outline-4">
+<h4 id="org6d4a1d4">Wrapper Types</h4>
+<div class="outline-text-4" id="text-org6d4a1d4">
+<p>
+Every <i>Java</i> <b>Primitive</b> type has an object version called a <b>Wrapper</b>. Each wrapper is an <i>immutable</i> value that represents the <b>primitive</b> type that it is associated with. <i>Java</i> wil also automatically <b>unbox</b> these objects when they are being opperated on like the primitive types they represent.
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -741,19 +732,6 @@ A <code>while</code> loop continuosly executes code while a statment is <code>tr
 </div>
 </div>
 </div>
-<div id="outline-container-org486792b" class="outline-2">
-<h2 id="org486792b">Parameters</h2>
-<div class="outline-text-2" id="text-org486792b">
-<p>
-Inside of the  parenthesis of a method declaration are where <b>parameters</b> are defined. <b>Parameters</b> essentially define the information the needs to be provided to the function in order to run. They are incredibly useful for getting values to a method that would otherwise not have access to them due to <b>scope</b>.
-</p>
-<ul class="org-ul">
-<li>A demonstration running through this idea with an example function can be found in the <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/07.Parameter-Passing.pdf#page=3">lecture slides</a>.</li>
-<li>An important thing about <b>parameters</b> is that they are not actually the variable passed in but instead <b>references</b>, which are essentially <i>copies</i> of the value of the variables.</li>
-<li><b>Parameters</b> only exist in their parent function, they cease to exist when the function ends.</li>
-</ul>
-</div>
-</div>
 
 <div id="outline-container-org749ef59" class="outline-2">
 <h2 id="org749ef59">Arrays</h2>
@@ -842,30 +820,37 @@ Everything inside of the two curly braces (<code>{}</code>) is referred to as th
 <p>
 Also most methods are named using <b>camelCase</b>. This format starts with a lower-case word and each subsequent word is added to the end of the name (with no spaces) with the first letter capital.
 </p>
-<pre class="example" id="org27a7cdc">
+<pre class="example" id="orge7adb6a">
 thisIsALongCamelCaseName
 camelCaseIsFun
 amISpellingCamelRight
 </pre>
 </div>
+
+
+<div id="outline-container-org486792b" class="outline-4">
+<h4 id="org486792b">Parameters</h4>
+<div class="outline-text-4" id="text-org486792b">
+<p>
+Inside of the  parenthesis of a method declaration are where <b>parameters</b> are defined. <b>Parameters</b> essentially define the information the needs to be provided to the function in order to run. They are incredibly useful for getting values to a method that would otherwise not have access to them due to <b>scope</b>.
+</p>
+<ul class="org-ul">
+<li>A demonstration running through this idea with an example function can be found in the <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/07.Parameter-Passing.pdf#page=3">lecture slides</a>.</li>
+<li>An important thing about <b>parameters</b> is that they are not actually the variable passed in but instead <b>references</b>, which are essentially <i>copies</i> of the value of the variables.</li>
+<li><b>Parameters</b> only exist in their parent function, they cease to exist when the function ends.</li>
+</ul>
 </div>
+</div>
+</div>
+
 
 <div id="outline-container-org2f6f3da" class="outline-3">
-<h3 id="org2f6f3da"><span class="todo TODO">TODO</span> Return Statments</h3>
+<h3 id="org2f6f3da">Return Statments</h3>
 <div class="outline-text-3" id="text-org2f6f3da">
 <p>
-Every <b>path of execution</b> throuh a method that returns a value
+Every <b>path of execution</b> through a method that returns a value stops when it reaches a <code>return</code> statement. When the <b>path of execution</b> reaches a <code>return</code> statement, it returns the specified value and jumps back to the location where the method was called and continues from there.
 </p>
 </div>
-</div>
-</div>
-
-<div id="outline-container-org6d4a1d4" class="outline-2">
-<h2 id="org6d4a1d4">Wrapper Types</h2>
-<div class="outline-text-2" id="text-org6d4a1d4">
-<p>
-Every <i>Java</i> <b>Primitive</b> type has an object version called a <b>Wrapper</b>. Each wrapper is an <i>immutable</i> value that represents the <b>primitive</b> type that it is associated with. <i>Java</i> wil also automatically <b>unbox</b> these objects when they are being opperated on like the primitive types they represent.
-</p>
 </div>
 </div>
 
@@ -888,7 +873,7 @@ Every <i>Java</i> <b>Primitive</b> type has an object version called a <b>Wrappe
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-11-16 Tue 17:15</p>
+<p class="date">Created: 2021-12-14 Tue 18:03</p>
 </div>
 </body>
 </html>
