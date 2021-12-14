@@ -1,0 +1,514 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-06 Mon 16:31 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Thermodynamics</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Thermodynamics
+<br />
+<span class="subtitle">PHYSICS 1250</span>
+</h1>
+
+<div id="outline-container-org4867925" class="outline-2">
+<h2 id="org4867925">Ideal Gas Law</h2>
+<div class="outline-text-2" id="text-org4867925">
+<p>
+With an <b>Ideal Gas</b> in a container, the <i>pressure</i> in the container times it&rsquo;s <i>volume</i> is equal to a constant. This constant represents the average kinetic energy in the gas, or the <i>amount of moles</i> and the <b>temperature</b>. But we need one more thing and this is the <b>Ideal Gas Constant (\(R\))</b> to actually get the equation to work out. The <b>Ideal Gas Constant</b> is equal to \(8.31 \frac{J}{mol \cdot K}\). Therefore the <b>Ideal Gas Law</b> is:
+</p>
+
+<p>
+<b>The Ideal Gas Law:</b>
+</p>
+
+\begin{align*}
+P \cdot V = nRT
+\end{align*}
+
+
+<p>
+With this equation, we can also set up some equations to determine transformations in <b>pressure</b>, <b>volume</b> amd <b>temperature</b> such as:
+</p>
+
+\begin{align*}
+P_1 \cdot V_1 = P_2 \cdot V_2
+\end{align*}
+
+<p>
+and with <b>temperature</b>:
+</p>
+
+\begin{align*}
+&   \frac{P_1 \cdot V_1}{T_1} = \frac{P_2 \cdot V_2}{T_2}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgc938c6c" class="outline-2">
+<h2 id="orgc938c6c">Specific Heat</h2>
+<div class="outline-text-2" id="text-orgc938c6c">
+<p>
+The idea of <b>Specific Heat</b> is essentially just that some materials are harder to change the heat of than others. As such every material has its own <b>specific heat (\(c\))</b>.
+</p>
+
+<p>
+In order to change the temperature of something, we need to know the amount by which we want the temperature to change, the <b>specific heat</b> of the material, and its <i>mass</i>. So our equation for <b>Heat (\(Q\))</b> is:
+</p>
+
+\begin{align*}
+Q = m c \Delta T
+\end{align*}
+
+<p>
+This equation is useful because in a system, the change in heat will always be 0 unless there is an outside force. So that mean if we add up all the <b>Heats (\(Q\))</b> they should be zero.
+</p>
+
+\begin{align*}
+Q_1 + Q_2 + Q_3 + ... Q_n = 0
+\end{align*}
+</div>
+
+<div id="outline-container-org52249eb" class="outline-3">
+<h3 id="org52249eb">Latent Heat&#xa0;&#xa0;&#xa0;<span class="tag"><span class="toreview">toreview</span></span></h3>
+<div class="outline-text-3" id="text-org52249eb">
+<p>
+Whenever a <b>Phase change</b> occurs, or when a material changes state of matter we can&rsquo;t use our equation for heat. Instead we need to use a new equation for heat using <b>Latent Heat (\(L\))</b> instead of <b>Specific Heat</b>.
+</p>
+
+\begin{align*}
+Q = m L
+\end{align*}
+
+<p>
+Then we must use this equation until the material is into the next state of matter where we can use our normal equa ,tion for heat.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgd1bf135" class="outline-2">
+<h2 id="orgd1bf135">Laws of Thermodynamics</h2>
+<div class="outline-text-2" id="text-orgd1bf135">
+</div>
+<div id="outline-container-org4ab5d0a" class="outline-3">
+<h3 id="org4ab5d0a">Macrostates and Microstates</h3>
+<div class="outline-text-3" id="text-org4ab5d0a">
+<p>
+The values that we&rsquo;ve been using so far like <b>Pressure</b>, <b>Volume</b> and <b>Temperature</b> are all examples of <b>Macrostates</b>. These are <i>measurable</i> values that we can observe.
+</p>
+
+<p>
+However, they aren&rsquo;t the whole picture. There are another collection of values call <b>Microstates</b>. These have to do with atomic values that we can&rsquo;t see or measure. Because of this there are many, many <b>Microstates</b> for every <b>Macrostate</b>.
+</p>
+
+<p>
+Because of this, the <b>Macrostates</b> of something are only <i>well defined</i> when the system is in <b>equilibrium</b> or when the <b>Macrostates</b> are no longer changing. However, <b>Microstates</b> are always well defined, but extremely hard to measure.
+</p>
+</div>
+
+<div id="outline-container-orgd95b24d" class="outline-4">
+<h4 id="orgd95b24d">Quasistatic and Reversible Processes</h4>
+<div class="outline-text-4" id="text-orgd95b24d">
+<p>
+A <b>Quasistatic</b> process is one that it <i>almost</i> <b>Static</b> meaning that if may change but at an extremely slow rate.
+</p>
+
+<p>
+Often the terms <b>Quasistatic</b> and <b>Reversible</b> are used interchangeably, however there is no such thing as a <b>Reversible Process</b> in the real world.
+</p>
+
+<p>
+These allow us to define our <b>Macrostates</b> for each state in-between the ones we know.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org415d19c" class="outline-3">
+<h3 id="org415d19c">The First Law of Thermodynamics</h3>
+<div class="outline-text-3" id="text-org415d19c">
+<p>
+<b>The First Law of Thermodynamics</b> states that <i>energy cannot be created nor destroyed</i>. It can only be transformed from one form to another.
+</p>
+
+<p>
+This means that with <b>Thermodynamics</b> we can track <b>Internal Energy (\(U\) or \(E_{int}\))</b> of a system. This is the total amount of energy in a system. It is equal to the <i>heat</i> added to the system minus the <i>work</i> done to it.
+</p>
+
+<p>
+<b>Work</b> done by the system:
+</p>
+\begin{align*}
+\Delta U = Q - W
+\end{align*}
+
+<p>
+or
+</p>
+
+<p>
+<b>Work</b> done to the system:
+</p>
+\begin{align*}
+\Delta U = Q + W
+\end{align*}
+</div>
+
+<div id="outline-container-org74191a9" class="outline-4">
+<h4 id="org74191a9">Work From Expansion</h4>
+<div class="outline-text-4" id="text-org74191a9">
+<p>
+Because <b>pressure</b> and <b>volume</b> are dependent on <b>temperature</b> due to the <b>Ideal Gas Law</b>, when the <b>temperature</b> of a system is increased so are the <b>pressure</b> and <b>volume</b> and vice versa.
+</p>
+</div>
+
+<div id="outline-container-org9fb71d1" class="outline-5">
+<h5 id="org9fb71d1"><span class="todo TODO">TODO</span> Explain this Equation</h5>
+<div class="outline-text-5" id="text-org9fb71d1">
+\begin{align*}
+\Delta U &= Q - W\\
+         &= Q - P \cdot \Delta V
+\end{align*}
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-org0423e97" class="outline-4">
+<h4 id="org0423e97">Pressure Volume Diagrams</h4>
+<div class="outline-text-4" id="text-org0423e97">
+<p>
+When examining gases, it is easy to draw out what happening with a graph of <b>Pressure</b> verses <b>Volume</b>.
+</p>
+
+
+<p>
+<a href="_20211204_142634ZsIXG.png">_20211204_142634ZsIXG.png</a>
+</p>
+
+
+<p>
+The area under these curves is <b>work</b>, however the direction that the curve is going it important in determining if the work is <i>negative</i> or <i>positive</i>. You have to keep in mind whether or not energy is being added to the system.
+</p>
+<ul class="org-ul">
+<li>What <b>work</b> is the system <i>doing</i> and what <b>work</b> is being <i>done to</i> the system?</li>
+<li>When <b>volume</b> <i>decreases</i> <b>work</b> is positive and when <b>volume</b> <i>increases</i> <b>work</b> is negative.</li>
+</ul>
+</div>
+
+<div id="outline-container-org2847c93" class="outline-5">
+<h5 id="org2847c93">Terminology</h5>
+<div class="outline-text-5" id="text-org2847c93">
+<dl class="org-dl">
+<dt>Isothermic</dt><dd>The <b>temperature</b> of the system remains constant.</dd>
+<dt>Adiabatic</dt><dd>The system is completely isolated from the world meaning that no <b>heat</b> is lost or added.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3c4ad01" class="outline-4">
+<h4 id="org3c4ad01">Gasses that are Multi-Atomic</h4>
+<div class="outline-text-4" id="text-org3c4ad01">
+<p>
+So far we&rsquo;ve only dealt with gases that are <b>mono-atomic</b> meaning that each molecule is only one atom.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge2f9851" class="outline-4">
+<h4 id="orge2f9851">Isothermic Process</h4>
+<div class="outline-text-4" id="text-orge2f9851">
+<p>
+An <b>Isothermic</b> process is one where the <b>temperature</b> of a system remains the same.
+</p>
+
+<ul class="org-ul">
+<li>When <b>Temperature</b> is lower, so is <b>pressure</b></li>
+</ul>
+
+<p>
+The <b>work</b> done in an <b>isothermal</b> process is equal to the area under the curve. So if we write the <b>Ideal Gas Law</b> in terms of <b>pressure</b>, we get:
+</p>
+
+\begin{align*}
+P = \frac{ n R T }{V}
+\end{align*}
+
+<p>
+Now, to get the area under the curve we take the integral from our starting <b>volume</b> to our ending one.
+</p>
+
+\begin{align*}
+Work&=\int_{V_1}^{V_2} \frac{n R T}{V}\\
+     &=n R T \int_{V_1}^{V_2} \frac{1}{V}\\
+     &=n R T [\ln{V}]_{v_1}^{v_2}\\
+     &=n R T (\ln{V_2} - \ln{V_1})\\
+     &=n R T \ln{(\frac{V_2}{V_1})}
+\end{align*}
+
+<p>
+This is where our equation for the <b>work</b> of an <b>isothermic</b> system comes from.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org50de227" class="outline-3">
+<h3 id="org50de227">Second Law of Thermodynamics</h3>
+<div class="outline-text-3" id="text-org50de227">
+<p>
+The Second Law of Thermodynamics states that the change in <b>entropy</b> of the universe is always greater than or equal to \(0\). Meaning that the universe can never loose <b>entropy</b>.
+</p>
+<ul class="org-ul">
+<li>One of the side effects of this law is that heat only moves one way, from hot to cold. So hot things can only loose heat and cold things can only gain it.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd1f9c3b" class="outline-4">
+<h4 id="orgd1f9c3b">Carnot Cycle</h4>
+<div class="outline-text-4" id="text-orgd1f9c3b">
+<p>
+A <b>Carnot Cycle</b> is a cycle that goes between two different temperatures. The most important part of the <b>Carnot Cycle</b> is that it&rsquo;s <i>reversible</i>. Meaning that
+</p>
+<ul class="org-ul">
+<li>The ratio between the <b>volumes</b> at state <i>A</i> and <i>B</i> is equal to the ratio between states <i>C</i> and <i>D</i>. \(\frac{V_B}{V_A} = \frac{V_C}{V_D}\).</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7713472" class="outline-4">
+<h4 id="org7713472">Entropy</h4>
+<div class="outline-text-4" id="text-org7713472">
+<p>
+<b>Entropy (\(S\))</b> is a valid <i>state variable</i> in a <b>Carnot Cycle</b> because in total it doesn&rsquo;t change (\(\Delta S = 0\)). It represents how many more <b>microstates</b> a system can take one.
+</p>
+<ul class="org-ul">
+<li>It&rsquo;s defined as \(S = \frac{Q}{T}\). However, this is only its definition in a <i>reversible</i> system.</li>
+<li>In an <i>irreversible</i> reaction <b>Entropy</b> is no longer a state variable, we have to make up a <i>reversible</i> system to find <b>Entropy</b>.</li>
+<li><b>Entropy</b> can also be defined as \(S = N k_b ln(\Omega)\). Where \(\Omega\) is the number of states.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2021-12-06 Mon 16:31</p>
+</div>
+</body>
+</html>
