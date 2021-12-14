@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 18:13 -->
+<!-- 2021-12-08 Wed 17:58 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CSE 2221 Notes</title>
+<title>Final Review</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,222 +193,78 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="directory.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CSE 2221 Notes</h1>
+<h1 class="title">Final Review
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+
+<div id="outline-container-orga6f77bd" class="outline-2">
+<h2 id="orga6f77bd">General Info</h2>
+<div class="outline-text-2" id="text-orga6f77bd">
+<ul class="org-ul">
+<li>3 Code Questions</li>
+<li>Tracing Tables</li>
+<li>Draw a Parameter passing diagram</li>
+<li>Exam covers the beginning of class to <b>Loop Invariants</b></li>
+<li></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-org38b96a9" class="outline-2">
+<h2 id="org38b96a9">Loop Invariants</h2>
+<div class="outline-text-2" id="text-org38b96a9">
 <p>
-These notes are bad and full of typos. They might get the general point across but don&rsquo;t use them as your only source. If you find any major issues please let me know so that I may update them.
+A method of documenting a loop with <i>java docs</i> to make them human readable.
 </p>
-
-
-<div id="outline-container-orga88f640" class="outline-2">
-<h2 id="orga88f640">Midterm 1</h2>
-<div class="outline-text-2" id="text-orga88f640">
-</div>
-<div id="outline-container-orgac87cba" class="outline-3">
-<h3 id="orgac87cba">Java</h3>
-<div class="outline-text-3" id="text-orgac87cba">
-</div>
-<div id="outline-container-org7bfd934" class="outline-4">
-<h4 id="org7bfd934">Introduction to Java</h4>
-<div class="outline-text-4" id="text-org7bfd934">
-<ul class="org-ul">
-<li><a href="java-basics.html#orgd4022e5">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9bf9e8f" class="outline-4">
-<h4 id="org9bf9e8f">Writing a Java Program</h4>
-<div class="outline-text-4" id="text-org9bf9e8f">
-<ul class="org-ul">
-<li><a href="java-basics.html#org8eec845">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org55ac575" class="outline-4">
-<h4 id="org55ac575">Variables, Types and Values</h4>
-<div class="outline-text-4" id="text-org55ac575">
-<ul class="org-ul">
-<li><a href="java-basics.html#orgde0b1d8">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org02fe77e" class="outline-4">
-<h4 id="org02fe77e">Operators, Expressions, Statements and Control Flow</h4>
-<div class="outline-text-4" id="text-org02fe77e">
-<ul class="org-ul">
-<li><a href="java-basics.html#org9ef1457">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf468c75" class="outline-4">
-<h4 id="orgf468c75">Parameters</h4>
-<div class="outline-text-4" id="text-orgf468c75">
-<ul class="org-ul">
-<li><a href="java-basics.html#org486792b">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf22dd1f" class="outline-4">
-<h4 id="orgf22dd1f">Arrays</h4>
-<div class="outline-text-4" id="text-orgf22dd1f">
-<ul class="org-ul">
-<li><a href="java-basics.html#org749ef59">My Notes</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-org10c0b49" class="outline-3">
-<h3 id="org10c0b49">XML</h3>
-<div class="outline-text-3" id="text-org10c0b49">
-</div>
-<div id="outline-container-orgb4d5732" class="outline-4">
-<h4 id="orgb4d5732">Trees</h4>
-<div class="outline-text-4" id="text-orgb4d5732">
-<ul class="org-ul">
-<li><a href="xml.html#orgce81237">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org308b222" class="outline-4">
-<h4 id="org308b222">XML Basics</h4>
-<div class="outline-text-4" id="text-org308b222">
-<ul class="org-ul">
-<li><a href="xml.html#org8bbc362">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf4e49a8" class="outline-4">
-<h4 id="orgf4e49a8"><code>XMLTree</code> Methods</h4>
-<div class="outline-text-4" id="text-orgf4e49a8">
-<ul class="org-ul">
-<li><a href="xml.html#org187845d">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd220d0b" class="outline-4">
-<h4 id="orgd220d0b">Really Simple Syndication</h4>
-<div class="outline-text-4" id="text-orgd220d0b">
-<ul class="org-ul">
-<li><a href="xml.html#orga98c879">My Notes</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd1e839f" class="outline-3">
-<h3 id="orgd1e839f"><a href="design-by-contract.html">Design By Contract</a></h3>
-<div class="outline-text-3" id="text-orgd1e839f">
-</div>
-<div id="outline-container-orgef9a54a" class="outline-4">
-<h4 id="orgef9a54a">System Thinking</h4>
-<div class="outline-text-4" id="text-orgef9a54a">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgb1011e9">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd857124" class="outline-4">
-<h4 id="orgd857124">Client V. Implementer</h4>
-<div class="outline-text-4" id="text-orgd857124">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgfd927c7">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga10a0c9" class="outline-4">
-<h4 id="orga10a0c9">Describing Behavior</h4>
-<div class="outline-text-4" id="text-orga10a0c9">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#org1634427">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orge89d411" class="outline-4">
-<h4 id="orge89d411">Models</h4>
-<div class="outline-text-4" id="text-orge89d411">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgf0a00ee">My Notes</a></li>
-</ul>
-</div>
-</div>
 </div>
 </div>
 
 
-<div id="outline-container-orgfb5c35a" class="outline-2">
-<h2 id="orgfb5c35a">Midterm 2</h2>
-<div class="outline-text-2" id="text-orgfb5c35a">
-</div>
-<div id="outline-container-org49772bc" class="outline-3">
-<h3 id="org49772bc"><a href="recursion.html">Recursion</a></h3>
-</div>
-<div id="outline-container-orga8d6a90" class="outline-3">
-<h3 id="orga8d6a90"><a href="oop.html">Object-Oriented Programming</a></h3>
-</div>
-<div id="outline-container-orgfe25cd7" class="outline-3">
-<h3 id="orgfe25cd7"><a href="testing.html">Testing</a></h3>
-</div>
-<div id="outline-container-orgc858b44" class="outline-3">
-<h3 id="orgc858b44"><a href="data-structures.html">Data Structures</a></h3>
-</div>
-<div id="outline-container-org6983760" class="outline-3">
-<h3 id="org6983760">Important Topics</h3>
-<div class="outline-text-3" id="text-org6983760">
+<div id="outline-container-orgd14c1e0" class="outline-2">
+<h2 id="orgd14c1e0">Topics Covered</h2>
+<div class="outline-text-2" id="text-orgd14c1e0">
 <ul class="org-ul">
-<li>References</li>
-<li>NaturalNumber</li>
-<li>XMLTree</li>
-<li>Tracing Table with Reference Types (use \(\rightarrow\))</li>
-<li>Parameter Modes</li>
-<li>Instance vs. Static Methods</li>
-<li>Object-Oriented Programming
+<li>System Thinking
 <ul class="org-ul">
-<li>Method Inheritance</li>
-<li>Declared vs Object types</li>
-<li>Overriding and Overloading</li>
+<li>Mathematical Modeling</li>
+<li>Design By Contract
+<ul class="org-ul">
+<li>Preconditions and Postconditions</li>
 </ul></li>
+<li>Client Vs. Implementer</li>
+</ul></li>
+<li>Object Oriented Programming
+<ul class="org-ul">
+<li>Classes, Interfaces and Methods</li>
+<li>Inheritance</li>
+</ul></li>
+<li>Discipline
+<ul class="org-ul">
+<li>Single Point Control Over Change</li>
+</ul></li>
+<li>Data Structures</li>
+<li>Recursion</li>
+<li>Java Syntax
+<ul class="org-ul">
+<li>Variable Types</li>
+<li>Reference and Value Types</li>
+<li>Javadoc</li>
+</ul></li>
+<li>Libraries</li>
+<li>Unit Testing</li>
 </ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgdecf196" class="outline-2">
-<h2 id="orgdecf196">Final (Cumulative)</h2>
-<div class="outline-text-2" id="text-orgdecf196">
-</div>
-<div id="outline-container-org4a551e5" class="outline-3">
-<h3 id="org4a551e5"><a href="gui.html">Graphical User Interface</a></h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-12-02 Thu 18:13</p>
+<p class="date">Created: 2021-12-08 Wed 17:58</p>
 </div>
 </body>
 </html>

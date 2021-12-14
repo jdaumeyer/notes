@@ -6,7 +6,7 @@
 <!-- 2021-12-02 Thu 18:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CSE 2221 Notes</title>
+<title>Graphical User Interfaces</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,216 +193,88 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="style.css" />
-<link rel="stylesheet" type="text/css" href="directory.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CSE 2221 Notes</h1>
+<h1 class="title">Graphical User Interfaces
+<br />
+<span class="subtitle">CSE 2221</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgada4d26">1. Graphical User Interface</a>
+<ul>
+<li><a href="#orge85cf0c">1.1. Terminology</a>
+<ul>
+<li><a href="#org955494c">1.1.1. Events</a></li>
+<li><a href="#orgea0a140">1.1.2. Observers / Listeners</a></li>
+</ul>
+</li>
+<li><a href="#org2ba2a13">1.2. Swing</a></li>
+</ul>
+</li>
+<li><a href="#orgaeb113b">2. Model-View-Controller</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgada4d26" class="outline-2">
+<h2 id="orgada4d26"><span class="section-number-2">1.</span> Graphical User Interface</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-These notes are bad and full of typos. They might get the general point across but don&rsquo;t use them as your only source. If you find any major issues please let me know so that I may update them.
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/35.GUI.pdf">Lecture Slides</a>
 </p>
 
 
-<div id="outline-container-orga88f640" class="outline-2">
-<h2 id="orga88f640">Midterm 1</h2>
-<div class="outline-text-2" id="text-orga88f640">
+<p>
+A <b>gui</b> or <b>Graphical User Interface</b> is simply what a user sees when they interact with a program. It is the buttons, text, and images that are displayed by the program. Luckily these are pretty routine to implement.
+</p>
 </div>
-<div id="outline-container-orgac87cba" class="outline-3">
-<h3 id="orgac87cba">Java</h3>
-<div class="outline-text-3" id="text-orgac87cba">
+
+<div id="outline-container-orge85cf0c" class="outline-3">
+<h3 id="orge85cf0c"><span class="section-number-3">1.1.</span> Terminology</h3>
+<div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org7bfd934" class="outline-4">
-<h4 id="org7bfd934">Introduction to Java</h4>
-<div class="outline-text-4" id="text-org7bfd934">
-<ul class="org-ul">
-<li><a href="java-basics.html#orgd4022e5">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org9bf9e8f" class="outline-4">
-<h4 id="org9bf9e8f">Writing a Java Program</h4>
-<div class="outline-text-4" id="text-org9bf9e8f">
-<ul class="org-ul">
-<li><a href="java-basics.html#org8eec845">My Notes</a></li>
-</ul>
+<div id="outline-container-org955494c" class="outline-4">
+<h4 id="org955494c"><span class="section-number-4">1.1.1.</span> Events</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Whenever a user interacts with a component or widget in the <b>GUI</b>, this is referred to as an event. This component/widget is referred to as the <b>subject</b> that the <b>event</b> is acting on.
+</p>
 </div>
 </div>
-<div id="outline-container-org55ac575" class="outline-4">
-<h4 id="org55ac575">Variables, Types and Values</h4>
-<div class="outline-text-4" id="text-org55ac575">
-<ul class="org-ul">
-<li><a href="java-basics.html#orgde0b1d8">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org02fe77e" class="outline-4">
-<h4 id="org02fe77e">Operators, Expressions, Statements and Control Flow</h4>
-<div class="outline-text-4" id="text-org02fe77e">
-<ul class="org-ul">
-<li><a href="java-basics.html#org9ef1457">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf468c75" class="outline-4">
-<h4 id="orgf468c75">Parameters</h4>
-<div class="outline-text-4" id="text-orgf468c75">
-<ul class="org-ul">
-<li><a href="java-basics.html#org486792b">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf22dd1f" class="outline-4">
-<h4 id="orgf22dd1f">Arrays</h4>
-<div class="outline-text-4" id="text-orgf22dd1f">
-<ul class="org-ul">
-<li><a href="java-basics.html#org749ef59">My Notes</a></li>
-</ul>
+<div id="outline-container-orgea0a140" class="outline-4">
+<h4 id="orgea0a140"><span class="section-number-4">1.1.2.</span> Observers / Listeners</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+<b>Observers / Listeners</b> are objects that are invisible to the user which <i>listen</i> for specific <b>events</b> on a <b>subject</b> and run code when the <b>event</b> occurs
+</p>
 </div>
 </div>
 </div>
-<div id="outline-container-org10c0b49" class="outline-3">
-<h3 id="org10c0b49">XML</h3>
-<div class="outline-text-3" id="text-org10c0b49">
-</div>
-<div id="outline-container-orgb4d5732" class="outline-4">
-<h4 id="orgb4d5732">Trees</h4>
-<div class="outline-text-4" id="text-orgb4d5732">
-<ul class="org-ul">
-<li><a href="xml.html#orgce81237">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org308b222" class="outline-4">
-<h4 id="org308b222">XML Basics</h4>
-<div class="outline-text-4" id="text-org308b222">
-<ul class="org-ul">
-<li><a href="xml.html#org8bbc362">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgf4e49a8" class="outline-4">
-<h4 id="orgf4e49a8"><code>XMLTree</code> Methods</h4>
-<div class="outline-text-4" id="text-orgf4e49a8">
-<ul class="org-ul">
-<li><a href="xml.html#org187845d">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd220d0b" class="outline-4">
-<h4 id="orgd220d0b">Really Simple Syndication</h4>
-<div class="outline-text-4" id="text-orgd220d0b">
-<ul class="org-ul">
-<li><a href="xml.html#orga98c879">My Notes</a></li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orgd1e839f" class="outline-3">
-<h3 id="orgd1e839f"><a href="design-by-contract.html">Design By Contract</a></h3>
-<div class="outline-text-3" id="text-orgd1e839f">
-</div>
-<div id="outline-container-orgef9a54a" class="outline-4">
-<h4 id="orgef9a54a">System Thinking</h4>
-<div class="outline-text-4" id="text-orgef9a54a">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgb1011e9">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orgd857124" class="outline-4">
-<h4 id="orgd857124">Client V. Implementer</h4>
-<div class="outline-text-4" id="text-orgd857124">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgfd927c7">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orga10a0c9" class="outline-4">
-<h4 id="orga10a0c9">Describing Behavior</h4>
-<div class="outline-text-4" id="text-orga10a0c9">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#org1634427">My Notes</a></li>
-</ul>
-</div>
-</div>
-<div id="outline-container-orge89d411" class="outline-4">
-<h4 id="orge89d411">Models</h4>
-<div class="outline-text-4" id="text-orge89d411">
-<ul class="org-ul">
-<li><a href="design-by-contract.html#orgf0a00ee">My Notes</a></li>
-</ul>
-</div>
+
+<div id="outline-container-org2ba2a13" class="outline-3">
+<h3 id="org2ba2a13"><span class="section-number-3">1.2.</span> Swing</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+<code>Swing</code> is a very old Java package used for making <b>GUI</b>&rsquo;s with Java.
+</p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-orgfb5c35a" class="outline-2">
-<h2 id="orgfb5c35a">Midterm 2</h2>
-<div class="outline-text-2" id="text-orgfb5c35a">
-</div>
-<div id="outline-container-org49772bc" class="outline-3">
-<h3 id="org49772bc"><a href="recursion.html">Recursion</a></h3>
-</div>
-<div id="outline-container-orga8d6a90" class="outline-3">
-<h3 id="orga8d6a90"><a href="oop.html">Object-Oriented Programming</a></h3>
-</div>
-<div id="outline-container-orgfe25cd7" class="outline-3">
-<h3 id="orgfe25cd7"><a href="testing.html">Testing</a></h3>
-</div>
-<div id="outline-container-orgc858b44" class="outline-3">
-<h3 id="orgc858b44"><a href="data-structures.html">Data Structures</a></h3>
-</div>
-<div id="outline-container-org6983760" class="outline-3">
-<h3 id="org6983760">Important Topics</h3>
-<div class="outline-text-3" id="text-org6983760">
-<ul class="org-ul">
-<li>References</li>
-<li>NaturalNumber</li>
-<li>XMLTree</li>
-<li>Tracing Table with Reference Types (use \(\rightarrow\))</li>
-<li>Parameter Modes</li>
-<li>Instance vs. Static Methods</li>
-<li>Object-Oriented Programming
-<ul class="org-ul">
-<li>Method Inheritance</li>
-<li>Declared vs Object types</li>
-<li>Overriding and Overloading</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgdecf196" class="outline-2">
-<h2 id="orgdecf196">Final (Cumulative)</h2>
-<div class="outline-text-2" id="text-orgdecf196">
-</div>
-<div id="outline-container-org4a551e5" class="outline-3">
-<h3 id="org4a551e5"><a href="gui.html">Graphical User Interface</a></h3>
+<div id="outline-container-orgaeb113b" class="outline-2">
+<h2 id="orgaeb113b"><span class="section-number-2">2.</span> Model-View-Controller</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/36.MVC.pdf">Lecture Slides</a>
+The <b>Model</b> is the back-end.
+The <b>View</b> is the front-end.
+They both talk to each other through the <b>Controller</b>
+</p>
 </div>
 </div>
 </div>
