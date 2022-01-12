@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-12 Wed 11:42 -->
+<!-- 2022-01-12 Wed 12:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Propositional Logic</title>
@@ -482,6 +482,9 @@ This is represented in notation with \(\Rightarrow\). So <code>if p then q</code
 <p>
 An implication is not the same both ways, \(p \Rightarrow q\) and \(q \Rightarrow q\) are both different expressions. These are referred to as <b>converse statements</b>.
 </p>
+<ul class="org-ul">
+<li>However \(\neg q \Rightarrow \neg p\) <i>is the same</i> as \(p \Rightarrow q\). This is called the <b>contrapositive</b>.</li>
+</ul>
 </div>
 </div>
 
@@ -537,10 +540,32 @@ Can be said as <code>p if and only if q</code>. Which just means that it is only
 </table>
 </div>
 </div>
+
+<div id="outline-container-org99c71a2" class="outline-2">
+<h2 id="org99c71a2">algebra</h2>
+<div class="outline-text-2" id="text-org99c71a2">
+<p>
+If we wanted to ne
+</p>
+<ul class="org-ul">
+<li>\(\neg (p \land q) \equiv \neg p \lor \neg q\)</li>
+<li>\(\neg (p \lor q)  \equiv \neg p \land \neg q\)</li>
+<li>\(\neg \neg p \equiv p\)</li>
+<li>\(p \Rightarrow q \equiv \neg p \lor q\)</li>
+<li>\(\neg (p \Rightarrow q) \equiv p \land \neg q\), the negation of an <code>if-then</code> is <i>not</i> and <code>if-then</code></li>
+<li>\(p \land q \equiv q \land p\)</li>
+<li>\(p \lor q \equiv q \lor p\)</li>
+<li>\(p \land (q \land r) \equiv (p \land q) \land r\)</li>
+<li>\(p \lor (q \lor r) \equiv (p \lor q) \lor r\)</li>
+<li>\(p \land (q \lor r) \equiv (p \land q) \lor (p \land r)\)</li>
+<li>\(p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)\)</li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-12 Wed 11:42</p>
+<p class="date">Created: 2022-01-12 Wed 12:06</p>
 </div>
 </body>
 </html>
