@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-12-02 Thu 18:13 -->
+<!-- 2022-01-12 Wed 11:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Graphical User Interfaces</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
@@ -200,29 +201,10 @@
 <br />
 <span class="subtitle">CSE 2221</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgada4d26">1. Graphical User Interface</a>
-<ul>
-<li><a href="#orge85cf0c">1.1. Terminology</a>
-<ul>
-<li><a href="#org955494c">1.1.1. Events</a></li>
-<li><a href="#orgea0a140">1.1.2. Observers / Listeners</a></li>
-</ul>
-</li>
-<li><a href="#org2ba2a13">1.2. Swing</a></li>
-</ul>
-</li>
-<li><a href="#orgaeb113b">2. Model-View-Controller</a></li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-orgada4d26" class="outline-2">
-<h2 id="orgada4d26"><span class="section-number-2">1.</span> Graphical User Interface</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org2d8b58d" class="outline-2">
+<h2 id="org2d8b58d">Graphical User Interface</h2>
+<div class="outline-text-2" id="text-org2d8b58d">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/35.GUI.pdf">Lecture Slides</a>
 </p>
@@ -233,21 +215,21 @@ A <b>gui</b> or <b>Graphical User Interface</b> is simply what a user sees when 
 </p>
 </div>
 
-<div id="outline-container-orge85cf0c" class="outline-3">
-<h3 id="orge85cf0c"><span class="section-number-3">1.1.</span> Terminology</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org36ee7d3" class="outline-3">
+<h3 id="org36ee7d3">Terminology</h3>
+<div class="outline-text-3" id="text-org36ee7d3">
 </div>
-<div id="outline-container-org955494c" class="outline-4">
-<h4 id="org955494c"><span class="section-number-4">1.1.1.</span> Events</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<div id="outline-container-orgd824c39" class="outline-4">
+<h4 id="orgd824c39">Events</h4>
+<div class="outline-text-4" id="text-orgd824c39">
 <p>
 Whenever a user interacts with a component or widget in the <b>GUI</b>, this is referred to as an event. This component/widget is referred to as the <b>subject</b> that the <b>event</b> is acting on.
 </p>
 </div>
 </div>
-<div id="outline-container-orgea0a140" class="outline-4">
-<h4 id="orgea0a140"><span class="section-number-4">1.1.2.</span> Observers / Listeners</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<div id="outline-container-org7d052ba" class="outline-4">
+<h4 id="org7d052ba">Observers / Listeners</h4>
+<div class="outline-text-4" id="text-org7d052ba">
 <p>
 <b>Observers / Listeners</b> are objects that are invisible to the user which <i>listen</i> for specific <b>events</b> on a <b>subject</b> and run code when the <b>event</b> occurs
 </p>
@@ -255,9 +237,9 @@ Whenever a user interacts with a component or widget in the <b>GUI</b>, this is 
 </div>
 </div>
 
-<div id="outline-container-org2ba2a13" class="outline-3">
-<h3 id="org2ba2a13"><span class="section-number-3">1.2.</span> Swing</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-orgb265f95" class="outline-3">
+<h3 id="orgb265f95">Swing</h3>
+<div class="outline-text-3" id="text-orgb265f95">
 <p>
 <code>Swing</code> is a very old Java package used for making <b>GUI</b>&rsquo;s with Java.
 </p>
@@ -266,9 +248,9 @@ Whenever a user interacts with a component or widget in the <b>GUI</b>, this is 
 </div>
 
 
-<div id="outline-container-orgaeb113b" class="outline-2">
-<h2 id="orgaeb113b"><span class="section-number-2">2.</span> Model-View-Controller</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org71eadbf" class="outline-2">
+<h2 id="org71eadbf">Model-View-Controller</h2>
+<div class="outline-text-2" id="text-org71eadbf">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/36.MVC.pdf">Lecture Slides</a>
 The <b>Model</b> is the back-end.
@@ -280,7 +262,7 @@ They both talk to each other through the <b>Controller</b>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2021-12-02 Thu 18:13</p>
+<p class="date">Created: 2022-01-12 Wed 11:04</p>
 </div>
 </body>
 </html>
