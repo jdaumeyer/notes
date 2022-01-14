@@ -6,7 +6,7 @@
 <!-- 2022-01-14 Fri 14:42 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Formal Contracts</title>
+<title>Designing Components</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -194,138 +194,11 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        displayAlign: "center",
-        displayIndent: "0em",
-
-        "HTML-CSS": { scale: 100,
-                        linebreaks: { automatic: "false" },
-                        webFont: "TeX"
-                       },
-        SVG: {scale: 100,
-              linebreaks: { automatic: "false" },
-              font: "TeX"},
-        NativeMML: {scale: 100},
-        TeX: { equationNumbers: {autoNumber: "AMS"},
-               MultLineWidth: "85%",
-               TagSide: "right",
-               TagIndent: ".8em"
-             }
-});
-</script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Formal Contracts
-<br />
-<span class="subtitle">CSE 2231: Software 2</span>
-</h1>
+<h1 class="title">Designing Components</h1>
 
-<div id="outline-container-orge995260" class="outline-2">
-<h2 id="orge995260">Contracts</h2>
-<div class="outline-text-2" id="text-orge995260">
-<p>
-Although contracts follow a syntax similar to code, they don&rsquo;t follow the same syntax as <b>Java</b> code does. While there are a lot of similarities, there are also a lot of differences.
-</p>
-<ul class="org-ul">
-<li><b>Contracts</b> are designed to describe <i>what</i> a program does whereas <b>Java</b> code worries about <i>how</i> it does it.</li>
-<li><b>Contract Specifications</b> follows  a more mathematical syntax than a normal programming language.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org53bbbeb" class="outline-2">
-<h2 id="org53bbbeb">The Contract Language</h2>
-<div class="outline-text-2" id="text-org53bbbeb">
-</div>
-<div id="outline-container-orgd98037c" class="outline-3">
-<h3 id="orgd98037c">Mathematical Types</h3>
-<div class="outline-text-3" id="text-orgd98037c">
-<p>
-Similar to <b>Java</b> the <b>Contract Specification</b> has types, however these are all based on actual mathematical types. <a href="file:///home/jed/doc/osu/past/cse2221/notes/java-basics.html#org1eede38">Java Types and Mathematical Types are NOT the same.</a>
-</p>
-<dl class="org-dl">
-<dt><code>Boolean</code></dt><dd>either true or false</dd>
-<dt><code>integer</code></dt><dd>a positive or negative whole number</dd>
-<dt><code>real</code></dt><dd>represents a real number (not used in Software 2).</dd>
-<dt><code>character</code></dt><dd>a single Unicode character.</dd>
-<dt><a href="file:///home/jed/doc/osu/past/cse2221/notes/data-structures.html#orgbb74502"><code>set</code></a></dt><dd>an unordered collection of items that are of the same type (sets have no order and don&rsquo;t maintain duplicates).
-<ul class="org-ul">
-<li>Represented with curlybraces \({a, b, ...}\).</li>
-</ul></dd>
-<dt><a href="file:///home/jed/doc/osu/past/cse2221/notes/recursion.html#org6d0f767"><code>string</code></a></dt><dd>a totally-ordered collection of items that are the same type.
-<ul class="org-ul">
-<li>Represented with angle brackets \(<a, b, ...>\).</li>
-<li>The concatenation operator is \(*\).</li>
-<li>The entries of a string are all the unique bits taken as a <b>set</b></li>
-</ul></dd>
-<dt><code>tuple</code></dt><dd>a group of different things that can be distinguished.
-<ul class="org-ul">
-<li>Use parentheses \((a, b, ..)\).</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-<div id="outline-container-orgb2e8d95" class="outline-3">
-<h3 id="orgb2e8d95">Conditions</h3>
-<div class="outline-text-3" id="text-orgb2e8d95">
-</div>
-<div id="outline-container-org396d55e" class="outline-4">
-<h4 id="org396d55e">Preconditions</h4>
-<div class="outline-text-4" id="text-org396d55e">
-<p>
-A <b>precondition</b> is simply what the method expects to receive in terms of parameters and other values. In other words, these are things that the <b>client</b> has to ensure are true.
-</p>
-<ul class="org-ul">
-<li>If the <b>precondition</b> is not fulfilled, the behavior of the method is no longer garunteed.</li>
-<li>The <b>precondition</b> is seen in the contract with the <code class="src src-java"><span style="color: #81a2be;">@requires</span></code> tag.</li>
-</ul>
-</div>
-</div>
-
-<div id="outline-container-org3f1b9d6" class="outline-4">
-<h4 id="org3f1b9d6">Postconditions</h4>
-<div class="outline-text-4" id="text-org3f1b9d6">
-<p>
-A <b>postcondition</b> is what can be expected from the output of the method. It is the <b>implementers</b> responsibility to ensure this is true if the <b>precondition</b> is fulfilled.
-</p>
-<ul class="org-ul">
-<li>The <b>postcondition</b> is seen is the method contract with the <code class="src src-java"><span style="color: #81a2be;">@ensures</span></code> tag.</li>
-</ul>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-orgc686988" class="outline-3">
-<h3 id="orgc686988">Client V. Implementer</h3>
-<div class="outline-text-3" id="text-orgc686988">
-<p>
-<b>Clients</b> and <b>Implementers</b> are not seperate people but rather different perspectives on the code.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org1f416c3" class="outline-3">
-<h3 id="org1f416c3">Quantifiers</h3>
-<div class="outline-text-3" id="text-org1f416c3">
-<p>
-The list of variables that follow a quantifier word <i>have nothing to do with</i> the value declarations that follow them.
-</p>
-<dl class="org-dl">
-<dt><code>for all</code></dt><dd>True iff main clause holds for all the cases.</dd>
-<dt><code>there exists</code></dt><dd>True iff main</dd>
-
-<dt>(no term)</dt><dd>When the name of a method is in the specification, it is referring to the <b>return value</b> of the method.
-<ul class="org-ul">
-<li><code>removeAny is in #this#</code>, the <code>removeAny</code> refers to the <b>return</b> of the method.</li>
-</ul></dd>
-</dl>
-</div>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
