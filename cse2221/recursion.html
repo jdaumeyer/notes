@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-12 Wed 11:04 -->
+<!-- 2022-01-13 Thu 15:55 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Recursion</title>
@@ -228,6 +228,9 @@
 <div class="outline-text-2" id="text-org76b1a3b">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/20.String-Theory.pdf">Lecture Slides</a>
+</p>
+
+<p>
 A <b>mathematical string</b> is a series of zero or more entries of any <i>other</i> mathematical type. This automatically makes it a bit different then the <b>Java</b> <code>String</code> type which is only a series of <code>char</code> types. This type is going to be used in the examples for <b>recursion</b> below.
 </p>
 </div>
@@ -271,6 +274,9 @@ A <b>mathematical string</b> \(s\) would be a <b>substring</b> of \(t\) if the e
 <li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>start</i> of \(t\)</li>
 <li>\(s\) is a prefix if the \(s\) appears as a <b>substring</b> of \(t\) at the <i>end</i> of \(t\)</li>
 </ul>
+<p>
+These are represented notationally with \(s[x, y)\), meaning that a substring starts at \(x\) and continues to but doesn&rsquo;t include \(y\).
+</p>
 </div>
 </div>
 </div>
@@ -321,15 +327,15 @@ All recursive functions need one key element, a <b>base case</b>. This is a situ
 <h3 id="org64f2d93">Examples</h3>
 <div class="outline-text-3" id="text-org64f2d93">
 </div>
-<div id="outline-container-org3f34c88" class="outline-4">
-<h4 id="org3f34c88">Recursive Factorial</h4>
-<div class="outline-text-4" id="text-org3f34c88">
+<div id="outline-container-org5c5a636" class="outline-4">
+<h4 id="org5c5a636">Recursive Factorial</h4>
+<div class="outline-text-4" id="text-org5c5a636">
 <p>
 Program a function that recursively calculates the factorial \(n!\). This would be \(n \times n-1 \times n-2 \times n-\ldots\)
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java" id="orgc924f02"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+<pre class="src src-java" id="org3f34c88"><span style="color: #81a2be;">private</span> <span style="color: #81a2be;">static</span> <span style="color: #81a2be;">int</span> <span style="color: #de935f;">factorial</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
     <span style="color: #655c5a;">// </span><span style="color: #655c5a;">Base Case</span>
     <span style="color: #81a2be;">if</span> <span style="color: #85678f;">(</span>n == <span style="color: #d0b75a; font-weight: bold;">1</span><span style="color: #85678f;">)</span> <span style="color: #85678f;">{</span>
         <span style="color: #81a2be;">return</span> <span style="color: #d0b75a; font-weight: bold;">1</span>;
@@ -426,7 +432,7 @@ Because <b>Trees</b> are essentially made up of smaller <b>trees</b>, they can b
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-12 Wed 11:04</p>
+<p class="date">Created: 2022-01-13 Thu 15:55</p>
 </div>
 </body>
 </html>
