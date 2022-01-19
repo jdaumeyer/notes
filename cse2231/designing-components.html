@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-14 Fri 14:48 -->
+<!-- 2022-01-19 Wed 15:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Designing Components</title>
@@ -197,11 +197,72 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Designing Components</h1>
+<h1 class="title">Designing Components
+<br />
+<span class="subtitle">Software 2</span>
+</h1>
+
+<div id="outline-container-org0a626f4" class="outline-2">
+<h2 id="org0a626f4">Object Oriented Programming</h2>
+<div class="outline-text-2" id="text-org0a626f4">
+</div>
+<div id="outline-container-org8f34220" class="outline-3">
+<h3 id="org8f34220">Abstract Classes</h3>
+<div class="outline-text-3" id="text-org8f34220">
+<p>
+An <b>Abstract Class</b> is what bridges the gap between an <b>Interface</b> and a <b>Class</b>. They can&rsquo;t have objects instantiated from them and are allowed to have abstract methods.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org22dc4c3" class="outline-3">
+<h3 id="org22dc4c3">Kernel Class</h3>
+<div class="outline-text-3" id="text-org22dc4c3">
+<p>
+<b>Kernel Classes</b> aren&rsquo;t really a thing outside of Ohio State. But a <b>Kernel Class</b> is essentially just a class that has a data representation.
+</p>
+<ul class="org-ul">
+<li>They have a data representation that can be manipulated</li>
+<li>There are rules on how the data represents the object value</li>
+<li>There are rules on how the data is stored</li>
+</ul>
+
+<p>
+We want to keep the <b>Kernel</b> class as small as possible and implement as much as we can in the <b>Abstract</b> class.
+</p>
+<ul class="org-ul">
+<li>Because everything depends on the <b>Kernel</b> class, they can be hard to debug.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orge5f051c" class="outline-2">
+<h2 id="orge5f051c">Template Method</h2>
+<div class="outline-text-2" id="text-orge5f051c">
+<p>
+<b>Template Method</b> is a design pattern for dealing with different implementations of the same thing.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3bcf249" class="outline-2">
+<h2 id="org3bcf249">The Object Class</h2>
+<div class="outline-text-2" id="text-org3bcf249">
+<p>
+Object is a super class of every concrete type. The object class defines three methods that all objects will have:
+</p>
+<ul class="org-ul">
+<li><code class="src src-java">toString<span style="color: #81a2be;">()</span></code></li>
+<li><code class="src src-java">equals<span style="color: #81a2be;">()</span></code></li>
+<li><code class="src src-java">hasCode<span style="color: #81a2be;">()</span></code></li>
+</ul>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-14 Fri 14:48</p>
+<p class="date">Created: 2022-01-19 Wed 15:08</p>
 </div>
 </body>
 </html>
