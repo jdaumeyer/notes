@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-12 Wed 11:04 -->
+<!-- 2022-01-19 Wed 11:17 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Object-Oriented Programming</title>
@@ -263,6 +263,11 @@ Creates an <b>object</b> <code>n</code> that instantiates the class <code>Natura
 And <b>Interface</b> is similar to a class but instead of <i>implementing</i> methods, it only <i>declares</i> them. They are made to define a loose framework for a <b>class</b> to follow. Any class that inherits from an <b>interface</b> has to implement all of the methods defined by the
 <b>interface</b> as well as any other methods it needs that are not declared by the <b>interface</b>.
 </p>
+<ul class="org-ul">
+<li>Everything in an interface is <code>public</code>.</li>
+<li>An <b>interface</b> can&rsquo;t have fields or data.</li>
+<li>The methods are <code>abstract</code>, meaning they are unimplemented. A <b>class</b> that implements an <b>interface</b> is expected to proivde bodys for all the abstract methods of the interface.</li>
+</ul>
 </div>
 </div>
 </div>
@@ -351,7 +356,7 @@ All <b>Objects</b> are reference types, as opposed to all the base <b>Java</b> t
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-12 Wed 11:04</p>
+<p class="date">Created: 2022-01-19 Wed 11:17</p>
 </div>
 </body>
 </html>
