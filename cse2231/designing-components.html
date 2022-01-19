@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-19 Wed 15:08 -->
+<!-- 2022-01-19 Wed 15:27 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Designing Components</title>
@@ -244,6 +244,14 @@ We want to keep the <b>Kernel</b> class as small as possible and implement as mu
 <b>Template Method</b> is a design pattern for dealing with different implementations of the same thing.
 </p>
 </div>
+<div id="outline-container-orgc2b58d3" class="outline-3">
+<h3 id="orgc2b58d3"><span class="todo TODO">TODO</span> Layering</h3>
+<div class="outline-text-3" id="text-orgc2b58d3">
+<p>
+Two interfaces are used as opposed to just one in the CSE Library because the implementations work at different levels.
+</p>
+</div>
+</div>
 </div>
 
 <div id="outline-container-org3bcf249" class="outline-2">
@@ -259,10 +267,43 @@ Object is a super class of every concrete type. The object class defines three m
 </ul>
 </div>
 </div>
+
+<div id="outline-container-orgca4822c" class="outline-2">
+<h2 id="orgca4822c">Systems</h2>
+<div class="outline-text-2" id="text-orgca4822c">
+<p>
+Systems are a hard thing to define, but for our needs a system is just some implementation. Every system is made up of smaller subsystems.
+</p>
+
+<p>
+You can think about a system in two different ways: <i>what does it do?</i> (<b>Abstract view</b>) and <i>what is it composed of?</i> (<b>Concrete View</b>).
+</p>
+</div>
+
+<div id="outline-container-orgbc886d9" class="outline-3">
+<h3 id="orgbc886d9">Abstract View</h3>
+<div class="outline-text-3" id="text-orgbc886d9">
+<p>
+This is what the system does as a whole. It&rsquo;s the outside view of how the system interacts with other systems.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd6cdf08" class="outline-3">
+<h3 id="orgd6cdf08">Concrete View</h3>
+<div class="outline-text-3" id="text-orgd6cdf08">
+<p>
+This is how the pieces of the system interact. And the view of the system from inside itself.
+</p>
+<ul class="org-ul">
+<li>When using a <b>Concrete View</b> of a system, it is necessary to have and <b>Abstract View</b> of its pieces as to not overcomplicate things.</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-19 Wed 15:08</p>
+<p class="date">Created: 2022-01-19 Wed 15:27</p>
 </div>
 </body>
 </html>
