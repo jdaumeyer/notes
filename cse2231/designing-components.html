@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-19 Wed 15:27 -->
+<!-- 2022-02-02 Wed 14:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Designing Components</title>
@@ -201,6 +201,10 @@
 <br />
 <span class="subtitle">Software 2</span>
 </h1>
+<p>
+<a href="https://docs.google.com/presentation/d/1KfYSioDcYHqk-ew5ZQxwLPEeHjaRrTzRBm6ZFNXQajQ/edit#slide=id.p">Lecture Slides</a>
+</p>
+
 
 <div id="outline-container-org0a626f4" class="outline-2">
 <h2 id="org0a626f4">Object Oriented Programming</h2>
@@ -225,6 +229,7 @@ An <b>Abstract Class</b> is what bridges the gap between an <b>Interface</b> and
 <li>They have a data representation that can be manipulated</li>
 <li>There are rules on how the data represents the object value</li>
 <li>There are rules on how the data is stored</li>
+<li>The Kernel <i>only</i> represents the <b>Abstract</b></li>
 </ul>
 
 <p>
@@ -244,6 +249,7 @@ We want to keep the <b>Kernel</b> class as small as possible and implement as mu
 <b>Template Method</b> is a design pattern for dealing with different implementations of the same thing.
 </p>
 </div>
+
 <div id="outline-container-orgc2b58d3" class="outline-3">
 <h3 id="orgc2b58d3"><span class="todo TODO">TODO</span> Layering</h3>
 <div class="outline-text-3" id="text-orgc2b58d3">
@@ -276,7 +282,7 @@ Systems are a hard thing to define, but for our needs a system is just some impl
 </p>
 
 <p>
-You can think about a system in two different ways: <i>what does it do?</i> (<b>Abstract view</b>) and <i>what is it composed of?</i> (<b>Concrete View</b>).
+You can think about a system in two different ways:
 </p>
 </div>
 
@@ -284,26 +290,95 @@ You can think about a system in two different ways: <i>what does it do?</i> (<b>
 <h3 id="orgbc886d9">Abstract View</h3>
 <div class="outline-text-3" id="text-orgbc886d9">
 <p>
-This is what the system does as a whole. It&rsquo;s the outside view of how the system interacts with other systems.
+This is what the system does as a whole. It&rsquo;s the outside view of how the system interacts with other systems. The <b>Abstract view</b> is the view of <i>what a system does</i>.
 </p>
 </div>
 </div>
+
 <div id="outline-container-orgd6cdf08" class="outline-3">
 <h3 id="orgd6cdf08">Concrete View</h3>
 <div class="outline-text-3" id="text-orgd6cdf08">
 <p>
-This is how the pieces of the system interact. And the view of the system from inside itself.
+This is how the pieces of the system interact. And the view of the system from inside itself. The <b>Concrete View</b> is the view of <i>how a system works</i>.
 </p>
 <ul class="org-ul">
 <li>When using a <b>Concrete View</b> of a system, it is necessary to have and <b>Abstract View</b> of its pieces as to not overcomplicate things.</li>
 </ul>
+
+<p>
+When working with large software we want to break <i>concrete-to-concrete</i> dependencies. Because with a <i>concrete-to-concrete</i> dependency when we change code of one, we could break the other. <b>Object Oriented Programming</b> and <b>Design By Contract</b> are both methodologies designed to prevent <i>concrete-to-concrete</i> dependencies.
+</p>
 </div>
+</div>
+</div>
+
+<div id="outline-container-orga2009e4" class="outline-2">
+<h2 id="orga2009e4">State Spaces</h2>
+<div class="outline-text-2" id="text-orga2009e4">
+</div>
+<div id="outline-container-orgce98870" class="outline-3">
+<h3 id="orgce98870">Abstract State Space</h3>
+<div class="outline-text-3" id="text-orgce98870">
+<p>
+The <b>Abstract State Space</b> of a type is all the values that it can take on, from the <b>client</b>&rsquo;s perspective.
+</p>
+<ul class="org-ul">
+<li>The <b>Abstract State Space</b> for <code>NaturalNumber</code> is all non-negative numbers.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeefc348" class="outline-3">
+<h3 id="orgeefc348">Concrete State Space</h3>
+<div class="outline-text-3" id="text-orgeefc348">
+<p>
+The <b>Concrete State Space</b> is the set of all possible values that a specific data representation can have.
+</p>
+<ul class="org-ul">
+<li>This is what a class can actually represent, not what it&rsquo;s modeling</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org35006e7" class="outline-3">
+<h3 id="org35006e7">Abstract Function</h3>
+<div class="outline-text-3" id="text-org35006e7">
+<p>
+The <b>Abstract Function</b> or the <b>Correspondence</b> function, is a function that turns the <i>Concrete State Space</i> into the <i>Abstract State Space</i>.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgef106b4" class="outline-2">
+<h2 id="orgef106b4">Kernel Purity Rule</h2>
+<div class="outline-text-2" id="text-orgef106b4">
+<p>
+The <b>Kernel Purity Rule (KPR)</b> states that no method in a component with a data representation may never call a public method of itself
+</p>
+<ul class="org-ul">
+<li>This is used to cut down on those concrete dependencies that we want to try our hardest to avoid.</li>
+<li>If you need to do recursion, do it in a private method.</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgb2a6d9a" class="outline-2">
+<h2 id="orgb2a6d9a">Commutative Diagram</h2>
+<div class="outline-text-2" id="text-orgb2a6d9a">
+<p>
+The <b>Commutative Diagram</b> is used to illustrate both the <i>abstact</i> and <i>concrete</i> states before and after a method call.
+</p>
+<ul class="org-ul">
+<li>Check the lecture slides for an example!</li>
+</ul>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-19 Wed 15:27</p>
+<p class="date">Created: 2022-02-02 Wed 14:41</p>
 </div>
 </body>
 </html>
