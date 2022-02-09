@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-19 Wed 11:17 -->
+<!-- 2022-02-09 Wed 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Formal Contracts</title>
@@ -223,9 +223,9 @@
 <span class="subtitle">CSE 2231: Software 2</span>
 </h1>
 
-<div id="outline-container-orge995260" class="outline-2">
-<h2 id="orge995260">Contracts</h2>
-<div class="outline-text-2" id="text-orge995260">
+<div id="outline-container-orgb45e716" class="outline-2">
+<h2 id="orgb45e716">Contracts</h2>
+<div class="outline-text-2" id="text-orgb45e716">
 <p>
 Although contracts follow a syntax similar to code, they don&rsquo;t follow the same syntax as <b>Java</b> code does. While there are a lot of similarities, there are also a lot of differences.
 </p>
@@ -236,26 +236,26 @@ Although contracts follow a syntax similar to code, they don&rsquo;t follow the 
 </div>
 </div>
 
-<div id="outline-container-org53bbbeb" class="outline-2">
-<h2 id="org53bbbeb">The Contract Language</h2>
-<div class="outline-text-2" id="text-org53bbbeb">
+<div id="outline-container-orga3edda0" class="outline-2">
+<h2 id="orga3edda0">The Contract Language</h2>
+<div class="outline-text-2" id="text-orga3edda0">
 </div>
-<div id="outline-container-orgd98037c" class="outline-3">
-<h3 id="orgd98037c">Mathematical Types</h3>
-<div class="outline-text-3" id="text-orgd98037c">
+<div id="outline-container-org697373b" class="outline-3">
+<h3 id="org697373b">Mathematical Types</h3>
+<div class="outline-text-3" id="text-org697373b">
 <p>
-Similar to <b>Java</b> the <b>Contract Specification</b> has types, however these are all based on actual mathematical types. <a href="file:///home/jed/doc/osu/past/cse2221/notes/java-basics.html#org1eede38">Java Types and Mathematical Types are NOT the same.</a>
+Similar to <b>Java</b> the <b>Contract Specification</b> has types, however these are all based on actual mathematical types. <a href="file:///home/jed/doc/osu/past/cse2221/notes/java-basics.html#org69a310e">Java Types and Mathematical Types are NOT the same.</a>
 </p>
 <dl class="org-dl">
 <dt><code>Boolean</code></dt><dd>either true or false</dd>
 <dt><code>integer</code></dt><dd>a positive or negative whole number</dd>
 <dt><code>real</code></dt><dd>represents a real number (not used in Software 2).</dd>
 <dt><code>character</code></dt><dd>a single Unicode character.</dd>
-<dt>(no term)</dt><dd><a href="file:///home/jed/doc/osu/past/cse2221/notes/data-structures.html#orgbb74502"><code>set</code></a>:: an unordered collection of items that are of the same type (sets have no order and don&rsquo;t maintain duplicates).
+<dt>(no term)</dt><dd><a href="file:///home/jed/doc/osu/past/cse2221/notes/data-structures.html#org0a79323"><code>set</code></a>:: an unordered collection of items that are of the same type (sets have no order and don&rsquo;t maintain duplicates).
 <ul class="org-ul">
 <li>Represented with curlybraces \({a, b, ...}\).</li>
 </ul></dd>
-<dt><a href="file:///home/jed/doc/osu/past/cse2221/notes/recursion.html#org6d0f767"><code>string</code></a></dt><dd>a totally-ordered collection of items that are the same type.
+<dt><a href="file:///home/jed/doc/osu/past/cse2221/notes/recursion.html#org967013d"><code>string</code></a></dt><dd>a totally-ordered collection of items that are the same type.
 <ul class="org-ul">
 <li>Represented with angle brackets \(<a, b, ...>\).</li>
 <li>The concatenation operator is \(*\).</li>
@@ -268,13 +268,13 @@ Similar to <b>Java</b> the <b>Contract Specification</b> has types, however thes
 </dl>
 </div>
 </div>
-<div id="outline-container-orgb2e8d95" class="outline-3">
-<h3 id="orgb2e8d95">Conditions</h3>
-<div class="outline-text-3" id="text-orgb2e8d95">
+<div id="outline-container-org18b250f" class="outline-3">
+<h3 id="org18b250f">Conditions</h3>
+<div class="outline-text-3" id="text-org18b250f">
 </div>
-<div id="outline-container-org396d55e" class="outline-4">
-<h4 id="org396d55e">Preconditions</h4>
-<div class="outline-text-4" id="text-org396d55e">
+<div id="outline-container-org6d50a7d" class="outline-4">
+<h4 id="org6d50a7d">Preconditions</h4>
+<div class="outline-text-4" id="text-org6d50a7d">
 <p>
 A <b>precondition</b> is simply what the method expects to receive in terms of parameters and other values. In other words, these are things that the <b>client</b> has to ensure are true.
 </p>
@@ -285,9 +285,9 @@ A <b>precondition</b> is simply what the method expects to receive in terms of p
 </div>
 </div>
 
-<div id="outline-container-org3f1b9d6" class="outline-4">
-<h4 id="org3f1b9d6">Postconditions</h4>
-<div class="outline-text-4" id="text-org3f1b9d6">
+<div id="outline-container-orgcb021d9" class="outline-4">
+<h4 id="orgcb021d9">Postconditions</h4>
+<div class="outline-text-4" id="text-orgcb021d9">
 <p>
 A <b>postcondition</b> is what can be expected from the output of the method. It is the <b>implementers</b> responsibility to ensure this is true if the <b>precondition</b> is fulfilled.
 </p>
@@ -299,18 +299,18 @@ A <b>postcondition</b> is what can be expected from the output of the method. It
 </div>
 
 
-<div id="outline-container-orgc686988" class="outline-3">
-<h3 id="orgc686988">Client V. Implementer</h3>
-<div class="outline-text-3" id="text-orgc686988">
+<div id="outline-container-orgab0ce23" class="outline-3">
+<h3 id="orgab0ce23">Client V. Implementer</h3>
+<div class="outline-text-3" id="text-orgab0ce23">
 <p>
 <b>Clients</b> and <b>Implementers</b> are not seperate people but rather different perspectives on the code.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org1f416c3" class="outline-3">
-<h3 id="org1f416c3">Quantifiers</h3>
-<div class="outline-text-3" id="text-org1f416c3">
+<div id="outline-container-org6c37500" class="outline-3">
+<h3 id="org6c37500">Quantifiers</h3>
+<div class="outline-text-3" id="text-org6c37500">
 <p>
 The list of variables that follow a quantifier word <i>have nothing to do with</i> the value declarations that follow them.
 </p>
@@ -329,7 +329,7 @@ The list of variables that follow a quantifier word <i>have nothing to do with</
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-19 Wed 11:17</p>
+<p class="date">Created: 2022-02-09 Wed 14:20</p>
 </div>
 </body>
 </html>

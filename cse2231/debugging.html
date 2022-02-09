@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-02 Wed 14:41 -->
+<!-- 2022-02-09 Wed 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Debugging</title>
@@ -202,9 +202,9 @@
 <span class="subtitle">CSE2231 Software 2</span>
 </h1>
 
-<div id="outline-container-org9cb09e4" class="outline-2">
-<h2 id="org9cb09e4">Terminology</h2>
-<div class="outline-text-2" id="text-org9cb09e4">
+<div id="outline-container-org85105d2" class="outline-2">
+<h2 id="org85105d2">Terminology</h2>
+<div class="outline-text-2" id="text-org85105d2">
 <p>
 It is easy to makes tests against a reference of a method that we know works. Although this isn&rsquo;t always possible if we don&rsquo;t have a working reference.
 </p>
@@ -223,9 +223,9 @@ It is easy to makes tests against a reference of a method that we know works. Al
 </div>
 </div>
 
-<div id="outline-container-orgc23e45e" class="outline-2">
-<h2 id="orgc23e45e">Testing</h2>
-<div class="outline-text-2" id="text-orgc23e45e">
+<div id="outline-container-orgc3731c7" class="outline-2">
+<h2 id="orgc3731c7">Testing</h2>
+<div class="outline-text-2" id="text-orgc3731c7">
 <p>
 The way we will create and use test cases in this class follows a pretty structured format. The goal of these test is to make sure our implementation works <i>exactly</i> as expected. Meaning that there are no side effects or unintended consequences. The process goes as follows:
 </p>
@@ -242,9 +242,9 @@ The way we will create and use test cases in this class follows a pretty structu
 </ol>
 </div>
 
-<div id="outline-container-orgef20a87" class="outline-3">
-<h3 id="orgef20a87">Making Good Tests</h3>
-<div class="outline-text-3" id="text-orgef20a87">
+<div id="outline-container-org32c0c08" class="outline-3">
+<h3 id="org32c0c08">Making Good Tests</h3>
+<div class="outline-text-3" id="text-org32c0c08">
 <p>
 To make an ideal test, we want to create all the setup with our helper methods and then make a <i>single</i> call to the method being tested
 </p>
@@ -257,9 +257,9 @@ Sometimes testing in isolation is not always accurate. You may need to test how 
 </div>
 
 
-<div id="outline-container-org2cac38b" class="outline-2">
-<h2 id="org2cac38b">Debugging</h2>
-<div class="outline-text-2" id="text-org2cac38b">
+<div id="outline-container-orgca352a8" class="outline-2">
+<h2 id="orgca352a8">Debugging</h2>
+<div class="outline-text-2" id="text-orgca352a8">
 <p>
 <b>Testing</b> and <b>Debugging</b> are different.
 </p>
@@ -269,39 +269,39 @@ Sometimes testing in isolation is not always accurate. You may need to test how 
 </ul>
 </div>
 
-<div id="outline-container-orga41fa1c" class="outline-3">
-<h3 id="orga41fa1c">The <b>Seven Steps of Debugging (TM)</b></h3>
-<div class="outline-text-3" id="text-orga41fa1c">
+<div id="outline-container-orgbfb9966" class="outline-3">
+<h3 id="orgbfb9966">The <b>Seven Steps of Debugging (TM)</b></h3>
+<div class="outline-text-3" id="text-orgbfb9966">
 </div>
-<div id="outline-container-orga72c618" class="outline-4">
-<h4 id="orga72c618">Does an assertion show us where the error is?</h4>
+<div id="outline-container-org02c7c56" class="outline-4">
+<h4 id="org02c7c56">Does an assertion show us where the error is?</h4>
 </div>
-<div id="outline-container-org02e1663" class="outline-4">
-<h4 id="org02e1663">Identify the simplest test case that fails</h4>
+<div id="outline-container-org710c357" class="outline-4">
+<h4 id="org710c357">Identify the simplest test case that fails</h4>
 </div>
-<div id="outline-container-orgb90fe5c" class="outline-4">
-<h4 id="orgb90fe5c">Reduce that case to a minimal case</h4>
+<div id="outline-container-org50d0d9b" class="outline-4">
+<h4 id="org50d0d9b">Reduce that case to a minimal case</h4>
 </div>
-<div id="outline-container-org202ae99" class="outline-4">
-<h4 id="org202ae99">Determine the last location in the test case where the representation is still correct</h4>
+<div id="outline-container-org7974d1c" class="outline-4">
+<h4 id="org7974d1c">Determine the last location in the test case where the representation is still correct</h4>
 </div>
-<div id="outline-container-org9a65ffd" class="outline-4">
-<h4 id="org9a65ffd">Use breakpoints to jump into kernel methods</h4>
+<div id="outline-container-org01fdd3c" class="outline-4">
+<h4 id="org01fdd3c">Use breakpoints to jump into kernel methods</h4>
 </div>
-<div id="outline-container-org59b146e" class="outline-4">
-<h4 id="org59b146e">Find the first location the trace doesn&rsquo;t match</h4>
+<div id="outline-container-org0eb9e04" class="outline-4">
+<h4 id="org0eb9e04">Find the first location the trace doesn&rsquo;t match</h4>
 </div>
-<div id="outline-container-org2e42b96" class="outline-4">
-<h4 id="org2e42b96">Fix the first error you find then return to tests</h4>
+<div id="outline-container-orgc567d7e" class="outline-4">
+<h4 id="orgc567d7e">Fix the first error you find then return to tests</h4>
 </div>
 </div>
-<div id="outline-container-org063ad98" class="outline-3">
-<h3 id="org063ad98">Reading Errors</h3>
-<div class="outline-text-3" id="text-org063ad98">
+<div id="outline-container-org58dde46" class="outline-3">
+<h3 id="org58dde46">Reading Errors</h3>
+<div class="outline-text-3" id="text-org58dde46">
 </div>
-<div id="outline-container-org00c955c" class="outline-4">
-<h4 id="org00c955c">Assertions</h4>
-<div class="outline-text-4" id="text-org00c955c">
+<div id="outline-container-org8c6d106" class="outline-4">
+<h4 id="org8c6d106">Assertions</h4>
+<div class="outline-text-4" id="text-org8c6d106">
 <p>
 If you see a violated assertion that isn&rsquo;t one of your assertions, it can be easy to solve.
 </p>
@@ -319,7 +319,7 @@ If you see a violated assertion that isn&rsquo;t one of your assertions, it can 
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-02-02 Wed 14:41</p>
+<p class="date">Created: 2022-02-09 Wed 14:20</p>
 </div>
 </body>
 </html>

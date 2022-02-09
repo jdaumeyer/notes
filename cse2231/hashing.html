@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-02 Wed 14:44 -->
+<!-- 2022-02-09 Wed 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Hashing</title>
@@ -194,6 +194,27 @@
   .org-svg { width: 90%; }
 </style>
 <link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -201,10 +222,172 @@
 <br />
 <span class="subtitle">CSE2231: Software 2</span>
 </h1>
+
+
+<div id="outline-container-orgaeccbb0" class="outline-2">
+<h2 id="orgaeccbb0">Time</h2>
+<div class="outline-text-2" id="text-orgaeccbb0">
+<p>
+Algoritms take time to run. Often this time is dependent on the amount of elements. This is a problem all computer scientist try to solve.
+</p>
+</div>
+<div id="outline-container-orgf71f3b0" class="outline-3">
+<h3 id="orgf71f3b0">Big O Notation</h3>
+<div class="outline-text-3" id="text-orgf71f3b0">
+<dl class="org-dl">
+<dt>\(O(1)\)</dt><dd>Runs in linear time</dd>
+<dt>\(O(lg n)\)</dt><dd><i>Logarithmic</i>  Takes more time as n doubles</dd>
+<dt>\(O(n)\)</dt><dd><i>Linear</i>, takes an amount of time proportional to \(n\)</dd>
+<dt>\(0(n lg n)\)</dt><dd><i>Linearithmic</i></dd>
+<dt>\(O(n^2), O(n^3), O(n^4)\)</dt><dd><i>Quadratic</i></dd>
+<dt>\(O(2^n)\)</dt><dd><i>Exponential</i>, each exponential dwarfs the previous one. These are basically impossible to solve in any realistic amount of time</dd>
+<dt>\(O(n!)\)</dt><dd><i>Factorial</i>, If you made an algorithm that takes this long, enjoy the heat death of the universe.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orge426cdf" class="outline-2">
+<h2 id="orge426cdf">Hashing</h2>
+<div class="outline-text-2" id="text-orge426cdf">
+<p>
+<b>Hashing</b> is one of these techniques to reduce time. It&rsquo;s main goal is to reduce the amount of time to perform a data search. It works by using a <b>Hashing Function</b> to sort data.
+</p>
+</div>
+<div id="outline-container-orgc4e9d88" class="outline-3">
+<h3 id="orgc4e9d88">The Hash Function</h3>
+<div class="outline-text-3" id="text-orgc4e9d88">
+<p>
+A <b>Hash function</b> is <i>part</i> of what a <b>hash</b> does. It is a function that in a piece of data and returns a numeric value based on it.
+</p>
+<ul class="org-ul">
+<li>The <code class="src src-java">.hashCode<span style="color: #81a2be;">()</span></code> function in Java returns an <code class="src src-java"><span style="color: #81a2be;">int</span></code> value.</li>
+<li><b>Hash functions</b> have to be <i>deterministic</i> meaning that for every equal value, it must return the same thing.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org759c26e" class="outline-3">
+<h3 id="org759c26e">The Process</h3>
+<div class="outline-text-3" id="text-org759c26e">
+<ol class="org-ol">
+<li>run the <b>Hash Function</b> on an object.</li>
+<li>The <b>Hash function</b> returns a <b>Hash Value</b>.</li>
+<li>Fit the <b>Hash Value</b> to the <i>length</i> of your hash table to get the <b>index</b>.
+<ul class="org-ul">
+<li>This is typically done with <i>modulus</i> <code class="src src-java">hash_value % length</code></li>
+</ul></li>
+
+<li>use the bucket at that index.</li>
+</ol>
+</div>
+
+<div id="outline-container-org272e9d8" class="outline-4">
+<h4 id="org272e9d8">Mod v. Modulus</h4>
+<div class="outline-text-4" id="text-org272e9d8">
+<p>
+The <code>%</code> operator in java <i>is not</i> a &ldquo;Modulus&rdquo; operator. Instead it returns the remainder.
+</p>
+<ul class="org-ul">
+<li><p>
+The difference occurs at negative numbers, if the remainder of something is negative add the number back in.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-right">-4</td>
+<td class="org-right">-3</td>
+<td class="org-right">-2</td>
+<td class="org-right">-1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">3</td>
+<td class="org-right">4</td>
+</tr>
+
+<tr>
+<td class="org-left">n / 3</td>
+<td class="org-right">0</td>
+<td class="org-right">-1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">n % 3</td>
+<td class="org-right">-1</td>
+<td class="org-right">0</td>
+<td class="org-right">-2</td>
+<td class="org-right">-1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-left">n mod 3</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">2</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org0107a1b" class="outline-3">
+<h3 id="org0107a1b">Drawback and Benefits</h3>
+<div class="outline-text-3" id="text-org0107a1b">
+<p>
+<b>Hashing</b> is only going to be fast if the <b>Hash Function</b> is fast as well. Because of this function, there will always be a small performance hit but it shouldn&rsquo;t be a major one.
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-02-02 Wed 14:44</p>
+<p class="date">Created: 2022-02-09 Wed 14:20</p>
 </div>
 </body>
 </html>

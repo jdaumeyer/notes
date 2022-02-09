@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-01-13 Thu 15:57 -->
+<!-- 2022-02-09 Wed 14:20 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Structures</title>
@@ -223,9 +223,9 @@
 <span class="subtitle">CSE 2221</span>
 </h1>
 
-<div id="outline-container-org1b6cd12" class="outline-2">
-<h2 id="org1b6cd12">Queues</h2>
-<div class="outline-text-2" id="text-org1b6cd12">
+<div id="outline-container-orga367792" class="outline-2">
+<h2 id="orga367792">Queues</h2>
+<div class="outline-text-2" id="text-orga367792">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/27.Queue.pdf">Lecture Slides</a>
 </p>
@@ -240,17 +240,17 @@ The best way to think of a <b>Queue</b> is people in a line (which is actually c
 </p>
 </div>
 
-<div id="outline-container-orgf53d3e3" class="outline-3">
-<h3 id="orgf53d3e3">Queue Component</h3>
-<div class="outline-text-3" id="text-orgf53d3e3">
+<div id="outline-container-org38de7fa" class="outline-3">
+<h3 id="org38de7fa">Queue Component</h3>
+<div class="outline-text-3" id="text-org38de7fa">
 <p>
 The queue component has a few different methods
 </p>
 </div>
 
-<div id="outline-container-orgf77b8a0" class="outline-4">
-<h4 id="orgf77b8a0"><code>QueueKernel&lt;T&gt;</code> Methods</h4>
-<div class="outline-text-4" id="text-orgf77b8a0">
+<div id="outline-container-org04ef9b8" class="outline-4">
+<h4 id="org04ef9b8"><code>QueueKernel&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-org04ef9b8">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">enqueue</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">t</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds an item to the queue.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">dequeue</span><span style="color: #81a2be;">()</span> </code></dt><dd>Removes the top item from the queue.</dd>
@@ -259,9 +259,9 @@ The queue component has a few different methods
 </div>
 </div>
 
-<div id="outline-container-orgac77e57" class="outline-4">
-<h4 id="orgac77e57"><code>Queue&lt;T&gt;</code> Methods</h4>
-<div class="outline-text-4" id="text-orgac77e57">
+<div id="outline-container-orgf064fff" class="outline-4">
+<h4 id="orgf064fff"><code>Queue&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-orgf064fff">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">front</span><span style="color: #81a2be;">()</span></code></dt><dd>returns the oldest entry in <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceFront</span><span style="color: #81a2be;">()</span></code></dt><dd>replaces the front of <code>this</code> and returns the value of the old front</dd>
@@ -285,17 +285,17 @@ A <code>Queue&lt;T&gt;</code> can be declared in the following way, where <code>
 </div>
 </div>
 
-<div id="outline-container-org68a7ff2" class="outline-2">
-<h2 id="org68a7ff2">Sets</h2>
-<div class="outline-text-2" id="text-org68a7ff2">
+<div id="outline-container-org098dc69" class="outline-2">
+<h2 id="org098dc69">Sets</h2>
+<div class="outline-text-2" id="text-org098dc69">
 <p>
 A <b>Set</b> is most basically an unordered collection of unique elements. the can be added or removed based on their value.
 </p>
 </div>
 
-<div id="outline-container-org489138a" class="outline-3">
-<h3 id="org489138a">Mathematical Set Notation</h3>
-<div class="outline-text-3" id="text-org489138a">
+<div id="outline-container-org3c90e59" class="outline-3">
+<h3 id="org3c90e59">Mathematical Set Notation</h3>
+<div class="outline-text-3" id="text-org3c90e59">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/28.Set-Theory.pdf">Lecture Slides</a>
 </p>
@@ -313,18 +313,18 @@ An empty set with no elements is denoted by \({  }\). As elements are added, the
 </p>
 </div>
 
-<div id="outline-container-org23deae2" class="outline-4">
-<h4 id="org23deae2">Membership</h4>
-<div class="outline-text-4" id="text-org23deae2">
+<div id="outline-container-orga74866b" class="outline-4">
+<h4 id="orga74866b">Membership</h4>
+<div class="outline-text-4" id="text-orga74866b">
 <p>
 Because a <b>set</b> has elements inside of it, we have notation for identifying which elements are inside of a <b>set</b>. If an element is in a <b>set</b> it is a <b>member</b> of that set.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org0dbc210" class="outline-4">
-<h4 id="org0dbc210">Union</h4>
-<div class="outline-text-4" id="text-org0dbc210">
+<div id="outline-container-org2c48391" class="outline-4">
+<h4 id="org2c48391">Union</h4>
+<div class="outline-text-4" id="text-org2c48391">
 <p>
 A <b>union</b> of two sets, is a combination of all the elements in each <b>set</b>.
 </p>
@@ -334,9 +334,9 @@ A <b>union</b> of two sets, is a combination of all the elements in each <b>set<
 </div>
 </div>
 
-<div id="outline-container-org3b25f40" class="outline-4">
-<h4 id="org3b25f40">Intersection</h4>
-<div class="outline-text-4" id="text-org3b25f40">
+<div id="outline-container-org2717ba0" class="outline-4">
+<h4 id="org2717ba0">Intersection</h4>
+<div class="outline-text-4" id="text-org2717ba0">
 <p>
 The <b>intersection</b> of two sets are the elements that only appear in both <b>sets</b>.
 </p>
@@ -346,18 +346,18 @@ The <b>intersection</b> of two sets are the elements that only appear in both <b
 </div>
 </div>
 
-<div id="outline-container-org09c36ea" class="outline-4">
-<h4 id="org09c36ea">Difference</h4>
-<div class="outline-text-4" id="text-org09c36ea">
+<div id="outline-container-orga52918e" class="outline-4">
+<h4 id="orga52918e">Difference</h4>
+<div class="outline-text-4" id="text-orga52918e">
 <p>
 The <b>difference</b> of two <b>sets</b> are the elements that don&rsquo;t appear in both.
 </p>
 </div>
 </div>
 
-<div id="outline-container-org4d143cf" class="outline-4">
-<h4 id="org4d143cf">Subsets</h4>
-<div class="outline-text-4" id="text-org4d143cf">
+<div id="outline-container-org71c5cd8" class="outline-4">
+<h4 id="org71c5cd8">Subsets</h4>
+<div class="outline-text-4" id="text-org71c5cd8">
 <p>
 <b>Sets</b> can be <b>subsets</b> of another <b>set</b> if all the elements of one <b>set</b> appear in another <b>set</b>. They are a <b>Proper subset</b> if they don&rsquo;t equal each other.
 </p>
@@ -365,9 +365,9 @@ The <b>difference</b> of two <b>sets</b> are the elements that don&rsquo;t appea
 </div>
 </div>
 
-<div id="outline-container-org5e54e22" class="outline-3">
-<h3 id="org5e54e22">Set Component</h3>
-<div class="outline-text-3" id="text-org5e54e22">
+<div id="outline-container-orgf141eac" class="outline-3">
+<h3 id="orgf141eac">Set Component</h3>
+<div class="outline-text-3" id="text-orgf141eac">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/29.Set.pdf">Lecture Slides</a>
 </p>
@@ -377,9 +377,9 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 </p>
 </div>
 
-<div id="outline-container-org2534ef9" class="outline-4">
-<h4 id="org2534ef9"><code>Set&lt;T&gt;</code> Methods</h4>
-<div class="outline-text-4" id="text-org2534ef9">
+<div id="outline-container-orgbc9fe35" class="outline-4">
+<h4 id="orgbc9fe35"><code>Set&lt;T&gt;</code> Methods</h4>
+<div class="outline-text-4" id="text-orgbc9fe35">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds <code>x</code> to <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>Removes <code>x</code> from <code>this</code> and returns <code>x</code>. When <code>x</code> is a reference, it is removed based on value not reference.</dd>
@@ -395,9 +395,9 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 </div>
 </div>
 
-<div id="outline-container-orgbd51c37" class="outline-2">
-<h2 id="orgbd51c37">Sequence</h2>
-<div class="outline-text-2" id="text-orgbd51c37">
+<div id="outline-container-orgf4b453b" class="outline-2">
+<h2 id="orgf4b453b">Sequence</h2>
+<div class="outline-text-2" id="text-orgf4b453b">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/31.Sequence.pdf">Lecture Slides</a>
 </p>
@@ -406,9 +406,9 @@ There is a component of <i>OSU CSE Components</i> called <code>Set&lt;T&gt;</cod
 A <b>sequence</b> is similar to an array but it can have a ther
 </p>
 </div>
-<div id="outline-container-org1653821" class="outline-3">
-<h3 id="org1653821"><code>SequenceKernel&lt;T&gt;</code> interface methods</h3>
-<div class="outline-text-3" id="text-org1653821">
+<div id="outline-container-orga3e6066" class="outline-3">
+<h3 id="orga3e6066"><code>SequenceKernel&lt;T&gt;</code> interface methods</h3>
+<div class="outline-text-3" id="text-orga3e6066">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span>, <span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>adds <code>x</code> at position <code>pos</code> of <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span><span style="color: #81a2be;">)</span></code></dt><dd>removes the element at position <code>pos</code> of <code>this</code> and returns it.</dd>
@@ -417,9 +417,9 @@ A <b>sequence</b> is similar to an array but it can have a ther
 </div>
 </div>
 
-<div id="outline-container-org7cf7ebc" class="outline-3">
-<h3 id="org7cf7ebc"><code>Sequence&lt;T&gt;</code> class methods</h3>
-<div class="outline-text-3" id="text-org7cf7ebc">
+<div id="outline-container-orge97b27a" class="outline-3">
+<h3 id="orge97b27a"><code>Sequence&lt;T&gt;</code> class methods</h3>
+<div class="outline-text-3" id="text-orge97b27a">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">entry</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span><span style="color: #81a2be;">)</span></code></dt><dd>returns the element of <code>this</code> at position <code>pos</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceEntry</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">pos</span>, <span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>replaces the entry at position <code>pos</code> of <code>this</code> with <code>x</code>, returns the previous element.</dd>
@@ -432,12 +432,12 @@ A <b>sequence</b> is similar to an array but it can have a ther
 </div>
 </div>
 
-<div id="outline-container-org7c3c590" class="outline-2">
-<h2 id="org7c3c590">Genome Reassembly from Fragments</h2>
+<div id="outline-container-org409ff89" class="outline-2">
+<h2 id="org409ff89">Genome Reassembly from Fragments</h2>
 </div>
-<div id="outline-container-orge3b0900" class="outline-2">
-<h2 id="orge3b0900">Stacks</h2>
-<div class="outline-text-2" id="text-orge3b0900">
+<div id="outline-container-orgd7e2b8b" class="outline-2">
+<h2 id="orgd7e2b8b">Stacks</h2>
+<div class="outline-text-2" id="text-orgd7e2b8b">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/32.Stack.pdf">Lecture Slides</a>
 </p>
@@ -447,9 +447,9 @@ A <b>sequence</b> is similar to an array but it can have a ther
 </p>
 </div>
 
-<div id="outline-container-org8356314" class="outline-4">
-<h4 id="org8356314"><code>StackKernel</code> Methods</h4>
-<div class="outline-text-4" id="text-org8356314">
+<div id="outline-container-org2c25f46" class="outline-4">
+<h4 id="org2c25f46"><code>StackKernel</code> Methods</h4>
+<div class="outline-text-4" id="text-org2c25f46">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/common/doc/index.html?components/stack/StackKernel.html">Documentation Link</a>
 </p>
@@ -461,9 +461,9 @@ A <b>sequence</b> is similar to an array but it can have a ther
 </div>
 </div>
 
-<div id="outline-container-org7ab796c" class="outline-4">
-<h4 id="org7ab796c"><code>Stack1L</code> Methods</h4>
-<div class="outline-text-4" id="text-org7ab796c">
+<div id="outline-container-org13e3f08" class="outline-4">
+<h4 id="org13e3f08"><code>Stack1L</code> Methods</h4>
+<div class="outline-text-4" id="text-org13e3f08">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">top</span><span style="color: #81a2be;">()</span></code></dt><dd>returns the top element of <code>this</code> without actually removing it from <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">replaceTop</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>returns the top element of <code>this</code> and replaces it with <code>x</code>.</dd>
@@ -473,9 +473,9 @@ A <b>sequence</b> is similar to an array but it can have a ther
 </div>
 </div>
 
-<div id="outline-container-orgb503071" class="outline-2">
-<h2 id="orgb503071">Map</h2>
-<div class="outline-text-2" id="text-orgb503071">
+<div id="outline-container-org0adb538" class="outline-2">
+<h2 id="org0adb538">Map</h2>
+<div class="outline-text-2" id="text-org0adb538">
 <p>
 <a href="http://web.cse.ohio-state.edu/software/2221/web-sw1/extras/slides/34.Map.pdf">Lecture Slides</a>
 </p>
@@ -485,13 +485,13 @@ The <b>Map</b> data structure assigns a <i>key</i> to a <i>value</i>. <b>Maps</b
 </p>
 </div>
 
-<div id="outline-container-org44845aa" class="outline-3">
-<h3 id="org44845aa">Component</h3>
-<div class="outline-text-3" id="text-org44845aa">
+<div id="outline-container-org4e72b57" class="outline-3">
+<h3 id="org4e72b57">Component</h3>
+<div class="outline-text-3" id="text-org4e72b57">
 </div>
-<div id="outline-container-org896039b" class="outline-4">
-<h4 id="org896039b"><code>MapKernel</code> Methods</h4>
-<div class="outline-text-4" id="text-org896039b">
+<div id="outline-container-org09ff281" class="outline-4">
+<h4 id="org09ff281"><code>MapKernel</code> Methods</h4>
+<div class="outline-text-4" id="text-org09ff281">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">add</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span>, <span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Adds the pair (<code>key</code>, <code>value</code>) to <code>this</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">Map</span>.<span style="color: #81a2be;">Pair</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">K</span>,<span style="color: #81a2be;">V</span><span style="color: #81a2be;">&gt;</span> <span style="color: #de935f;">remove</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">K</span> <span style="color: #e4e4e5;">key</span><span style="color: #81a2be;">)</span></code></dt><dd>Removes the <i>pair</i> at <code>key</code> of <code>this</code>.</dd>
@@ -503,9 +503,9 @@ The <b>Map</b> data structure assigns a <i>key</i> to a <i>value</i>. <b>Maps</b
 </dl>
 </div>
 </div>
-<div id="outline-container-orgee2adbe" class="outline-4">
-<h4 id="orgee2adbe"><code>Map1L</code> Methods</h4>
-<div class="outline-text-4" id="text-orgee2adbe">
+<div id="outline-container-org78bcfa5" class="outline-4">
+<h4 id="org78bcfa5"><code>Map1L</code> Methods</h4>
+<div class="outline-text-4" id="text-org78bcfa5">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">K</span> <span style="color: #de935f;">key</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Returns a corresponding <i>key</i> of <code>value</code>.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">boolean</span> <span style="color: #de935f;">hasValue</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">V</span> <span style="color: #e4e4e5;">value</span><span style="color: #81a2be;">)</span></code></dt><dd>Reports whether <code>value</code> exists in <code>this</code>.</dd>
@@ -519,7 +519,7 @@ The <b>Map</b> data structure assigns a <i>key</i> to a <i>value</i>. <b>Maps</b
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-01-13 Thu 15:57</p>
+<p class="date">Created: 2022-02-09 Wed 14:20</p>
 </div>
 </body>
 </html>
