@@ -6,7 +6,7 @@
 <!-- 2022-02-14 Mon 15:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Binary Trees</title>
+<title>Sorting Methods</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -217,149 +218,99 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Binary Trees
+<h1 class="title">Sorting Methods
 <br />
 <span class="subtitle">CSE2231: Software 2</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org4aed4eb">1. Tree Review</a></li>
-<li><a href="#org57c6ed7">2. Binary Tree</a>
-<ul>
-<li><a href="#org69ca24f">2.1. The <code class="src src-java"><span style="color: #81a2be;">BinaryTree</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> Component</a></li>
-<li><a href="#orgb99405b">2.2. Using a BinaryTree</a></li>
-<li><a href="#org76b6f7b">2.3. Tree Traversals</a>
-<ul>
-<li><a href="#org34e0b1d">2.3.1. Ordered Traversals</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org6854fa1">3. Binary Search</a>
-<ul>
-<li><a href="#orgf5fdb9a">3.1. Binary Search Tree</a>
-<ul>
-<li><a href="#org465042d">3.1.1. Item Equivalency</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
-<div id="outline-container-org4aed4eb" class="outline-2">
-<h2 id="org4aed4eb"><span class="section-number-2">1.</span> Tree Review</h2>
-<div class="outline-text-2" id="text-1">
+
+
+<div id="outline-container-orga8af832" class="outline-2">
+<h2 id="orga8af832">Sorting Machine</h2>
+<div class="outline-text-2" id="text-orga8af832">
 <p>
-Trees are an <i>undirected</i> (meaing there is no specific direction to follow) <b>graph</b> structure.
+the <code>OSU Components Library</code> has a simple class for sorting algorithms called <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code>.
 </p>
 <ul class="org-ul">
-<li>A <b>Rooted Tree</b> is a tree with a designated <b>Root Node</b></li>
-<li>An <b>Ordered Tree</b> cares about the order of its children.</li>
+<li>The Data Type to be sorted is passed as the type of the sorting machine</li>
+<li>the order will be used by  a comparator passed in the constructor</li>
+<li>The sorting algorithm comes from the implementation of <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code></li>
 </ul>
 </div>
-</div>
 
-<div id="outline-container-org57c6ed7" class="outline-2">
-<h2 id="org57c6ed7"><span class="section-number-2">2.</span> Binary Tree</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orge8413b8" class="outline-3">
+<h3 id="orge8413b8">Using Sorting Machines</h3>
+<div class="outline-text-3" id="text-orge8413b8">
 <p>
-A binary tree is a rooted tree where every node has <i>at most</i> two children. Because of this, every binary tree will have exactly two subtrees, but one or both might be an empty tree.
+There are two modes that a <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> can be in. These are <b>insertion mode</b> and <b>extraction mode</b>.
 </p>
 </div>
 
-
-<div id="outline-container-org69ca24f" class="outline-3">
-<h3 id="org69ca24f"><span class="section-number-3">2.1.</span> The <code class="src src-java"><span style="color: #81a2be;">BinaryTree</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> Component</h3>
-</div>
-<div id="outline-container-orgb99405b" class="outline-3">
-<h3 id="orgb99405b"><span class="section-number-3">2.2.</span> Using a BinaryTree</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-org61761aa" class="outline-4">
+<h4 id="org61761aa">Insertion Mode</h4>
+<div class="outline-text-4" id="text-org61761aa">
 <p>
-When going through a subtree, we loop through it in chunks using recursion. There are no cases where we should be disassembling a subtree.
+While in <b>insertion mode</b>, the <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> will take in elements through the <code>.add(T x)</code> method.
+</p>
+
+<p>
+Then it can be switched to <b>extraction mode</b>.
 </p>
 </div>
 </div>
 
-
-<div id="outline-container-org76b6f7b" class="outline-3">
-<h3 id="org76b6f7b"><span class="section-number-3">2.3.</span> Tree Traversals</h3>
-<div class="outline-text-3" id="text-2-3">
+<div id="outline-container-org861c96a" class="outline-4">
+<h4 id="org861c96a">Extraction Mode</h4>
+<div class="outline-text-4" id="text-org861c96a">
 <p>
-A <b>Tree Traversal</b> is a path that visits each node of a tree once.
+When the <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> is in <b>extraction mode</b>, items can be removed from the machine through the <code>.removeFirst()</code> method which will return them in order.
 </p>
 
 <p>
-Because we can&rsquo;t access <code class="src src-java">BinaryTree</code> directly, there is no way to do a <b>breadth first traversal</b>. We can only use <b>Depth First Traversals</b>
-</p>
-
-<dl class="org-dl">
-<dt>Depth First Traversal</dt><dd>This is a traversal method that follows each path to its end</dd>
-<dt>Breadth First Traversal</dt><dd>This is a traversal method that looks at all the immediate nodes and moves from there</dd>
-</dl>
-</div>
-
-<div id="outline-container-org34e0b1d" class="outline-4">
-<h4 id="org34e0b1d"><span class="section-number-4">2.3.1.</span> Ordered Traversals</h4>
-<div class="outline-text-4" id="text-2-3-1">
-<p>
-It can be important to know which node we are accessing first. We describe this as an ordered traversal.
-</p>
-<dl class="org-dl">
-<dt>Preorder Traversal</dt><dd>The Root node is accessed <i>first</i> (Root \(\rightarrow\) Left \(\rightarrow\) Right)</dd>
-<dt>Inorder Traversal</dt><dd>The Root node is accessed after the left node (Left \(\rightarrow\) Root \(\rightarrow\) Right)</dd>
-<dt>Postorder Traversal</dt><dd>The root is accessed <i>last</i>. (Left \(\rightarrow\) Right \(\rightarrow\) Root)</dd>
-</dl>
-
-<p>
-This is something you should be expected to know on an exam.
+Once a <code class="src src-java"><span style="color: #81a2be;">SortingMachine</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> is put into <b>extraction mode</b>, the only way to get it back to <b>insertion mode</b> is to clear it.
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org6854fa1" class="outline-2">
-<h2 id="org6854fa1"><span class="section-number-2">3.</span> Binary Search</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-A <b>binary search</b> is conducted by looking at the middle element or <i>an already sorted</i> set and moving depending on if the middle element is greater than or less than the element we&rsquo;re looking for.
-</p>
-</div>
 
-<div id="outline-container-orgf5fdb9a" class="outline-3">
-<h3 id="orgf5fdb9a"><span class="section-number-3">3.1.</span> Binary Search Tree</h3>
-<div class="outline-text-3" id="text-3-1">
+
+
+<div id="outline-container-orga77e4ce" class="outline-2">
+<h2 id="orga77e4ce">Sorting Algorithms</h2>
+<div class="outline-text-2" id="text-orga77e4ce">
+</div>
+<div id="outline-container-orgc6776dc" class="outline-3">
+<h3 id="orgc6776dc">Insertion Sort</h3>
+<div class="outline-text-3" id="text-orgc6776dc">
 <p>
-A <b>Binary Search Tree (BST)</b> is a special kind of tree where all of the nodes are ordered in a <b>Mathematical Preorder</b> (<i>different</i> than a <b>Preorder Traversal</b>). They are super useful because they allow us to find items in <i>logarithmic time</i>.
+<b>Insertion Sort</b> is an <i>eager</i> algorithm (meaning it does work as soon as possible). it adds items one by one to a new list to ensure that they&rsquo;re sorted.
 </p>
 <ul class="org-ul">
-<li>A <b>minimal element</b> is the leftmost entry and a <b>maximal element</b> is the rightmost node.</li>
-
-<li>The empty tree <i>is</i> a valid <b>Binary Search Tree</b>. So when programming you have to account for the empty subtree.</li>
+<li>Runs in \(O(n^2)\) time, although it can run in linear time in perfect scenario.</li>
 </ul>
 </div>
-
-<div id="outline-container-org465042d" class="outline-4">
-<h4 id="org465042d"><span class="section-number-4">3.1.1.</span> Item Equivalency</h4>
-<div class="outline-text-4" id="text-3-1-1">
+</div>
+<div id="outline-container-org5c5fb5d" class="outline-3">
+<h3 id="org5c5fb5d">Selection Sort</h3>
+<div class="outline-text-3" id="text-org5c5fb5d">
 <p>
-Because there are some elements that can have an equivalent order but be different elements, it&rsquo;s important to compare using the root node first!
+<b>Selection Sort</b> is a <i>lazy</i> algorithm (meaning it does the work at late as possible). It searches an array for the smallest item and then adds them to a sorted list.
 </p>
-<div class="org-src-container">
-<pre class="src src-java">root.compareTo<span style="color: #81a2be;">(</span><span style="color: #81a2be;">child</span><span style="color: #81a2be;">)</span>
-compare<span style="color: #81a2be;">(</span>root, child<span style="color: #81a2be;">)</span>
-</pre>
-</div>
 <ul class="org-ul">
-<li>A positive number means they&rsquo;re out of order.</li>
-<li>A negative number or zero means they&rsquo;re in order.</li>
+<li>Runs in \(O(n^2)\)</li>
 </ul>
 </div>
 </div>
+<div id="outline-container-orgebf73b4" class="outline-3">
+<h3 id="orgebf73b4">Merge Sort</h3>
+</div>
+<div id="outline-container-org96a4bef" class="outline-3">
+<h3 id="org96a4bef">Quick Sort</h3>
+</div>
+<div id="outline-container-org4af20a7" class="outline-3">
+<h3 id="org4af20a7">Heap Sort</h3>
 </div>
 </div>
 </div>
