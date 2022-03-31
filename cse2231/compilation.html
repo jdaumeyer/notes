@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-03-31 Thu 14:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Compilation</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Compilation
+<br />
+<span class="subtitle">CSE2231: Software 2</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf07c7e2">1. Abstract Syntax Tree</a>
+<ul>
+<li><a href="#org2e59a67">1.1. osu.components.Statement</a></li>
+</ul>
+</li>
+<li><a href="#orgfbf4779">2. osu.components.Program</a></li>
+<li><a href="#orgbb063a0">3. Enums</a></li>
+<li><a href="#orgd141166">4. Context Free Grammars</a>
+<ul>
+<li><a href="#org620cdb0">4.1. Meta Grammar</a></li>
+<li><a href="#org5bef7b1">4.2. Grammar Rules</a></li>
+<li><a href="#orge86ebb7">4.3. Derivations</a>
+<ul>
+<li><a href="#orgfced08c">4.3.1. Line Derivation</a></li>
+<li><a href="#org5f843c2">4.3.2. Tree Derivation</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org093e537">5. Code Generation</a>
+<ul>
+<li><a href="#orgd956d24">5.1. BLVM Object Code</a>
+<ul>
+<li><a href="#org30a8503">5.1.1. Instructions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf07c7e2" class="outline-2">
+<h2 id="orgf07c7e2"><span class="section-number-2">1.</span> Abstract Syntax Tree</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+An abstract syntax tree is a representation of the logical structure of a program.
+</p>
+</div>
+
+<div id="outline-container-org2e59a67" class="outline-3">
+<h3 id="org2e59a67"><span class="section-number-3">1.1.</span> osu.components.Statement</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The point os <code class="src src-java">Statment</code> is to store a single <b>BL</b> statement.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfbf4779" class="outline-2">
+<h2 id="orgfbf4779"><span class="section-number-2">2.</span> osu.components.Program</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Program is a three tuple that consists of an <b>identifier</b>, <b>context</b> and a <b>body</b> which is a <code>Statment</code>.
+</p>
+<ul class="org-ul">
+<li><b>Context</b> is a map of the different functions declared in the file.</li>
+<li>Because of the requirements on <code>Program</code>, it is possible to have a valid <code>Program</code> that is not a valid <b>BL</b> program.
+<ul class="org-ul">
+<li>This is because it&rsquo;s easier to catch errors later on in the pipeline during the <b>Object Code Generation</b> phase.</li>
+</ul></li>
+</ul>
+<ul class="org-ul">
+<li>When you see \(compose()\) in a contract, it means to form a tree from it.</li>
+
+<li id="Refactoring">When you change code without changing what it semantically does. Meaning you change its structure but not its general function.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgbb063a0" class="outline-2">
+<h2 id="orgbb063a0"><span class="section-number-2">3.</span> Enums</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+In Java <code>enums</code> are just a special type of class. But because of this we can treat them like actual classes. i.e creating methods constructors and fields. However, we can never actually create a new object of an enum.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd141166" class="outline-2">
+<h2 id="orgd141166"><span class="section-number-2">4.</span> Context Free Grammars</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+A grammar is one way of defining a language and a tool for proving if something is in the language. It is also a guide for parsing.
+</p>
+
+<p>
+It involves a set of <b>Terminal Symbols</b>, <b>Non-Terminal Symbols</b>, a <b>Start Symbol</b> and <b>Rules</b>.
+</p>
+<dl class="org-dl">
+<dt>Terminal Symbols</dt><dd>These are symbols from the <i>alphabet</i> (here alphabet refers to any generic set of characters),</dd>
+<dt>Non-Terminal Symbols</dt><dd>These are symbols that need to be rewritten that are <i>not</i> in the <i>alphabet</i>.</dd>
+<dt>Start Symbol</dt><dd></dd>
+</dl>
+</div>
+
+<div id="outline-container-org620cdb0" class="outline-3">
+<h3 id="org620cdb0"><span class="section-number-3">4.1.</span> Meta Grammar</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+There are also <b>Meta-Grammar</b> symbols that are implicitly defined. These are not in the <b>Terminal</b> symbols or <b>Non-Terminal</b> symbols. They are just used to help with the definition of the grammar.
+</p>
+
+<p>
+The <b>Meta-Grammar</b> Symbols that we need to know for <code>BL</code> are:
+</p>
+<dl class="org-dl">
+<dt>\(\rightarrow\)</dt><dd>This defines a <b>Rewrite</b> rule and means that x can be rewritten as y.
+<ul class="org-ul">
+<li>\(A \rightarrow BCD\) means that \(A\) can be rewritten as \(BCD\)</li>
+</ul></dd>
+<dt>\(|\)</dt><dd>Typically represents &ldquo;or&rdquo; but can change based on context
+<ul class="org-ul">
+<li>\(A \rightarrow B | C\) is the same as \(A \rightarrow B\) and \(A \rightarrow C\)</li>
+</ul></dd>
+<dt>\(()\)</dt><dd>Parenthesis are used for grouping things together.
+<ul class="org-ul">
+<li>\(A \rightarrow B(C|D)\) is the same as \(A \rightarrow BC\) and \(A \rightarrow BD\).</li>
+</ul></dd>
+<dt>\(\lbrace \rbrace\)</dt><dd>Braces represent <i>Kleene&rsquo;s Closue</i>.</dd>
+<dt>\([]\)</dt><dd>Brackets mean that zero or one of the things inside of them appear.
+<ul class="org-ul">
+<li>\(A \leftarrow B[C]\) is the same as \(A \rightarrow B\) and \(A \rightarrow BC\)</li>
+</ul></dd>
+<dt>\(\dots\)</dt><dd>This is used to show that a patterned needs to be continued but isn&rsquo;t explicitly shown.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org5bef7b1" class="outline-3">
+<h3 id="org5bef7b1"><span class="section-number-3">4.2.</span> Grammar Rules</h3>
+<div class="outline-text-3" id="text-4-2">
+<p>
+There are two types of rules, <b>Productions</b> or <b>Rewrite</b> rules.
+</p>
+<dl class="org-dl">
+<dt>Productions</dt><dd></dd>
+
+<dt>Rewrites</dt><dd></dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orge86ebb7" class="outline-3">
+<h3 id="orge86ebb7"><span class="section-number-3">4.3.</span> Derivations</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+A <b>derivation</b> is the test we use to show if something is in a language. There are two types of <b>derivations</b>, <b>Tree Derivations</b> and <b>Line Derivations</b>. Typically stick to <b>Tree Derivations</b> because they&rsquo;re much easier.
+</p>
+</div>
+
+<div id="outline-container-orgfced08c" class="outline-4">
+<h4 id="orgfced08c"><span class="section-number-4">4.3.1.</span> Line Derivation</h4>
+<div class="outline-text-4" id="text-4-3-1">
+<p>
+Using the <b>Context Free Grammar</b> from slide 8. Determine whether <code>03.E71</code> is in the language or not with a <b>Linear Derivation</b>
+</p>
+
+<p>
+real-const
+\(\rightarrow\) digit-seq <code>.</code> exponent
+\(\rightarrow\) digit-seq <code>.E</code> digitseq
+\(\rightarrow\) digit digit-seq <code>.E</code> digit-seq
+\(\rightarrow\) digit digit <code>.E</code> digit-seq
+\(\rightarrow\) <code>03.E</code> digit-seq
+\(\rightarrow\) <code>03.E</code> digit digit-seq
+\(\rightarrow\) <code>03.E</code> digit digit
+\(\rightarrow\) <code>03.E7</code> digit
+\(\rightarrow\) <code>03.E71</code>
+</p>
+
+<p>
+Now that we&rsquo;ve reached only <b>Terminal Symbols</b>,  we know that <code>03.E71</code> is in the language. Also notice that on each line we only apply <i>one rule</i>. We can&rsquo;t jump around with <b>Derivations</b>
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5f843c2" class="outline-4">
+<h4 id="org5f843c2"><span class="section-number-4">4.3.2.</span> Tree Derivation</h4>
+<div class="outline-text-4" id="text-4-3-2">
+<p>
+Using the <b>Context Free Grammar</b> from slide 8. Determine whether <code>03.E71</code> is in the language or not with a <b>Tree Derivation</b>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org093e537" class="outline-2">
+<h2 id="org093e537"><span class="section-number-2">5.</span> Code Generation</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+This is the final part of compiling where we got from some abstract representation into actual machine code.
+</p>
+</div>
+
+<div id="outline-container-orgd956d24" class="outline-3">
+<h3 id="orgd956d24"><span class="section-number-3">5.1.</span> BLVM Object Code</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+BLVM Object Code, the kind that is stored in a <code>.bo</code> file is a list of integers. The first integer just represents the number of integers on the following lines.
+</p>
+
+<pre class="example">
+8
+3
+7
+8
+1
+4
+9
+7
+5
+</pre>
+
+<p>
+Some of these numbers are tokens and others refer to lines in the code. The values of these numbers for our purposes can be found in the <code>Instruction</code> enum.
+</p>
+<ul class="org-ul">
+<li>On the test, use the name of the instruction and <i>not</i> the number, it makes it harder to grade.</li>
+</ul>
+</div>
+
+<div id="outline-container-org30a8503" class="outline-4">
+<h4 id="org30a8503"><span class="section-number-4">5.1.1.</span> Instructions</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<dl class="org-dl">
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.MOVE</code></dt><dd></dd>
+
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.INFTECT</code></dt><dd></dd>
+
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.TURNLEFT</code></dt><dd></dd>
+
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.TURNRIGHT</code></dt><dd></dd>
+
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.SKIP</code></dt><dd></dd>
+
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.HALT</code></dt><dd><ul class="org-ul">
+<li>This is a special instruction that doesn&rsquo;t represent any BL instruction.</li>
+<li>There will only every be one halt instruction and it will be at the very end of the file</li>
+</ul></dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.JUMP</code></dt><dd>An instruction that jumps to the specified line
+<ul class="org-ul">
+<li>This is an unconditional jump, meaning it will go to that line no matter what</li>
+</ul></dd>
+<dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.JUMP_IF_NOT_TRUE</code></dt><dd>There is one of these for every BL condition, but they are all the opposite. The reason for this is that we only every want to jump when a condition is false.
+<ul class="org-ul">
+<li>The jump goes to the else block or end of if block</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2022-03-31 Thu 14:56</p>
+</div>
+</body>
+</html>

@@ -6,7 +6,7 @@
 <!-- 2022-03-31 Thu 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CSE 2231: Software 2</title>
+<title>Loop Analysis</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,67 +193,207 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CSE 2231: Software 2</h1>
+<h1 class="title">Loop Analysis
+<br />
+<span class="subtitle">CSE2321: Foundations 1</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgf374368">1. Estimating Execution Time</a>
+<ul>
+<li><a href="#org26c53b1">1.1. Basics of Time Estimation</a></li>
+<li><a href="#org5008eab">1.2. Double For Loops</a></li>
+</ul>
+</li>
+<li><a href="#org7fce5d1">2. Worked Triple Summation Example</a></li>
+<li><a href="#orge884462">3. While Loops</a>
+<ul>
+<li><a href="#orgea5fcdf">3.1. Determining the Number of Iterations</a>
+<ul>
+<li><a href="#org8ec460e">3.1.1. Example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org4e65999">4. 1E From Homework</a></li>
+</ul>
+</div>
+</div>
 <p>
-<a href="https://web.cse.ohio-state.edu/~wolf.332/cse2231/">Wolf&rsquo;s Course Page</a>
+Now we&rsquo;re at the meat of this class. Everything that we&rsquo;ve been doing until now has been building up to this.
 </p>
-<div id="outline-container-orgd096bb7" class="outline-2">
-<h2 id="orgd096bb7"><a href="binary-trees.html">Binary trees</a></h2>
+
+<div id="outline-container-orgf374368" class="outline-2">
+<h2 id="orgf374368"><span class="section-number-2">1.</span> Estimating Execution Time</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+To estimate the amount of time that a given algorithm runs we assign some constant amount of time to each statement.
+</p>
 </div>
-<div id="outline-container-org5b1e63b" class="outline-2">
-<h2 id="org5b1e63b"><a href="compilation.html">Compilation</a></h2>
+
+<div id="outline-container-org26c53b1" class="outline-3">
+<h3 id="org26c53b1"><span class="section-number-3">1.1.</span> Basics of Time Estimation</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Let&rsquo;s say we wanted to estimate the time of the following algorithm:
+</p>
+
+\begin{algorithmic}
+\State $x = 0$
+\For{$i = 1$ to $25$}
+    \State $x = x + 1$
+\EndFor
+\end{algorithmic}
+
+<p>
+We could do this by assigning a constant time to each line. But we have to be careful about the for loop since it runs multiple times. After we assign times it should look like this:
+</p>
+
+\begin{algorithmic}
+\State $x = 0$ \Comment $c_1$
+\For{$i = 1$ to $25$}
+    \State $x = x + 1$ \Comment $25 c_2$
+\EndFor
+\end{algorithmic}
 </div>
-<div id="outline-container-org365117f" class="outline-2">
-<h2 id="org365117f"><a href="debugging.html">Debugging</a></h2>
 </div>
-<div id="outline-container-org9141c50" class="outline-2">
-<h2 id="org9141c50"><a href="designing-components.html">Designing components</a></h2>
+
+
+<div id="outline-container-org5008eab" class="outline-3">
+<h3 id="org5008eab"><span class="section-number-3">1.2.</span> Double For Loops</h3>
 </div>
-<div id="outline-container-org980484c" class="outline-2">
-<h2 id="org980484c"><a href="formal-contracts.html">Formal contracts</a></h2>
 </div>
-<div id="outline-container-org7454eb3" class="outline-2">
-<h2 id="org7454eb3"><a href="hashing.html">Hashing</a></h2>
+
+
+
+
+
+
+<div id="outline-container-org7fce5d1" class="outline-2">
+<h2 id="org7fce5d1"><span class="section-number-2">2.</span> Worked Triple Summation Example</h2>
 </div>
-<div id="outline-container-orgceb1f1a" class="outline-2">
-<h2 id="orgceb1f1a"><a href="linked-lists.html">Linked lists</a></h2>
+
+<div id="outline-container-orge884462" class="outline-2">
+<h2 id="orge884462"><span class="section-number-2">3.</span> While Loops</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<b>While Loops</b> are very similar to <b>For Loops</b> but they do have some differences.
+</p>
+<ul class="org-ul">
+<li>It is hard to tell how many times a <b>While Loop</b> runs just by looking at it.</li>
+<li></li>
+</ul>
 </div>
-<div id="outline-container-org851c23c" class="outline-2">
-<h2 id="org851c23c"><a href="sorting-methods.html">Sorting methods</a></h2>
+
+<div id="outline-container-orgea5fcdf" class="outline-3">
+<h3 id="orgea5fcdf"><span class="section-number-3">3.1.</span> Determining the Number of Iterations</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Because this is hard to do with <b>While Loops</b>, we want to draw a table comparing the number of iterations and the value of the variable we&rsquo;re iterating over. This will help us find a pattern.
+</p>
 </div>
-<div id="outline-container-orgf1d13ab" class="outline-2">
-<h2 id="orgf1d13ab"><a href="tree.html">Tree</a></h2>
+
+<div id="outline-container-org8ec460e" class="outline-4">
+<h4 id="org8ec460e"><span class="section-number-4">3.1.1.</span> Example</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+while i &lt;= n
+    i = i + 10
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right"># of iterations</th>
+<th scope="col" class="org-right">value of i</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">10</td>
+</tr>
+
+<tr>
+<td class="org-right">2</td>
+<td class="org-right">20</td>
+</tr>
+
+<tr>
+<td class="org-right">3</td>
+<td class="org-right">30</td>
+</tr>
+
+<tr>
+<td class="org-right">4</td>
+<td class="org-right">40</td>
+</tr>
+
+<tr>
+<td class="org-right">&#x2026;</td>
+<td class="org-right">&#x2026;</td>
+</tr>
+
+<tr>
+<td class="org-right">k</td>
+<td class="org-right">10k</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="outline-container-org5cdab75" class="outline-2">
-<h2 id="org5cdab75"><a href="binary-trees.html">Binary trees</a></h2>
 </div>
-<div id="outline-container-orgaa44b7e" class="outline-2">
-<h2 id="orgaa44b7e"><a href="compilation.html">Compilation</a></h2>
 </div>
-<div id="outline-container-orgf77cad6" class="outline-2">
-<h2 id="orgf77cad6"><a href="debugging.html">Debugging</a></h2>
 </div>
-<div id="outline-container-org3eb65da" class="outline-2">
-<h2 id="org3eb65da"><a href="designing-components.html">Designing components</a></h2>
+
+
+
+<div id="outline-container-org4e65999" class="outline-2">
+<h2 id="org4e65999"><span class="section-number-2">4.</span> 1E From Homework</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>First analyze the iteration of the while loop</li>
+<li>Now we have a for loop in sigma notation that we need to bound.</li>
+<li>We should find this to be \(T(n) \in \Theta(n^3)\)</li>
+</ol>
 </div>
-<div id="outline-container-org80f563f" class="outline-2">
-<h2 id="org80f563f"><a href="formal-contracts.html">Formal contracts</a></h2>
-</div>
-<div id="outline-container-org9684dc4" class="outline-2">
-<h2 id="org9684dc4"><a href="hashing.html">Hashing</a></h2>
-</div>
-<div id="outline-container-orgcaa4c50" class="outline-2">
-<h2 id="orgcaa4c50"><a href="linked-lists.html">Linked lists</a></h2>
-</div>
-<div id="outline-container-orga507e1d" class="outline-2">
-<h2 id="orga507e1d"><a href="sorting-methods.html">Sorting methods</a></h2>
-</div>
-<div id="outline-container-org2b7f00f" class="outline-2">
-<h2 id="org2b7f00f"><a href="tree.html">Tree</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">

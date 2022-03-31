@@ -6,7 +6,7 @@
 <!-- 2022-03-31 Thu 14:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>CSE 2231: Software 2</title>
+<title>Tree (Should Change title)</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,67 +193,118 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">CSE 2231: Software 2</h1>
+<h1 class="title">Tree (Should Change title)
+<br />
+<span class="subtitle">CSE2231: Software 2</span>
+</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org0039259">1. Tree</a></li>
+<li><a href="#org51d4748">2. BugsWorld</a>
+<ul>
+<li><a href="#org2e14589">2.1. BL</a></li>
+<li><a href="#org2fb3588">2.2. Language Theory</a>
+<ul>
+<li><a href="#orgd47fb6b">2.2.1. Kleene&rsquo;s Closure</a></li>
+</ul>
+</li>
+<li><a href="#orgb6ba068">2.3. Compilier Pipeline</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0039259" class="outline-2">
+<h2 id="org0039259"><span class="section-number-2">1.</span> Tree</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-<a href="https://web.cse.ohio-state.edu/~wolf.332/cse2231/">Wolf&rsquo;s Course Page</a>
+This is something that we&rsquo;ll only use for <b>Project 7</b> so it&rsquo;s not super important to know.
 </p>
-<div id="outline-container-orgd096bb7" class="outline-2">
-<h2 id="orgd096bb7"><a href="binary-trees.html">Binary trees</a></h2>
+
+<p>
+It works similarly to <a href="binary-tree.html">BinaryTree</a> with assembling and disassembling of the tree. But since a <b>Tree</b> can have any number of children, not just two, it uses a sequence to pass its children as a parameter.
+</p>
 </div>
-<div id="outline-container-org5b1e63b" class="outline-2">
-<h2 id="org5b1e63b"><a href="compilation.html">Compilation</a></h2>
 </div>
-<div id="outline-container-org365117f" class="outline-2">
-<h2 id="org365117f"><a href="debugging.html">Debugging</a></h2>
+
+
+<div id="outline-container-org51d4748" class="outline-2">
+<h2 id="org51d4748"><span class="section-number-2">2.</span> BugsWorld</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+This is an introduction to the rest of the course which is focused on compiliers and implementing a compilier for the *BL*(Bug Language). A bug can look at the space in front of it, move, turn or skip. You&rsquo;ll be programming an algoritihm for one bug with the goal to infect all the other bugs.
+</p>
 </div>
-<div id="outline-container-org9141c50" class="outline-2">
-<h2 id="org9141c50"><a href="designing-components.html">Designing components</a></h2>
+
+<div id="outline-container-org2e14589" class="outline-3">
+<h3 id="org2e14589"><span class="section-number-3">2.1.</span> BL</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+BL is case sensitive, primitive instructions are lowercase and control instructions are all caps.
+</p>
 </div>
-<div id="outline-container-org980484c" class="outline-2">
-<h2 id="org980484c"><a href="formal-contracts.html">Formal contracts</a></h2>
 </div>
-<div id="outline-container-org7454eb3" class="outline-2">
-<h2 id="org7454eb3"><a href="hashing.html">Hashing</a></h2>
+
+<div id="outline-container-org2fb3588" class="outline-3">
+<h3 id="org2fb3588"><span class="section-number-3">2.2.</span> Language Theory</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+An <i>alphabet</i> is a set of symbols that are distinct from each other. They form language with are split into two groups, formal and informal.
+</p>
+<dl class="org-dl">
+<dt>formal languages</dt><dd>These are languages that have an actual definition, meaning there is an authority that defines what the languages is. All computer languages are formal languages since thy have some design spec.</dd>
+<dt>informal languages</dt><dd>These are languages that come about naturally through years of communication, these are spoken languages like English, Arabic and Mandarin</dd>
+</dl>
 </div>
-<div id="outline-container-orgceb1f1a" class="outline-2">
-<h2 id="orgceb1f1a"><a href="linked-lists.html">Linked lists</a></h2>
+
+<div id="outline-container-orgd47fb6b" class="outline-4">
+<h4 id="orgd47fb6b"><span class="section-number-4">2.2.1.</span> Kleene&rsquo;s Closure</h4>
+<div class="outline-text-4" id="text-2-2-1">
+<p>
+This is an operator on a set of strings that produces another set of strings. Which is the combination of all the substrings. Think about a power set but for string instead.
+</p>
+
+<p>
+A language is made up of all the strings you can make with an alphabet, but not all of them. A language is only interesting if there are an infite number of things both inside and outside of it.
+</p>
 </div>
-<div id="outline-container-org851c23c" class="outline-2">
-<h2 id="org851c23c"><a href="sorting-methods.html">Sorting methods</a></h2>
 </div>
-<div id="outline-container-orgf1d13ab" class="outline-2">
-<h2 id="orgf1d13ab"><a href="tree.html">Tree</a></h2>
 </div>
-<div id="outline-container-org5cdab75" class="outline-2">
-<h2 id="org5cdab75"><a href="binary-trees.html">Binary trees</a></h2>
+
+<div id="outline-container-orgb6ba068" class="outline-3">
+<h3 id="orgb6ba068"><span class="section-number-3">2.3.</span> Compilier Pipeline</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+A compilier always starts with <i>source code</i> which is determines if the <i>source code</i> is in the language or not and then translates it into another language. Both of these steps are done simultaneously. There are a number of steps involved in this process.
+</p>
+
+<ol class="org-ol">
+<li>Generate a string of tokens
+<ul class="org-ul">
+<li>This is also called &ldquo;lexing&rdquo; or &ldquo;tokenization&rdquo;</li>
+<li>This pulls out the <b>Smallest Invidual Units of Meaning</b></li>
+</ul></li>
+<li>Parsing
+<ul class="org-ul">
+<li>This is usually <i>recursive descent parsing</i></li>
+<li>The most complicated process of a compiler as it does all the work</li>
+<li>It results in an abstract program in memory</li>
+<li>You could stop here since you can run the abstract program in memeory.</li>
+</ul></li>
+<li>(Object) Code Generation
+<ul class="org-ul">
+<li>Takes the abstract program in memory and turns it into a far more efficient set of instructions</li>
+<li></li>
+</ul></li>
+</ol>
 </div>
-<div id="outline-container-orgaa44b7e" class="outline-2">
-<h2 id="orgaa44b7e"><a href="compilation.html">Compilation</a></h2>
 </div>
-<div id="outline-container-orgf77cad6" class="outline-2">
-<h2 id="orgf77cad6"><a href="debugging.html">Debugging</a></h2>
-</div>
-<div id="outline-container-org3eb65da" class="outline-2">
-<h2 id="org3eb65da"><a href="designing-components.html">Designing components</a></h2>
-</div>
-<div id="outline-container-org80f563f" class="outline-2">
-<h2 id="org80f563f"><a href="formal-contracts.html">Formal contracts</a></h2>
-</div>
-<div id="outline-container-org9684dc4" class="outline-2">
-<h2 id="org9684dc4"><a href="hashing.html">Hashing</a></h2>
-</div>
-<div id="outline-container-orgcaa4c50" class="outline-2">
-<h2 id="orgcaa4c50"><a href="linked-lists.html">Linked lists</a></h2>
-</div>
-<div id="outline-container-orga507e1d" class="outline-2">
-<h2 id="orga507e1d"><a href="sorting-methods.html">Sorting methods</a></h2>
-</div>
-<div id="outline-container-org2b7f00f" class="outline-2">
-<h2 id="org2b7f00f"><a href="tree.html">Tree</a></h2>
 </div>
 </div>
 <div id="postamble" class="status">
