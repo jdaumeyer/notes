@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-31 Thu 14:56 -->
+<!-- 2022-03-31 Thu 15:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Compilation</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -221,63 +222,111 @@
 <br />
 <span class="subtitle">CSE2231: Software 2</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgf07c7e2">1. Abstract Syntax Tree</a>
-<ul>
-<li><a href="#org2e59a67">1.1. osu.components.Statement</a></li>
-</ul>
-</li>
-<li><a href="#orgfbf4779">2. osu.components.Program</a></li>
-<li><a href="#orgbb063a0">3. Enums</a></li>
-<li><a href="#orgd141166">4. Context Free Grammars</a>
-<ul>
-<li><a href="#org620cdb0">4.1. Meta Grammar</a></li>
-<li><a href="#org5bef7b1">4.2. Grammar Rules</a></li>
-<li><a href="#orge86ebb7">4.3. Derivations</a>
-<ul>
-<li><a href="#orgfced08c">4.3.1. Line Derivation</a></li>
-<li><a href="#org5f843c2">4.3.2. Tree Derivation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org093e537">5. Code Generation</a>
-<ul>
-<li><a href="#orgd956d24">5.1. BLVM Object Code</a>
-<ul>
-<li><a href="#org30a8503">5.1.1. Instructions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+
+<div id="outline-container-orgbb063a0" class="outline-2">
+<h2 id="orgbb063a0">Enums</h2>
+<div class="outline-text-2" id="text-orgbb063a0">
+<p>
+In Java <code>enums</code> are just a special type of class. But because of this we can treat them like actual classes. i.e creating methods constructors and fields. However, we can never actually create a new object of an enum.
+</p>
 </div>
 </div>
 
-<div id="outline-container-orgf07c7e2" class="outline-2">
-<h2 id="orgf07c7e2"><span class="section-number-2">1.</span> Abstract Syntax Tree</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-org6d43a58" class="outline-2">
+<h2 id="org6d43a58">BugsWorld</h2>
+<div class="outline-text-2" id="text-org6d43a58">
+<p>
+This is an introduction to the rest of the course which is focused on compiliers and implementing a compilier for the *BL*(Bug Language). A bug can look at the space in front of it, move, turn or skip. You&rsquo;ll be programming an algoritihm for one bug with the goal to infect all the other bugs.
+</p>
+</div>
+
+<div id="outline-container-orga89b641" class="outline-3">
+<h3 id="orga89b641">BL</h3>
+<div class="outline-text-3" id="text-orga89b641">
+<p>
+BL is case sensitive, primitive instructions are lowercase and control instructions are all caps.
+</p>
+</div>
+
+<div id="outline-container-org3aa1132" class="outline-4">
+<h4 id="org3aa1132">Control Instructions</h4>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org8f1c68f" class="outline-2">
+<h2 id="org8f1c68f">Language Theory</h2>
+<div class="outline-text-2" id="text-org8f1c68f">
+<p>
+An <i>alphabet</i> is a set of symbols that are distinct from each other. They form language with are split into two groups, formal and informal.
+</p>
+<dl class="org-dl">
+<dt>formal languages</dt><dd>These are languages that have an actual definition, meaning there is an authority that defines what the languages is. All computer languages are formal languages since thy have some design spec.</dd>
+<dt>informal languages</dt><dd>These are languages that come about naturally through years of communication, these are spoken languages like English, Arabic and Mandarin</dd>
+</dl>
+</div>
+
+<div id="outline-container-org1b27c23" class="outline-3">
+<h3 id="org1b27c23">Kleene&rsquo;s Closure</h3>
+<div class="outline-text-3" id="text-org1b27c23">
+<p>
+This is an operator on a set of strings that produces another set of strings. Which is the combination of all the substrings. Think about a power set but for string instead.
+</p>
+
+<p>
+A language is made up of all the strings you can make with an alphabet, but not all of them. A language is only interesting if there are an infite number of things both inside and outside of it.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgcdfbcfb" class="outline-2">
+<h2 id="orgcdfbcfb">Compilier Pipeline</h2>
+<div class="outline-text-2" id="text-orgcdfbcfb">
+<p>
+A compilier always starts with <i>source code</i> which is determines if the <i>source code</i> is in the language or not and then translates it into another language. Both of these steps are done simultaneously. There are a number of steps involved in this process.
+</p>
+
+<ol class="org-ol">
+<li>Generate a string of tokens
+<ul class="org-ul">
+<li>This is also called &ldquo;lexing&rdquo; or &ldquo;tokenization&rdquo;</li>
+<li>This pulls out the <b>Smallest Invidual Units of Meaning</b></li>
+</ul></li>
+<li>Parsing
+<ul class="org-ul">
+<li>This is usually <i>recursive descent parsing</i></li>
+<li>The most complicated process of a compiler as it does all the work</li>
+<li>It results in an abstract program in memory</li>
+<li>You could stop here since you can run the abstract program in memeory.</li>
+</ul></li>
+<li>(Object) Code Generation
+<ul class="org-ul">
+<li>Takes the abstract program in memory and turns it into a far more efficient set of instructions</li>
+</ul></li>
+</ol>
+</div>
+
+<div id="outline-container-orgf07c7e2" class="outline-3">
+<h3 id="orgf07c7e2">Abstract Syntax Tree</h3>
+<div class="outline-text-3" id="text-orgf07c7e2">
 <p>
 An abstract syntax tree is a representation of the logical structure of a program.
 </p>
 </div>
 
-<div id="outline-container-org2e59a67" class="outline-3">
-<h3 id="org2e59a67"><span class="section-number-3">1.1.</span> osu.components.Statement</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org2e59a67" class="outline-4">
+<h4 id="org2e59a67">osu.components.Statement</h4>
+<div class="outline-text-4" id="text-org2e59a67">
 <p>
 The point os <code class="src src-java">Statment</code> is to store a single <b>BL</b> statement.
 </p>
 </div>
 </div>
-</div>
 
-<div id="outline-container-orgfbf4779" class="outline-2">
-<h2 id="orgfbf4779"><span class="section-number-2">2.</span> osu.components.Program</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-orgfbf4779" class="outline-4">
+<h4 id="orgfbf4779">osu.components.Program</h4>
+<div class="outline-text-4" id="text-orgfbf4779">
 <p>
 Program is a three tuple that consists of an <b>identifier</b>, <b>context</b> and a <b>body</b> which is a <code>Statment</code>.
 </p>
@@ -295,18 +344,11 @@ Program is a three tuple that consists of an <b>identifier</b>, <b>context</b> a
 </ul>
 </div>
 </div>
-<div id="outline-container-orgbb063a0" class="outline-2">
-<h2 id="orgbb063a0"><span class="section-number-2">3.</span> Enums</h2>
-<div class="outline-text-2" id="text-3">
-<p>
-In Java <code>enums</code> are just a special type of class. But because of this we can treat them like actual classes. i.e creating methods constructors and fields. However, we can never actually create a new object of an enum.
-</p>
-</div>
 </div>
 
-<div id="outline-container-orgd141166" class="outline-2">
-<h2 id="orgd141166"><span class="section-number-2">4.</span> Context Free Grammars</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgd141166" class="outline-3">
+<h3 id="orgd141166">Context Free Grammars</h3>
+<div class="outline-text-3" id="text-orgd141166">
 <p>
 A grammar is one way of defining a language and a tool for proving if something is in the language. It is also a guide for parsing.
 </p>
@@ -321,9 +363,9 @@ It involves a set of <b>Terminal Symbols</b>, <b>Non-Terminal Symbols</b>, a <b>
 </dl>
 </div>
 
-<div id="outline-container-org620cdb0" class="outline-3">
-<h3 id="org620cdb0"><span class="section-number-3">4.1.</span> Meta Grammar</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-org620cdb0" class="outline-4">
+<h4 id="org620cdb0">Meta Grammar</h4>
+<div class="outline-text-4" id="text-org620cdb0">
 <p>
 There are also <b>Meta-Grammar</b> symbols that are implicitly defined. These are not in the <b>Terminal</b> symbols or <b>Non-Terminal</b> symbols. They are just used to help with the definition of the grammar.
 </p>
@@ -354,9 +396,9 @@ The <b>Meta-Grammar</b> Symbols that we need to know for <code>BL</code> are:
 </div>
 </div>
 
-<div id="outline-container-org5bef7b1" class="outline-3">
-<h3 id="org5bef7b1"><span class="section-number-3">4.2.</span> Grammar Rules</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-org5bef7b1" class="outline-4">
+<h4 id="org5bef7b1">Grammar Rules</h4>
+<div class="outline-text-4" id="text-org5bef7b1">
 <p>
 There are two types of rules, <b>Productions</b> or <b>Rewrite</b> rules.
 </p>
@@ -368,17 +410,17 @@ There are two types of rules, <b>Productions</b> or <b>Rewrite</b> rules.
 </div>
 </div>
 
-<div id="outline-container-orge86ebb7" class="outline-3">
-<h3 id="orge86ebb7"><span class="section-number-3">4.3.</span> Derivations</h3>
-<div class="outline-text-3" id="text-4-3">
+<div id="outline-container-orge86ebb7" class="outline-4">
+<h4 id="orge86ebb7">Derivations</h4>
+<div class="outline-text-4" id="text-orge86ebb7">
 <p>
 A <b>derivation</b> is the test we use to show if something is in a language. There are two types of <b>derivations</b>, <b>Tree Derivations</b> and <b>Line Derivations</b>. Typically stick to <b>Tree Derivations</b> because they&rsquo;re much easier.
 </p>
 </div>
 
-<div id="outline-container-orgfced08c" class="outline-4">
-<h4 id="orgfced08c"><span class="section-number-4">4.3.1.</span> Line Derivation</h4>
-<div class="outline-text-4" id="text-4-3-1">
+<div id="outline-container-orgfced08c" class="outline-5">
+<h5 id="orgfced08c">Line Derivation</h5>
+<div class="outline-text-5" id="text-orgfced08c">
 <p>
 Using the <b>Context Free Grammar</b> from slide 8. Determine whether <code>03.E71</code> is in the language or not with a <b>Linear Derivation</b>
 </p>
@@ -402,9 +444,9 @@ Now that we&rsquo;ve reached only <b>Terminal Symbols</b>,  we know that <code>0
 </div>
 </div>
 
-<div id="outline-container-org5f843c2" class="outline-4">
-<h4 id="org5f843c2"><span class="section-number-4">4.3.2.</span> Tree Derivation</h4>
-<div class="outline-text-4" id="text-4-3-2">
+<div id="outline-container-org5f843c2" class="outline-5">
+<h5 id="org5f843c2">Tree Derivation</h5>
+<div class="outline-text-5" id="text-org5f843c2">
 <p>
 Using the <b>Context Free Grammar</b> from slide 8. Determine whether <code>03.E71</code> is in the language or not with a <b>Tree Derivation</b>
 </p>
@@ -413,17 +455,17 @@ Using the <b>Context Free Grammar</b> from slide 8. Determine whether <code>03.E
 </div>
 </div>
 
-<div id="outline-container-org093e537" class="outline-2">
-<h2 id="org093e537"><span class="section-number-2">5.</span> Code Generation</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org093e537" class="outline-3">
+<h3 id="org093e537">Code Generation</h3>
+<div class="outline-text-3" id="text-org093e537">
 <p>
 This is the final part of compiling where we got from some abstract representation into actual machine code.
 </p>
 </div>
 
-<div id="outline-container-orgd956d24" class="outline-3">
-<h3 id="orgd956d24"><span class="section-number-3">5.1.</span> BLVM Object Code</h3>
-<div class="outline-text-3" id="text-5-1">
+<div id="outline-container-orgd956d24" class="outline-4">
+<h4 id="orgd956d24">BLVM Object Code</h4>
+<div class="outline-text-4" id="text-orgd956d24">
 <p>
 BLVM Object Code, the kind that is stored in a <code>.bo</code> file is a list of integers. The first integer just represents the number of integers on the following lines.
 </p>
@@ -448,9 +490,9 @@ Some of these numbers are tokens and others refer to lines in the code. The valu
 </ul>
 </div>
 
-<div id="outline-container-org30a8503" class="outline-4">
-<h4 id="org30a8503"><span class="section-number-4">5.1.1.</span> Instructions</h4>
-<div class="outline-text-4" id="text-5-1-1">
+<div id="outline-container-org30a8503" class="outline-5">
+<h5 id="org30a8503">Instructions</h5>
+<div class="outline-text-5" id="text-org30a8503">
 <dl class="org-dl">
 <dt><code class="src src-java"><span style="color: #81a2be;">Instruction</span>.MOVE</code></dt><dd></dd>
 
@@ -480,9 +522,10 @@ Some of these numbers are tokens and others refer to lines in the code. The valu
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-03-31 Thu 14:56</p>
+<p class="date">Created: 2022-03-31 Thu 15:28</p>
 </div>
 </body>
 </html>

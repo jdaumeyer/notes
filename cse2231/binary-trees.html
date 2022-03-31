@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-14 Mon 15:56 -->
+<!-- 2022-03-31 Thu 15:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Binary Trees</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -221,38 +222,10 @@
 <br />
 <span class="subtitle">CSE2231: Software 2</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#org4aed4eb">1. Tree Review</a></li>
-<li><a href="#org57c6ed7">2. Binary Tree</a>
-<ul>
-<li><a href="#org69ca24f">2.1. The <code class="src src-java"><span style="color: #81a2be;">BinaryTree</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> Component</a></li>
-<li><a href="#orgb99405b">2.2. Using a BinaryTree</a></li>
-<li><a href="#org76b6f7b">2.3. Tree Traversals</a>
-<ul>
-<li><a href="#org34e0b1d">2.3.1. Ordered Traversals</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org6854fa1">3. Binary Search</a>
-<ul>
-<li><a href="#orgf5fdb9a">3.1. Binary Search Tree</a>
-<ul>
-<li><a href="#org465042d">3.1.1. Item Equivalency</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 
 <div id="outline-container-org4aed4eb" class="outline-2">
-<h2 id="org4aed4eb"><span class="section-number-2">1.</span> Tree Review</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="org4aed4eb">Tree Review</h2>
+<div class="outline-text-2" id="text-org4aed4eb">
 <p>
 Trees are an <i>undirected</i> (meaing there is no specific direction to follow) <b>graph</b> structure.
 </p>
@@ -264,8 +237,8 @@ Trees are an <i>undirected</i> (meaing there is no specific direction to follow)
 </div>
 
 <div id="outline-container-org57c6ed7" class="outline-2">
-<h2 id="org57c6ed7"><span class="section-number-2">2.</span> Binary Tree</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org57c6ed7">Binary Tree</h2>
+<div class="outline-text-2" id="text-org57c6ed7">
 <p>
 A binary tree is a rooted tree where every node has <i>at most</i> two children. Because of this, every binary tree will have exactly two subtrees, but one or both might be an empty tree.
 </p>
@@ -273,11 +246,11 @@ A binary tree is a rooted tree where every node has <i>at most</i> two children.
 
 
 <div id="outline-container-org69ca24f" class="outline-3">
-<h3 id="org69ca24f"><span class="section-number-3">2.1.</span> The <code class="src src-java"><span style="color: #81a2be;">BinaryTree</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> Component</h3>
+<h3 id="org69ca24f">The <code class="src src-java"><span style="color: #81a2be;">BinaryTree</span><span style="color: #81a2be;">&lt;</span><span style="color: #81a2be;">T</span><span style="color: #81a2be;">&gt;</span></code> Component</h3>
 </div>
 <div id="outline-container-orgb99405b" class="outline-3">
-<h3 id="orgb99405b"><span class="section-number-3">2.2.</span> Using a BinaryTree</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="orgb99405b">Using a BinaryTree</h3>
+<div class="outline-text-3" id="text-orgb99405b">
 <p>
 When going through a subtree, we loop through it in chunks using recursion. There are no cases where we should be disassembling a subtree.
 </p>
@@ -286,8 +259,8 @@ When going through a subtree, we loop through it in chunks using recursion. Ther
 
 
 <div id="outline-container-org76b6f7b" class="outline-3">
-<h3 id="org76b6f7b"><span class="section-number-3">2.3.</span> Tree Traversals</h3>
-<div class="outline-text-3" id="text-2-3">
+<h3 id="org76b6f7b">Tree Traversals</h3>
+<div class="outline-text-3" id="text-org76b6f7b">
 <p>
 A <b>Tree Traversal</b> is a path that visits each node of a tree once.
 </p>
@@ -303,8 +276,8 @@ Because we can&rsquo;t access <code class="src src-java">BinaryTree</code> direc
 </div>
 
 <div id="outline-container-org34e0b1d" class="outline-4">
-<h4 id="org34e0b1d"><span class="section-number-4">2.3.1.</span> Ordered Traversals</h4>
-<div class="outline-text-4" id="text-2-3-1">
+<h4 id="org34e0b1d">Ordered Traversals</h4>
+<div class="outline-text-4" id="text-org34e0b1d">
 <p>
 It can be important to know which node we are accessing first. We describe this as an ordered traversal.
 </p>
@@ -323,16 +296,16 @@ This is something you should be expected to know on an exam.
 </div>
 
 <div id="outline-container-org6854fa1" class="outline-2">
-<h2 id="org6854fa1"><span class="section-number-2">3.</span> Binary Search</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org6854fa1">Binary Search</h2>
+<div class="outline-text-2" id="text-org6854fa1">
 <p>
 A <b>binary search</b> is conducted by looking at the middle element or <i>an already sorted</i> set and moving depending on if the middle element is greater than or less than the element we&rsquo;re looking for.
 </p>
 </div>
 
 <div id="outline-container-orgf5fdb9a" class="outline-3">
-<h3 id="orgf5fdb9a"><span class="section-number-3">3.1.</span> Binary Search Tree</h3>
-<div class="outline-text-3" id="text-3-1">
+<h3 id="orgf5fdb9a">Binary Search Tree</h3>
+<div class="outline-text-3" id="text-orgf5fdb9a">
 <p>
 A <b>Binary Search Tree (BST)</b> is a special kind of tree where all of the nodes are ordered in a <b>Mathematical Preorder</b> (<i>different</i> than a <b>Preorder Traversal</b>). They are super useful because they allow us to find items in <i>logarithmic time</i>.
 </p>
@@ -344,8 +317,8 @@ A <b>Binary Search Tree (BST)</b> is a special kind of tree where all of the nod
 </div>
 
 <div id="outline-container-org465042d" class="outline-4">
-<h4 id="org465042d"><span class="section-number-4">3.1.1.</span> Item Equivalency</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<h4 id="org465042d">Item Equivalency</h4>
+<div class="outline-text-4" id="text-org465042d">
 <p>
 Because there are some elements that can have an equivalent order but be different elements, it&rsquo;s important to compare using the root node first!
 </p>
@@ -362,10 +335,23 @@ compare<span style="color: #81a2be;">(</span>root, child<span style="color: #81a
 </div>
 </div>
 </div>
+
+<div id="outline-container-org29294b7" class="outline-2">
+<h2 id="org29294b7">Tree</h2>
+<div class="outline-text-2" id="text-org29294b7">
+<p>
+This is something that we&rsquo;ll only use for <b>Project 7</b> so it&rsquo;s not super important to know.
+</p>
+
+<p>
+It works similarly to <a href="binary-tree.html">BinaryTree</a> with assembling and disassembling of the tree. But since a <b>Tree</b> can have any number of children, not just two, it uses a sequence to pass its children as a parameter.
+</p>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-02-14 Mon 15:56</p>
+<p class="date">Created: 2022-03-31 Thu 15:28</p>
 </div>
 </body>
 </html>

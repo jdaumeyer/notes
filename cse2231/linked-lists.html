@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-07 Mon 19:11 -->
+<!-- 2022-03-31 Thu 15:28 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linked Lists</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { width: 90%; }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -221,43 +222,21 @@
 <br />
 <span class="subtitle">CSE2231: Software II</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orged4b263">1. Lists</a>
-<ul>
-<li><a href="#orgf9d2bb7">1.1. The List Component</a>
-<ul>
-<li><a href="#org69a0c78">1.1.1. Kernel Methods</a></li>
-<li><a href="#org7c4e8ee">1.1.2. Standard Methods</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org3194a0e">2. Linked Lists</a>
-<ul>
-<li><a href="#orgeb31221">2.1. Using Linked Lists</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
 <p>
 A <b>Linked List</b> is a data structure which is different from <code>components.list.List</code> which is different from <code>java.util.list</code> (<code>java.util.list</code> is basically like <code>components.sequence.Sequence</code>). It is important to keep the three of these separate in your mind.
 </p>
 
 
 <div id="outline-container-orged4b263" class="outline-2">
-<h2 id="orged4b263"><span class="section-number-2">1.</span> Lists</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="orged4b263">Lists</h2>
+<div class="outline-text-2" id="text-orged4b263">
 <p>
 A <b>list</b> is a data structure where we can only view one element of the list at a time.
 </p>
 </div>
 <div id="outline-container-orgf9d2bb7" class="outline-3">
-<h3 id="orgf9d2bb7"><span class="section-number-3">1.1.</span> The List Component</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="orgf9d2bb7">The List Component</h3>
+<div class="outline-text-3" id="text-orgf9d2bb7">
 <p>
 The OSU implementation for this is through a pair of strings.
 </p>
@@ -279,8 +258,8 @@ The fun part about the OSU list component is that all of its kernel methods run 
 </p>
 </div>
 <div id="outline-container-org69a0c78" class="outline-4">
-<h4 id="org69a0c78"><span class="section-number-4">1.1.1.</span> Kernel Methods</h4>
-<div class="outline-text-4" id="text-1-1-1">
+<h4 id="org69a0c78">Kernel Methods</h4>
+<div class="outline-text-4" id="text-org69a0c78">
 <dl class="org-dl">
 <dt><code class="src src-java">addRightFront<span style="color: #81a2be;">(</span><span style="color: #81a2be;">T</span> <span style="color: #e4e4e5;">x</span><span style="color: #81a2be;">)</span></code></dt><dd>adds <code>x</code> to the beginning of the right string.</dd>
 <dt><code class="src src-java"><span style="color: #81a2be;">T</span> <span style="color: #de935f;">removeRightFront</span><span style="color: #81a2be;">()</span></code></dt><dd>removes and returns the first thing in the right string.
@@ -299,8 +278,8 @@ The fun part about the OSU list component is that all of its kernel methods run 
 </div>
 
 <div id="outline-container-org7c4e8ee" class="outline-4">
-<h4 id="org7c4e8ee"><span class="section-number-4">1.1.2.</span> Standard Methods</h4>
-<div class="outline-text-4" id="text-1-1-2">
+<h4 id="org7c4e8ee">Standard Methods</h4>
+<div class="outline-text-4" id="text-org7c4e8ee">
 <p>
 These methods don&rsquo;t run in constant time, depending on the implementation.
 </p>
@@ -318,8 +297,8 @@ These methods don&rsquo;t run in constant time, depending on the implementation.
 
 
 <div id="outline-container-org3194a0e" class="outline-2">
-<h2 id="org3194a0e"><span class="section-number-2">2.</span> Linked Lists</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org3194a0e">Linked Lists</h2>
+<div class="outline-text-2" id="text-org3194a0e">
 <p>
 A <b>linked list</b> is a type of list, constructed of multiple items that all point to the next item in the list.
 </p>
@@ -327,8 +306,8 @@ A <b>linked list</b> is a type of list, constructed of multiple items that all p
 
 
 <div id="outline-container-orgeb31221" class="outline-3">
-<h3 id="orgeb31221"><span class="section-number-3">2.1.</span> Using Linked Lists</h3>
-<div class="outline-text-3" id="text-2-1">
+<h3 id="orgeb31221">Using Linked Lists</h3>
+<div class="outline-text-3" id="text-orgeb31221">
 <p>
 Working with linked lists requires some level of comfort with both <b>pointers</b> and <b>aliases</b>.
 </p>
@@ -338,7 +317,7 @@ Working with linked lists requires some level of comfort with both <b>pointers</
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-03-07 Mon 19:11</p>
+<p class="date">Created: 2022-03-31 Thu 15:28</p>
 </div>
 </body>
 </html>
