@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-09 Wed 14:20 -->
+<!-- 2022-09-01 Thu 10:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Problem Guide</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -222,60 +222,60 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2b33403">1. Limits</a>
+<li><a href="#org8784682">1. Limits</a>
 <ul>
-<li><a href="#org02d4086">1.1. Check From!</a>
+<li><a href="#orge5bcaa3">1.1. Check From!</a>
 <ul>
-<li><a href="#org010c0c1">1.1.1. Form \(\frac{0}{\#}\)</a></li>
-<li><a href="#org4c7d17e">1.1.2. Form \(0 \cdot ?\)</a></li>
-<li><a href="#orgd70921b">1.1.3. Form \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\)</a></li>
-<li><a href="#org618ff5d">1.1.4. Form \(0 \cdot \infty\), \(1^\infty\), \(0^0\), \(\infty^0\) or \(\infty - \infty\)</a></li>
-<li><a href="#org8d96499">1.1.5. Form \(\frac{\#}{0}\)</a></li>
+<li><a href="#org82726ec">1.1.1. Form \(\frac{0}{\#}\)</a></li>
+<li><a href="#org19879f5">1.1.2. Form \(0 \cdot ?\)</a></li>
+<li><a href="#org4aa2928">1.1.3. Form \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\)</a></li>
+<li><a href="#org3b651ad">1.1.4. Form \(0 \cdot \infty\), \(1^\infty\), \(0^0\), \(\infty^0\) or \(\infty - \infty\)</a></li>
+<li><a href="#org6119266">1.1.5. Form \(\frac{\#}{0}\)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgaa1d3a9">2. Derivatives</a>
+<li><a href="#orgd703cff">2. Derivatives</a>
 <ul>
-<li><a href="#orgbf38344">2.1. Rules</a>
+<li><a href="#org9004632">2.1. Rules</a>
 <ul>
-<li><a href="#org869f9b6">2.1.1. Power Rule</a></li>
-<li><a href="#orgaedc398">2.1.2. Product Rule</a></li>
-<li><a href="#org149759f">2.1.3. Quotient Rule</a></li>
+<li><a href="#org632388e">2.1.1. Power Rule</a></li>
+<li><a href="#org1850cb5">2.1.2. Product Rule</a></li>
+<li><a href="#org12a785e">2.1.3. Quotient Rule</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orga10c0b7">3. Integrals</a>
+<li><a href="#org258d1a2">3. Integrals</a>
 <ul>
-<li><a href="#orga70a3f8">3.1. Split up the Integral</a></li>
-<li><a href="#org6ab3857">3.2. First Fundamental Theorem</a></li>
-<li><a href="#orga69377a">3.3. Second Fundamental Theorem</a></li>
-<li><a href="#org5410155">3.4. Riemann Sums</a></li>
+<li><a href="#org1b1f06f">3.1. Split up the Integral</a></li>
+<li><a href="#org33b78ec">3.2. First Fundamental Theorem</a></li>
+<li><a href="#org7ac4320">3.3. Second Fundamental Theorem</a></li>
+<li><a href="#org091c0d9">3.4. Riemann Sums</a></li>
 </ul>
 </li>
-<li><a href="#org6a05eb8">4. Theorems</a>
+<li><a href="#org81006c2">4. Theorems</a>
 <ul>
-<li><a href="#org5a6ed99">4.1. Squeeze Theorem</a></li>
-<li><a href="#org19ac563">4.2. Mean Value Theorem</a></li>
-<li><a href="#orged7282e">4.3. Extreme Value Theorem</a></li>
-<li><a href="#orga20773c">4.4. Linear Approximation</a></li>
-<li><a href="#org3fe0a35">4.5. Extreme Value Theorem / Global Extrema</a></li>
-<li><a href="#org46004c7">4.6. Mean Value Theorem</a></li>
+<li><a href="#orgc31d5cc">4.1. Squeeze Theorem</a></li>
+<li><a href="#orgb341b2c">4.2. Mean Value Theorem</a></li>
+<li><a href="#org34df677">4.3. Extreme Value Theorem</a></li>
+<li><a href="#org13f1d6c">4.4. Linear Approximation</a></li>
+<li><a href="#orga572932">4.5. Extreme Value Theorem / Global Extrema</a></li>
+<li><a href="#orgbb3f222">4.6. Mean Value Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2b33403" class="outline-2">
-<h2 id="org2b33403"><span class="section-number-2">1.</span> Limits</h2>
+<div id="outline-container-org8784682" class="outline-2">
+<h2 id="org8784682"><span class="section-number-2">1.</span> Limits</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The Laws, for these examples assume \(\lim\limits_{x \to a} f(x) = L\) and \(\lim\limits_{x \to a} g(x) = M\) and both \(L\) and \(M\) exist. If any limit doesn&rsquo;t exit when using a limit law, then it can&rsquo;t be solved with limit laws.
 </p>
 <dl class="org-dl">
-<dt>Law 1</dt><dd>All <a href="functions.html#org33a4b68">Famous Functions</a> are continuous over their domain.</dd>
+<dt>Law 1</dt><dd>All <a href="functions.html#org7c82333">Famous Functions</a> are continuous over their domain.</dd>
 <dt>Law 2</dt><dd>The Sum Law, if we have two functions begin added together, we can break them into two smaller limits. \(\lim\limits_{x \to a} (f(x) \pm g(x)) = [ \lim\limits_{x \to a} f(x) ] \pm [ \lim\limits_{x \to a} g(x)] = L * M\)</dd>
 <dt>Law 3</dt><dd>The Product Law. \(\lim\limits_{x \to a} (f(x) * g(x)) = [\lim\limits_{x \to a} f(x)] * [\lim\limits_{x \to a} g(x)] = L * M\)</dd>
 <dt>Law 4</dt><dd>The Quotient Law, \(\lim\limits_{x \to a} \frac{f(x)}{g(x)} = \frac{ [\lim\limits_{x \to a } f(x)] } {[\lim\limits_{x \to a} g(x)]} = \frac{L}{M}\). However the Quotient Law only works if \(M \neq 0\)</dd>
@@ -284,44 +284,44 @@ The Laws, for these examples assume \(\lim\limits_{x \to a} f(x) = L\) and \(\li
 </div>
 
 
-<div id="outline-container-org02d4086" class="outline-3">
-<h3 id="org02d4086"><span class="section-number-3">1.1.</span> Check From!</h3>
+<div id="outline-container-orge5bcaa3" class="outline-3">
+<h3 id="orge5bcaa3"><span class="section-number-3">1.1.</span> Check From!</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-org010c0c1" class="outline-4">
-<h4 id="org010c0c1"><span class="section-number-4">1.1.1.</span> Form \(\frac{0}{\#}\)</h4>
+<div id="outline-container-org82726ec" class="outline-4">
+<h4 id="org82726ec"><span class="section-number-4">1.1.1.</span> Form \(\frac{0}{\#}\)</h4>
 <div class="outline-text-4" id="text-1-1-1">
 <p>
 Limit evaluates to \(0\).
 </p>
 </div>
 </div>
-<div id="outline-container-org4c7d17e" class="outline-4">
-<h4 id="org4c7d17e"><span class="section-number-4">1.1.2.</span> Form \(0 \cdot ?\)</h4>
+<div id="outline-container-org19879f5" class="outline-4">
+<h4 id="org19879f5"><span class="section-number-4">1.1.2.</span> Form \(0 \cdot ?\)</h4>
 <div class="outline-text-4" id="text-1-1-2">
 <p>
-When the function oscillates between two values, we need to use the <a href="limits.html#org5cd7fc3">Squeze Theorem</a>.
+When the function oscillates between two values, we need to use the <a href="limits.html#org561cc63">Squeze Theorem</a>.
 </p>
 </div>
 </div>
-<div id="outline-container-orgd70921b" class="outline-4">
-<h4 id="orgd70921b"><span class="section-number-4">1.1.3.</span> Form \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\)</h4>
+<div id="outline-container-org4aa2928" class="outline-4">
+<h4 id="org4aa2928"><span class="section-number-4">1.1.3.</span> Form \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\)</h4>
 <div class="outline-text-4" id="text-1-1-3">
 <p>
 L&rsquo;Hopital&rsquo;s rule
 </p>
 </div>
 </div>
-<div id="outline-container-org618ff5d" class="outline-4">
-<h4 id="org618ff5d"><span class="section-number-4">1.1.4.</span> Form \(0 \cdot \infty\), \(1^\infty\), \(0^0\), \(\infty^0\) or \(\infty - \infty\)</h4>
+<div id="outline-container-org3b651ad" class="outline-4">
+<h4 id="org3b651ad"><span class="section-number-4">1.1.4.</span> Form \(0 \cdot \infty\), \(1^\infty\), \(0^0\), \(\infty^0\) or \(\infty - \infty\)</h4>
 <div class="outline-text-4" id="text-1-1-4">
 <p>
 Us \(\ln\) or some other method to turn the limits into a \(\frac{0}{0}\) or \(\frac{\infty}{\infty}\) to use L&rsquo;hopital&rsquo;s rule.
 </p>
 </div>
 </div>
-<div id="outline-container-org8d96499" class="outline-4">
-<h4 id="org8d96499"><span class="section-number-4">1.1.5.</span> Form \(\frac{\#}{0}\)</h4>
+<div id="outline-container-org6119266" class="outline-4">
+<h4 id="org6119266"><span class="section-number-4">1.1.5.</span> Form \(\frac{\#}{0}\)</h4>
 <div class="outline-text-4" id="text-1-1-5">
 <p>
 The limit will evaluate to \(\pm\infty\). Build a sign chart to determine the sign at the point, if there is a <b>one-sided limit</b>.
@@ -330,34 +330,34 @@ The limit will evaluate to \(\pm\infty\). Build a sign chart to determine the si
 </div>
 </div>
 </div>
-<div id="outline-container-orgaa1d3a9" class="outline-2">
-<h2 id="orgaa1d3a9"><span class="section-number-2">2.</span> Derivatives</h2>
+<div id="outline-container-orgd703cff" class="outline-2">
+<h2 id="orgd703cff"><span class="section-number-2">2.</span> Derivatives</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orgbf38344" class="outline-3">
-<h3 id="orgbf38344"><span class="section-number-3">2.1.</span> Rules</h3>
+<div id="outline-container-org9004632" class="outline-3">
+<h3 id="org9004632"><span class="section-number-3">2.1.</span> Rules</h3>
 <div class="outline-text-3" id="text-2-1">
 </div>
-<div id="outline-container-org869f9b6" class="outline-4">
-<h4 id="org869f9b6"><span class="section-number-4">2.1.1.</span> Power Rule</h4>
+<div id="outline-container-org632388e" class="outline-4">
+<h4 id="org632388e"><span class="section-number-4">2.1.1.</span> Power Rule</h4>
 </div>
-<div id="outline-container-orgaedc398" class="outline-4">
-<h4 id="orgaedc398"><span class="section-number-4">2.1.2.</span> Product Rule</h4>
+<div id="outline-container-org1850cb5" class="outline-4">
+<h4 id="org1850cb5"><span class="section-number-4">2.1.2.</span> Product Rule</h4>
 </div>
-<div id="outline-container-org149759f" class="outline-4">
-<h4 id="org149759f"><span class="section-number-4">2.1.3.</span> Quotient Rule</h4>
+<div id="outline-container-org12a785e" class="outline-4">
+<h4 id="org12a785e"><span class="section-number-4">2.1.3.</span> Quotient Rule</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orga10c0b7" class="outline-2">
-<h2 id="orga10c0b7"><span class="section-number-2">3.</span> Integrals</h2>
+<div id="outline-container-org258d1a2" class="outline-2">
+<h2 id="org258d1a2"><span class="section-number-2">3.</span> Integrals</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orga70a3f8" class="outline-3">
-<h3 id="orga70a3f8"><span class="section-number-3">3.1.</span> Split up the Integral</h3>
+<div id="outline-container-org1b1f06f" class="outline-3">
+<h3 id="org1b1f06f"><span class="section-number-3">3.1.</span> Split up the Integral</h3>
 </div>
-<div id="outline-container-org6ab3857" class="outline-3">
-<h3 id="org6ab3857"><span class="section-number-3">3.2.</span> First Fundamental Theorem</h3>
+<div id="outline-container-org33b78ec" class="outline-3">
+<h3 id="org33b78ec"><span class="section-number-3">3.2.</span> First Fundamental Theorem</h3>
 <div class="outline-text-3" id="text-3-2">
 <p>
 if \(f(x)\) is continuous then,
@@ -368,8 +368,8 @@ if \(f(x)\) is continuous then,
 </div>
 </div>
 
-<div id="outline-container-orga69377a" class="outline-3">
-<h3 id="orga69377a"><span class="section-number-3">3.3.</span> Second Fundamental Theorem</h3>
+<div id="outline-container-org7ac4320" class="outline-3">
+<h3 id="org7ac4320"><span class="section-number-3">3.3.</span> Second Fundamental Theorem</h3>
 <div class="outline-text-3" id="text-3-3">
 <p>
 if \(F'(x) = f(x)\) then,
@@ -380,8 +380,8 @@ if \(F'(x) = f(x)\) then,
 </div>
 </div>
 
-<div id="outline-container-org5410155" class="outline-3">
-<h3 id="org5410155"><span class="section-number-3">3.4.</span> Riemann Sums</h3>
+<div id="outline-container-org091c0d9" class="outline-3">
+<h3 id="org091c0d9"><span class="section-number-3">3.4.</span> Riemann Sums</h3>
 <div class="outline-text-3" id="text-3-4">
 <p>
 <b>Riemann Sums</b> are a method of determining the area under a curve. The steps to set one up are:
@@ -403,21 +403,21 @@ if \(F'(x) = f(x)\) then,
 </div>
 
 
-<div id="outline-container-org6a05eb8" class="outline-2">
-<h2 id="org6a05eb8"><span class="section-number-2">4.</span> Theorems</h2>
+<div id="outline-container-org81006c2" class="outline-2">
+<h2 id="org81006c2"><span class="section-number-2">4.</span> Theorems</h2>
 <div class="outline-text-2" id="text-4">
 </div>
-<div id="outline-container-org5a6ed99" class="outline-3">
-<h3 id="org5a6ed99"><span class="section-number-3">4.1.</span> Squeeze Theorem</h3>
+<div id="outline-container-orgc31d5cc" class="outline-3">
+<h3 id="orgc31d5cc"><span class="section-number-3">4.1.</span> Squeeze Theorem</h3>
 </div>
-<div id="outline-container-org19ac563" class="outline-3">
-<h3 id="org19ac563"><span class="section-number-3">4.2.</span> Mean Value Theorem</h3>
+<div id="outline-container-orgb341b2c" class="outline-3">
+<h3 id="orgb341b2c"><span class="section-number-3">4.2.</span> Mean Value Theorem</h3>
 </div>
-<div id="outline-container-orged7282e" class="outline-3">
-<h3 id="orged7282e"><span class="section-number-3">4.3.</span> Extreme Value Theorem</h3>
+<div id="outline-container-org34df677" class="outline-3">
+<h3 id="org34df677"><span class="section-number-3">4.3.</span> Extreme Value Theorem</h3>
 </div>
-<div id="outline-container-orga20773c" class="outline-3">
-<h3 id="orga20773c"><span class="section-number-3">4.4.</span> Linear Approximation</h3>
+<div id="outline-container-org13f1d6c" class="outline-3">
+<h3 id="org13f1d6c"><span class="section-number-3">4.4.</span> Linear Approximation</h3>
 <div class="outline-text-3" id="text-4-4">
 <p>
 The formula for a tangent line can be written as \(y = f'(x)(x - a) + f(a)\).
@@ -436,8 +436,8 @@ This is also used for <b>Differentiables</b>. The process for this is:
 </div>
 </div>
 
-<div id="outline-container-org3fe0a35" class="outline-3">
-<h3 id="org3fe0a35"><span class="section-number-3">4.5.</span> Extreme Value Theorem / Global Extrema</h3>
+<div id="outline-container-orga572932" class="outline-3">
+<h3 id="orga572932"><span class="section-number-3">4.5.</span> Extreme Value Theorem / Global Extrema</h3>
 <div class="outline-text-3" id="text-4-5">
 <p>
 The <b>Extreme Value Theorem</b> states that if a function \(f(x)\) is continuous over a closed interval \([a, b]\), then \(f(x)\) has a global <i>max</i> and <i>min</i> in \([a, b]\).
@@ -454,8 +454,8 @@ Using this we can find the <b>Global Extrema</b> of a function by the following 
 </div>
 </div>
 
-<div id="outline-container-org46004c7" class="outline-3">
-<h3 id="org46004c7"><span class="section-number-3">4.6.</span> Mean Value Theorem</h3>
+<div id="outline-container-orgbb3f222" class="outline-3">
+<h3 id="orgbb3f222"><span class="section-number-3">4.6.</span> Mean Value Theorem</h3>
 <div class="outline-text-3" id="text-4-6">
 <p>
 The <b>Mean Value Theorem</b> state that if \(f(x)\) is continuous on \([a, b]\) and differentiable on \((a, b)\), then there is a point \(c\) where \(a < c < b\) where \(f'(c) = \frac{f(b) - f(a)}{b - a}\).
@@ -470,7 +470,7 @@ We can use it to determine if a point exists between \(a\) and \(b\).
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-02-09 Wed 14:20</p>
+<p class="date">Created: 2022-09-01 Thu 10:31</p>
 </div>
 </body>
 </html>

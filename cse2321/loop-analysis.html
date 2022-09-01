@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-31 Thu 14:56 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Loop Analysis</title>
@@ -191,8 +191,9 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         displayAlign: "center",
@@ -221,55 +222,31 @@
 <br />
 <span class="subtitle">CSE2321: Foundations 1</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orgf374368">1. Estimating Execution Time</a>
-<ul>
-<li><a href="#org26c53b1">1.1. Basics of Time Estimation</a></li>
-<li><a href="#org5008eab">1.2. Double For Loops</a></li>
-</ul>
-</li>
-<li><a href="#org7fce5d1">2. Worked Triple Summation Example</a></li>
-<li><a href="#orge884462">3. While Loops</a>
-<ul>
-<li><a href="#orgea5fcdf">3.1. Determining the Number of Iterations</a>
-<ul>
-<li><a href="#org8ec460e">3.1.1. Example</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org4e65999">4. 1E From Homework</a></li>
-</ul>
-</div>
-</div>
 <p>
 Now we&rsquo;re at the meat of this class. Everything that we&rsquo;ve been doing until now has been building up to this.
 </p>
 
-<div id="outline-container-orgf374368" class="outline-2">
-<h2 id="orgf374368"><span class="section-number-2">1.</span> Estimating Execution Time</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgd1df6d0" class="outline-2">
+<h2 id="orgd1df6d0">Estimating Execution Time</h2>
+<div class="outline-text-2" id="text-orgd1df6d0">
 <p>
 To estimate the amount of time that a given algorithm runs we assign some constant amount of time to each statement.
 </p>
 </div>
 
-<div id="outline-container-org26c53b1" class="outline-3">
-<h3 id="org26c53b1"><span class="section-number-3">1.1.</span> Basics of Time Estimation</h3>
-<div class="outline-text-3" id="text-1-1">
+<div id="outline-container-org6504545" class="outline-3">
+<h3 id="org6504545">Basics of Time Estimation</h3>
+<div class="outline-text-3" id="text-org6504545">
 <p>
 Let&rsquo;s say we wanted to estimate the time of the following algorithm:
 </p>
 
-\begin{algorithmic}
+\begin{algorithm}
 \State $x = 0$
 \For{$i = 1$ to $25$}
     \State $x = x + 1$
 \EndFor
-\end{algorithmic}
+\end{algorithm}
 
 <p>
 We could do this by assigning a constant time to each line. But we have to be careful about the for loop since it runs multiple times. After we assign times it should look like this:
@@ -285,23 +262,44 @@ We could do this by assigning a constant time to each line. But we have to be ca
 </div>
 
 
-<div id="outline-container-org5008eab" class="outline-3">
-<h3 id="org5008eab"><span class="section-number-3">1.2.</span> Double For Loops</h3>
+<div id="outline-container-org659be88" class="outline-3">
+<h3 id="org659be88">Double For Loops</h3>
+<div class="outline-text-3" id="text-org659be88">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #e4e4e5;">x</span> = <span style="color: #d0b75a; font-weight: bold;">0</span>
+<span style="color: #81a2be;">for</span> <span style="color: #e4e4e5;">i</span> = <span style="color: #d0b75a; font-weight: bold;">1</span> to n do
+    <span style="color: #81a2be;">for</span> <span style="color: #e4e4e5;">j</span> = i to n do
+        <span style="color: #e4e4e5;">x</span> = x + i - j
+    endfor
+endfor
+</pre>
+</div>
+
+<p>
+Translating the code into a summation is our main job here.
+</p>
+
+\begin{align*}
+T(n) &= \sum_{i = 1}^{n} \sum_{j = 1}^{i} c \\
+T(n) &= \sum_{i = 1}^{n} c \cdot i \\
+T(n) &= c \sum_{i = 1}^{n} i \\
+T(n) &= c \cdot \frac{n (n + 1)}{2} \\
+T(n) &\in \Omega(n^2)
+\end{align*}
 </div>
 </div>
-
-
-
-
-
-
-<div id="outline-container-org7fce5d1" class="outline-2">
-<h2 id="org7fce5d1"><span class="section-number-2">2.</span> Worked Triple Summation Example</h2>
 </div>
 
-<div id="outline-container-orge884462" class="outline-2">
-<h2 id="orge884462"><span class="section-number-2">3.</span> While Loops</h2>
-<div class="outline-text-2" id="text-3">
+
+
+
+<div id="outline-container-orge1a42f7" class="outline-2">
+<h2 id="orge1a42f7">Worked Triple Summation Example</h2>
+</div>
+
+<div id="outline-container-org3a5f584" class="outline-2">
+<h2 id="org3a5f584">While Loops</h2>
+<div class="outline-text-2" id="text-org3a5f584">
 <p>
 <b>While Loops</b> are very similar to <b>For Loops</b> but they do have some differences.
 </p>
@@ -311,17 +309,17 @@ We could do this by assigning a constant time to each line. But we have to be ca
 </ul>
 </div>
 
-<div id="outline-container-orgea5fcdf" class="outline-3">
-<h3 id="orgea5fcdf"><span class="section-number-3">3.1.</span> Determining the Number of Iterations</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgcd6994b" class="outline-3">
+<h3 id="orgcd6994b">Determining the Number of Iterations</h3>
+<div class="outline-text-3" id="text-orgcd6994b">
 <p>
 Because this is hard to do with <b>While Loops</b>, we want to draw a table comparing the number of iterations and the value of the variable we&rsquo;re iterating over. This will help us find a pattern.
 </p>
 </div>
 
-<div id="outline-container-org8ec460e" class="outline-4">
-<h4 id="org8ec460e"><span class="section-number-4">3.1.1.</span> Example</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-org2d8bed9" class="outline-4">
+<h4 id="org2d8bed9">Example</h4>
+<div class="outline-text-4" id="text-org2d8bed9">
 <p>
 while i &lt;= n
     i = i + 10
@@ -385,9 +383,9 @@ while i &lt;= n
 
 
 
-<div id="outline-container-org4e65999" class="outline-2">
-<h2 id="org4e65999"><span class="section-number-2">4.</span> 1E From Homework</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org7e99c59" class="outline-2">
+<h2 id="org7e99c59">1E From Homework</h2>
+<div class="outline-text-2" id="text-org7e99c59">
 <ol class="org-ol">
 <li>First analyze the iteration of the while loop</li>
 <li>Now we have a for loop in sigma notation that we need to bound.</li>
@@ -398,7 +396,7 @@ while i &lt;= n
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-03-31 Thu 14:56</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-07 Mon 19:11 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Summations</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -222,37 +222,37 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org1e3ea23">1. Summations</a>
+<li><a href="#org8fdd87f">1. Summations</a>
 <ul>
-<li><a href="#org93af302">1.1. Types of Summations</a></li>
-<li><a href="#org0e3847a">1.2. Useful Summation Formulas</a>
+<li><a href="#org52ea189">1.1. Types of Summations</a></li>
+<li><a href="#org776c411">1.2. Useful Summation Formulas</a>
 <ul>
-<li><a href="#orgf4a0de6">1.2.1. Arithmetic Sum</a></li>
-<li><a href="#org6da26d2">1.2.2. Sum of Squares</a></li>
-<li><a href="#org1d498d4">1.2.3. Sum of Cubes</a></li>
-<li><a href="#orgc37b35c">1.2.4. Finite Geometric Sum</a></li>
-<li><a href="#org14d99f5">1.2.5. Infinite Geometric Series</a></li>
+<li><a href="#org9a82439">1.2.1. Arithmetic Sum</a></li>
+<li><a href="#org1ae771b">1.2.2. Sum of Squares</a></li>
+<li><a href="#org571accb">1.2.3. Sum of Cubes</a></li>
+<li><a href="#orgb20c415">1.2.4. Finite Geometric Sum</a></li>
+<li><a href="#org5f18a46">1.2.5. Infinite Geometric Series</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge2c5b54">2. Analysing Summations</a>
+<li><a href="#org8daa6a9">2. Analysing Summations</a>
 <ul>
-<li><a href="#org455e1d1">2.1. Example</a></li>
-<li><a href="#org9c386a9">2.2. Complexity Of Summations</a></li>
+<li><a href="#org10dedd8">2.1. Example</a></li>
+<li><a href="#org6e7f857">2.2. Complexity Of Summations</a></li>
 </ul>
 </li>
-<li><a href="#org0cc6ba7">3. Bounding Summations</a></li>
+<li><a href="#orgede547e">3. Bounding Summations</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org1e3ea23" class="outline-2">
-<h2 id="org1e3ea23"><span class="section-number-2">1.</span> Summations</h2>
+<div id="outline-container-org8fdd87f" class="outline-2">
+<h2 id="org8fdd87f"><span class="section-number-2">1.</span> Summations</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org93af302" class="outline-3">
-<h3 id="org93af302"><span class="section-number-3">1.1.</span> Types of Summations</h3>
+<div id="outline-container-org52ea189" class="outline-3">
+<h3 id="org52ea189"><span class="section-number-3">1.1.</span> Types of Summations</h3>
 <div class="outline-text-3" id="text-1-1">
 <dl class="org-dl">
 <dt>Geometric Sequence</dt><dd>The is a sequence that has something the power of \(i\).</dd>
@@ -261,12 +261,12 @@
 </div>
 
 
-<div id="outline-container-org0e3847a" class="outline-3">
-<h3 id="org0e3847a"><span class="section-number-3">1.2.</span> Useful Summation Formulas</h3>
+<div id="outline-container-org776c411" class="outline-3">
+<h3 id="org776c411"><span class="section-number-3">1.2.</span> Useful Summation Formulas</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-orgf4a0de6" class="outline-4">
-<h4 id="orgf4a0de6"><span class="section-number-4">1.2.1.</span> Arithmetic Sum</h4>
+<div id="outline-container-org9a82439" class="outline-4">
+<h4 id="org9a82439"><span class="section-number-4">1.2.1.</span> Arithmetic Sum</h4>
 <div class="outline-text-4" id="text-1-2-1">
 <p>
 \(\sum\limits_{i = 1}^{n} i = \frac{n ( n + 1 )}{2}\)
@@ -274,8 +274,8 @@
 </div>
 </div>
 
-<div id="outline-container-org6da26d2" class="outline-4">
-<h4 id="org6da26d2"><span class="section-number-4">1.2.2.</span> Sum of Squares</h4>
+<div id="outline-container-org1ae771b" class="outline-4">
+<h4 id="org1ae771b"><span class="section-number-4">1.2.2.</span> Sum of Squares</h4>
 <div class="outline-text-4" id="text-1-2-2">
 <p>
 \(\sum\limits_{i = 1}^{n} i^2 = \frac{n ( n+ 1 )( 2n + 1 )}{6}\)
@@ -283,8 +283,8 @@
 </div>
 </div>
 
-<div id="outline-container-org1d498d4" class="outline-4">
-<h4 id="org1d498d4"><span class="section-number-4">1.2.3.</span> Sum of Cubes</h4>
+<div id="outline-container-org571accb" class="outline-4">
+<h4 id="org571accb"><span class="section-number-4">1.2.3.</span> Sum of Cubes</h4>
 <div class="outline-text-4" id="text-1-2-3">
 <p>
 \(\sum\limits_{i = 1}^{n}i ^3 = \frac{n^2 (n + 1)^2}{4}\)
@@ -292,8 +292,8 @@
 </div>
 </div>
 
-<div id="outline-container-orgc37b35c" class="outline-4">
-<h4 id="orgc37b35c"><span class="section-number-4">1.2.4.</span> Finite Geometric Sum</h4>
+<div id="outline-container-orgb20c415" class="outline-4">
+<h4 id="orgb20c415"><span class="section-number-4">1.2.4.</span> Finite Geometric Sum</h4>
 <div class="outline-text-4" id="text-1-2-4">
 <p>
 \(\sum\limits_{i = 0}^{n} r^i = \frac{r^{n + 1} - 1}{r - 1}\)
@@ -301,8 +301,8 @@
 </div>
 </div>
 
-<div id="outline-container-org14d99f5" class="outline-4">
-<h4 id="org14d99f5"><span class="section-number-4">1.2.5.</span> Infinite Geometric Series</h4>
+<div id="outline-container-org5f18a46" class="outline-4">
+<h4 id="org5f18a46"><span class="section-number-4">1.2.5.</span> Infinite Geometric Series</h4>
 <div class="outline-text-4" id="text-1-2-5">
 <p>
 \(\sum\limits_{i = 0}^{\infty} r^i = \frac{1}{1 - r}\) when \(|r| < 1\)
@@ -313,16 +313,16 @@
 </div>
 
 
-<div id="outline-container-orge2c5b54" class="outline-2">
-<h2 id="orge2c5b54"><span class="section-number-2">2.</span> Analysing Summations</h2>
+<div id="outline-container-org8daa6a9" class="outline-2">
+<h2 id="org8daa6a9"><span class="section-number-2">2.</span> Analysing Summations</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 Using the properties of summations, we want to make a <b>summation</b> look like something that we can more easily analyze.
 </p>
 </div>
 
-<div id="outline-container-org455e1d1" class="outline-3">
-<h3 id="org455e1d1"><span class="section-number-3">2.1.</span> Example</h3>
+<div id="outline-container-org10dedd8" class="outline-3">
+<h3 id="org10dedd8"><span class="section-number-3">2.1.</span> Example</h3>
 <div class="outline-text-3" id="text-2-1">
 \begin{align}
 \sum\limits_{i = 1}^{n} (2i^2 + 3i + 5) & = 2 \sum\limits_{i = 1}^{n} i^2 + 3 \sum\limits_{i = 1}^{n} i + \sum\limits_{i=1}^{n} 5 \\
@@ -331,8 +331,8 @@ Using the properties of summations, we want to make a <b>summation</b> look like
 </div>
 </div>
 
-<div id="outline-container-org9c386a9" class="outline-3">
-<h3 id="org9c386a9"><span class="section-number-3">2.2.</span> Complexity Of Summations</h3>
+<div id="outline-container-org6e7f857" class="outline-3">
+<h3 id="org6e7f857"><span class="section-number-3">2.2.</span> Complexity Of Summations</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 The whole reason we are looking at <b>summations</b> is because we want to determine their asymtotical complexity.
@@ -342,13 +342,13 @@ The whole reason we are looking at <b>summations</b> is because we want to deter
 </div>
 
 
-<div id="outline-container-org0cc6ba7" class="outline-2">
-<h2 id="org0cc6ba7"><span class="section-number-2">3.</span> Bounding Summations</h2>
+<div id="outline-container-orgede547e" class="outline-2">
+<h2 id="orgede547e"><span class="section-number-2">3.</span> Bounding Summations</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-03-07 Mon 19:11</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

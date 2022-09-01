@@ -3,11 +3,12 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:31 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Testing</title>
+<title>Surviving Lab</title>
 <meta name="author" content="Jackson Daumeyer" />
+<meta name="description" content="This is a simple guide for best practices and tips for completing labs" />
 <meta name="generator" content="Org Mode" />
 <style>
   #content { max-width: 60em; margin: auto; }
@@ -193,125 +194,80 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Testing
-<br />
-<span class="subtitle">CSE 2221</span>
-</h1>
-<p>
-<b>Testing</b> is a very common software engineering activity and is critical to ensure proper program execution. Because of this, there are many different testing methodologies. The one we will be covering in this class is <b>Unit Testing</b>.
-</p>
-
-
-
-<div id="outline-container-org5d698a1" class="outline-2">
-<h2 id="org5d698a1">Unit Testing</h2>
-<div class="outline-text-2" id="text-org5d698a1">
-<p>
-The process of <b>Unit Testing</b> involves testing an individual <i>unit</i> of code at a time. A <i>unit</i> can be something like a method or a class.
-</p>
-<ul class="org-ul">
-<li>Testing what happens when multiple <i>units</i> are put together is called <b>Integration Testing</b></li>
-<li>Testing a entire end-user application is called <b>System Testing</b></li>
+<h1 class="title">Surviving Lab</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org73608ec">1. Set-up</a>
+<ul>
+<li><a href="#orgf3a95ce">1.1. Conventions</a></li>
+<li><a href="#orgbfb2e67">1.2. Compilation</a></li>
+</ul>
+</li>
+<li><a href="#orgbf7061d">2. Lab 1 Tips</a></li>
 </ul>
 </div>
-
-<div id="outline-container-org767db62" class="outline-3">
-<h3 id="org767db62">Determining Correctness</h3>
-<div class="outline-text-3" id="text-org767db62">
-<p>
-To test a <i>unit</i> means that we must determine whether what it&rsquo;s doing it correct or not. We can actually determine the correctness by looking at the [Contract][]]. If the method fulfills its <b>contract</b> then it is correct.
-</p>
-
-<p>
-It is the job of a test to prove that something <i>doesn&rsquo;t</i> work, not why is doesn&rsquo;t work. Determining the <i>why</i> is the job of <b>Debugging</b>.
-</p>
-</div>
 </div>
 
-<div id="outline-container-org7b1cf05" class="outline-3">
-<h3 id="org7b1cf05">Test Cases</h3>
-<div class="outline-text-3" id="text-org7b1cf05">
+<div id="outline-container-org73608ec" class="outline-2">
+<h2 id="org73608ec"><span class="section-number-2">1.</span> Set-up</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-The <b>Test Cases</b> of an application need to be very deliberately created. These will typically follow a <b>Test Plan</b>.
+It pays to be organized so it&rsquo;s recommended that you keep a good file structure for this class. Something along the lines of:
 </p>
-
 <p>
-The best Practices for making a test plan include:
+Additionally since we&rsquo;re working on a remote machine, you should be keeping regular backups of your files in case of an accident. This is especially important if you plan on using <code>gedit</code>.
+</p>
+</div>
+
+<div id="outline-container-orgf3a95ce" class="outline-3">
+<h3 id="orgf3a95ce"><span class="section-number-3">1.1.</span> Conventions</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+The <code>C</code> language doesn&rsquo;t care about most conventions so these are mostly just to make your code easier for you to read. However, there are some conventions that are <i>enforced</i> for this class.
 </p>
 <ul class="org-ul">
-<li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
+<li>All source code files should end with a <code>.c</code>, i.e. <code>hello.c</code> not <code>hello</code>.</li>
+<li><p>
+&ldquo;<code>084</code>&rdquo; indentation is recommended. This means function definitions have 0 indentation, the code inside them is indented 8 spaces and all indentation after that is 4 spaces more.
+</p></li>
 </ul>
-<ul class="org-ul">
-<li>Testing <i>routine</i> cases</li>
-<li>Testing <i>challenging</i> cases</li>
-</ul>
-
-<p>
-A little joke about test cases:
-</p>
-<blockquote>
-<p>
-A Quality Assurance Tester walks into a bar,
-They ask for a beer
-They ask for 999 beers
-They ask for a water
-They ask for -1 beers
-They ask for a pink panda
-They ask for ::{}{  beers
-They leave
-</p>
-
-<p>
-A customer walks into a bar,
-They ask where the restroom is,
-The whole bar catches fire.
-</p>
-</blockquote>
-</div>
 </div>
 </div>
 
-
-<div id="outline-container-org21d6c6d" class="outline-2">
-<h2 id="org21d6c6d">JUnit</h2>
-<div class="outline-text-2" id="text-org21d6c6d">
+<div id="outline-container-orgbfb2e67" class="outline-3">
+<h3 id="orgbfb2e67"><span class="section-number-3">1.2.</span> Compilation</h3>
+<div class="outline-text-3" id="text-1-2">
 <p>
-What we have been doing up until this point is creating test code and running the program with it. This is a very <i>primitive</i> method of testing and not recommended for actual testing. The best practice for <b>Java</b> is using <b>JUnit</b>.
+The following command will be used to compile your projects for grading. <i>Any warnings, errors or failure to compile will result in a 0 on the assignment</i>!
 </p>
-</div>
-
-<div id="outline-container-orgb56dca3" class="outline-3">
-<h3 id="orgb56dca3"><code>@Test</code> Methods</h3>
-<div class="outline-text-3" id="text-orgb56dca3">
-<p>
-You can create test methods easily by writing whatever testing that you would have in the main method into its own method and prefixing it with <code>@Test</code>.
-</p>
-
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">@Test</span>
-<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
+<pre class="src src-bash">gcc -ansi -pedantic -Wimplicit-function-declaration -Wreturn-type -g -o hello hello.c
 </pre>
 </div>
+<dl class="org-dl">
+<dt><code>-ansi</code></dt><dd>tells the compiler that we&rsquo;re writing ANSI C (c89/c90)</dd>
+<dt><code>-pedantic</code></dt><dd>throw warnings when we write C that doesn&rsquo;t follow the ANSI standard</dd>
+<dt><code>-Wimplicit-function-declaration</code> &amp; <code>-Wreturn-type</code></dt><dd>These are both used to throw warnings for some hard to debug errors.</dd>
+<dt><code>-g</code></dt><dd>this tells the compiler to include the debugger with our compiled code.</dd>
+<dt><code>-o [filename]</code></dt><dd>tells the compiler where to put our output file.</dd>
+</dl>
+</div>
 </div>
 </div>
 
 
-<div id="outline-container-org170725b" class="outline-3">
-<h3 id="org170725b">The <code>assert</code> Keyword</h3>
-</div>
-</div>
-
-<div id="outline-container-org53b856f" class="outline-2">
-<h2 id="org53b856f">Test Driven Development</h2>
+<div id="outline-container-orgbf7061d" class="outline-2">
+<h2 id="orgbf7061d"><span class="section-number-2">2.</span> Lab 1 Tips</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:31</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

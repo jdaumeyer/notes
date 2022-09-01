@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-02-22 Tue 14:46 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Asymptotic Notation</title>
@@ -191,7 +191,7 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
+  .org-svg { }
 </style>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -225,25 +225,25 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#org2eb2bf5">1. Goals</a></li>
-<li><a href="#orgd6861ac">2. Describing Growth Rates</a>
+<li><a href="#org99f2cbd">1. Goals</a></li>
+<li><a href="#org69221b9">2. Describing Growth Rates</a>
 <ul>
-<li><a href="#orgc111d99">2.1. Bounding</a></li>
-<li><a href="#orgd865295">2.2. Proving Growth Rates</a>
+<li><a href="#orge64e7a2">2.1. Bounding</a></li>
+<li><a href="#org5b09f36">2.2. Proving Growth Rates</a>
 <ul>
-<li><a href="#orga23ba57">2.2.1. Rules</a></li>
-<li><a href="#org7ce788c">2.2.2. Prove that \((2n^2 + 3n + 4) \in O(n^2)\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></a></li>
+<li><a href="#org9ab2994">2.2.1. Rules</a></li>
+<li><a href="#org84c06bb">2.2.2. Prove that \((2n^2 + 3n + 4) \in O(n^2)\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></a></li>
 </ul>
 </li>
-<li><a href="#org59edec6">2.3. Limit Theorem</a></li>
+<li><a href="#org633202c">2.3. Limit Theorem</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-org2eb2bf5" class="outline-2">
-<h2 id="org2eb2bf5"><span class="section-number-2">1.</span> Goals</h2>
+<div id="outline-container-org99f2cbd" class="outline-2">
+<h2 id="org99f2cbd"><span class="section-number-2">1.</span> Goals</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 The goal of this course is to give us the ability to consistently compare the runtime of algorithms.
@@ -255,15 +255,15 @@ The goal of this course is to give us the ability to consistently compare the ru
 </div>
 </div>
 
-<div id="outline-container-orgd6861ac" class="outline-2">
-<h2 id="orgd6861ac"><span class="section-number-2">2.</span> Describing Growth Rates</h2>
+<div id="outline-container-org69221b9" class="outline-2">
+<h2 id="org69221b9"><span class="section-number-2">2.</span> Describing Growth Rates</h2>
 <div class="outline-text-2" id="text-2">
 <p>
 For the runtime of an algorithm, we are really just looking at how fast it grows. This process is similar to a <a href="file:///home/jed/doc/osu/past/math1151/notes/limits.html">limit</a> from calculus.
 </p>
 </div>
-<div id="outline-container-orgc111d99" class="outline-3">
-<h3 id="orgc111d99"><span class="section-number-3">2.1.</span> Bounding</h3>
+<div id="outline-container-orge64e7a2" class="outline-3">
+<h3 id="orge64e7a2"><span class="section-number-3">2.1.</span> Bounding</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 The main way that we&rsquo;ll describe growth rates is by bounding our function by another function that grows faster than it.
@@ -280,16 +280,16 @@ The goal is to sandwich a function above and below by two other functions
 </div>
 </div>
 
-<div id="outline-container-orgd865295" class="outline-3">
-<h3 id="orgd865295"><span class="section-number-3">2.2.</span> Proving Growth Rates</h3>
+<div id="outline-container-org5b09f36" class="outline-3">
+<h3 id="org5b09f36"><span class="section-number-3">2.2.</span> Proving Growth Rates</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 When we want to show that a given function is within a growth rate by using our idea of <b>bounding</b>.
 </p>
 </div>
 
-<div id="outline-container-orga23ba57" class="outline-4">
-<h4 id="orga23ba57"><span class="section-number-4">2.2.1.</span> Rules</h4>
+<div id="outline-container-org9ab2994" class="outline-4">
+<h4 id="org9ab2994"><span class="section-number-4">2.2.1.</span> Rules</h4>
 <div class="outline-text-4" id="text-2-2-1">
 <ul class="org-ul">
 <li>Bounding Above
@@ -303,8 +303,8 @@ When we want to show that a given function is within a growth rate by using our 
 </ul>
 </div>
 </div>
-<div id="outline-container-org7ce788c" class="outline-4">
-<h4 id="org7ce788c"><span class="section-number-4">2.2.2.</span> Prove that \((2n^2 + 3n + 4) \in O(n^2)\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></h4>
+<div id="outline-container-org84c06bb" class="outline-4">
+<h4 id="org84c06bb"><span class="section-number-4">2.2.2.</span> Prove that \((2n^2 + 3n + 4) \in O(n^2)\)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></h4>
 <div class="outline-text-4" id="text-2-2-2">
 <p>
 We can say this is true, by bounding the function above with a function that grows faster than it.
@@ -325,8 +325,8 @@ Since \(2n^2 + 3n + 4\) is less than or equal too \(9 \cdot O(n^2)\), we know th
 </div>
 </div>
 
-<div id="outline-container-org59edec6" class="outline-3">
-<h3 id="org59edec6"><span class="section-number-3">2.3.</span> Limit Theorem</h3>
+<div id="outline-container-org633202c" class="outline-3">
+<h3 id="org633202c"><span class="section-number-3">2.3.</span> Limit Theorem</h3>
 <div class="outline-text-3" id="text-2-3">
 <ol class="org-ol">
 <li>\(\lim\limits_{n \to \infty} \frac{f(n)}{g(n)} = 0\) then \(f(n) \in O(g(n))\) and \(f(n) \notin \Omega(g(n))\).</li>
@@ -334,7 +334,7 @@ Since \(2n^2 + 3n + 4\) is less than or equal too \(9 \cdot O(n^2)\), we know th
 </ol>
 
 
-<pre class="example" id="org235d896">
+<pre class="example" id="org0ac3e48">
 Suppose $f$, $g$ are non-negative functions and that \forall n \in \mathbb{N}, g(n) \ne 0, then:
     1. If lim
 </pre>
@@ -344,7 +344,7 @@ Suppose $f$, $g$ are non-negative functions and that \forall n \in \mathbb{N}, g
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-02-22 Tue 14:46</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

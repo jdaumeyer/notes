@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:31 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Testing</title>
+<title>Recursion</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,125 +193,17 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Testing
+<h1 class="title">Recursion
 <br />
-<span class="subtitle">CSE 2221</span>
+<span class="subtitle">CSE2321 &#x2014; Foundations 1</span>
 </h1>
-<p>
-<b>Testing</b> is a very common software engineering activity and is critical to ensure proper program execution. Because of this, there are many different testing methodologies. The one we will be covering in this class is <b>Unit Testing</b>.
-</p>
-
-
-
-<div id="outline-container-org5d698a1" class="outline-2">
-<h2 id="org5d698a1">Unit Testing</h2>
-<div class="outline-text-2" id="text-org5d698a1">
-<p>
-The process of <b>Unit Testing</b> involves testing an individual <i>unit</i> of code at a time. A <i>unit</i> can be something like a method or a class.
-</p>
-<ul class="org-ul">
-<li>Testing what happens when multiple <i>units</i> are put together is called <b>Integration Testing</b></li>
-<li>Testing a entire end-user application is called <b>System Testing</b></li>
-</ul>
-</div>
-
-<div id="outline-container-org767db62" class="outline-3">
-<h3 id="org767db62">Determining Correctness</h3>
-<div class="outline-text-3" id="text-org767db62">
-<p>
-To test a <i>unit</i> means that we must determine whether what it&rsquo;s doing it correct or not. We can actually determine the correctness by looking at the [Contract][]]. If the method fulfills its <b>contract</b> then it is correct.
-</p>
-
-<p>
-It is the job of a test to prove that something <i>doesn&rsquo;t</i> work, not why is doesn&rsquo;t work. Determining the <i>why</i> is the job of <b>Debugging</b>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7b1cf05" class="outline-3">
-<h3 id="org7b1cf05">Test Cases</h3>
-<div class="outline-text-3" id="text-org7b1cf05">
-<p>
-The <b>Test Cases</b> of an application need to be very deliberately created. These will typically follow a <b>Test Plan</b>.
-</p>
-
-<p>
-The best Practices for making a test plan include:
-</p>
-<ul class="org-ul">
-<li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
-</ul>
-<ul class="org-ul">
-<li>Testing <i>routine</i> cases</li>
-<li>Testing <i>challenging</i> cases</li>
-</ul>
-
-<p>
-A little joke about test cases:
-</p>
-<blockquote>
-<p>
-A Quality Assurance Tester walks into a bar,
-They ask for a beer
-They ask for 999 beers
-They ask for a water
-They ask for -1 beers
-They ask for a pink panda
-They ask for ::{}{  beers
-They leave
-</p>
-
-<p>
-A customer walks into a bar,
-They ask where the restroom is,
-The whole bar catches fire.
-</p>
-</blockquote>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org21d6c6d" class="outline-2">
-<h2 id="org21d6c6d">JUnit</h2>
-<div class="outline-text-2" id="text-org21d6c6d">
-<p>
-What we have been doing up until this point is creating test code and running the program with it. This is a very <i>primitive</i> method of testing and not recommended for actual testing. The best practice for <b>Java</b> is using <b>JUnit</b>.
-</p>
-</div>
-
-<div id="outline-container-orgb56dca3" class="outline-3">
-<h3 id="orgb56dca3"><code>@Test</code> Methods</h3>
-<div class="outline-text-3" id="text-orgb56dca3">
-<p>
-You can create test methods easily by writing whatever testing that you would have in the main method into its own method and prefixing it with <code>@Test</code>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">@Test</span>
-<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
-</pre>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org170725b" class="outline-3">
-<h3 id="org170725b">The <code>assert</code> Keyword</h3>
-</div>
-</div>
-
-<div id="outline-container-org53b856f" class="outline-2">
-<h2 id="org53b856f">Test Driven Development</h2>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:31</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

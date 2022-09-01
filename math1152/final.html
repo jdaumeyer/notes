@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:31 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Testing</title>
+<title>Final</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,125 +193,176 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Testing
-<br />
-<span class="subtitle">CSE 2221</span>
-</h1>
-<p>
-<b>Testing</b> is a very common software engineering activity and is critical to ensure proper program execution. Because of this, there are many different testing methodologies. The one we will be covering in this class is <b>Unit Testing</b>.
-</p>
-
-
-
-<div id="outline-container-org5d698a1" class="outline-2">
-<h2 id="org5d698a1">Unit Testing</h2>
-<div class="outline-text-2" id="text-org5d698a1">
-<p>
-The process of <b>Unit Testing</b> involves testing an individual <i>unit</i> of code at a time. A <i>unit</i> can be something like a method or a class.
-</p>
-<ul class="org-ul">
-<li>Testing what happens when multiple <i>units</i> are put together is called <b>Integration Testing</b></li>
-<li>Testing a entire end-user application is called <b>System Testing</b></li>
+<h1 class="title">Final</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#org9244c6e">1. Stuff I Need to Know</a>
+<ul>
+<li><a href="#org315bca3">1.1. Midterm 1</a>
+<ul>
+<li><a href="#orgcc5315d">1.1.1. Integration</a></li>
+<li><a href="#orgf09d94e">1.1.2. Area Between Curves</a></li>
+<li><a href="#orga28cbef">1.1.3. Solids of Revolution</a></li>
+<li><a href="#org7aae6ad">1.1.4. Lengths of Curves</a></li>
+<li><a href="#orgb1130a7">1.1.5. Integration By Parts</a></li>
+<li><a href="#org535d65e">1.1.6. Trignometric Integration</a></li>
+</ul>
+</li>
+<li><a href="#org5863822">1.2. Midterm 2</a>
+<ul>
+<li><a href="#org4656cc8">1.2.1. Trignometric Substitution</a></li>
+<li><a href="#org177a9db">1.2.2. Partial Fractions</a></li>
+<li><a href="#orgdbe0c07">1.2.3. Improper Integrals</a></li>
+<li><a href="#org4587de0">1.2.4. Sequences</a></li>
+<li><a href="#orgb5b57ef">1.2.5. Series</a></li>
+<li><a href="#org94d1b20">1.2.6. Divergence Test</a></li>
+</ul>
+</li>
+<li><a href="#org899cffa">1.3. Midterm 3</a>
+<ul>
+<li><a href="#org3c0c244">1.3.1. Integral Test</a></li>
+<li><a href="#orgb2baa19">1.3.2. Alternating Series Test</a></li>
+<li><a href="#orgb0743b9">1.3.3. Ratio &amp; Root Test</a></li>
+<li><a href="#org2bc2dcd">1.3.4. Comparison &amp; Limit Comparison Test</a></li>
+<li><a href="#org2702e55">1.3.5. Absolute &amp; Conditional Convergence</a></li>
+<li><a href="#orge520b59">1.3.6. Remainders</a></li>
+</ul>
+</li>
+<li><a href="#org684b6db">1.4. Midterm 4</a>
+<ul>
+<li><a href="#org49b8941">1.4.1. Power Series</a></li>
+<li><a href="#orgfebef9a">1.4.2. Taylor Series</a></li>
+<li><a href="#org1249355">1.4.3. Differential Equations</a></li>
+<li><a href="#orgec6152c">1.4.4. Directional Fields</a></li>
+<li><a href="#orgf55f437">1.4.5. Separable Equations</a></li>
+</ul>
+</li>
+<li><a href="#org85af465">1.5. New Stuff</a>
+<ul>
+<li><a href="#org004edaa">1.5.1. Parametric Equations</a></li>
+<li><a href="#org4b29bdd">1.5.2. Polar Coordinates</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
-
-<div id="outline-container-org767db62" class="outline-3">
-<h3 id="org767db62">Determining Correctness</h3>
-<div class="outline-text-3" id="text-org767db62">
-<p>
-To test a <i>unit</i> means that we must determine whether what it&rsquo;s doing it correct or not. We can actually determine the correctness by looking at the [Contract][]]. If the method fulfills its <b>contract</b> then it is correct.
-</p>
-
-<p>
-It is the job of a test to prove that something <i>doesn&rsquo;t</i> work, not why is doesn&rsquo;t work. Determining the <i>why</i> is the job of <b>Debugging</b>.
-</p>
-</div>
 </div>
 
-<div id="outline-container-org7b1cf05" class="outline-3">
-<h3 id="org7b1cf05">Test Cases</h3>
-<div class="outline-text-3" id="text-org7b1cf05">
-<p>
-The <b>Test Cases</b> of an application need to be very deliberately created. These will typically follow a <b>Test Plan</b>.
-</p>
-
-<p>
-The best Practices for making a test plan include:
-</p>
-<ul class="org-ul">
-<li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
-</ul>
-<ul class="org-ul">
-<li>Testing <i>routine</i> cases</li>
-<li>Testing <i>challenging</i> cases</li>
-</ul>
-
-<p>
-A little joke about test cases:
-</p>
-<blockquote>
-<p>
-A Quality Assurance Tester walks into a bar,
-They ask for a beer
-They ask for 999 beers
-They ask for a water
-They ask for -1 beers
-They ask for a pink panda
-They ask for ::{}{  beers
-They leave
-</p>
-
-<p>
-A customer walks into a bar,
-They ask where the restroom is,
-The whole bar catches fire.
-</p>
-</blockquote>
+<div id="outline-container-org9244c6e" class="outline-2">
+<h2 id="org9244c6e"><span class="section-number-2">1.</span> Stuff I Need to Know</h2>
+<div class="outline-text-2" id="text-1">
+</div>
+<div id="outline-container-org315bca3" class="outline-3">
+<h3 id="org315bca3"><span class="section-number-3">1.1.</span> Midterm 1</h3>
+<div class="outline-text-3" id="text-1-1">
+</div>
+<div id="outline-container-orgcc5315d" class="outline-4">
+<h4 id="orgcc5315d"><span class="section-number-4">1.1.1.</span> Integration</h4>
+</div>
+<div id="outline-container-orgf09d94e" class="outline-4">
+<h4 id="orgf09d94e"><span class="section-number-4">1.1.2.</span> Area Between Curves</h4>
+</div>
+<div id="outline-container-orga28cbef" class="outline-4">
+<h4 id="orga28cbef"><span class="section-number-4">1.1.3.</span> Solids of Revolution</h4>
+</div>
+<div id="outline-container-org7aae6ad" class="outline-4">
+<h4 id="org7aae6ad"><span class="section-number-4">1.1.4.</span> Lengths of Curves</h4>
+</div>
+<div id="outline-container-orgb1130a7" class="outline-4">
+<h4 id="orgb1130a7"><span class="section-number-4">1.1.5.</span> Integration By Parts</h4>
+</div>
+<div id="outline-container-org535d65e" class="outline-4">
+<h4 id="org535d65e"><span class="section-number-4">1.1.6.</span> Trignometric Integration</h4>
 </div>
 </div>
+<div id="outline-container-org5863822" class="outline-3">
+<h3 id="org5863822"><span class="section-number-3">1.2.</span> Midterm 2</h3>
+<div class="outline-text-3" id="text-1-2">
 </div>
-
-
-<div id="outline-container-org21d6c6d" class="outline-2">
-<h2 id="org21d6c6d">JUnit</h2>
-<div class="outline-text-2" id="text-org21d6c6d">
-<p>
-What we have been doing up until this point is creating test code and running the program with it. This is a very <i>primitive</i> method of testing and not recommended for actual testing. The best practice for <b>Java</b> is using <b>JUnit</b>.
-</p>
+<div id="outline-container-org4656cc8" class="outline-4">
+<h4 id="org4656cc8"><span class="section-number-4">1.2.1.</span> Trignometric Substitution</h4>
 </div>
-
-<div id="outline-container-orgb56dca3" class="outline-3">
-<h3 id="orgb56dca3"><code>@Test</code> Methods</h3>
-<div class="outline-text-3" id="text-orgb56dca3">
-<p>
-You can create test methods easily by writing whatever testing that you would have in the main method into its own method and prefixing it with <code>@Test</code>.
-</p>
-
-<div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">@Test</span>
-<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
-</pre>
+<div id="outline-container-org177a9db" class="outline-4">
+<h4 id="org177a9db"><span class="section-number-4">1.2.2.</span> Partial Fractions</h4>
 </div>
+<div id="outline-container-orgdbe0c07" class="outline-4">
+<h4 id="orgdbe0c07"><span class="section-number-4">1.2.3.</span> Improper Integrals</h4>
+</div>
+<div id="outline-container-org4587de0" class="outline-4">
+<h4 id="org4587de0"><span class="section-number-4">1.2.4.</span> Sequences</h4>
+</div>
+<div id="outline-container-orgb5b57ef" class="outline-4">
+<h4 id="orgb5b57ef"><span class="section-number-4">1.2.5.</span> Series</h4>
+</div>
+<div id="outline-container-org94d1b20" class="outline-4">
+<h4 id="org94d1b20"><span class="section-number-4">1.2.6.</span> Divergence Test</h4>
 </div>
 </div>
-
-
-<div id="outline-container-org170725b" class="outline-3">
-<h3 id="org170725b">The <code>assert</code> Keyword</h3>
+<div id="outline-container-org899cffa" class="outline-3">
+<h3 id="org899cffa"><span class="section-number-3">1.3.</span> Midterm 3</h3>
+<div class="outline-text-3" id="text-1-3">
+</div>
+<div id="outline-container-org3c0c244" class="outline-4">
+<h4 id="org3c0c244"><span class="section-number-4">1.3.1.</span> Integral Test</h4>
+</div>
+<div id="outline-container-orgb2baa19" class="outline-4">
+<h4 id="orgb2baa19"><span class="section-number-4">1.3.2.</span> Alternating Series Test</h4>
+</div>
+<div id="outline-container-orgb0743b9" class="outline-4">
+<h4 id="orgb0743b9"><span class="section-number-4">1.3.3.</span> Ratio &amp; Root Test</h4>
+</div>
+<div id="outline-container-org2bc2dcd" class="outline-4">
+<h4 id="org2bc2dcd"><span class="section-number-4">1.3.4.</span> Comparison &amp; Limit Comparison Test</h4>
+</div>
+<div id="outline-container-org2702e55" class="outline-4">
+<h4 id="org2702e55"><span class="section-number-4">1.3.5.</span> Absolute &amp; Conditional Convergence</h4>
+</div>
+<div id="outline-container-orge520b59" class="outline-4">
+<h4 id="orge520b59"><span class="section-number-4">1.3.6.</span> Remainders</h4>
 </div>
 </div>
-
-<div id="outline-container-org53b856f" class="outline-2">
-<h2 id="org53b856f">Test Driven Development</h2>
+<div id="outline-container-org684b6db" class="outline-3">
+<h3 id="org684b6db"><span class="section-number-3">1.4.</span> Midterm 4</h3>
+<div class="outline-text-3" id="text-1-4">
+</div>
+<div id="outline-container-org49b8941" class="outline-4">
+<h4 id="org49b8941"><span class="section-number-4">1.4.1.</span> Power Series</h4>
+</div>
+<div id="outline-container-orgfebef9a" class="outline-4">
+<h4 id="orgfebef9a"><span class="section-number-4">1.4.2.</span> Taylor Series</h4>
+</div>
+<div id="outline-container-org1249355" class="outline-4">
+<h4 id="org1249355"><span class="section-number-4">1.4.3.</span> Differential Equations</h4>
+</div>
+<div id="outline-container-orgec6152c" class="outline-4">
+<h4 id="orgec6152c"><span class="section-number-4">1.4.4.</span> Directional Fields</h4>
+</div>
+<div id="outline-container-orgf55f437" class="outline-4">
+<h4 id="orgf55f437"><span class="section-number-4">1.4.5.</span> Separable Equations</h4>
+</div>
+</div>
+<div id="outline-container-org85af465" class="outline-3">
+<h3 id="org85af465"><span class="section-number-3">1.5.</span> New Stuff</h3>
+<div class="outline-text-3" id="text-1-5">
+</div>
+<div id="outline-container-org004edaa" class="outline-4">
+<h4 id="org004edaa"><span class="section-number-4">1.5.1.</span> Parametric Equations</h4>
+</div>
+<div id="outline-container-org4b29bdd" class="outline-4">
+<h4 id="org4b29bdd"><span class="section-number-4">1.5.2.</span> Polar Coordinates</h4>
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:31</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>

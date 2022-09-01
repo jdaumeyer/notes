@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:31 -->
+<!-- 2022-09-01 Thu 10:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Testing</title>
+<title>The C Language</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -197,121 +197,189 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Testing
-<br />
-<span class="subtitle">CSE 2221</span>
-</h1>
+<h1 class="title">The C Language</h1>
+
+
+<div id="outline-container-orgd26f876" class="outline-2">
+<h2 id="orgd26f876">Intro to C</h2>
+<div class="outline-text-2" id="text-orgd26f876">
 <p>
-<b>Testing</b> is a very common software engineering activity and is critical to ensure proper program execution. Because of this, there are many different testing methodologies. The one we will be covering in this class is <b>Unit Testing</b>.
+This is intended to give you a general overview of <b>C</b>. The specifics of writing in <b>C</b> are covered later.
+</p>
+</div>
+<div id="outline-container-orgefa62f5" class="outline-3">
+<h3 id="orgefa62f5">What is C</h3>
+<div class="outline-text-3" id="text-orgefa62f5">
+<p>
+<b>C</b> is a programming language developed by Dennis Ritchie at Bell Labs. It was designed to be a BLANK.
 </p>
 
-
-
-<div id="outline-container-org5d698a1" class="outline-2">
-<h2 id="org5d698a1">Unit Testing</h2>
-<div class="outline-text-2" id="text-org5d698a1">
 <p>
-The process of <b>Unit Testing</b> involves testing an individual <i>unit</i> of code at a time. A <i>unit</i> can be something like a method or a class.
+If you&rsquo;ve only programmed in <b>Java</b> so far, <b>C</b> is different in some key ways:
 </p>
 <ul class="org-ul">
-<li>Testing what happens when multiple <i>units</i> are put together is called <b>Integration Testing</b></li>
-<li>Testing a entire end-user application is called <b>System Testing</b></li>
+<li>Procedural <i>not</i> object oriented
+<ul class="org-ul">
+<li>No inheritance</li>
+<li>No function overloading</li>
+</ul></li>
+<li>Allows direct manipulation of memory</li>
+<li>Fully compiled to machine code</li>
+<li>No garbage collection</li>
+<li>No encapsulation</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orge992208" class="outline-3">
+<h3 id="orge992208">ANSI C</h3>
+<div class="outline-text-3" id="text-orge992208">
+<p>
+<b>C</b> as a language has existed for quite some time. During this time it has developed a lot of different standards. The standard that we will be using in this class is referred to as <b>ANSI C</b> or <b>C89/90</b>.
+</p>
+
+<p>
+While they are different from modern versions of <b>C</b>, it is easier to go from <b>ANSI C</b> to &ldquo;modern C&rdquo; then the other way around. The key differences are:
+</p>
+<ul class="org-ul">
+<li>No in-line declarations.</li>
+<li>No single line <code>//</code> comments, only <code>/**/</code> comments.</li>
+<li>There are more but standards are confusing.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org46faf64" class="outline-3">
+<h3 id="org46faf64">Errors</h3>
+<div class="outline-text-3" id="text-org46faf64">
+<p>
+There are two different times that errors can occur; <b>Compile Time</b> and <b>Run Time</b>.
+</p>
+</div>
+
+<div id="outline-container-orgf9f21a3" class="outline-4">
+<h4 id="orgf9f21a3">Compile Time Errors</h4>
+<div class="outline-text-4" id="text-orgf9f21a3">
+<p>
+Sometimes referred to as <b>Static Errors</b> can come in a few different types:
+</p>
+<dl class="org-dl">
+<dt><b>Syntax Errors</b></dt><dd>Things that make the program an invalid <b>C</b> program.</dd>
+<dt><b>Linkage Errors</b></dt><dd>When the <i>linker</i> can&rsquo;t find what it&rsquo;s looking for.</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org270b52b" class="outline-4">
+<h4 id="org270b52b">Run Time Errors</h4>
+<div class="outline-text-4" id="text-org270b52b">
+<p>
+Sometimes referred to as <b>Dynamic Errors</b> these can also come in a few different types:
+</p>
+<dl class="org-dl">
+<dt>Semantic Errors</dt><dd>An error that the compiler won&rsquo;t discover but will crash the program. i.e. division by zero.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org0aacdf6" class="outline-3">
+<h3 id="org0aacdf6">Preprocessor</h3>
+<div class="outline-text-3" id="text-org0aacdf6">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #d0b75a; font-weight: bold;">#include</span> <span style="color: #81a2be;">&lt;</span><span style="color: #60b48a;">stdio.h</span><span style="color: #81a2be;">&gt;</span>
+<span style="color: #d0b75a; font-weight: bold;">#include</span> <span style="color: #81a2be;">&lt;</span><span style="color: #60b48a;">stdlib.h</span><span style="color: #81a2be;">&gt;</span>
+
+<span style="color: #81a2be;">int</span> <span style="color: #de935f;">main</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{</span>
+    printf<span style="color: #85678f;">(</span><span style="color: #60b48a;">"Hello World!\n"</span><span style="color: #85678f;">)</span>;
+    <span style="color: #81a2be;">return</span> <span style="color: #85678f;">(</span><span style="color: #81a2be;">EXIT_SUCCESS</span><span style="color: #85678f;">)</span>;
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+
+<p>
+This is a simple &ldquo;hello world&rdquo; program but pay attention to the two lines at the top. These are <b>Preprocessor directives</b>. Which means they&rsquo;re not <i>technically</i> <b>C</b> code.
+</p>
+</div>
+
+<div id="outline-container-org2c3cabb" class="outline-4">
+<h4 id="org2c3cabb">What is the preprocessor?</h4>
+<div class="outline-text-4" id="text-org2c3cabb">
+<p>
+The <b>preprocessor</b> carries out tasks before the compiler runs. These tasks include:
+</p>
+<ul class="org-ul">
+<li>Replacing calls for <code>#include</code> with the contents of the corresponding file.
+<ul class="org-ul">
+<li><code>#include</code> targets surrounded by <code>&lt;&gt;</code> refer to system libraries whereas targets surrounded by <code>""</code> are user defined files.</li>
+</ul></li>
+<li>Removing comments from the source file</li>
+<li>Replace <i>macros</i> with the code they are defined to represent.
+<ul class="org-ul">
+<li><code>#define string1 string2</code> will result in the <b>preprocessor</b> replacing every occurance of <code>string1</code> with <code>string2</code>.</li>
+<li>Macros don&rsquo;t end with a semicolon!</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org07f1d77" class="outline-3">
+<h3 id="org07f1d77">Functions</h3>
+<div class="outline-text-3" id="text-org07f1d77">
+<p>
+A <b>function</b> is a number of statements grouped into a single logical unit.
+</p>
+<ul class="org-ul">
+<li><b>C</b> is <b>pass by value</b>, this means that when a function is called with parameters a copy of with the value of those parameters is actually passed.</li>
 </ul>
 </div>
 
-<div id="outline-container-org767db62" class="outline-3">
-<h3 id="org767db62">Determining Correctness</h3>
-<div class="outline-text-3" id="text-org767db62">
+<div id="outline-container-orga60d589" class="outline-4">
+<h4 id="orga60d589">Declarations</h4>
+<div class="outline-text-4" id="text-orga60d589">
 <p>
-To test a <i>unit</i> means that we must determine whether what it&rsquo;s doing it correct or not. We can actually determine the correctness by looking at the [Contract][]]. If the method fulfills its <b>contract</b> then it is correct.
-</p>
-
-<p>
-It is the job of a test to prove that something <i>doesn&rsquo;t</i> work, not why is doesn&rsquo;t work. Determining the <i>why</i> is the job of <b>Debugging</b>.
-</p>
-</div>
-</div>
-
-<div id="outline-container-org7b1cf05" class="outline-3">
-<h3 id="org7b1cf05">Test Cases</h3>
-<div class="outline-text-3" id="text-org7b1cf05">
-<p>
-The <b>Test Cases</b> of an application need to be very deliberately created. These will typically follow a <b>Test Plan</b>.
-</p>
-
-<p>
-The best Practices for making a test plan include:
-</p>
-<ul class="org-ul">
-<li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
-</ul>
-<ul class="org-ul">
-<li>Testing <i>routine</i> cases</li>
-<li>Testing <i>challenging</i> cases</li>
-</ul>
-
-<p>
-A little joke about test cases:
-</p>
-<blockquote>
-<p>
-A Quality Assurance Tester walks into a bar,
-They ask for a beer
-They ask for 999 beers
-They ask for a water
-They ask for -1 beers
-They ask for a pink panda
-They ask for ::{}{  beers
-They leave
-</p>
-
-<p>
-A customer walks into a bar,
-They ask where the restroom is,
-The whole bar catches fire.
-</p>
-</blockquote>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org21d6c6d" class="outline-2">
-<h2 id="org21d6c6d">JUnit</h2>
-<div class="outline-text-2" id="text-org21d6c6d">
-<p>
-What we have been doing up until this point is creating test code and running the program with it. This is a very <i>primitive</i> method of testing and not recommended for actual testing. The best practice for <b>Java</b> is using <b>JUnit</b>.
-</p>
-</div>
-
-<div id="outline-container-orgb56dca3" class="outline-3">
-<h3 id="orgb56dca3"><code>@Test</code> Methods</h3>
-<div class="outline-text-3" id="text-orgb56dca3">
-<p>
-You can create test methods easily by writing whatever testing that you would have in the main method into its own method and prefixing it with <code>@Test</code>.
+A <b>declaration</b> contains <i>only type information</i> no values. <b>Definitions</b> are used in the header file to inform the compiler about the function.
 </p>
 
 <div class="org-src-container">
-<pre class="src src-java"><span style="color: #81a2be;">@Test</span>
-<span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Example of a <b>declaration</b></label><pre class="src src-c" id="orgd480f4c"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">mult_values</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">b</span><span style="color: #81a2be;">)</span>
 </pre>
 </div>
 </div>
 </div>
 
+<div id="outline-container-org77f0409" class="outline-4">
+<h4 id="org77f0409">Definitions</h4>
+<div class="outline-text-4" id="text-org77f0409">
+<p>
+A <b>definitions</b> contains type information, values and code. This is the method that you write in your program.
+</p>
+<ul class="org-ul">
+<li>All <b>declarations</b> <i>must</i> precede the first non-declarative statement.</li>
+</ul>
 
-<div id="outline-container-org170725b" class="outline-3">
-<h3 id="org170725b">The <code>assert</code> Keyword</h3>
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 2: </span>Example of a <b>definition</b></label><pre class="src src-c" id="org429b9b5"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">mult_values</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">b</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">return</span> <span style="color: #85678f;">(</span>a + <span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #85678f;">)</span> * b;
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+</div>
 </div>
 </div>
 
-<div id="outline-container-org53b856f" class="outline-2">
-<h2 id="org53b856f">Test Driven Development</h2>
+
+<div id="outline-container-org3fadaf5" class="outline-3">
+<h3 id="org3fadaf5">Compilation</h3>
+<div class="outline-text-3" id="text-org3fadaf5">
+</div>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:31</p>
+<p class="date">Created: 2022-09-01 Thu 10:30</p>
 </div>
 </body>
 </html>
