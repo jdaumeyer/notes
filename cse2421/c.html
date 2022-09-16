@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:30 -->
+<!-- 2022-09-16 Fri 11:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The C Language</title>
@@ -198,7 +198,64 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">The C Language</h1>
-
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgd26f876">Intro to C</a>
+<ul>
+<li><a href="#orgefa62f5">What is C</a></li>
+<li><a href="#orge992208">ANSI C</a></li>
+<li><a href="#org46faf64">Errors</a>
+<ul>
+<li><a href="#orgf9f21a3">Compile Time Errors</a></li>
+<li><a href="#org270b52b">Run Time Errors</a></li>
+</ul>
+</li>
+<li><a href="#org0aacdf6">Preprocessor</a>
+<ul>
+<li><a href="#org2c3cabb">What is the preprocessor?</a></li>
+</ul>
+</li>
+<li><a href="#org07f1d77">Functions</a>
+<ul>
+<li><a href="#orga60d589">Declarations</a></li>
+<li><a href="#org77f0409">Definitions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3fadaf5">Compilation</a>
+<ul>
+<li><a href="#org195ea4a">GCC</a>
+<ul>
+<li><a href="#org4bb4b96">Mandatory Flags</a></li>
+</ul>
+</li>
+<li><a href="#orgab48e52">Make</a>
+<ul>
+<li><a href="#org1f2c54b">Makefiles</a></li>
+<li><a href="#orgdd5245a">Variables</a></li>
+<li><a href="#org087362b">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org09c7c95">I/O</a>
+<ul>
+<li><a href="#org46ab51f">Basic I/O</a></li>
+<li><a href="#orgc452216">Formatted Input</a>
+<ul>
+<li><a href="#org9e5e2d3">Input</a></li>
+<li><a href="#orgf6cc579">Output</a></li>
+<li><a href="#orgb628077">Format Strings</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 
 <div id="outline-container-orgd26f876" class="outline-2">
 <h2 id="orgd26f876">Intro to C</h2>
@@ -368,18 +425,198 @@ A <b>definitions</b> contains type information, values and code. This is the met
 </div>
 </div>
 </div>
+</div>
+
+<div id="outline-container-org3fadaf5" class="outline-2">
+<h2 id="org3fadaf5">Compilation</h2>
+<div class="outline-text-2" id="text-org3fadaf5">
+</div>
+<div id="outline-container-org195ea4a" class="outline-3">
+<h3 id="org195ea4a">GCC</h3>
+<div class="outline-text-3" id="text-org195ea4a">
+<p>
+There are many different <b>C</b> compilers out there but we will be using the one in the <b>GCC</b> (GNU Compiler Collection) for this class.
+</p>
+</div>
+
+<div id="outline-container-org4bb4b96" class="outline-4">
+<h4 id="org4bb4b96">Mandatory Flags</h4>
+<div class="outline-text-4" id="text-org4bb4b96">
+<p>
+The following command will be used to compile your projects for grading. <i>Any warnings, errors or failure to compile will result in a 0 on the assignment</i>!
+</p>
+<div class="org-src-container">
+<pre class="src src-bash">gcc -ansi -pedantic -Wimplicit-function-declaration -Wreturn-type -g -o hello hello.c
+</pre>
+</div>
+<dl class="org-dl">
+<dt><code>-ansi</code></dt><dd>tells the compiler that we&rsquo;re writing ANSI C (c89/c90)</dd>
+<dt><code>-pedantic</code></dt><dd>throw warnings when we write C that doesn&rsquo;t follow the ANSI standard</dd>
+<dt><code>-Wimplicit-function-declaration</code> &amp; <code>-Wreturn-type</code></dt><dd>These are both used to throw warnings for some hard to debug errors.</dd>
+<dt><code>-g</code></dt><dd>this tells the compiler to include the debugger with our compiled code.</dd>
+<dt><code>-o [filename]</code></dt><dd>tells the compiler where to put our output file.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgab48e52" class="outline-3">
+<h3 id="orgab48e52">Make</h3>
+<div class="outline-text-3" id="text-orgab48e52">
+<p>
+Make is a utility that builds/maintains programs.
+</p>
+<ul class="org-ul">
+<li>Only builds files that need to be rebuilt.</li>
+<li>Relies on a file to outline instructions and dependencies for building.</li>
+<li><i>Unforgiving with whitespace</i></li>
+</ul>
+
+<p>
+For example to build lab1, you would run:
+</p>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #81a2be;">make</span> -r lab1
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org1f2c54b" class="outline-4">
+<h4 id="org1f2c54b">Makefiles</h4>
+<div class="outline-text-4" id="text-org1f2c54b">
+<p>
+A <code>Makefile</code> or <code>makefile</code> is a file in the same directory of your program that tells <b>make</b> how to build it.
+</p>
+<div class="org-src-container">
+<pre class="src src-makefile"><span style="color: #81a2be;">targets</span>: dependency list
+    commands
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgdd5245a" class="outline-4">
+<h4 id="orgdd5245a">Variables</h4>
+<div class="outline-text-4" id="text-orgdd5245a">
+<p>
+When writing make files, we can use built in variables to make our commands easier to deal with.
+</p>
+<dl class="org-dl">
+<dt><code>$@</code></dt><dd>The name of the target</dd>
+<dt><code>$^</code></dt><dd>All of the dependencies</dd>
+<dt><code>$&lt;</code></dt><dd>The first dependency</dd>
+<dt><code>$*</code></dt><dd>The value of a wildcard (if used in the make target)</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-org087362b" class="outline-4">
+<h4 id="org087362b">Examples</h4>
+<div class="outline-text-4" id="text-org087362b">
+<div class="org-src-container">
+<pre class="src src-makefile"><span style="color: #81a2be;">lab5</span> : lab5.o
+    gcc -g -o <span style="color: #81a2be;">$</span><span style="color: #81a2be;">@</span> $<span style="color: #81a2be;">^</span>
+
+<span style="color: #81a2be;">lab5.o</span> : lab5.c
+    gcc -ansi -pedantic -g -c $<span style="color: #81a2be;">&lt;</span> -o <span style="color: #81a2be;">$</span><span style="color: #81a2be;">@</span>
+</pre>
+</div>
+
+<p>
+When running <code>make -r lab5</code> with the above makefile, <code>make</code> will check to see if lab5.o is newer then the current lab5. If this is not the case or lab5.o doesn&rsquo;t exist, <code>make</code> will follow the <code>lab5.o</code> rule to create it and then return to making <code>lab5</code>
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org09c7c95" class="outline-2">
+<h2 id="org09c7c95">I/O</h2>
+<div class="outline-text-2" id="text-org09c7c95">
+<p>
+Because we&rsquo;re at the lower lever of programming with c, we need to worry about character encoding. In this class we will only be dealing with the <code>ASCII</code> (American Standards Computer Information Interchange) format.
+</p>
+</div>
+
+<div id="outline-container-org46ab51f" class="outline-3">
+<h3 id="org46ab51f">Basic I/O</h3>
+<div class="outline-text-3" id="text-org46ab51f">
+<p>
+The built-in <b>C</b> I/O methods (<code>getchar()</code> and <code>putchar()</code>) are relatively simple only being able to handle one <code>char</code> at a time.
+</p>
+<dl class="org-dl">
+<dt><code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">getchar</span><span style="color: #81a2be;">()</span></code></dt><dd>Returns the character received from stdin.</dd>
+<dt><code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">putchar</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #81a2be;">char</span><span style="color: #81a2be;">)</span></code></dt><dd>Outputs a character to stdout.</dd>
+</dl>
+
+<p>
+Notice how <code class="src src-C"><span style="color: #de935f;">putchar</span><span style="color: #81a2be;">()</span></code> and <code class="src src-C"><span style="color: #de935f;">getchar</span><span style="color: #81a2be;">()</span></code> both deal with <code class="src src-C"><span style="color: #81a2be;">int</span></code>s, not <code class="src src-C"><span style="color: #81a2be;">char</span></code>s. This comes from <b>in-band signaling</b>.
+</p>
+<ul class="org-ul">
+<li>If <code class="src src-C"><span style="color: #de935f;">getchar</span><span style="color: #81a2be;">()</span></code> and <code class="src src-C">putchar</code> both returned a <code class="src src-C"><span style="color: #81a2be;">char</span></code>, how would they tell you that they read an invalid character or were unable to place a character?</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc452216" class="outline-3">
+<h3 id="orgc452216">Formatted Input</h3>
+<div class="outline-text-3" id="text-orgc452216">
+<p>
+The built-in <b>C</b> methods are very primitive and can get overwhelming when working with multiple characters or inputs of types other then <code class="src src-C"><span style="color: #81a2be;">char</span></code>. So instead we will be using the <code class="src src-C"><span style="color: #de935f;">scanf</span><span style="color: #81a2be;">()</span></code> and <code class="src src-C"><span style="color: #de935f;">printf</span><span style="color: #81a2be;">()</span></code>.
+</p>
+<ul class="org-ul">
+<li>These are <i>buffered</i> inputs meaning they can read multiple characters at a time, making our job easier.</li>
+<li>Both <code class="src src-C"><span style="color: #de935f;">scanf</span><span style="color: #81a2be;">()</span></code> and <code class="src src-C"><span style="color: #de935f;">printf</span><span style="color: #81a2be;">()</span></code> are provided by <code>&lt;stdio.h&gt;</code>.</li>
+</ul>
+</div>
+
+<div id="outline-container-org9e5e2d3" class="outline-4">
+<h4 id="org9e5e2d3">Input</h4>
+<div class="outline-text-4" id="text-org9e5e2d3">
+<div class="org-center">
+<p>
+<code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">scanf</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">const</span> *<span style="color: #81a2be;">char</span> format, &amp;param1, &amp;param2, ...<span style="color: #81a2be;">)</span></code>
+</p>
+</div>
+<ul class="org-ul">
+<li><code class="src src-C"><span style="color: #de935f;">scanf</span><span style="color: #81a2be;">()</span></code> takes a format string to determine what it should be looking for in the input.</li>
+<li>Pay attention to the <code>&amp;</code> in front of the parameters. <code class="src src-C"><span style="color: #de935f;">scanf</span><span style="color: #81a2be;">()</span></code> needs an address to update a variable because <b>C</b> is <i>pass by value</i></li>
+<li>Returns a <code>1</code> if it was successful or a <code>0</code> otherwise.</li>
+<li>It is important to make sure we are not at the <i>end of input</i> before running <code class="src src-C"><span style="color: #de935f;">scanf</span><span style="color: #81a2be;">()</span></code>. This is done with <code class="src src-C"><span style="color: #de935f;">feof</span><span style="color: #81a2be;">()</span></code>.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgf6cc579" class="outline-4">
+<h4 id="orgf6cc579">Output</h4>
+<div class="outline-text-4" id="text-orgf6cc579">
+<div class="org-center">
+<p>
+<code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">printf</span><span style="color: #81a2be;">(</span><span style="color: #81a2be;">const</span> *<span style="color: #81a2be;">char</span> format, param1, param2, ...<span style="color: #81a2be;">)</span></code>
+</p>
+</div>
+<ul class="org-ul">
+<li>Outputs the format string with the parameters placed in.</li>
+<li>Returns the number of characters outputted or a negative value if it was unsuccessful.</li>
+</ul>
+</div>
+</div>
 
 
-<div id="outline-container-org3fadaf5" class="outline-3">
-<h3 id="org3fadaf5">Compilation</h3>
-<div class="outline-text-3" id="text-org3fadaf5">
+<div id="outline-container-orgb628077" class="outline-4">
+<h4 id="orgb628077">Format Strings</h4>
+<div class="outline-text-4" id="text-orgb628077">
+<p>
+<b>Format Strings</b> use the <code>%</code> character as a magic character.
+</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:30</p>
+<p class="date">Created: 2022-09-16 Fri 11:07</p>
 </div>
 </body>
 </html>
