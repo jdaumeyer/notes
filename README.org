@@ -5,9 +5,9 @@ These notes can be viewed at [[https://jdaumeyer.github.io/notes/]].
 
 
 ** Courses I've Taken
-+ [[https://jdaumeyer.github.io/notes/cse2221/][CSE 2221]]: Software 1 with Qui
-+ [[https://jdaumeyer.github.io/notes/cse2231/][CSE 2231]]: Software 2 with Wolf
-+ [[https://jdaumeyer.github.io/notes/cse2321/][CSE 2321]]: Foundations 1 with Painter
-+ MATH 1151: Calculus 1 with Borland
-+ MATH 1152: Calculus 2 with Miller
-+ PHYSICS 1250 with Barret
+| Course Code | Course Name   | Instructor   |
+|-------------+---------------+--------------|
+| [[https://jdaumeyer.github.io/notes/cse2221/][CSE 2221]]    | Software 1    | Rui Qui      |
+| [[https://jdaumeyer.github.io/notes/cse2231/][CSE 2231]]    | Software 2    | Anna Wolf    |
+| [[https://jdaumeyer.github.io/notes/cse2321/][CSE 2321]]    | Foundations 1 | Nick Painter |
+| [[https://jdaumeyer.github.io/notes/cse2321/][CSE 2421]]    | Systems 1     | Neil Kirby   |
