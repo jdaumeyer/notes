@@ -57,6 +57,10 @@ pre {
     filter: brightness(0.8); /* Work-around due to the way org generates html */
 }
 
+pre .src {
+    filter: brightness(1) !important;
+}
+
 /*
  * Outlines
  */

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-06 Thu 12:30 -->
+<!-- 2022-10-06 Thu 15:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The C Language</title>
@@ -256,7 +256,33 @@
 <li><a href="#org56dffcb">Structures</a>
 <ul>
 <li><a href="#org7db42d1">Dissection of a struct</a></li>
-<li><a href="#orgcbe04f0">Using a struct</a></li>
+<li><a href="#orgcbe04f0">Using a struct</a>
+<ul>
+<li><a href="#orgd95ddda">But what about pointers?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgee4d9c7">Variable Storage</a>
+<ul>
+<li><a href="#orgca0e459">Scope</a>
+<ul>
+<li><a href="#orga879bbf">Block Scope</a></li>
+<li><a href="#org19f44d2">File Scope</a></li>
+<li><a href="#org4403bab">Prototype Scope</a></li>
+</ul>
+</li>
+<li><a href="#org82c4883">Storage Class</a>
+<ul>
+<li><a href="#org43a3c40">Static</a></li>
+<li><a href="#org6c61b5a">Auto</a>
+<ul>
+<li><a href="#org020825e">Register</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgff17142">Linkage</a></li>
 </ul>
 </li>
 </ul>
@@ -274,7 +300,7 @@ This is intended to give you a general overview of <b>C</b>. The specifics of wr
 <h3 id="orgefa62f5">What is C</h3>
 <div class="outline-text-3" id="text-orgefa62f5">
 <p>
-<b>C</b> is a programming language developed by Dennis Ritchie at Bell Labs. It was designed to be a BLANK.
+<b>C</b> is a programming language developed by Dennis Ritchie at Bell Labs. It was designed to be used on computers with extremely low power.
 </p>
 
 <p>
@@ -461,6 +487,7 @@ The following command will be used to compile your projects for grading. <i>Any 
 <dt><code>-Wimplicit-function-declaration</code> &amp; <code>-Wreturn-type</code></dt><dd>These are both used to throw warnings for some hard to debug errors.</dd>
 <dt><code>-g</code></dt><dd>this tells the compiler to include the debugger with our compiled code.</dd>
 <dt><code>-o [filename]</code></dt><dd>tells the compiler where to put our output file.</dd>
+<dt><code>-c</code></dt><dd>Suppresses linking. This just makes it easier to build.</dd>
 </dl>
 </div>
 </div>
@@ -608,7 +635,6 @@ The built-in <b>C</b> methods are very primitive and can get overwhelming when w
 </div>
 </div>
 
-
 <div id="outline-container-orgb628077" class="outline-4">
 <h4 id="orgb628077">Format Strings</h4>
 <div class="outline-text-4" id="text-orgb628077">
@@ -671,15 +697,132 @@ What <b>Structures</b> allow us to do is <i>extend</i> <b>C</b>&rsquo;s type sys
 <h3 id="orgcbe04f0">Using a struct</h3>
 <div class="outline-text-3" id="text-orgcbe04f0">
 <p>
-The interesting part of <b>Structures</b> is the ability to
+The interesting part of <b>Structures</b> is the ability to access the members. This is done with the <code>.</code> operator.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">struct</span> <span style="color: #81a2be;">Tag</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>;
+<span style="color: #81a2be;">}</span> <span style="color: #e4e4e5;">data</span>;
+
+data.a = <span style="color: #d0b75a; font-weight: bold;">0</span>;
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgd95ddda" class="outline-4">
+<h4 id="orgd95ddda">But what about pointers?</h4>
+</div>
+</div>
+</div>
+<div id="outline-container-orgee4d9c7" class="outline-2">
+<h2 id="orgee4d9c7">Variable Storage</h2>
+<div class="outline-text-2" id="text-orgee4d9c7">
+</div>
+<div id="outline-container-orgca0e459" class="outline-3">
+<h3 id="orgca0e459">Scope</h3>
+<div class="outline-text-3" id="text-orgca0e459">
+<p>
+<b>Scope</b> refers to where a variable name actually exists and can holds value.
 </p>
 </div>
+<div id="outline-container-orga879bbf" class="outline-4">
+<h4 id="orga879bbf">Block Scope</h4>
+<div class="outline-text-4" id="text-orga879bbf">
+<p>
+Anything declared inside a set of curly braces <code>{}</code> is considered <b>block scope</b>.
+</p>
+<ul class="org-ul">
+<li>For <i>ANSI</i> <b>C89</b> all <b>block scope</b> declarations  must be at the top of the block.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">void</span> <span style="color: #de935f;">main</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">x</span>;
+    x++;
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>In the above snippet, x is a <b>block scope</b> variable</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org19f44d2" class="outline-4">
+<h4 id="org19f44d2">File Scope</h4>
+<div class="outline-text-4" id="text-org19f44d2">
+<p>
+Essentially anything outside of <b>block scope</b> is probably be <b>file scope</b>. They comprise of global variables and non-static functions.
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">x</span> = <span style="color: #d0b75a; font-weight: bold;">0</span>;
+<span style="color: #81a2be;">void</span> <span style="color: #de935f;">func</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{</span>
+    x++;
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>In the above snippet, <code>x</code> and <code>func</code> are both in <b>file scope</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org4403bab" class="outline-4">
+<h4 id="org4403bab">Prototype Scope</h4>
+<div class="outline-text-4" id="text-org4403bab">
+<p>
+<b>Prototype scope</b> is specific to function parameters
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #de935f;">func</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">x</span>, <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">y</span><span style="color: #81a2be;">)</span>;
+</pre>
+</div>
+<ul class="org-ul">
+<li>In the above snippet, <code>x</code> and <code>y</code> are in <b>prototype scope</b></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-org82c4883" class="outline-3">
+<h3 id="org82c4883">Storage Class</h3>
+<div class="outline-text-3" id="text-org82c4883">
+<p>
+<b>Storage Class</b> is the type of <i>memory</i> where data is stored.
+</p>
+</div>
+<div id="outline-container-org43a3c40" class="outline-4">
+<h4 id="org43a3c40">Static</h4>
+<div class="outline-text-4" id="text-org43a3c40">
+<p>
+<b>Static</b> is overloaded in <b>C</b>. It means a few different things in different contexts.
+</p>
+<ul class="org-ul">
+<li>For most data, static moves the data to be stored on the heap, and initializes it at <i>load time</i>.</li>
+<li>For things that are already static (i.e. function names) it changes the linkage from <b>External</b></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org6c61b5a" class="outline-4">
+<h4 id="org6c61b5a">Auto</h4>
+<div class="outline-text-4" id="text-org6c61b5a">
+<p>
+<b>Automatic</b> storage class puts things on the stack. Anything declared inside a block is <b>automatic</b> by default and the memory is created during runtime.
+</p>
+<ul class="org-ul">
+<li>All parameters are <b>automatic</b></li>
+</ul>
+</div>
+<div id="outline-container-org020825e" class="outline-5">
+<h5 id="org020825e">Register</h5>
+</div>
+</div>
+</div>
+<div id="outline-container-orgff17142" class="outline-3">
+<h3 id="orgff17142">Linkage</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-10-06 Thu 12:30</p>
+<p class="date">Created: 2022-10-06 Thu 15:44</p>
 </div>
 </body>
 </html>
