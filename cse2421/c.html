@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-16 Fri 11:07 -->
+<!-- 2022-10-06 Thu 12:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The C Language</title>
@@ -251,6 +251,12 @@
 <li><a href="#orgb628077">Format Strings</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li><a href="#org56dffcb">Structures</a>
+<ul>
+<li><a href="#org7db42d1">Dissection of a struct</a></li>
+<li><a href="#orgcbe04f0">Using a struct</a></li>
 </ul>
 </li>
 </ul>
@@ -613,10 +619,67 @@ The built-in <b>C</b> methods are very primitive and can get overwhelming when w
 </div>
 </div>
 </div>
+
+<div id="outline-container-org56dffcb" class="outline-2">
+<h2 id="org56dffcb">Structures</h2>
+<div class="outline-text-2" id="text-org56dffcb">
+<p>
+A <b>Structure</b> is an <i>aggregate data type</i> meaning that it is a collection of different data types.
+</p>
+<ul class="org-ul">
+<li>Because it is an <i>aggregate data type</i>, the size of a struct is the size of all its members plus any <a href="https://iq.opengenus.org/size-of-struct-in-c/">additional packing</a>.</li>
+<li>Although <b>Structures</b> and <b>Arrays</b> are very different, they are both an <i>aggregate data type</i>.</li>
+</ul>
+
+
+<p>
+What <b>Structures</b> allow us to do is <i>extend</i> <b>C</b>&rsquo;s type system. Allowing us to create our own types.
+</p>
+</div>
+
+<div id="outline-container-org7db42d1" class="outline-3">
+<h3 id="org7db42d1">Dissection of a struct</h3>
+<div class="outline-text-3" id="text-org7db42d1">
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">struct</span> <span style="color: #81a2be;">Tag</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">a</span>;
+    <span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">b</span>;
+    <span style="color: #81a2be;">double</span> <span style="color: #e4e4e5;">c</span>;
+    <span style="color: #81a2be;">char</span> <span style="color: #e4e4e5;">string</span><span style="color: #85678f;">[]</span>;
+    <span style="color: #81a2be;">struct</span> <span style="color: #81a2be;">Other</span> <span style="color: #e4e4e5;">otherStruct</span>;
+    <span style="color: #81a2be;">struct</span> <span style="color: #81a2be;">Tag</span> *<span style="color: #e4e4e5;">pointer</span>;
+<span style="color: #81a2be;">}</span> <span style="color: #81a2be;">variable</span> <span style="color: #e4e4e5;">list</span>;
+</pre>
+</div>
+<dl class="org-dl">
+<dt>struct Tag</dt><dd>is the name of the struct</dd>
+<dt>{&#x2026;}</dt><dd>Inside the curly braces are all the <b>members</b> of the struct.
+<ul class="org-ul">
+<li>The only thing that can&rsquo;t be included in a <b>structure</b> is itself (However a pointer to the same type will work).</li>
+</ul></dd>
+<dt>variable  list</dt><dd>is where all the variable declarations will go. They will all be of type <code>struct Tag</code>
+<ul class="org-ul">
+<li>Any variable can be declared here, including <b>pointers</b> and <b>arrays</b></li>
+</ul></dd>
+</dl>
+</div>
+</div>
+
+
+
+<div id="outline-container-orgcbe04f0" class="outline-3">
+<h3 id="orgcbe04f0">Using a struct</h3>
+<div class="outline-text-3" id="text-orgcbe04f0">
+<p>
+The interesting part of <b>Structures</b> is the ability to
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-16 Fri 11:07</p>
+<p class="date">Created: 2022-10-06 Thu 12:30</p>
 </div>
 </body>
 </html>
