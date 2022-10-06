@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-06 Thu 15:44 -->
+<!-- 2022-10-06 Thu 16:45 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>The C Language</title>
@@ -282,7 +282,13 @@
 </li>
 </ul>
 </li>
-<li><a href="#orgff17142">Linkage</a></li>
+<li><a href="#orgff17142">Linkage</a>
+<ul>
+<li><a href="#org3066f11">External</a></li>
+<li><a href="#orgd40b896">Internal</a></li>
+<li><a href="#orgfb9a0bd">None</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -692,7 +698,6 @@ What <b>Structures</b> allow us to do is <i>extend</i> <b>C</b>&rsquo;s type sys
 </div>
 
 
-
 <div id="outline-container-orgcbe04f0" class="outline-3">
 <h3 id="orgcbe04f0">Using a struct</h3>
 <div class="outline-text-3" id="text-orgcbe04f0">
@@ -712,9 +717,29 @@ data.a = <span style="color: #d0b75a; font-weight: bold;">0</span>;
 
 <div id="outline-container-orgd95ddda" class="outline-4">
 <h4 id="orgd95ddda">But what about pointers?</h4>
+<div class="outline-text-4" id="text-orgd95ddda">
+<p>
+If we&rsquo;re using a pointer to a struct, things will get weird because the <code>.</code> operator has higher precedence then <code>*</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">(</span>*structPointer<span style="color: #81a2be;">)</span>.value
+</pre>
+</div>
+
+<p>
+There is also the <code>-&gt;</code> operator.
+</p>
+<div class="org-src-container">
+<pre class="src src-C">structPointer-&gt;value
+<span style="color: #655c5a;">/* </span><span style="color: #655c5a;">is the same as</span><span style="color: #655c5a;">*/</span>
+<span style="color: #81a2be;">(</span>*structPointer<span style="color: #81a2be;">)</span>.value
+</pre>
 </div>
 </div>
 </div>
+</div>
+</div>
+
 <div id="outline-container-orgee4d9c7" class="outline-2">
 <h2 id="orgee4d9c7">Variable Storage</h2>
 <div class="outline-text-2" id="text-orgee4d9c7">
@@ -812,17 +837,48 @@ Essentially anything outside of <b>block scope</b> is probably be <b>file scope<
 </div>
 <div id="outline-container-org020825e" class="outline-5">
 <h5 id="org020825e">Register</h5>
+<div class="outline-text-5" id="text-org020825e">
+<p>
+<b>Registers</b> are a subtype of <b>automatic</b>. Theses are the fastest type of memory and stored on the cpu.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="outline-container-orgff17142" class="outline-3">
 <h3 id="orgff17142">Linkage</h3>
+<div class="outline-text-3" id="text-orgff17142">
+</div>
+<div id="outline-container-org3066f11" class="outline-4">
+<h4 id="org3066f11">External</h4>
+<div class="outline-text-4" id="text-org3066f11">
+<p>
+<b>External Linkage</b> refers things that are accessible outside of the file where they&rsquo;re declared. This is the default for all <b>file scope</b> variables.
+</p>
+</div>
+</div>
+<div id="outline-container-orgd40b896" class="outline-4">
+<h4 id="orgd40b896">Internal</h4>
+<div class="outline-text-4" id="text-orgd40b896">
+<p>
+<b>Internal Linkage</b> are things that are only available in the current file. In <b>file scope</b> the keyword <code>static</code> changes the linkage to <b>internal</b>
+</p>
+</div>
+</div>
+<div id="outline-container-orgfb9a0bd" class="outline-4">
+<h4 id="orgfb9a0bd">None</h4>
+<div class="outline-text-4" id="text-orgfb9a0bd">
+<p>
+All <b>block scope</b> variables have no linkage. Meaning they are only available in the block where they&rsquo;re declared.
+</p>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-10-06 Thu 15:44</p>
+<p class="date">Created: 2022-10-06 Thu 16:45</p>
 </div>
 </body>
 </html>
