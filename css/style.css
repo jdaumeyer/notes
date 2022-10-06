@@ -46,6 +46,14 @@ h5 {
 }
 
 /*
+ * Src Blocks
+ */
+pre {
+    background-color: var(--foreground);
+    color: var(--background)
+}
+
+/*
  * Outlines
  */
 .outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
