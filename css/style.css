@@ -53,6 +53,10 @@ pre {
     color: var(--background)
 }
 
+.src {
+    filter: brightness(0.8); /* Work-around due to the way org generates html */
+}
+
 /*
  * Outlines
  */
