@@ -1,0 +1,26 @@
+body {
+    background-color: #2a2a29;
+    color: #e4e4e5;
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    margin: 0 auto;
+
+}
+
+section {
+    border: 1px solid black;
+    padding: 1em;
+    width: 12em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.blue {
+    background-color: blue;
+    color: #e4e4e5;
+}
