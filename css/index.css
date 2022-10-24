@@ -2,25 +2,51 @@ body {
     background-color: #2a2a29;
     color: #e4e4e5;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    margin: 0 auto;
 }
 
 main {
     display: flex;
     margin: 0 auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: max(70em, 70%);
+}
 
+header {
+    background-color: #e4e4e5;
+    color: #2a2929;
+    flex-basis: 100%;
+    text-align: center;
 }
 
 section {
-    border: 1px solid black;
     padding: 1em;
     width: 12em;
+    flex: 1 20%;
 
     display: flex;
     flex-direction: column;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #81a2be;
+    color: #2a2929;
+}
+
+.green {
+    background-color: #60b48a;
+    color: #2a2929;
+}
+
+.red {
+    background-color: #cc6666;
     color: #e4e4e5;
+}
+
+.yellow {
+    background-color: #d0b75a;
+    color: #2a2929;
 }

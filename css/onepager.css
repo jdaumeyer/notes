@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@400;700&family=Libre+Baskerville:ital,wght@0,700;1,400&display=swap');
+* {
+    --background: #e4e4e5;
+    --foreground: #2a2a29;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Karla', sans-serif;
+}
+
+/*
+ *
+ * = Headers =
+ *
+ */
+h1 {
+    font-size: 4em;
+    font-weight:  700;
+}
+
+h2 {
+    font-size: 3em;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+h5 {
+    font-size: 1.25em;
+    font-weight: 700;
+}
+
+/*
+ * Src Blocks
+ */
+pre {
+    background-color: var(--foreground);
+    color: var(--background)
+}
+
+.src {
+    filter: brightness(0.8); /* Work-around due to the way org generates html */
+}
+
+pre .src {
+    filter: brightness(1) !important;
+}
+
+/*
+ * Outlines
+ */
+.outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
+    margin-bottom: 4em;
+}
