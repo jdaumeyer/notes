@@ -123,3 +123,14 @@ img {
     max-width: 90%;
     height: auto;
 }
+
+/*
+ * = Table of Contents
+ */
+#table-of-contents {
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 1em;
+    margin-right: 2em;
+}
