@@ -12,41 +12,48 @@ main {
     margin: 0 auto;
     flex-direction: row;
     flex-wrap: wrap;
-    width: max(70em, 70%);
+    width: 70vw;
 }
 
 header {
     background-color: #e4e4e5;
+    grid-area: header;
     color: #2a2929;
     flex-basis: 100%;
     text-align: center;
 }
 
 section {
+    margin: 1em;
     padding: 1em;
-    width: 12em;
-    flex: 1 20%;
+    /* I want obnoxious fixed size elements */
+    min-width: 12em;
+    max-width: 12em;
+    flex: 2 0 0%;
 
+    cursor: pointer;
+
+    grid-area: class;
     display: flex;
     flex-direction: column;
 }
 
-.blue {
-    background-color: #81a2be;
-    color: #2a2929;
-}
+/* .blue { */
+/*     background-color: #81a2be; */
+/*     color: #2a2929; */
+/* } */
 
-.green {
-    background-color: #60b48a;
-    color: #2a2929;
-}
+/* .green { */
+/*     background-color: #60b48a; */
+/*     color: #2a2929; */
+/* } */
 
-.red {
-    background-color: #cc6666;
-    color: #e4e4e5;
-}
+/* .red { */
+/*     background-color: #cc6666; */
+/*     color: #e4e4e5; */
+/* } */
 
-.yellow {
-    background-color: #d0b75a;
-    color: #2a2929;
-}
+/* .yellow { */
+/*     background-color: #d0b75a; */
+/*     color: #2a2929; */
+/* } */
