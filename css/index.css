@@ -17,12 +17,11 @@ main {
 }
 
 header {
+    margin: 1em;
+    padding: 1em;
     grid-area: header;
     flex-basis: 100%;
     text-align: left;
-    border: none:
-    border-top: 5px solid;
-    border-left: 5px solid;
 }
 
 h1 {
@@ -43,10 +42,10 @@ section {
     border: 5px solid;
     border-right: none;
     border-bottom: none;
-    border-radius: 5px;
 
     grid-area: class;
     flex-direction: column;
+    transition: 800ms;
 }
 
 a {
@@ -58,23 +57,24 @@ a {
     border-inline-start: 5px solid;
     border-block-start: 5px solid;
     border-image-source: radial-gradient(circle at top left,  #81a2be, transparent 55%);
-    background-image: radial-gradient(circle at top left,  #81a2be, transparent 50%);
+    background-image: radial-gradient(circle at top left,  #81a2be, transparent 40%);
     background-size: 400%;
     background-position: bottom right;
     border-image-slice: 1;
-    transition: 800ms;
 }
 
-.blue-border:hover {
+section:hover {
     background-position: top left;
+    inset: 5px;
 }
 
 .green-border {
     border-inline-start: 5px solid;
     border-block-start: 5px solid;
     border-image-source: radial-gradient(circle at top left,  #60b48a, transparent 55%);
-    border-image-source: radial-gradient(circle at top left,  #60b48a, transparent 55%);
+    background-image: radial-gradient(circle at top left,  #60b48a, transparent 55%);
     background-size: 400%;
+    background-position: bottom right;
     border-image-slice: 1;
 }
 
@@ -82,8 +82,9 @@ a {
     border-inline-start: 5px solid;
     border-block-start: 5px solid;
     border-image-source: radial-gradient(circle at top left,  #cc6666, transparent 55%);
-    border-image-source: radial-gradient(circle at top left,  #cc6666, transparent 55%);
+    background-image: radial-gradient(circle at top left,  #cc6666, transparent 55%);
     background-size: 400%;
+    background-position: bottom right;
     border-image-slice: 1;
 }
 
@@ -91,7 +92,8 @@ a {
     border-inline-start: 5px solid;
     border-block-start: 5px solid;
     border-image-source: radial-gradient(circle at top left,  #d0b75a, transparent 55%);
-    border-image-source: radial-gradient(circle at top left,  #d0b75a, transparent 55%);
+    background-image: radial-gradient(circle at top left,  #d0b75a, transparent 55%);
     background-size: 400%;
+    background-position: bottom right;
     border-image-slice: 1;
 }
