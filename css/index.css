@@ -5,6 +5,7 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
+    sizing: border-box;
 }
 
 main {
@@ -16,16 +17,22 @@ main {
 }
 
 header {
-    background-color: #e4e4e5;
     grid-area: header;
-    color: #2a2929;
     flex-basis: 100%;
-    text-align: center;
+    text-align: left;
+    border: none:
+    border-top: 5px solid;
+    border-left: 5px solid;
+}
+
+h1 {
+    font-size: 5rem;
 }
 
 section {
     margin: 1em;
-    padding: 1em;
+    padding: 0em 1em;
+
     /* I want obnoxious fixed size elements */
     min-width: 12em;
     max-width: 12em;
@@ -33,27 +40,58 @@ section {
 
     cursor: pointer;
 
+    border: 5px solid;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 5px;
+
     grid-area: class;
-    display: flex;
     flex-direction: column;
 }
 
-/* .blue { */
-/*     background-color: #81a2be; */
-/*     color: #2a2929; */
-/* } */
+a {
+    text-decoration: none;
+    color: #e4e4e5;
+}
 
-/* .green { */
-/*     background-color: #60b48a; */
-/*     color: #2a2929; */
-/* } */
+.blue-border {
+    border-inline-start: 5px solid;
+    border-block-start: 5px solid;
+    border-image-source: radial-gradient(circle at top left,  #81a2be, transparent 55%);
+    background-image: radial-gradient(circle at top left,  #81a2be, transparent 50%);
+    background-size: 400%;
+    background-position: bottom right;
+    border-image-slice: 1;
+    transition: 800ms;
+}
 
-/* .red { */
-/*     background-color: #cc6666; */
-/*     color: #e4e4e5; */
-/* } */
+.blue-border:hover {
+    background-position: top left;
+}
 
-/* .yellow { */
-/*     background-color: #d0b75a; */
-/*     color: #2a2929; */
-/* } */
+.green-border {
+    border-inline-start: 5px solid;
+    border-block-start: 5px solid;
+    border-image-source: radial-gradient(circle at top left,  #60b48a, transparent 55%);
+    border-image-source: radial-gradient(circle at top left,  #60b48a, transparent 55%);
+    background-size: 400%;
+    border-image-slice: 1;
+}
+
+.red-border {
+    border-inline-start: 5px solid;
+    border-block-start: 5px solid;
+    border-image-source: radial-gradient(circle at top left,  #cc6666, transparent 55%);
+    border-image-source: radial-gradient(circle at top left,  #cc6666, transparent 55%);
+    background-size: 400%;
+    border-image-slice: 1;
+}
+
+.yellow-border {
+    border-inline-start: 5px solid;
+    border-block-start: 5px solid;
+    border-image-source: radial-gradient(circle at top left,  #d0b75a, transparent 55%);
+    border-image-source: radial-gradient(circle at top left,  #d0b75a, transparent 55%);
+    background-size: 400%;
+    border-image-slice: 1;
+}
