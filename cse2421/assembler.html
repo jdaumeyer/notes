@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2022-10-31 Mon 21:56 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Assembler</title>
+<meta name="author" content="Jackson Daumeyer" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { }
+</style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Assembler</h1>
+<blockquote>
+<p>
+&ldquo;C you later&rdquo;
+</p>
+<ul class="org-ul">
+<li>My bad jokes</li>
+</ul>
+</blockquote>
+
+<div id="outline-container-org0d01307" class="outline-2">
+<h2 id="org0d01307">Why Assembler</h2>
+<div class="outline-text-2" id="text-org0d01307">
+</div>
+<div id="outline-container-org29f493c" class="outline-3">
+<h3 id="org29f493c">Performance</h3>
+<div class="outline-text-3" id="text-org29f493c">
+<p>
+<b>Assembler</b> is the closest that we can get to actual machine code without writing binary.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgdcd170b" class="outline-3">
+<h3 id="orgdcd170b">Differences From C</h3>
+<div class="outline-text-3" id="text-orgdcd170b">
+<ul class="org-ul">
+<li>Where <b>C</b> handled byte math for us, <b>Assembler</b> offers no such luxury. You will have to know the exact amount of bytes that you need for everything.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3ff1273" class="outline-2">
+<h2 id="org3ff1273">Storage</h2>
+<div class="outline-text-2" id="text-org3ff1273">
+</div>
+<div id="outline-container-org52f9ccd" class="outline-3">
+<h3 id="org52f9ccd">Registers</h3>
+<div class="outline-text-3" id="text-org52f9ccd">
+<p>
+Whenever you do math in <b>Assembler</b> you want to be using <a href="memory.html#orgc58ae2c">Registers</a>, because they are the fastest storage that we have available.
+</p>
+<ul class="org-ul">
+<li>The machine that <code>stdlinux</code> uses has 16 registers in total, however 2 are already reserved so we only realistically have 14 to use.</li>
+<li>Each register has some purpose associated with it, and some registers are especially efficient at specific tasks then others.</li>
+<li>All registers can store a <code>quad</code> or 8 bytes.</li>
+</ul>
+</div>
+
+<div id="outline-container-org3d1f043" class="outline-4">
+<h4 id="org3d1f043">List of Registers</h4>
+<div class="outline-text-4" id="text-org3d1f043">
+<dl class="org-dl">
+<dt><code>%rsp</code></dt><dd>The stack pointer</dd>
+<dt><code>%rbp</code></dt><dd>The stack <i>base</i> pointer
+<ul class="org-ul">
+<li>Callee-Saved</li>
+</ul></dd>
+<dt><code>%rax</code></dt><dd>Accumulator
+<ul class="org-ul">
+<li>Used as the return value for functions</li>
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%rcx</code></dt><dd>Counter
+<ul class="org-ul">
+<li>Used as the fourth parameter</li>
+<li>Especially good for loops, see the <code>loop</code> opcode.</li>
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%rdx</code></dt><dd>Data
+<ul class="org-ul">
+<li>Used as the third parameter</li>
+<li>Caller-Saved</li>
+</ul></dd>
+<dt><code>%rsi</code></dt><dd>Source
+<ul class="org-ul">
+<li>Used as the second parameter</li>
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%rdi</code></dt><dd>Destination
+<ul class="org-ul">
+<li>Used as the first parameter</li>
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%r8</code></dt><dd><ul class="org-ul">
+<li>Used as the fifth parameter</li>
+<li>Caller-Saved</li>
+</ul></dd>
+<dt><code>%r9</code></dt><dd><ul class="org-ul">
+<li>Used as the sixth parameter</li>
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%r10</code></dt><dd><ul class="org-ul">
+<li>Caller-saved</li>
+</ul></dd>
+<dt><code>%r11</code></dt><dd><ul class="org-ul">
+<li>Callee-saved</li>
+</ul></dd>
+<dt><code>%r12</code></dt><dd><ul class="org-ul">
+<li>Callee-saved</li>
+</ul></dd>
+<dt><code>%r13</code></dt><dd><ul class="org-ul">
+<li>Callee-saved</li>
+</ul></dd>
+<dt><code>%r14</code></dt><dd><ul class="org-ul">
+<li>Callee-saved</li>
+</ul></dd>
+<dt><code>%r15</code></dt><dd><ul class="org-ul">
+<li>Callee-saved</li>
+</ul></dd>
+</dl>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5879b46" class="outline-3">
+<h3 id="org5879b46">Constants</h3>
+<div class="outline-text-3" id="text-org5879b46">
+<p>
+**
+</p>
+</div>
+</div>
+<div id="outline-container-org3fb9913" class="outline-3">
+<h3 id="org3fb9913">Stack</h3>
+</div>
+</div>
+<div id="outline-container-orga8db646" class="outline-2">
+<h2 id="orga8db646">Opcodes</h2>
+<div class="outline-text-2" id="text-orga8db646">
+</div>
+<div id="outline-container-orga567c64" class="outline-3">
+<h3 id="orga567c64">ALU Flags</h3>
+<div class="outline-text-3" id="text-orga567c64">
+<p>
+Operations that run through the <b>ALU</b> (so all math operations) <i>can</i> set flags. In x86 we can set 4 different flags:
+</p>
+<dl class="org-dl">
+<dt>ZF</dt><dd>&ldquo;Zero Flag&rdquo;, Set if the last operation in the <b>ALU</b> resulted in a 0.</dd>
+<dt>SF</dt><dd>&ldquo;Sign Flag&rdquo;, Set if the last operation in the <b>ALU</b> had a 1 as the most significant bit.</dd>
+<dt>OF</dt><dd>&ldquo;Overflow Flag&rdquo;, Set if the last operation in the <b>ALU</b> overflowed.</dd>
+<dt>CF</dt><dd>&ldquo;Carry Flag&rdquo;, Set if&#x2026;</dd>
+</dl>
+</div>
+</div>
+
+<div id="outline-container-orga568cab" class="outline-3">
+<h3 id="orga568cab"><span class="todo TODO">TODO</span> List of Useful Opcodes</h3>
+</div>
+</div>
+<div id="outline-container-orgbc7bfbd" class="outline-2">
+<h2 id="orgbc7bfbd">Directives</h2>
+<div class="outline-text-2" id="text-orgbc7bfbd">
+<p>
+Just like with <b>C</b>, <b>Assembler</b> also has directives that inform the pre-processor about the program. However instead of starting with a <code>#</code>, <b>Assembler Directives</b> start with a <code>.</code>.
+</p>
+</div>
+
+<div id="outline-container-org764530a" class="outline-3">
+<h3 id="org764530a">.file&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></h3>
+<div class="outline-text-3" id="text-org764530a">
+<p>
+<code>.file</code> specifies the name of the source code file. This has to be set in order for the linker to work properly.
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.file</span> <span style="color: #60b48a;">"filename.s"</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgcdd8708" class="outline-3">
+<h3 id="orgcdd8708">.section&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></h3>
+<div class="outline-text-3" id="text-orgcdd8708">
+<p>
+<code>.section</code> splits the assembly code into different sections.
+</p>
+</div>
+<div id="outline-container-orga986095" class="outline-4">
+<h4 id="orga986095">.rodata</h4>
+<div class="outline-text-4" id="text-orga986095">
+<p>
+The following data will be placed in the read only portion of memory.
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.section</span> .rodata
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgbdff152" class="outline-4">
+<h4 id="orgbdff152">.text</h4>
+<div class="outline-text-4" id="text-orgbdff152">
+<p>
+Changes the section to text/code
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.text</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org957bbd9" class="outline-4">
+<h4 id="org957bbd9">.data</h4>
+<div class="outline-text-4" id="text-org957bbd9">
+<p>
+Changes the current section to the data section
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.data</span>
+<span style="color: #de935f;">Array</span>:
+    <span style="color: #81a2be;">.quad</span> 0x6f
+    <span style="color: #81a2be;">.quad</span> 0x84
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgadc3af3" class="outline-3">
+<h3 id="orgadc3af3">.global&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></h3>
+<div class="outline-text-3" id="text-orgadc3af3">
+<ul class="org-ul">
+<li>Always followed by the name of a function</li>
+<li><p>
+Needed by the linker for symbol resolution
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.globl</span> main
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org5d3a1d6" class="outline-3">
+<h3 id="org5d3a1d6">.type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></h3>
+<div class="outline-text-3" id="text-org5d3a1d6">
+<ul class="org-ul">
+<li><p>
+Needed by the linker to know that an address points to a function, not data
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.globl</span> main
+    <span style="color: #81a2be;">.type</span> main, @function
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgddd3fe4" class="outline-3">
+<h3 id="orgddd3fe4">.size&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></h3>
+<div class="outline-text-3" id="text-orgddd3fe4">
+<ul class="org-ul">
+<li>Used by the linker to know the size needed for the program.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org82248e8" class="outline-3">
+<h3 id="org82248e8">.string</h3>
+<div class="outline-text-3" id="text-org82248e8">
+<ul class="org-ul">
+<li><p>
+Stores the data as a null terminated string in memory.
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #81a2be;">.string</span> <span style="color: #60b48a;">"Hello, world!"</span>
+</pre>
+</div></li>
+</ul>
+</div>
+</div>
+<div id="outline-container-org0e19567" class="outline-3">
+<h3 id="org0e19567">.quad</h3>
+<div class="outline-text-3" id="text-org0e19567">
+<p>
+Places the given value into memory encoded in 8 bytes
+</p>
+</div>
+</div>
+<div id="outline-container-orgd1852f5" class="outline-3">
+<h3 id="orgd1852f5">.long</h3>
+<div class="outline-text-3" id="text-orgd1852f5">
+<p>
+Places the given value into memory encoded in 4 bytes
+</p>
+</div>
+</div>
+<div id="outline-container-org76928dd" class="outline-3">
+<h3 id="org76928dd">.word</h3>
+<div class="outline-text-3" id="text-org76928dd">
+<p>
+Places the given value into memory encoded in 2 bytes
+</p>
+</div>
+</div>
+<div id="outline-container-org2a1631c" class="outline-3">
+<h3 id="org2a1631c">.byte</h3>
+<div class="outline-text-3" id="text-org2a1631c">
+<p>
+Places the given value into memory encoded in 1 byte
+</p>
+</div>
+</div>
+<div id="outline-container-org5321fad" class="outline-3">
+<h3 id="org5321fad">.align</h3>
+</div>
+</div>
+<div id="outline-container-orgf30853f" class="outline-2">
+<h2 id="orgf30853f">Putting it all together</h2>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Jackson Daumeyer</p>
+<p class="date">Created: 2022-10-31 Mon 21:56</p>
+</div>
+</body>
+</html>
