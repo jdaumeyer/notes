@@ -5,7 +5,8 @@ body {
     flex-direction: column;
     justify-content: center;
     margin: 0 auto;
-    sizing: border-box;
+    box-sizing: border-box;
+
 }
 
 main {
@@ -28,9 +29,22 @@ h1 {
     font-size: 5rem;
 }
 
+h2 {
+    margin: 0;
+}
+
+content {
+    background-color: #2a2929;
+    display: block;
+    position: relative;
+    padding: 1em;
+    inset: 5px;
+    height: 100%;
+    width: 100%;
+}
+
 section {
     margin: 1em;
-    padding: 0em 1em;
 
     /* I want obnoxious fixed size elements */
     min-width: 12em;
@@ -39,9 +53,7 @@ section {
 
     cursor: pointer;
 
-    border: 5px solid;
-    border-right: none;
-    border-bottom: none;
+    background-image: radial-gradient(circle at top left,  #81a2be, transparent 40%);
 
     grid-area: class;
     flex-direction: column;
