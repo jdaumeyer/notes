@@ -131,6 +131,20 @@ img {
     position: fixed;
     top: 0;
     left: 0;
+    width: max(10em, 20%);
     padding: 1em;
     margin-right: 2em;
+    overflow: scroll;
+}
+
+@media screen (min-width: 1000px) {
+    #table-of-contents {
+        display: none;
+    }
+}
+
+@media print {
+    #table-of-contents {
+        display: none;
+    }
 }
