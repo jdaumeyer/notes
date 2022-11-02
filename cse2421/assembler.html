@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 21:56 -->
+<!-- 2022-11-02 Wed 10:37 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assembler</title>
@@ -198,14 +198,12 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Assembler</h1>
-<blockquote>
+<div class="org-center">
 <p>
 &ldquo;C you later&rdquo;
+&#x2014; My bad jokes
 </p>
-<ul class="org-ul">
-<li>My bad jokes</li>
-</ul>
-</blockquote>
+</div>
 
 <div id="outline-container-org0d01307" class="outline-2">
 <h2 id="org0d01307">Why Assembler</h2>
@@ -238,7 +236,7 @@
 <h3 id="org52f9ccd">Registers</h3>
 <div class="outline-text-3" id="text-org52f9ccd">
 <p>
-Whenever you do math in <b>Assembler</b> you want to be using <a href="memory.html#orgc58ae2c">Registers</a>, because they are the fastest storage that we have available.
+Whenever you do math in <b>Assembler</b> you want to be using <a href="c.html#org020825e">Registers</a>, because they are the fastest storage that we have available.
 </p>
 <ul class="org-ul">
 <li>The machine that <code>stdlinux</code> uses has 16 registers in total, however 2 are already reserved so we only realistically have 14 to use.</li>
@@ -311,15 +309,35 @@ Whenever you do math in <b>Assembler</b> you want to be using <a href="memory.ht
 </dl>
 </div>
 </div>
+
+<div id="outline-container-org7b7c82d" class="outline-4">
+<h4 id="org7b7c82d">Callee and Caller Saved</h4>
+<div class="outline-text-4" id="text-org7b7c82d">
+<p>
+Because we want all our calculations to be in the registers, we will inevitably need to use a register that someone else is using. But how do we know if the need to save the value already in a register?
+</p>
+<ul class="org-ul">
+<li>Saving every register would result in too many touches to memory and negate the speed advantage of using registers</li>
+<li>Not saving registers ever would result in our code never knowing if values get saved across a function call.</li>
+</ul>
+
+<p>
+Instead we divide the registers into two groups <b>callee-saved</b> and <b>caller-saved</b>. Although <b>Assembler</b> doesn&rsquo;t actually enforce this rule, it&rsquo;s merely a social contract that was created to solve this porblem.
+</p>
+<dl class="org-dl">
+<dt><b>caller-saved</b></dt><dd>These are registers that a <i>leaf</i> function is free to trash. Meaning that their value <i>is not assured across a function call</i>.</dd>
+<dt><b>callee-saved</b></dt><dd>These are registers that a function must save and restore if they need to use it so their value <i>is guaranteed to be the same across a function call</i>.</dd>
+<dt>(no term)</dt><dd>The way to know what registers you can count on keeping their values is to identify if you&rsquo;re the <i>caller</i> or you&rsquo;re <i>being called</i>.
+<ul class="org-ul">
+<li>It is also possible to be both the <i>caller</i> and <i>callee</i></li>
+</ul></dd>
+</dl>
+</div>
+</div>
 </div>
 
 <div id="outline-container-org5879b46" class="outline-3">
 <h3 id="org5879b46">Constants</h3>
-<div class="outline-text-3" id="text-org5879b46">
-<p>
-**
-</p>
-</div>
 </div>
 <div id="outline-container-org3fb9913" class="outline-3">
 <h3 id="org3fb9913">Stack</h3>
@@ -510,7 +528,7 @@ Places the given value into memory encoded in 1 byte
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-10-31 Mon 21:56</p>
+<p class="date">Created: 2022-11-02 Wed 10:37</p>
 </div>
 </body>
 </html>
