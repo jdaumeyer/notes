@@ -137,6 +137,23 @@ img {
     overflow: scroll;
 }
 
+#table-of-contents > h2 {
+    font-size: 2em;
+}
+
+#table-of-contents > a {
+    text-decoration: none;
+    color: var(--foreground);
+}
+
+#text-table-of-contents > ul {
+    list-style-type: none;
+}
+
+#text-table-of-contents {
+    padding: 0;
+}
+
 @media screen (min-width: 1000px) {
     #table-of-contents {
         display: none;
