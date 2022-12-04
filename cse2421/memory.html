@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 21:56 -->
+<!-- 2022-12-04 Sun 18:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Memory</title>
@@ -194,6 +194,27 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
@@ -355,31 +376,14 @@ Memory is typically seen as a dichotomy between <b>Static</b> (Known at compile 
 <h3 id="org2a9f89a">Allocation</h3>
 </div>
 </div>
-
-<div id="outline-container-org4e08f65" class="outline-2">
-<h2 id="org4e08f65">Storage Classes</h2>
-<div class="outline-text-2" id="text-org4e08f65">
-</div>
-<div id="outline-container-org4e99ae7" class="outline-3">
-<h3 id="org4e99ae7">Static</h3>
-</div>
-<div id="outline-container-org8b2136e" class="outline-3">
-<h3 id="org8b2136e">Automatic</h3>
-</div>
-<div id="outline-container-orgc58ae2c" class="outline-3">
-<h3 id="orgc58ae2c">Register</h3>
-</div>
-</div>
 <div id="outline-container-orgb3d42f4" class="outline-2">
 <h2 id="orgb3d42f4">IEEE 754</h2>
 <div class="outline-text-2" id="text-orgb3d42f4">
 <blockquote>
 <p>
 &ldquo;You&rsquo;ve heard of E-boys, now get ready for IEEE-boys&rdquo;
+&#x2014; My bad jokes
 </p>
-<ul class="org-ul">
-<li>My bad jokes</li>
-</ul>
 </blockquote>
 
 <p>
@@ -387,10 +391,151 @@ One way that we can read memory is as a floating point number. But how the machi
 </p>
 </div>
 </div>
+
+<div id="outline-container-orgd385981" class="outline-2">
+<h2 id="orgd385981">The Stack</h2>
+<div class="outline-text-2" id="text-orgd385981">
+<p>
+While <b>C</b> typically handles management of the stack for us, this is far from the case in <a href="assembler.html">Assembler</a>.
+</p>
+
+<p>
+Assembler stack management can be thought of in terms of <b>Frames</b>. Where a <b>frame</b> is between the memory addresses that <code>%rsp</code> and <code>%rbp</code> are pointing at and defines the limit of our stack.
+</p>
+</div>
+
+<div id="outline-container-orgc285e6f" class="outline-3">
+<h3 id="orgc285e6f">Stack Frame</h3>
+<div class="outline-text-3" id="text-orgc285e6f">
+<p>
+A <b>Stack Frame</b> is created by the <i>enter sequence</i> and torn down by the <i>leave sequence</i>.
+</p>
+<ul class="org-ul">
+<li><p>
+<code>enter</code> changes <code>%rbp</code> so we don&rsquo;t interfere with our caller&rsquo;s <b>Stack Frame</b> and preserves the old value of <code>%rbp</code>
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #de935f;">pushq</span> <span style="color: #81a2be;">%rbp</span>      <span style="color: #655c5a;"># </span><span style="color: #655c5a;">Save the old value of %rbp</span>
+<span style="color: #de935f;">movq</span> <span style="color: #81a2be;">%rsp</span>, <span style="color: #e4e4e5;">%rbp</span> <span style="color: #655c5a;"># </span><span style="color: #655c5a;">Create our stack frame</span>
+</pre>
+</div></li>
+<li><p>
+The <code>leave</code> sequence does the opposite of <code>enter</code>. It &ldquo;deletes&rdquo; our stack and then restores the caller&rsquo;s <b>Stack Frame</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #de935f;">movq</span> <span style="color: #81a2be;">%rbp</span>, <span style="color: #e4e4e5;">%rsp</span> <span style="color: #655c5a;"># </span><span style="color: #655c5a;">"Free" our stack frame</span>
+<span style="color: #de935f;">popq</span> <span style="color: #81a2be;">%rbp</span>       <span style="color: #655c5a;"># </span><span style="color: #655c5a;">Restore the old value of %rbp to restore the caller stack frame.</span>
+</pre>
+</div></li>
+</ul>
+
+<p>
+While a <b>Stack Frame</b> isn&rsquo;t required for working code, in this class we are expected to make and tear down a stack frame in every function. Even if we never use it.
+</p>
+</div>
+</div>
+<div id="outline-container-org8833941" class="outline-3">
+<h3 id="org8833941">Stack Parameters</h3>
+<div class="outline-text-3" id="text-org8833941">
+<p>
+Since we only have 6 parameter registers, we need a place to store parameters when we have more than 6 so they get thrown onto the stack. When a function gets called, the stack looks something like this:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Address</th>
+<th scope="col" class="org-left">Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>0x40590</code></td>
+<td class="org-left">Parameter n</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40580</code></td>
+<td class="org-left">Parameter 10</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40570</code></td>
+<td class="org-left">Parameter 9</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40560</code></td>
+<td class="org-left">Parameter 8</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40550</code></td>
+<td class="org-left">Parameter 7</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40548</code></td>
+<td class="org-left">Return Address</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>0x40540</code></td>
+<td class="org-left">Old rbp</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+To get to these parameters, we use <code>%rbp</code>. In the example above, <code>%rbp</code> would be <code>0x40530</code> so to get to <i>Parameter 7</i>, we would add 16 to <code>%rbp</code> to get <code>0x40550</code>.
+</p>
+<ul class="org-ul">
+<li>A General form for this would look something like:</li>
+</ul>
+<div class="org-center">
+<p>
+\(\rm \%rbp + size\ of\ return\ address + size\ of\ parameter * (parameter\ number - 6)\)
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7c47764" class="outline-3">
+<h3 id="org7c47764">Alignment</h3>
+<div class="outline-text-3" id="text-org7c47764">
+<p>
+<b>Alignment</b> is just a fancy work for what number our address are divisible by. 16 bit alignment has the best performance on our machines, so the <b>ABI</b> requires that our stack be in 16 bit alignment <i>prior to any call</i>.
+</p>
+<ul class="org-ul">
+<li>After a <code>call</code> we have to be 8-byte aligned because <code>call</code> pushes the 8 byte return address to the stack. Ruining the 16 bit alignment.</li>
+<li>Code that isn&rsquo;t 16 bit aligned will still run but it wont run as fast or be as correct.</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgf9ba0de" class="outline-3">
+<h3 id="orgf9ba0de">Recursion</h3>
+<div class="outline-text-3" id="text-orgf9ba0de">
+<p>
+<b>Recursion</b> reeks hell on the stack for two different reasons:
+</p>
+<ul class="org-ul">
+<li>We have to create and tear down a <b>stack frame</b> on every call</li>
+<li>We have to use <i>callee-saved</i> registers be cause we need to save data over a function call.</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-10-31 Mon 21:56</p>
+<p class="date">Created: 2022-12-04 Sun 18:03</p>
 </div>
 </body>
 </html>

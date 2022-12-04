@@ -7,6 +7,7 @@
 body {
     margin: 0;
     padding: 0;
+    height: 100vh;
     background-color: var(--background);
     color: var(--foreground);
     font-family: 'Karla', sans-serif;
@@ -18,27 +19,27 @@ body {
  *
  */
 h1 {
-    font-size: 4em;
+    font-size: 2em;
     font-weight:  700;
 }
 
 h2 {
-    font-size: 3em;
+    font-size: 1.75em;
     font-weight: 700;
 }
 
 h3 {
-    font-size: 2em;
-    font-weight: 700;
-}
-
-h4 {
     font-size: 1.5em;
     font-weight: 700;
 }
 
-h5 {
+h4 {
     font-size: 1.25em;
+    font-weight: 700;
+}
+
+h5 {
+    font-size: 1em;
     font-weight: 700;
 }
 
@@ -63,4 +64,10 @@ pre .src {
  */
 .outline-1, .outline-2, .outline-3, .outline-4, .outline-5, .outline-6 {
     margin-bottom: 4em;
+}
+
+
+.content {
+    column-count: 2;
+    background-color: red;
 }

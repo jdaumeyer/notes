@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-11-02 Wed 10:37 -->
+<!-- 2022-12-04 Sun 18:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Assembler</title>
@@ -198,6 +198,62 @@
 <body>
 <div id="content" class="content">
 <h1 class="title">Assembler</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orgb1b78e0">What is Assembler</a>
+<ul>
+<li><a href="#org0d01307">Why Assembler</a>
+<ul>
+<li><a href="#org29f493c">Performance</a></li>
+<li><a href="#orgdcd170b">Differences From C</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org3ff1273">Storage</a>
+<ul>
+<li><a href="#org52f9ccd">Registers</a>
+<ul>
+<li><a href="#org3d1f043">List of Registers</a></li>
+<li><a href="#org7b7c82d">Callee and Caller Saved</a></li>
+</ul>
+</li>
+<li><a href="#org5879b46">Constants</a></li>
+<li><a href="#org3fc0220">Stack</a></li>
+</ul>
+</li>
+<li><a href="#orga8db646">Opcodes</a>
+<ul>
+<li><a href="#orga567c64">ALU Flags</a></li>
+<li><a href="#orga568cab"><span class="todo TODO">TODO</span> List of Useful Opcodes</a></li>
+</ul>
+</li>
+<li><a href="#orgbc7bfbd">Directives</a>
+<ul>
+<li><a href="#org764530a">.file&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></a></li>
+<li><a href="#orgcdd8708">.section&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></a>
+<ul>
+<li><a href="#orga986095">.rodata</a></li>
+<li><a href="#orgbdff152">.text</a></li>
+<li><a href="#org957bbd9">.data</a></li>
+</ul>
+</li>
+<li><a href="#orgadc3af3">.global&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></a></li>
+<li><a href="#org5d3a1d6">.type&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></a></li>
+<li><a href="#orgddd3fe4">.size&#xa0;&#xa0;&#xa0;<span class="tag"><span class="required">required</span></span></a></li>
+<li><a href="#org82248e8">.string</a></li>
+<li><a href="#org0e19567">.quad</a></li>
+<li><a href="#orgd1852f5">.long</a></li>
+<li><a href="#org76928dd">.word</a></li>
+<li><a href="#org2a1631c">.byte</a></li>
+<li><a href="#org5321fad">.align</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
 <div class="org-center">
 <p>
 &ldquo;C you later&rdquo;
@@ -205,25 +261,34 @@
 </p>
 </div>
 
-<div id="outline-container-org0d01307" class="outline-2">
-<h2 id="org0d01307">Why Assembler</h2>
-<div class="outline-text-2" id="text-org0d01307">
+
+<div id="outline-container-orgb1b78e0" class="outline-2">
+<h2 id="orgb1b78e0">What is Assembler</h2>
+<div class="outline-text-2" id="text-orgb1b78e0">
+<p>
+<b>Assembler</b> is the closet to machine code that we can write without it being binary.
+</p>
 </div>
-<div id="outline-container-org29f493c" class="outline-3">
-<h3 id="org29f493c">Performance</h3>
-<div class="outline-text-3" id="text-org29f493c">
+<div id="outline-container-org0d01307" class="outline-3">
+<h3 id="org0d01307">Why Assembler</h3>
+<div class="outline-text-3" id="text-org0d01307">
+</div>
+<div id="outline-container-org29f493c" class="outline-4">
+<h4 id="org29f493c">Performance</h4>
+<div class="outline-text-4" id="text-org29f493c">
 <p>
 <b>Assembler</b> is the closest that we can get to actual machine code without writing binary.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgdcd170b" class="outline-3">
-<h3 id="orgdcd170b">Differences From C</h3>
-<div class="outline-text-3" id="text-orgdcd170b">
+<div id="outline-container-orgdcd170b" class="outline-4">
+<h4 id="orgdcd170b">Differences From C</h4>
+<div class="outline-text-4" id="text-orgdcd170b">
 <ul class="org-ul">
 <li>Where <b>C</b> handled byte math for us, <b>Assembler</b> offers no such luxury. You will have to know the exact amount of bytes that you need for everything.</li>
 </ul>
+</div>
 </div>
 </div>
 </div>
@@ -258,6 +323,9 @@ Whenever you do math in <b>Assembler</b> you want to be using <a href="c.html#or
 <ul class="org-ul">
 <li>Used as the return value for functions</li>
 <li>Caller-saved</li>
+</ul></dd>
+<dt><code>%rbx</code></dt><dd><ul class="org-ul">
+<li>Caller Saved</li>
 </ul></dd>
 <dt><code>%rcx</code></dt><dd>Counter
 <ul class="org-ul">
@@ -327,6 +395,7 @@ Instead we divide the registers into two groups <b>callee-saved</b> and <b>calle
 <dl class="org-dl">
 <dt><b>caller-saved</b></dt><dd>These are registers that a <i>leaf</i> function is free to trash. Meaning that their value <i>is not assured across a function call</i>.</dd>
 <dt><b>callee-saved</b></dt><dd>These are registers that a function must save and restore if they need to use it so their value <i>is guaranteed to be the same across a function call</i>.</dd>
+
 <dt>(no term)</dt><dd>The way to know what registers you can count on keeping their values is to identify if you&rsquo;re the <i>caller</i> or you&rsquo;re <i>being called</i>.
 <ul class="org-ul">
 <li>It is also possible to be both the <i>caller</i> and <i>callee</i></li>
@@ -339,8 +408,8 @@ Instead we divide the registers into two groups <b>callee-saved</b> and <b>calle
 <div id="outline-container-org5879b46" class="outline-3">
 <h3 id="org5879b46">Constants</h3>
 </div>
-<div id="outline-container-org3fb9913" class="outline-3">
-<h3 id="org3fb9913">Stack</h3>
+<div id="outline-container-org3fc0220" class="outline-3">
+<h3 id="org3fc0220"><a href="memory.html#orgd385981">Stack</a></h3>
 </div>
 </div>
 <div id="outline-container-orga8db646" class="outline-2">
@@ -522,13 +591,10 @@ Places the given value into memory encoded in 1 byte
 <h3 id="org5321fad">.align</h3>
 </div>
 </div>
-<div id="outline-container-orgf30853f" class="outline-2">
-<h2 id="orgf30853f">Putting it all together</h2>
-</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-11-02 Wed 10:37</p>
+<p class="date">Created: 2022-12-04 Sun 18:03</p>
 </div>
 </body>
 </html>

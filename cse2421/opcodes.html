@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-31 Mon 21:56 -->
+<!-- 2022-12-04 Sun 18:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Opcodes</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
@@ -201,6 +202,9 @@
 This is a quick reference list of all the opcodes that I have used regularly during this class.
 </p>
 
+<div id="outline-container-org03e5a1b" class="outline-2">
+<h2 id="org03e5a1b">Quick Reference</h2>
+<div class="outline-text-2" id="text-org03e5a1b">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -213,19 +217,144 @@ This is a quick reference list of all the opcodes that I have used regularly dur
 
 <col  class="org-left" />
 </colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Opcode</th>
+<th scope="col" class="org-left">Mnemonic Name</th>
+<th scope="col" class="org-left">Sets ALU Flags?</th>
+<th scope="col" class="org-left">Description</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="org-left">Opcode</td>
-<td class="org-left">Mnemonic Name</td>
-<td class="org-left">ALU?</td>
-<td class="org-left">Description</td>
+<td class="org-left"><code>lea</code></td>
+<td class="org-left"><i>Load Effective Address</i></td>
+<td class="org-left">❌</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>mov</code></td>
+<td class="org-left"><i>Move</i></td>
+<td class="org-left">❌</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>cmov</code></td>
+<td class="org-left"><i>Conditional Move</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>cmp</code></td>
+<td class="org-left"><i>Compare</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>test</code></td>
+<td class="org-left"><i>Test</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>set</code></td>
+<td class="org-left"><i>Set</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>add</code></td>
+<td class="org-left"><i>Add</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sub</code></td>
+<td class="org-left"><i>Subtract</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>dec</code></td>
+<td class="org-left"><i>Decrement</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>inc</code></td>
+<td class="org-left"><i>Increment</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>shl</code></td>
+<td class="org-left"><i>Arithmetic Left Shift</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>shr</code></td>
+<td class="org-left"><i>Arithmetic Right Shift</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sar</code></td>
+<td class="org-left"><i>Logical Right Shift</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sal</code></td>
+<td class="org-left"><i>Logical Left Shift</i></td>
+<td class="org-left">✅</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 </div>
+</div>
+
+<div id="outline-container-org147d459" class="outline-2">
+<h2 id="org147d459">All Opcodes</h2>
+<div class="outline-text-2" id="text-org147d459">
+</div>
+<div id="outline-container-org36279a2" class="outline-3">
+<h3 id="org36279a2">lea</h3>
+<div class="outline-text-3" id="text-org36279a2">
+<p>
+<i>Load Effective Address</i>
+<code>lea</code> calculates a memory address and assigns it <i>without accessing</i> that memory.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-asm"><span style="color: #de935f;">leaq</span> <span style="color: #d0b75a; font-weight: bold;">7</span>(<span style="color: #e4e4e5;">%rdx</span>, <span style="color: #e4e4e5;">%rdx</span>, <span style="color: #d0b75a; font-weight: bold;">4</span>), <span style="color: #e4e4e5;">%rax</span>
+</pre>
+</div>
+
+<p>
+Would assign <code>5 * %rdx + 7</code> into <code>%rax</code>, <i>without</i> setting any alu flags
+</p>
+</div>
+</div>
+</div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-10-31 Mon 21:56</p>
+<p class="date">Created: 2022-12-04 Sun 18:03</p>
 </div>
 </body>
 </html>
