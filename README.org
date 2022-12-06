@@ -10,4 +10,4 @@ These notes can be viewed at [[https://jdaumeyer.github.io/notes/]].
 | [[https://jdaumeyer.github.io/notes/cse2221/][CSE 2221]]    | Software 1    | Rui Qui      |
 | [[https://jdaumeyer.github.io/notes/cse2231/][CSE 2231]]    | Software 2    | Anna Wolf    |
 | [[https://jdaumeyer.github.io/notes/cse2321/][CSE 2321]]    | Foundations 1 | Nick Painter |
-| [[https://jdaumeyer.github.io/notes/cse2321/][CSE 2421]]    | Systems 1     | Neil Kirby   |
+| [[https://jdaumeyer.github.io/notes/cse2421/][CSE 2421]]    | Systems 1     | Neil Kirby   |
