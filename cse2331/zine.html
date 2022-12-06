@@ -6,7 +6,7 @@
 <!-- 2022-12-05 Mon 23:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Probabilistic Analysis</title>
+<title>Expected Value Zine</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -218,68 +218,53 @@
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Probabilistic Analysis</h1>
+<h1 class="title">Expected Value Zine</h1>
+
+<div id="outline-container-org37aa6c2" class="outline-2">
+<h2 id="org37aa6c2">Printing this out&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ATTACH">ATTACH</span></span></h2>
+<div class="outline-text-2" id="text-org37aa6c2">
 <p>
-Code is rarely linear, we often need to branch conditionally on events that are effectively random. When these conditions effect our runtime, we need to change how we analyze our code.
+<a href="file:///home/jed/doc/org/.attach/66/6c65ae-045b-4d4c-aad9-486b2bf81184/_20221205_231310expected-value-zine.pdf">This document</a> is a little zine/booklet thing that you can print out for reference. It&rsquo;s a guide through finding expected runtime. If you choose to print it out, guides to fold it are below. If not, all of the content is on this page as well.
 </p>
 
 <p>
-What we do is use probability to find the <b>best</b>, <b>worst</b> and <b>expected</b> runtimes.
-</p>
-<ul class="org-ul">
-<li>Assumptions are key to determining probability</li>
-</ul>
-
-<div id="outline-container-orgb9ed5fe" class="outline-2">
-<h2 id="orgb9ed5fe">Questions</h2>
-<div class="outline-text-2" id="text-orgb9ed5fe">
-</div>
-<div id="outline-container-org5864914" class="outline-3">
-<h3 id="org5864914"><span class="todo TODO">TODO</span> Do you know what videos/resource goes over exponential bounding?</h3>
-</div>
-<div id="outline-container-org1330cd5" class="outline-3">
-<h3 id="org1330cd5">TODO</h3>
-</div>
-</div>
-
-<div id="outline-container-orgaa6d9b4" class="outline-2">
-<h2 id="orgaa6d9b4">How to solve</h2>
-<div class="outline-text-2" id="text-orgaa6d9b4">
-</div>
-<div id="outline-container-orgde60dd3" class="outline-3">
-<h3 id="orgde60dd3">Locate the randomness</h3>
-<div class="outline-text-3" id="text-orgde60dd3">
-<p>
-The first thing we should do with a <b>Probabilistic Analysis</b> problem is to figure out where the randomness happens and what if effects.
+Also if you find any mistakes or typos, let me know. This document is very much a work in progress
 </p>
 
+
+<div id="org2624aa6" class="figure">
+<p><img src="file:///home/jed/doc/org/.attach/66/6c65ae-045b-4d4c-aad9-486b2bf81184/_20221205_230932how-to-fold-a-zine.jpg" alt="_20221205_230932how-to-fold-a-zine.jpg" />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org86d32a6" class="outline-2">
+<h2 id="org86d32a6">Determine the Type of Problem</h2>
+<div class="outline-text-2" id="text-org86d32a6">
 <p>
-The goal is to get whatever parts of the runtime that are random into summations that are in terms of \(k\) and everything else in terms of \(n\).
+To make things easier for us later on, we want to isolate the randomness. This will help us fit it to a formula.
+</p>
+</div>
+
+<div id="outline-container-org48480a9" class="outline-3">
+<h3 id="org48480a9">Normal Expectation</h3>
+<div class="outline-text-3" id="text-org48480a9">
+<p>
+Used when a loop executes a random number of times.
 </p>
 
 <pre class="example">
-function Func2(A[],n)
-    s=0
-    for i = 1 to n do
-        k = Random(i)
-        for j = 1 to k 2 do
-            s = s + A[i] · A[j]
-        end for
+for i = 1 to n do
+    k = Random(i)
+    for j = 1 to k2 do
+        s = s + A[i] · A[j]
     end for
-    return s
-end function
+end for
 </pre>
-</div>
-</div>
-<div id="outline-container-org567d274" class="outline-3">
-<h3 id="org567d274">Fit to a formula</h3>
-<div class="outline-text-3" id="text-org567d274">
-</div>
-<div id="outline-container-orga4f1496" class="outline-4">
-<h4 id="orga4f1496">Normal Expectation</h4>
-<div class="outline-text-4" id="text-orga4f1496">
+
 <p>
-The first formula we should test when we see a <b>Probabilistic Analysis</b> problem (where k is a random value) is:
+These use the equation:
 </p>
 \begin{align*}
 ET(n) &= \sum\limits_{q = 1}^n T(k = q) \cdot \textbf{Prob}(k = q)
@@ -287,9 +272,21 @@ ET(n) &= \sum\limits_{q = 1}^n T(k = q) \cdot \textbf{Prob}(k = q)
 </div>
 </div>
 
-<div id="outline-container-orgf68c65c" class="outline-4">
-<h4 id="orgf68c65c">Conditional Expectation</h4>
-<div class="outline-text-4" id="text-orgf68c65c">
+<div id="outline-container-org46a0ffc" class="outline-3">
+<h3 id="org46a0ffc">Conditional Expectation</h3>
+<div class="outline-text-3" id="text-org46a0ffc">
+<p>
+Used when
+</p>
+<pre class="example">
+k = Random(n)
+if k &lt; n/2 then
+    for i = 1 to log(n) do ...
+else
+    for i = 1 to n do ...
+endif
+</pre>
+
 \begin{align*}
 ET(n) &= \sum\limits_{q = 1}^n  E(X\ |\ A)\ \textbf{Prob}(A) + E(X\ |\ \mathtt{not}\ A)\ \textbf{Prob}(\mathtt{not}\  A)
 \end{align*}
@@ -297,76 +294,12 @@ ET(n) &= \sum\limits_{q = 1}^n  E(X\ |\ A)\ \textbf{Prob}(A) + E(X\ |\ \mathtt{n
 </div>
 </div>
 
-
-<div id="outline-container-orgd3fec8a" class="outline-3">
-<h3 id="orgd3fec8a">Solve the probability</h3>
-<div class="outline-text-3" id="text-orgd3fec8a">
-</div>
-<div id="outline-container-orgf5919a6" class="outline-4">
-<h4 id="orgf5919a6">Example</h4>
-<div class="outline-text-4" id="text-orgf5919a6">
-\begin{align*}
-ET(n) &= \sum\limits_{q = 1}^n  E(T(n)\ |\ k \le \frac{n}{2})\ \textbf{Prob}(k \le \frac{n}{2})\\
-      & + E(T(n)\ |\ k > \frac{n}{2})\ \textbf{Prob}(k > \frac{n}{2})\\
-      &= \frac{1}{2}\ c\log(n) + \frac{1}{2}\ cn
-\end{align*}
-</div>
-</div>
+<div id="outline-container-org30e0005" class="outline-2">
+<h2 id="org30e0005">Find the Expected Value</h2>
 </div>
 
-<div id="outline-container-orgd7586a5" class="outline-3">
-<h3 id="orgd7586a5">The Fourth Circle of Hell: Recursion</h3>
-<div class="outline-text-3" id="text-orgd7586a5">
-<p>
-For most recursive problems that involve probability, we want to use the <b>conditional expectation formula</b>. This is because most problems that involve recursion and probability have their recursion occur <i>conditionally</i>.
-</p>
-</div>
-</div>
-</div>
-<div id="outline-container-orgca1cce5" class="outline-2">
-<h2 id="orgca1cce5">Tools</h2>
-<div class="outline-text-2" id="text-orgca1cce5">
-<p>
-\(E(aX_1 + bX_2) = aE(X_1) + bE(x_2)\)
-</p>
-
-<p>
-\(E(X) = E(X\ |\ A)\ \textbf{Prob}(A) + E(X\ |\ \mathtt{not}\ A)\ \textbf{Prob}(\mathtt{not}\  A)\)
-</p>
-
-<p>
-\(E(X) = \sum\limits^\infty_{i=1} \textbf{Prob}(X \ge i)\)
-</p>
-</div>
-</div>
-
-<div id="outline-container-org936c797" class="outline-2">
-<h2 id="org936c797">Spell Check</h2>
-<div class="outline-text-2" id="text-org936c797">
-<p>
-the one thing that apparently no one studied for midterm 2
-</p>
-
-<p>
-With the appropriate formula selected, we can solve to find the expected value.
-</p>
-
-<p>
-Once we determine the expected value, we can us that result for the rest of our calculation because of the linearity of expectation.
-</p>
-
-<p>
-This will give us a value that we can then use to solve the rest of our summations with.
-</p>
-
-<p>
-Now that we know what parts are random, we can find the formula that fits best.
-Normal Expectation (one of the loops executes some random amount of times):
-Conditional Expectation (we branch to different loops based on our random variable):
-To make things easier for us later on, we want to isolate the randomness.
-When there’s a random element that causes a loop to exit early, we use the Normal Expectation Formula     and the following probability:
-</p>
-</div>
+<div id="outline-container-org4cf58e0" class="outline-2">
+<h2 id="org4cf58e0">Breaking out of a Loop Early</h2>
 </div>
 </div>
 <div id="postamble" class="status">
