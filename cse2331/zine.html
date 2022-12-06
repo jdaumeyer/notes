@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-12-05 Mon 23:37 -->
+<!-- 2022-12-06 Tue 00:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Expected Value Zine</title>
@@ -232,7 +232,7 @@ Also if you find any mistakes or typos, let me know. This document is very much 
 </p>
 
 
-<div id="org72da4c0" class="figure">
+<div id="orged403c2" class="figure">
 <p><img src="how-to-fold-a-zine.jpg" alt="how-to-fold-a-zine.jpg" />
 </p>
 </div>
@@ -276,7 +276,7 @@ ET(n) &= \sum\limits_{q = 1}^n T(k = q) \cdot \textbf{Prob}(k = q)
 <h3 id="org46a0ffc">Conditional Expectation</h3>
 <div class="outline-text-3" id="text-org46a0ffc">
 <p>
-Used when
+Used when we branch between different loops based on a random variable.
 </p>
 <pre class="example">
 k = Random(n)
@@ -287,6 +287,9 @@ else
 endif
 </pre>
 
+<p>
+Use the equation:
+</p>
 \begin{align*}
 ET(n) &= \sum\limits_{q = 1}^n  E(X\ |\ A)\ \textbf{Prob}(A) + E(X\ |\ \mathtt{not}\ A)\ \textbf{Prob}(\mathtt{not}\  A)
 \end{align*}
@@ -296,15 +299,65 @@ ET(n) &= \sum\limits_{q = 1}^n  E(X\ |\ A)\ \textbf{Prob}(A) + E(X\ |\ \mathtt{n
 
 <div id="outline-container-org30e0005" class="outline-2">
 <h2 id="org30e0005">Find the Expected Value</h2>
+<div class="outline-text-2" id="text-org30e0005">
+<p>
+With the appropriate formula selected, we can solve to find the expected value.
+</p>
+
+<p>
+Once we determine the expected value, we can us that result for the rest of our calculation because of the <b>linearity of expectation</b>.
+</p>
+
+<p>
+This will give us a value that we can then use to solve the rest of our summations with.
+</p>
+</div>
 </div>
 
 <div id="outline-container-org4cf58e0" class="outline-2">
 <h2 id="org4cf58e0">Breaking out of a Loop Early</h2>
+<div class="outline-text-2" id="text-org4cf58e0">
+<p>
+When there’s a random element that causes a loop to exit early, we use the Normal Expectation Formula and the following probability:
+</p>
+\begin{align*}
+\sum\limits_{q = 0}^n \textbf{Prob}(x \ge i)
+\end{align*}
+<p>
+Where x is the number of times that we don’t exit early.
+</p>
+
+<p>
+Now we can simplify the probability.
+</p>
+
+\begin{align*}
+
+\textbf{Prob}(x \ge 1) &= \textbf{Prob}(x \ge 1)\\
+
+\textbf{Prob}(x \ge 2) &= \textbf{Prob}(x \ge 1)^2\\
+
+\textbf{Prob}(x \ge 3) &= \textbf{Prob}(x \ge 1)^3\\
+
+\cdots\\
+
+\textbf{Prob}(x \ge q) &= \textbf{Prob}(x \ge 1)^q\\
+\end{align*}
+
+<p>
+After simplifying, we get a geometric sum:
+</p>
+
+<p>
+\(\sum\limits_{q = 1}^{n} \textbf{Prob}(x \ge q)^q\)
+Where \(\textbf{Prob}(x \ge q)\) is some integer \(\le 1\).
+</p>
+</div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-12-05 Mon 23:37</p>
+<p class="date">Created: 2022-12-06 Tue 00:04</p>
 </div>
 </body>
 </html>
