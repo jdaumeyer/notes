@@ -109,6 +109,7 @@ dl {
 
 dt {
     text-align: right;
+    width: max-content;
 }
 
 dd {
@@ -169,10 +170,6 @@ details > .answer {
     transition: 200ms border;
 }
 
-/* Simple fix to make defintinon terms more readable */
-dt {
-    width: max-content;
-}
 
 /*
  * = Table of Contents
