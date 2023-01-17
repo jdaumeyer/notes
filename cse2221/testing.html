@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-09-01 Thu 10:31 -->
+<!-- 2023-01-17 Tue 12:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Testing</title>
@@ -244,8 +244,6 @@ The best Practices for making a test plan include:
 </p>
 <ul class="org-ul">
 <li>Testing <i>boundary</i> cases, or the smallest, largest and special cases.</li>
-</ul>
-<ul class="org-ul">
 <li>Testing <i>routine</i> cases</li>
 <li>Testing <i>challenging</i> cases</li>
 </ul>
@@ -253,21 +251,55 @@ The best Practices for making a test plan include:
 <p>
 A little joke about test cases:
 </p>
+
 <blockquote>
 <p>
-A Quality Assurance Tester walks into a bar,
-They ask for a beer
-They ask for 999 beers
-They ask for a water
-They ask for -1 beers
-They ask for a pink panda
-They ask for ::{}{  beers
-They leave
+
 </p>
 
 <p>
+A Quality Assurance Tester walks into a bar,
+</p>
+
+<p>
+They ask for a beer
+</p>
+
+<p>
+They ask for 999 beers
+</p>
+
+<p>
+They ask for a water
+</p>
+
+<p>
+They ask for -1 beers
+</p>
+
+<p>
+They ask for a pink panda
+</p>
+
+<p>
+They ask for :(){:|:} beers
+</p>
+
+<p>
+They leave
+</p>
+
+
+
+<p>
 A customer walks into a bar,
+</p>
+
+<p>
 They ask where the restroom is,
+</p>
+
+<p>
 The whole bar catches fire.
 </p>
 </blockquote>
@@ -296,22 +328,29 @@ You can create test methods easily by writing whatever testing that you would ha
 <span style="color: #81a2be;">public</span> <span style="color: #81a2be;">void</span> <span style="color: #de935f;">testMethod</span><span style="color: #81a2be;">()</span> <span style="color: #81a2be;">{}</span>
 </pre>
 </div>
-</div>
-</div>
 
+<p>
+These methods will only run when we test our project.
+</p>
+</div>
+</div>
 
 <div id="outline-container-org170725b" class="outline-3">
 <h3 id="org170725b">The <code>assert</code> Keyword</h3>
+<div class="outline-text-3" id="text-org170725b">
+<p>
+<code class="src src-java">assert</code> is used throughout our Java components as a part of the method contracts. However they are technically also a test feature. Just like a normal test, they ensure that we are only using our code as intended.
+</p>
+<ul class="org-ul">
+<li>A lot of the errors you&rsquo;ll have in the software sequence are a result of violating method contracts. By having the assertions, we can catch the errors easier that having the decipher undefined behavior.</li>
+</ul>
 </div>
 </div>
-
-<div id="outline-container-org53b856f" class="outline-2">
-<h2 id="org53b856f">Test Driven Development</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2022-09-01 Thu 10:31</p>
+<p class="date">Created: 2023-01-17 Tue 12:04</p>
 </div>
 </body>
 </html>
