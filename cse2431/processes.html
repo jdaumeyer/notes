@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-17 Tue 12:04 -->
+<!-- 2023-01-19 Thu 10:12 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Processes</title>
@@ -193,6 +193,7 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
@@ -200,92 +201,97 @@
 <br />
 <span class="subtitle">Chapter 3</span>
 </h1>
-<div id="table-of-contents" role="doc-toc">
-<h2>Table of Contents</h2>
-<div id="text-table-of-contents" role="doc-toc">
-<ul>
-<li><a href="#orga71df43">1. Process</a>
-<ul>
-<li><a href="#orgf40fada">1.1. Scheduling</a>
-<ul>
-<li><a href="#org284ee31">1.1.1. Context Switch</a></li>
-</ul>
-</li>
-<li><a href="#orga5613df">1.2. Creation</a></li>
-<li><a href="#org6401c9c">1.3. Termination</a></li>
-</ul>
-</li>
-<li><a href="#org8baacf7">2. Communication</a>
-<ul>
-<li><a href="#orgac11c60">2.1. Synchronization</a></li>
-<li><a href="#orgc0dc504">2.2. Pipes</a>
-<ul>
-<li><a href="#org836c170">2.2.1. Ordinary Pipes</a></li>
-<li><a href="#orgd6bd2b8">2.2.2. Named Pipes</a></li>
-</ul>
-</li>
-<li><a href="#org2252c70">2.3. Sockets</a></li>
-<li><a href="#org43c1835">2.4. Remote Procedure Calls</a></li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
+<p>
+The key distinction between a <b>Process</b> and a <b>Program</b> is a <b>Process</b> is <i>active</i> whereas a <b>Program</b> is <i>passive</i>
+</p>
+<dl class="org-dl">
+<dt>Program</dt><dd><i>Passive</i> Just the program text</dd>
+<dt>Process</dt><dd><i>Active</i> Code in execution, stores more than just the code</dd>
+</dl>
+
+
+<p>
+Simply put:
+</p>
 <blockquote>
 <p>
 A <b>Process</b> is a program in <i>execution</i>
 </p>
 </blockquote>
 
-<div id="outline-container-orga71df43" class="outline-2">
-<h2 id="orga71df43"><span class="section-number-2">1.</span> Process</h2>
-<div class="outline-text-2" id="text-1">
+
+<div id="outline-container-orgeeb9d7e" class="outline-2">
+<h2 id="orgeeb9d7e">Process Control Block</h2>
+<div class="outline-text-2" id="text-orgeeb9d7e">
+<p>
+A <b>process</b> is more than <i>just</i> code. It has to store information about itself for the operating system to <b>schedule</b> and <b>context switch</b> appropriately. All of this is stored in a <b>Process Control Block (PCB)</b> which typically includes the following information:
+</p>
+<dl class="org-dl">
+<dt>Process State</dt><dd>What part of execution the process is in, can be anything from <i>New</i>, <i>Running</i>, <i>Waiting</i>, <i>Ready</i> and <i>Terminated</i>.</dd>
+<dt>Registers</dt><dd>Values of all the registers for the <b>Process</b>.</dd>
+<dt>Program Counter</dt><dd>A pointer to the next instruction.</dd>
+<dt>Scheduling Information</dt><dd><b>Process</b> priority and pointers to queues.</dd>
+<dt>Memory Management Information</dt><dd>References to page tables or some way to access the <b>process</b>&rsquo;s memory and limits to the amount of memory accessible.</dd>
+<dt>Accounting Information</dt><dd>Misc Information about the process such as job numbers, cpu and real time used etc.</dd>
+<dt>Threads</dt><dd>On multi-threaded systems, there is information for each thread</dd>
+</dl>
+
+<p>
+At its core, this is all a <b>Process</b> is; All the information needed for an <i>Operating System</i> to execute a program.
+</p>
+</div>
+</div>
+
+
+<div id="outline-container-orgce8830a" class="outline-2">
+<h2 id="orgce8830a">Process Management</h2>
+<div class="outline-text-2" id="text-orgce8830a">
 </div>
 <div id="outline-container-orgf40fada" class="outline-3">
-<h3 id="orgf40fada"><span class="section-number-3">1.1.</span> Scheduling</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="orgf40fada">Scheduling</h3>
+<div class="outline-text-3" id="text-orgf40fada">
 </div>
 <div id="outline-container-org284ee31" class="outline-4">
-<h4 id="org284ee31"><span class="section-number-4">1.1.1.</span> Context Switch</h4>
+<h4 id="org284ee31">Context Switch</h4>
 </div>
 </div>
 <div id="outline-container-orga5613df" class="outline-3">
-<h3 id="orga5613df"><span class="section-number-3">1.2.</span> Creation</h3>
+<h3 id="orga5613df">Creation</h3>
 </div>
 <div id="outline-container-org6401c9c" class="outline-3">
-<h3 id="org6401c9c"><span class="section-number-3">1.3.</span> Termination</h3>
+<h3 id="org6401c9c">Termination</h3>
 </div>
 </div>
 
 <div id="outline-container-org8baacf7" class="outline-2">
-<h2 id="org8baacf7"><span class="section-number-2">2.</span> Communication</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org8baacf7">Communication</h2>
+<div class="outline-text-2" id="text-org8baacf7">
 </div>
 <div id="outline-container-orgac11c60" class="outline-3">
-<h3 id="orgac11c60"><span class="section-number-3">2.1.</span> Synchronization</h3>
+<h3 id="orgac11c60">Synchronization</h3>
 </div>
 <div id="outline-container-orgc0dc504" class="outline-3">
-<h3 id="orgc0dc504"><span class="section-number-3">2.2.</span> Pipes</h3>
-<div class="outline-text-3" id="text-2-2">
+<h3 id="orgc0dc504">Pipes</h3>
+<div class="outline-text-3" id="text-orgc0dc504">
 </div>
 <div id="outline-container-org836c170" class="outline-4">
-<h4 id="org836c170"><span class="section-number-4">2.2.1.</span> Ordinary Pipes</h4>
+<h4 id="org836c170">Ordinary Pipes</h4>
 </div>
 <div id="outline-container-orgd6bd2b8" class="outline-4">
-<h4 id="orgd6bd2b8"><span class="section-number-4">2.2.2.</span> Named Pipes</h4>
+<h4 id="orgd6bd2b8">Named Pipes</h4>
 </div>
 </div>
 <div id="outline-container-org2252c70" class="outline-3">
-<h3 id="org2252c70"><span class="section-number-3">2.3.</span> Sockets</h3>
+<h3 id="org2252c70">Sockets</h3>
 </div>
 <div id="outline-container-org43c1835" class="outline-3">
-<h3 id="org43c1835"><span class="section-number-3">2.4.</span> Remote Procedure Calls</h3>
+<h3 id="org43c1835">Remote Procedure Calls</h3>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-01-17 Tue 12:04</p>
+<p class="date">Created: 2023-01-19 Thu 10:12</p>
 </div>
 </body>
 </html>
