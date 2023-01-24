@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-19 Thu 10:12 -->
+<!-- 2023-01-24 Tue 10:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Numbers And Conversion</title>
@@ -224,10 +224,6 @@
 <h2 id="org0823483">Course Introduction</h2>
 <div class="outline-text-2" id="text-org0823483">
 <p>
-Analog Vs. Digital
-</p>
-
-<p>
 In this class we will mainly deal with <b>Digital Signals</b> but it&rsquo;s important to note the differences between the two
 </p>
 <dl class="org-dl">
@@ -284,7 +280,15 @@ To convert a number from base \(B_1\) to base \(B_2\)
 </ul>
 </div>
 </div>
+</div>
 
+<div id="outline-container-org5217810" class="outline-2">
+<h2 id="org5217810">Binary</h2>
+<div class="outline-text-2" id="text-org5217810">
+<p>
+Binary (or base 2) is the most common in digital logic because it&rsquo;s the easiest to represent with a the presence of power being a \(1\) and the absence being a \(0\). Because of how ubiquitous it is at lower levels it&rsquo;s important to know.
+</p>
+</div>
 <div id="outline-container-orgbc780f3" class="outline-3">
 <h3 id="orgbc780f3">Binary Arithmetic</h3>
 <div class="outline-text-3" id="text-orgbc780f3">
@@ -335,8 +339,8 @@ Arithmetic in digital systems is always done in binary for simplicity and effici
     <summary> Show Answer </summary><div class="answer">
 </p>
 \begin{align*}
-  & 14_{10} &= 1110_2\\
-+ & 8_{10}  &= 1000_2\\
+  & 14_{10} &= \overset{1}0 1110_2\\
++ & 8_{10}  &= 0 1000_2\\
   &        & = 10110
 \end{align*}
 <p>
@@ -387,12 +391,11 @@ Arithmetic in digital systems is always done in binary for simplicity and effici
 <details>
     <summary> Show Answer </summary><div class="answer">
 </p>
-\begin{align*}
-Borrows: & 0&1&1&1& & \\
-         & 1&1&1&0&1&1_2\\
-       - & 0&0&1&0&1&1_2\\
-       = & 1&0&1&1&1&0_2\\
-\end{align*}
+\begin{array}{B2}
+         & 1\overset{1} 1 \overset{1} 1 \overset{1} 0 11_2\\
+       - & 001011_2\\ \hline
+       = & 101110_2\\
+\end{array}
 <p>
 </div></details>
 </p>
@@ -460,14 +463,17 @@ We do binary multiplication by finding all our partial products and then adding 
 </p>
 
 <p>
-No solution yet, send one to <a href="mailto:daumeyer.11@osu.edu">daumeyer.11@osu.edu</a>
+No solution yet, send one to <a href="mailto:daumeyer.11@osu.edu">daumeyer.11@osu.edu</a>.
+</p>
+
+<p>
+Binary Division is hard and we will not be expected to do it.
 </div></details>
 </p>
 </div>
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-orgb275201" class="outline-3">
 <h3 id="orgb275201">Negatives In Binary</h3>
@@ -492,8 +498,8 @@ No solution yet, send one to <a href="mailto:daumeyer.11@osu.edu">daumeyer.11@os
 <tbody>
 <tr>
 <td class="org-left">Range for \(n\) bits</td>
-<td class="org-left">\(-(2^{n-1})\) to \(+2^{n-1} - 1)\)</td>
-<td class="org-left">\(-2^{n-1}\) to $+(2<sup>n-1</sup> - 1)</td>
+<td class="org-left">\(-(2^{n-1})\) to \(+ (2^{n-1} - 1)\)</td>
+<td class="org-left">\(-2^{n-1}\) to \(+(2^{n-1} - 1)\)</td>
 </tr>
 
 <tr>
@@ -509,15 +515,14 @@ No solution yet, send one to <a href="mailto:daumeyer.11@osu.edu">daumeyer.11@os
 <h4 id="org127347f">One&rsquo;s Complement / Sign and Magnitude</h4>
 <div class="outline-text-4" id="text-org127347f">
 <p>
-<b>One&rsquo;s Complement</b> works the way that we would treat negative <i>decimal</i> numbers. We simple reserve the bit in front to mean sign of the number.
+In <b>One&rsquo;s Complement</b>, a negative number is the inverse of a positive. This is hard to visualize but basically any number where the first (most significant) bit is \(0\) will be positive and a \(1\) if it&rsquo;s negative. However to get the value of a negative number, we must invert the bits.
 </p>
 <ul class="org-ul">
-<li>So if the first bit of a <b>One&rsquo;s Complement</b> number is 0, the number is positive. If it&rsquo;s a one then it&rsquo;s negative.</li>
+<li>The name <b>One&rsquo;s Complement</b> comes from the fact that if you add a positive number with its negative equivalent, the result is all \(1\)&rsquo;s. Which would be a \(-0\).</li>
 </ul>
-
 \begin{align*}
 01001 &= 9 \\
-11001 &= -9 \\
+10110 &= -9 \\
 \end{align*}
 
 <p>
@@ -526,7 +531,7 @@ However this limits the range of numbers that we can represent.
 </div>
 
 <div id="outline-container-org251a940" class="outline-5">
-<h5 id="org251a940">\(10101010101010100_2\) to base 10 with <b>One&rsquo;s Complement</b></h5>
+<h5 id="org251a940">\(10101010101010100_2\) to base 10 with <b>One&rsquo;s Complement</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></h5>
 <div class="outline-text-5" id="text-org251a940">
 <p>
 <details>
@@ -538,30 +543,42 @@ However this limits the range of numbers that we can represent.
 <ul class="org-ul">
 <li>Split up the number</li>
 </ul>
-\begin{align*}
+
+\begin{array}{B5}
 1 & 0101 & 0101 & 0101 & 0100
-\end{align*}
+\end{array}
+
 <ul class="org-ul">
-<li>The first bit is 1 so this is a <i>negative</i> number. Now we can drop it and figure out what the rest of the number is in base 10.</li>
+<li>The first bit is 1 so this is a <i>negative</i> number. Now we can drop it and then invert the rest of the bits.</li>
 </ul>
+
+\begin{array}{B4}
+1010 & 1010 & 1010 & 1011
+\end{array}
+
 \begin{align*}
-0101 0101 0101  0100 &= 0 * 2^{15} &= 0\\
-& + 1 * 2^{14} &= 16384\\
-& + 0 * 2^{13} &= 0\\
-& + 1 * 2^{12} &= 4096\\
-& + 0 * 2^{11} &= 0\\
-& + 1 * 2^{10} &= 1024\\
-& + 0 * 2^{9}  &= 0\\
-& + 1 * 2^8   &= 256\\
-& + 0 * 2^7   &= 0\\
-& + 1 * 2^6   &= 64\\
-& + 0 * 2^5   &= 0\\
-& + 1 * 2^4   &= 16\\
-& + 0 *2^3    &= 0\\
-& + 1*2^2     &= 4\\
-& + 0 * 2^1   &= 0\\
-& + 0 * 2^0   &= 0\\
+1010 \hspace{1em} 1010 \hspace{1em} 1010 \hspace{1em} 1011 &= 1 * 2^{15} &=& 32768\\
+& + 0 * 2^{14} &=& 0\\
+& + 1 * 2^{13} &=& 8192\\
+& + 0 * 2^{12} &=& 0\\
+& + 1 * 2^{11} &=& 2048\\
+& + 0 * 2^{10} &=& 0\\
+& + 1 * 2^{9}  &=& 512\\
+& + 0 * 2^8    &=& 0\\
+& + 1 * 2^7    &=& 128\\
+& + 0 * 2^6    &=& 0\\
+& + 1 * 2^5    &=& 32\\
+& + 0 * 2^4    &=& 0\\
+& + 1 *2^3     &=& 8\\
+& + 0*2^2      &=& 0\\
+& + 1 * 2^1    &=& 2\\
+& + 1 * 2^0    &=& 1\\ \hline
+&              &=& 43691
 \end{align*}
+
+<ul class="org-ul">
+<li>Now we take the total and because the sign bit was \(1\), we put a negative symbol in front. Getting \(-43691\).</li>
+</ul>
 <p>
 </div></details>
 </p>
@@ -576,14 +593,66 @@ However this limits the range of numbers that we can represent.
 <b>Two&rsquo;s Complement</b> is a little bit more complicated but gives us a larger range of numbers. Instead of the first (most significant) bit being a sign bit, it represents \(-2^N\).
 </p>
 
-<p>
-&amp; + Shorthand for a <b>Two&rsquo;s Complement</b> number is \(N^*\) .
-</p>
+<ul class="org-ul">
+<li>Shorthand for a <b>Two&rsquo;s Complement</b> number is \(N^*\) .</li>
+</ul>
 
 \begin{align*}
 01001 &= 9 \\
 11001 &= -7 \\
 \end{align*}
+</div>
+
+<div id="outline-container-orgad60145" class="outline-5">
+<h5 id="orgad60145">\(10101010101010100_2\) to base 10 with <b>Two&rsquo;s Complement</b>&#xa0;&#xa0;&#xa0;<span class="tag"><span class="example">example</span></span></h5>
+<div class="outline-text-5" id="text-orgad60145">
+<p>
+<details>
+    <summary> Show Answer </summary><div class="answer">
+</p>
+\begin{align*}
+10101010101010100
+\end{align*}
+<ul class="org-ul">
+<li>Split up the number</li>
+</ul>
+
+\begin{array}{B5}
+1 & 0101 & 0101 & 0101 & 0100
+\end{array}
+
+<ul class="org-ul">
+<li>The first bit is in the \(32768^{th}\)( \(2^15\) ) place so it represents \(-32768\). And then we add all subsequent bits.</li>
+</ul>
+
+\begin{align*}
+0101\hspace{1em} 0101\hspace{1em}  0101\hspace{1em}   0100 &= -1 * 2^{15} &=& -32768\\
+& + 1 * 2^{14} &=& 16384\\
+& + 0 * 2^{13} &=& 0\\
+& + 1 * 2^{12} &=& 4096\\
+& + 0 * 2^{11} &=& 0\\
+& + 1 * 2^{10} &=& 1024\\
+& + 0 * 2^{9}  &=& 0\\
+& + 1 * 2^8    &=& 256\\
+& + 0 * 2^7    &=& 0\\
+& + 1 * 2^6    &=& 64\\
+& + 0 * 2^5    &=& 0\\
+& + 1 * 2^4    &=& 16\\
+& + 0 *2^3     &=& 0\\
+& + 1*2^2      &=& 4\\
+& + 0 * 2^1    &=& 0\\
+& + 0 * 2^0    &=& 0\\ \hline
+&              &=& -10924
+\end{align*}
+
+<ul class="org-ul">
+<li>After that we get the total to be \(-10924_{10}\)</li>
+</ul>
+
+<p>
+</div></details>
+</p>
+</div>
 </div>
 </div>
 </div>
@@ -591,7 +660,7 @@ However this limits the range of numbers that we can represent.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-01-19 Thu 10:12</p>
+<p class="date">Created: 2023-01-24 Tue 10:33</p>
 </div>
 </body>
 </html>
