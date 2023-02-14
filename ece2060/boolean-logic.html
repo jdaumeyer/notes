@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-01-24 Tue 10:33 -->
+<!-- 2023-02-14 Tue 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Boolean Logic</title>
@@ -193,19 +193,528 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
+<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
 <h1 class="title">Boolean Logic</h1>
 <blockquote>
 <p>
-Did you know that George Boole (the created of boolean algebra) was married to the daughter of George Everest (Yes the dude that Mount Everest was named after).
+Did you know that George Boole (the created of boolean algebra) was married to the niece of George Everest (Yes the dude that Mount Everest was named after).
+</p>
+
+<p>
+Also he died of pneumonia after waking to a lecture in the rain and then lecturing in his wet clothes. His wife, who believed the cure for a disease came from its cause, covered him in wet blankets.
 </p>
 </blockquote>
+
+<div id="outline-container-orga688a57" class="outline-2">
+<h2 id="orga688a57">Logical Operations</h2>
+<div class="outline-text-2" id="text-orga688a57">
+</div>
+<div id="outline-container-orgf664cf9" class="outline-3">
+<h3 id="orgf664cf9">And (\(\cdot\))</h3>
+<div class="outline-text-3" id="text-orgf664cf9">
+\begin{circuitikz}[]
+\node (A) at (0,1) {$A$};
+\node (B) at (0,0) {$B$};
+\node[and gate US, anchor=out, draw](AND1) at (A + (1,1)) (B) {};
+
+\end{circuitikz}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(A\)</th>
+<th scope="col" class="org-right">\(B\)</th>
+<th scope="col" class="org-right">\(A \cdot B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org63cd751" class="outline-3">
+<h3 id="org63cd751">Or (\(+\))</h3>
+<div class="outline-text-3" id="text-org63cd751">
+\begin{circuitikz}[]
+ \draw () (-1,0) node[or port,
+ anchor=out](OR1){}
+\end{circuitikz}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(A\)</th>
+<th scope="col" class="org-right">\(B\)</th>
+<th scope="col" class="org-right">\(A + B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orgc9fbae0" class="outline-3">
+<h3 id="orgc9fbae0">Not (\(\neg\))</h3>
+<div class="outline-text-3" id="text-orgc9fbae0">
+<p>
+A <b>complement</b> is the opposite of a term, or that term with a not.
+</p>
+
+\begin{circuitikz}[]
+ \draw () (-1,0) node[not port,
+ anchor=out](NOT1){}
+\end{circuitikz}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(A\)</th>
+<th scope="col" class="org-right">\(\neg A\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-orgcdda6b3" class="outline-3">
+<h3 id="orgcdda6b3">Xor (\(\oplus\))</h3>
+<div class="outline-text-3" id="text-orgcdda6b3">
+\begin{circuitikz}[]
+ \draw ()(-1,0) node[xor port,
+ anchor=out](XOR1){}
+\end{circuitikz}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(A\)</th>
+<th scope="col" class="org-right">\(B\)</th>
+<th scope="col" class="org-right">\(A \oplus B\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org4033c0f" class="outline-3">
+<h3 id="org4033c0f">Nand (\(\overline{A \cdot B}\))</h3>
+<div class="outline-text-3" id="text-org4033c0f">
+\begin{circuitikz}[]
+ \draw ()(-1,0) node[nand port,
+ anchor=out](NAND1){}
+\end{circuitikz}
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">\(A\)</th>
+<th scope="col" class="org-right">\(B\)</th>
+<th scope="col" class="org-right">\(\overline{A \cdot B}\)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+<td class="org-right">1</td>
+</tr>
+
+<tr>
+<td class="org-right">1</td>
+<td class="org-right">1</td>
+<td class="org-right">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgc38141a" class="outline-2">
+<h2 id="orgc38141a">Laws of Boolean Algebra</h2>
+<div class="outline-text-2" id="text-orgc38141a">
+</div>
+<div id="outline-container-orgc86a79c" class="outline-3">
+<h3 id="orgc86a79c">Distributive</h3>
+<div class="outline-text-3" id="text-orgc86a79c">
+</div>
+<div id="outline-container-orgd694bea" class="outline-4">
+<h4 id="orgd694bea">Ordinary Distributive Law</h4>
+<div class="outline-text-4" id="text-orgd694bea">
+<p>
+\(X (Y + Z) = XY + XY\)
+This one is very similar to actual algebra.
+</p>
+</div>
+</div>
+<div id="outline-container-org9351832" class="outline-4">
+<h4 id="org9351832">Second Distributive Law</h4>
+<div class="outline-text-4" id="text-org9351832">
+<p>
+\(X + YZ = (X+Y)(X+Z)\)
+This one does not work in real algebra but it does with boolean algebra.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgde2e11f" class="outline-3">
+<h3 id="orgde2e11f">Duality</h3>
+<div class="outline-text-3" id="text-orgde2e11f">
+<p>
+Given a boolean expression, change all 1&rsquo;s to 0&rsquo;s and vice versa
+Change all Ands to Ors and vice versa.
+Keep all variables and their complements the same.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org122b4f7" class="outline-3">
+<h3 id="org122b4f7">DeMorgan&rsquo;s Laws</h3>
+<div class="outline-text-3" id="text-org122b4f7">
+<p>
+These laws were created by DeMorgan after Boole and deal with distributing <b>complements</b>. These laws follow the general pattern of:
+</p>
+<ol class="org-ol">
+<li>Calculate the duality expression</li>
+<li>Using the Dual, complement each literal</li>
+</ol>
+</div>
+
+<div id="outline-container-org69669a1" class="outline-4">
+<h4 id="org69669a1">First Form</h4>
+<div class="outline-text-4" id="text-org69669a1">
+<p>
+\(\overline{X + Y} = \overline{X}\cdot \overline{Y}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org288e4ea" class="outline-4">
+<h4 id="org288e4ea">Second Form</h4>
+<div class="outline-text-4" id="text-org288e4ea">
+<p>
+Kind of an inverse of the first.
+\(\overline{X \cdot Y} = \overline{X} + \overline{Y}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2f3dbf0" class="outline-4">
+<h4 id="org2f3dbf0">\(\overline{G} = A\overline{C} D+ \overline{B}C\) find \(G\)</h4>
+<div class="outline-text-4" id="text-org2f3dbf0">
+<p>
+<details>
+    <summary> Show Answer </summary><div class="answer">
+</p>
+\begin{align*}
+\overline{G} &= A\overline{C} D+ \overline{B}C \\
+\overline{\overline{G}} &= \overline{A\overline{C} D+ \overline{B}C} \\
+G &= \overline{(A\overline{C}D)}\overline{\overline{B}C} \\
+\end{align*}
+
+<p>
+From here we can simplify the expression further.
+</div></details>
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ab2917" class="outline-3">
+<h3 id="org4ab2917">Functional Completeness</h3>
+<div class="outline-text-3" id="text-org4ab2917">
+<p>
+We can represent any boolean expression we just need the <b>Not</b>, <b>And</b> and <b>Or</b> operations. However we can do the same the inverses <b>Not</b>, <b>Nand</b> and <b>Nor</b>.
+</p>
+<ul class="org-ul">
+<li>Furthermore with <i>DeMorgan&rsquo;s Laws</i> we can make an <b>Or</b> gate with just <b>Not</b> and <b>And</b>.</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org12e228d" class="outline-2">
+<h2 id="org12e228d">Switching Circuit Design</h2>
+<div class="outline-text-2" id="text-org12e228d">
+<p>
+We can do logic design from a few different starting points.
+</p>
+<ul class="org-ul">
+<li>Word Problems</li>
+<li>Truth tables</li>
+</ul>
+</div>
+<div id="outline-container-org05dd785" class="outline-3">
+<h3 id="org05dd785">Minterms</h3>
+<div class="outline-text-3" id="text-org05dd785">
+<p>
+A <b>minterm(\(m_n\))</b> of \(n\) variables is a product of \(n\) literals. That means that:
+</p>
+<ul class="org-ul">
+<li>Each variable appears once, either <b>complemented</b> or not.</li>
+<li>Both the <b>complement</b> and the true from cannot appear together.</li>
+</ul>
+</div>
+
+<div id="outline-container-orgaa2279e" class="outline-4">
+<h4 id="orgaa2279e">Summation notation can be used for a combination of Minterms</h4>
+<div class="outline-text-4" id="text-orgaa2279e">
+\begin{align*}
+f(A, B, C) &= \sum m(3, 4, 5, 6, 7)\\
+           &= m_3 + m_4 + m_5 + m_6 + m_7
+\end{align*}
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org18d3a00" class="outline-2">
+<h2 id="org18d3a00">Karnaugh Maps</h2>
+<div class="outline-text-2" id="text-org18d3a00">
+<p>
+<b>Karnaugh Maps</b> are used to look at <b>minterms</b> and get the <b>sum of products</b> without doing the boolean algebra.
+</p>
+<ul class="org-ul">
+<li>When we go from one cell to an adjacent one, we can only change <b>one</b> variable.</li>
+</ul>
+</div>
+
+<div id="outline-container-org3256a70" class="outline-3">
+<h3 id="org3256a70">4 Variable Karnaugh Map</h3>
+<div class="outline-text-3" id="text-org3256a70">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-right" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-right">CD \(\downarrow\)  AB \(\rightarrow\)</th>
+<th scope="col" class="org-left">00</th>
+<th scope="col" class="org-left">01</th>
+<th scope="col" class="org-left">11</th>
+<th scope="col" class="org-left">10</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-right">00</td>
+<td class="org-left">\(m_0\)</td>
+<td class="org-left">\(m_4\)</td>
+<td class="org-left">\(m_{12}\)</td>
+<td class="org-left">\(m_8\)</td>
+</tr>
+
+<tr>
+<td class="org-right">01</td>
+<td class="org-left">\(m_1\)</td>
+<td class="org-left">\(m_5\)</td>
+<td class="org-left">\(m_{13}\)</td>
+<td class="org-left">\(m_9\)</td>
+</tr>
+
+<tr>
+<td class="org-right">11</td>
+<td class="org-left">\(m_3\)</td>
+<td class="org-left">\(m_7\)</td>
+<td class="org-left">\(m_{15}\)</td>
+<td class="org-left">\(m_{11}\)</td>
+</tr>
+
+<tr>
+<td class="org-right">10</td>
+<td class="org-left">\(m_2\)</td>
+<td class="org-left">\(m_6\)</td>
+<td class="org-left">\(m_{14}\)</td>
+<td class="org-left">\(m_{10}\)</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-01-24 Tue 10:33</p>
+<p class="date">Created: 2023-02-14 Tue 18:21</p>
 </div>
 </body>
 </html>
