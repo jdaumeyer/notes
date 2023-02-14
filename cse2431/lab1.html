@@ -6,7 +6,7 @@
 <!-- 2023-02-14 Tue 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Processes</title>
+<title>Lab 1</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -193,154 +193,10 @@
     { background-color: #ffff00; color: #000000; font-weight: bold; }
   .org-svg { }
 </style>
-<link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Processes
-<br />
-<span class="subtitle">Chapter 3</span>
-</h1>
-<p>
-The key distinction between a <b>Process</b> and a <b>Program</b> is a <b>Process</b> is <i>active</i> whereas a <b>Program</b> is <i>passive</i>
-</p>
-<dl class="org-dl">
-<dt>Program</dt><dd><i>Passive</i>, just the program text</dd>
-<dt>Process</dt><dd><i>Active</i>, code in execution, stores more than just the code</dd>
-</dl>
-
-
-<p>
-Simply put:
-</p>
-<blockquote>
-<p>
-A <b>Process</b> is a program in <i>execution</i>
-</p>
-</blockquote>
-
-
-<div id="outline-container-orgeeb9d7e" class="outline-2">
-<h2 id="orgeeb9d7e">Process Control Block</h2>
-<div class="outline-text-2" id="text-orgeeb9d7e">
-<p>
-A <b>process</b> is more than <i>just</i> code. It has to store information about itself for the operating system to <b>schedule</b> and <b>context switch</b> appropriately. All of this is stored in a <b>Process Control Block (PCB)</b> which typically includes the following information:
-</p>
-<dl class="org-dl">
-<dt>Process State</dt><dd>What part of execution the process is in, can be anything from <i>New</i>, <i>Running</i>, <i>Waiting</i>, <i>Ready</i> and <i>Terminated</i>.</dd>
-<dt>Registers</dt><dd>Values of all the registers for the <b>Process</b>.</dd>
-<dt>Program Counter</dt><dd>A pointer to the next instruction.</dd>
-<dt>Scheduling Information</dt><dd><b>Process</b> priority and pointers to queues.</dd>
-<dt>Memory Management Information</dt><dd>References to page tables or some way to access the <b>process</b>&rsquo;s memory and limits to the amount of memory accessible. Each process will have its own Stack, Data, Heap and Text.</dd>
-<dt>Accounting Information</dt><dd>Misc Information about the process such as job numbers, cpu and real time used etc.</dd>
-<dt>Threads</dt><dd>On multi-threaded systems, there is information for each thread</dd>
-<dt>I/O Information</dt><dd>I/O devices and a list of open files</dd>
-</dl>
-
-<p>
-At its core, this is all a <b>Process</b> is; All the information needed for an <i>Operating System</i> to execute a program.
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgce8830a" class="outline-2">
-<h2 id="orgce8830a">Process Management</h2>
-<div class="outline-text-2" id="text-orgce8830a">
-</div>
-<div id="outline-container-orgf40fada" class="outline-3">
-<h3 id="orgf40fada">Scheduling</h3>
-<div class="outline-text-3" id="text-orgf40fada">
-<ul class="org-ul">
-<li>Covered in more detail in Chapter 5</li>
-</ul>
-<p>
-The objective of a CPU is to <i>always</i> have a process running. When a <b>process</b> is ready for execution it joins the <b>ready queue</b> to be executed by the cpu.
-</p>
-<ul class="org-ul">
-<li>There are other queues for processes that are not currently running on the CPU such as the <b>I/O Queue</b> for processes waiting on I/O events and the <b>Waiting Queue</b> for processes that are waiting on some other/child process to finish execution.</li>
-</ul>
-
-<p>
-A Process can do several different things that cause it to go to waiting:
-</p>
-<ul class="org-ul">
-<li>Request I/O</li>
-<li>Its time slice expired and it needs to be switched out.</li>
-<li>Create child process</li>
-<li>Wait for interrupt</li>
-
-<li id="Short Term Scheduler">Chooses a process that is ready to put on the CPU.</li>
-<li id="Medium Term Scheduler">Moves processes out of memory to be resumed later.</li>
-<li id="Long Term Scheduler">Controls the <b>Degree of Multiprogramming</b> by moving processes into memory</li>
-</ul>
-</div>
-<div id="outline-container-org284ee31" class="outline-4">
-<h4 id="org284ee31">Context Switch</h4>
-<div class="outline-text-4" id="text-org284ee31">
-<p>
-Taking one process out of the CPU to switch in another.
-</p>
-<ul class="org-ul">
-<li>This is done by saving the current process into a <b>PCB</b> then loading the <b>PCB</b> of the other process</li>
-</ul>
-</div>
-</div>
-</div>
-<div id="outline-container-orga5613df" class="outline-3">
-<h3 id="orga5613df">Creation</h3>
-<div class="outline-text-3" id="text-orga5613df">
-<p>
-When a process is created, it&rsquo;s assigned a <b>Process ID (PID)</b>. Processes are typically created by other parent processes.
-</p>
-<ul class="org-ul">
-<li>Parent and Children can execute concurrently or subsequently.</li>
-<li>Processes are created with <code>fork()</code></li>
-<li><code>exec()</code> is used to assign a new program to the child, otherwise it would be a copy of the parent.</li>
-<li><code>errorno</code> is a global c variable that contains info on error codes</li>
-</ul>
-</div>
-</div>
-<div id="outline-container-org6401c9c" class="outline-3">
-<h3 id="org6401c9c">Termination</h3>
-<div class="outline-text-3" id="text-org6401c9c">
-<p>
-Typically end with the <code>exit()</code> system call. A process can also terminate it&rsquo;s child process with <code>abort()</code>.
-</p>
-<dl class="org-dl">
-<dt>Zombie</dt><dd>No parent waiting for the process to terminate</dd>
-<dt>Orphan</dt><dd>Parent terminated before the process finished executing</dd>
-</dl>
-</div>
-</div>
-</div>
-
-
-<div id="outline-container-org8baacf7" class="outline-2">
-<h2 id="org8baacf7">Communication</h2>
-<div class="outline-text-2" id="text-org8baacf7">
-</div>
-<div id="outline-container-orgac11c60" class="outline-3">
-<h3 id="orgac11c60">Synchronization</h3>
-</div>
-<div id="outline-container-orgc0dc504" class="outline-3">
-<h3 id="orgc0dc504">Pipes</h3>
-<div class="outline-text-3" id="text-orgc0dc504">
-</div>
-<div id="outline-container-org836c170" class="outline-4">
-<h4 id="org836c170">Ordinary Pipes</h4>
-</div>
-<div id="outline-container-orgd6bd2b8" class="outline-4">
-<h4 id="orgd6bd2b8">Named Pipes</h4>
-</div>
-</div>
-<div id="outline-container-org2252c70" class="outline-3">
-<h3 id="org2252c70">Sockets</h3>
-</div>
-<div id="outline-container-org43c1835" class="outline-3">
-<h3 id="org43c1835">Remote Procedure Calls</h3>
-</div>
-</div>
+<h1 class="title">Lab 1</h1>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>

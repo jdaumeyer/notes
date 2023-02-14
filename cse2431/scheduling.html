@@ -6,7 +6,7 @@
 <!-- 2023-02-14 Tue 18:21 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Processes</title>
+<title>Scheduling</title>
 <meta name="author" content="Jackson Daumeyer" />
 <meta name="generator" content="Org Mode" />
 <style>
@@ -194,151 +194,113 @@
   .org-svg { }
 </style>
 <link rel="stylesheet" type="text/css" href="https://jdaumeyer.github.io/notes/css/style.css" />
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content" class="content">
-<h1 class="title">Processes
+<h1 class="title">Scheduling
 <br />
-<span class="subtitle">Chapter 3</span>
+<span class="subtitle">Chapter 6</span>
 </h1>
-<p>
-The key distinction between a <b>Process</b> and a <b>Program</b> is a <b>Process</b> is <i>active</i> whereas a <b>Program</b> is <i>passive</i>
-</p>
+<ul class="org-ul">
+<li>CPU Scheduling Algorithms are the most important part of this chapter!</li>
+<li><b>Preemptive</b> vs. <b>Non-preemptive</b></li>
+</ul>
+
+<div id="outline-container-org347659a" class="outline-2">
+<h2 id="org347659a">Scheduling Criteria</h2>
+<div class="outline-text-2" id="text-org347659a">
 <dl class="org-dl">
-<dt>Program</dt><dd><i>Passive</i>, just the program text</dd>
-<dt>Process</dt><dd><i>Active</i>, code in execution, stores more than just the code</dd>
+<dt>CPU Utilization ⬆</dt><dd>Keep the CPU busy</dd>
+<dt>Throughput ⬆</dt><dd># of processes that go through the CPU</dd>
+<dt>Turnaround Time</dt><dd>The time it takes to fully complete a process (from submission to termination)</dd>
+<dt>Waiting Time ⬇</dt><dd>The amount of time that a process spends in the ready queue</dd>
+<dt>Response Time ⬇</dt><dd>The time it takes for a process to start responding to the user</dd>
 </dl>
 
 
-<p>
-Simply put:
-</p>
-<blockquote>
-<p>
-A <b>Process</b> is a program in <i>execution</i>
-</p>
-</blockquote>
+<ul class="org-ul">
+<li>⬇ <i>want to minimize</i>, ⬆ <i>want to maximize</i></li>
+</ul>
+</div>
+</div>
 
-
-<div id="outline-container-orgeeb9d7e" class="outline-2">
-<h2 id="orgeeb9d7e">Process Control Block</h2>
-<div class="outline-text-2" id="text-orgeeb9d7e">
+<div id="outline-container-org140e072" class="outline-2">
+<h2 id="org140e072">Scheduling Algorithms</h2>
+<div class="outline-text-2" id="text-org140e072">
 <p>
-A <b>process</b> is more than <i>just</i> code. It has to store information about itself for the operating system to <b>schedule</b> and <b>context switch</b> appropriately. All of this is stored in a <b>Process Control Block (PCB)</b> which typically includes the following information:
+These will for sure be on the midterm
 </p>
+</div>
+<div id="outline-container-orgc56774d" class="outline-3">
+<h3 id="orgc56774d">Gantt Chart Problems</h3>
+</div>
+<div id="outline-container-org1263dc9" class="outline-3">
+<h3 id="org1263dc9">First Come First Serve</h3>
+</div>
+<div id="outline-container-org6716763" class="outline-3">
+<h3 id="org6716763">Shortest Job First</h3>
+<div class="outline-text-3" id="text-org6716763">
+<ul class="org-ul">
+<li><b>Preemptive</b> vs. <b>Non-preemptive</b>
 <dl class="org-dl">
-<dt>Process State</dt><dd>What part of execution the process is in, can be anything from <i>New</i>, <i>Running</i>, <i>Waiting</i>, <i>Ready</i> and <i>Terminated</i>.</dd>
-<dt>Registers</dt><dd>Values of all the registers for the <b>Process</b>.</dd>
-<dt>Program Counter</dt><dd>A pointer to the next instruction.</dd>
-<dt>Scheduling Information</dt><dd><b>Process</b> priority and pointers to queues.</dd>
-<dt>Memory Management Information</dt><dd>References to page tables or some way to access the <b>process</b>&rsquo;s memory and limits to the amount of memory accessible. Each process will have its own Stack, Data, Heap and Text.</dd>
-<dt>Accounting Information</dt><dd>Misc Information about the process such as job numbers, cpu and real time used etc.</dd>
-<dt>Threads</dt><dd>On multi-threaded systems, there is information for each thread</dd>
-<dt>I/O Information</dt><dd>I/O devices and a list of open files</dd>
-</dl>
-
-<p>
-At its core, this is all a <b>Process</b> is; All the information needed for an <i>Operating System</i> to execute a program.
-</p>
-</div>
-</div>
-
-
-<div id="outline-container-orgce8830a" class="outline-2">
-<h2 id="orgce8830a">Process Management</h2>
-<div class="outline-text-2" id="text-orgce8830a">
-</div>
-<div id="outline-container-orgf40fada" class="outline-3">
-<h3 id="orgf40fada">Scheduling</h3>
-<div class="outline-text-3" id="text-orgf40fada">
-<ul class="org-ul">
-<li>Covered in more detail in Chapter 5</li>
-</ul>
-<p>
-The objective of a CPU is to <i>always</i> have a process running. When a <b>process</b> is ready for execution it joins the <b>ready queue</b> to be executed by the cpu.
-</p>
-<ul class="org-ul">
-<li>There are other queues for processes that are not currently running on the CPU such as the <b>I/O Queue</b> for processes waiting on I/O events and the <b>Waiting Queue</b> for processes that are waiting on some other/child process to finish execution.</li>
-</ul>
-
-<p>
-A Process can do several different things that cause it to go to waiting:
-</p>
-<ul class="org-ul">
-<li>Request I/O</li>
-<li>Its time slice expired and it needs to be switched out.</li>
-<li>Create child process</li>
-<li>Wait for interrupt</li>
-
-<li id="Short Term Scheduler">Chooses a process that is ready to put on the CPU.</li>
-<li id="Medium Term Scheduler">Moves processes out of memory to be resumed later.</li>
-<li id="Long Term Scheduler">Controls the <b>Degree of Multiprogramming</b> by moving processes into memory</li>
-</ul>
-</div>
-<div id="outline-container-org284ee31" class="outline-4">
-<h4 id="org284ee31">Context Switch</h4>
-<div class="outline-text-4" id="text-org284ee31">
-<p>
-Taking one process out of the CPU to switch in another.
-</p>
-<ul class="org-ul">
-<li>This is done by saving the current process into a <b>PCB</b> then loading the <b>PCB</b> of the other process</li>
+<dt>Preemptive</dt><dd>Running shorter run time processes as they come in</dd>
+<dt>Non-preemptive</dt><dd>Finish the current process before looking for the next</dd>
+</dl></li>
 </ul>
 </div>
 </div>
-</div>
-<div id="outline-container-orga5613df" class="outline-3">
-<h3 id="orga5613df">Creation</h3>
-<div class="outline-text-3" id="text-orga5613df">
+<div id="outline-container-orgd766c78" class="outline-3">
+<h3 id="orgd766c78">Round Robin (RR)</h3>
+<div class="outline-text-3" id="text-orgd766c78">
 <p>
-When a process is created, it&rsquo;s assigned a <b>Process ID (PID)</b>. Processes are typically created by other parent processes.
+Yum!
+</p>
+
+<p>
+Processes are cycled onto the CPU to run for time \(q\) before being moved to the back of the ready queue.
 </p>
 <ul class="org-ul">
-<li>Parent and Children can execute concurrently or subsequently.</li>
-<li>Processes are created with <code>fork()</code></li>
-<li><code>exec()</code> is used to assign a new program to the child, otherwise it would be a copy of the parent.</li>
-<li><code>errorno</code> is a global c variable that contains info on error codes</li>
+<li>We end up doing more time context switching rather than actually executing processes making this <i>inefficient</i></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org6401c9c" class="outline-3">
-<h3 id="org6401c9c">Termination</h3>
-<div class="outline-text-3" id="text-org6401c9c">
+
+<div id="outline-container-org8be4309" class="outline-3">
+<h3 id="org8be4309">Priority Scheduling</h3>
+<div class="outline-text-3" id="text-org8be4309">
 <p>
-Typically end with the <code>exit()</code> system call. A process can also terminate it&rsquo;s child process with <code>abort()</code>.
+Processes are ranked on their priority (lower numbers typically mean high priority). The CPU will then execute the process with the highest priority.
 </p>
-<dl class="org-dl">
-<dt>Zombie</dt><dd>No parent waiting for the process to terminate</dd>
-<dt>Orphan</dt><dd>Parent terminated before the process finished executing</dd>
-</dl>
-</div>
-</div>
-</div>
+<ul class="org-ul">
+<li>Can lead to <b>Starvation</b> where a process never runs because there is always a new higher priority process
+<ul class="org-ul">
+<li>Fixed with <b>Aging</b> where priority slowly increases while to process is not getting execution time</li>
+</ul></li>
 
-
-<div id="outline-container-org8baacf7" class="outline-2">
-<h2 id="org8baacf7">Communication</h2>
-<div class="outline-text-2" id="text-org8baacf7">
+<li id="NUMA">Non-Uniform Memory Access</li>
+</ul>
 </div>
-<div id="outline-container-orgac11c60" class="outline-3">
-<h3 id="orgac11c60">Synchronization</h3>
-</div>
-<div id="outline-container-orgc0dc504" class="outline-3">
-<h3 id="orgc0dc504">Pipes</h3>
-<div class="outline-text-3" id="text-orgc0dc504">
-</div>
-<div id="outline-container-org836c170" class="outline-4">
-<h4 id="org836c170">Ordinary Pipes</h4>
-</div>
-<div id="outline-container-orgd6bd2b8" class="outline-4">
-<h4 id="orgd6bd2b8">Named Pipes</h4>
-</div>
-</div>
-<div id="outline-container-org2252c70" class="outline-3">
-<h3 id="org2252c70">Sockets</h3>
-</div>
-<div id="outline-container-org43c1835" class="outline-3">
-<h3 id="org43c1835">Remote Procedure Calls</h3>
 </div>
 </div>
 </div>
