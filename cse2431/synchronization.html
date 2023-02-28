@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-14 Tue 18:21 -->
+<!-- 2023-02-28 Tue 16:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Synchronization</title>
@@ -213,6 +213,7 @@
 We can&rsquo;t predict when threads will run, they compete for resources
 </p>
 </div>
+
 <div id="outline-container-orgec2d5e4" class="outline-3">
 <h3 id="orgec2d5e4">Critical Section Problem</h3>
 <div class="outline-text-3" id="text-orgec2d5e4">
@@ -234,18 +235,37 @@ A solution must include:
 <h4 id="orgd732d79">Peterson&rsquo;s Solution</h4>
 <div class="outline-text-4" id="text-orgd732d79">
 <p>
-Not the most modern solution but still a great tool for explaining.
+Wont work on modern systems because of Out of Order Execution, but still a great tool for explaining.
 </p>
 <ul class="org-ul">
-<li>Assume only 2 processes</li>
+<li>Assume only 2 processes (Process <code>i</code> and process <code>j</code>)</li>
 <li>Assume <code>load</code> and <code>store</code> instructions cannot be interupted</li>
 <li>Assume two shared variables <code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">turn</span>;</code> (which indicates who is allowed to enter the critical section) and <code class="src src-C"><span style="color: #81a2be;">boolean</span> <span style="color: #e4e4e5;">flag</span><span style="color: #81a2be;">[</span><span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #81a2be;">]</span>;</code> (indicates which process is ready to enter the critical section)</li>
 </ul>
-</div>
-</div>
-</div>
-</div>
 
+<div class="org-src-container">
+<label class="org-src-name"><span class="listing-number">Listing 1: </span>Code for Process <code>i</code></label><pre class="src src-C"><span style="color: #81a2be;">while</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">true</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    flag<span style="color: #85678f;">[</span>i<span style="color: #85678f;">]</span> = <span style="color: #81a2be;">true</span>; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">This process is ready</span><span style="color: #655c5a;"> */</span>
+    turn = j; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Let the other process go first</span><span style="color: #655c5a;"> */</span>
+    <span style="color: #81a2be;">while</span> <span style="color: #85678f;">(</span>flag<span style="color: #60b48a;">[</span>j<span style="color: #60b48a;">]</span> &amp;&amp; turn == j<span style="color: #85678f;">)</span>; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Busy Loop</span>
+<span style="color: #655c5a;">                                     basically do nothing is the other process</span>
+<span style="color: #655c5a;">                                     is ready and it's currently their turn</span><span style="color: #655c5a;"> */</span>
+
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">If we get here, it's our turn and we are ready</span><span style="color: #655c5a;"> */</span>
+
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Critical Section</span><span style="color: #655c5a;"> */</span>
+
+    flag<span style="color: #85678f;">[</span>i<span style="color: #85678f;">]</span> = <span style="color: #81a2be;">false</span>;
+
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Remainder Section</span><span style="color: #655c5a;"> */</span>
+
+<span style="color: #81a2be;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
 <div id="outline-container-org2d10fe9" class="outline-2">
@@ -260,20 +280,37 @@ Not the most modern solution but still a great tool for explaining.
 </div>
 <div id="outline-container-org675550e" class="outline-3">
 <h3 id="org675550e">Monitors</h3>
+<div class="outline-text-3" id="text-org675550e">
+<p>
+An abstract data type with shared variables.
+</p>
+</div>
 </div>
 </div>
 <div id="outline-container-org73d3f37" class="outline-2">
 <h2 id="org73d3f37">Metrics</h2>
-<div class="outline-text-2" id="text-org73d3f37">
-<pre class="example">
+</div>
+<div id="outline-container-org71d3c26" class="outline-2">
+<h2 id="org71d3c26">Problems</h2>
+<div class="outline-text-2" id="text-org71d3c26">
+</div>
+<div id="outline-container-orgc90bf9b" class="outline-3">
+<h3 id="orgc90bf9b">Dining-Philosophers</h3>
+<div class="outline-text-3" id="text-orgc90bf9b">
+<p>
+Any number of philosophers, in our case 5, are sitting around a table and can do one of two things: eat or think.
+</p>
 
-</pre>
+<p>
+The catch is there are only 5 single chopsticks for all 5 philosophers.
+</p>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-02-14 Tue 18:21</p>
+<p class="date">Created: 2023-02-28 Tue 16:56</p>
 </div>
 </body>
 </html>
