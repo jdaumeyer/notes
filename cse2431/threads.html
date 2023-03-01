@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-14 Tue 18:21 -->
+<!-- 2023-03-01 Wed 10:52 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Threads</title>
@@ -222,15 +222,18 @@
 <br />
 <span class="subtitle">Chapter 4</span>
 </h1>
-<ul class="org-ul">
-<li>We can Parallelize both Processes and Data</li>
-</ul>
+<p>
+We can Parallelize both Processes and Data
+</p>
 
 <div id="outline-container-orgf5f8f2f" class="outline-2">
 <h2 id="orgf5f8f2f">Threads vs Processes</h2>
 <div class="outline-text-2" id="text-orgf5f8f2f">
+<p>
+Processes are resource intensive being a copy of the original program, so why not try Process Lite with the same big flavor!
+</p>
 <ul class="org-ul">
-<li>Processes are resource intensive being a copy of the original program, so why not try Process Lite with the same big flavor!</li>
+<li>We avoid the overhead of creating a <b>process</b> by using <b>threads</b> instead</li>
 </ul>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -282,12 +285,28 @@
 </tr>
 </tbody>
 </table>
+<ul class="org-ul">
+<li>Threads go away when the parent is killed, processes are orphaned</li>
+</ul>
 </div>
-</div>
+<div id="outline-container-org628f1ae" class="outline-3">
+<h3 id="org628f1ae">Multicore Systems</h3>
+<div class="outline-text-3" id="text-org628f1ae">
+<p>
+On systems that are <b>multicore</b>, meaning we have <i>cores</i> that look like several separate CPUs <b>threads</b> can run in parallel. So instead of one process running on one core, the threads of a process can all run in parallel on their own cores.
+</p>
 
-<div id="outline-container-orgad48b91" class="outline-2">
-<h2 id="orgad48b91">Amdahl&rsquo;s Law</h2>
-<div class="outline-text-2" id="text-orgad48b91">
+<p>
+Note there is a difference between <i>parallelism</i> and <i>concurrency</i> that we have to keep in mind:
+</p>
+<dl class="org-dl">
+<dt>Parallelism</dt><dd>Means that a system can perform more than one task at a time</dd>
+<dt>Concurrency</dt><dd>Only <i>appears</i> to be running multiple tasks by switching them out and continuously making progress</dd>
+</dl>
+</div>
+<div id="outline-container-orgad48b91" class="outline-4">
+<h4 id="orgad48b91">Amdahl&rsquo;s Law</h4>
+<div class="outline-text-4" id="text-orgad48b91">
 <p>
 <b>Amdahl&rsquo;s Law</b> shows us that the serial portion of a process has more of an effect as we add more cores. Because as we add cores the time of the parallel sections decreases, and more of our total runtime is taken up by serial sections.
 \(speedup \le \frac{1}{S + \frac{(1 -S)}{N}}\)
@@ -302,38 +321,170 @@ So as \(N \rightarrow \infty\) the speedup approaches \(\frac{1}{S}\).
 </div>
 </div>
 
+<div id="outline-container-org10adc79" class="outline-4">
+<h4 id="org10adc79">Types of Parallelism</h4>
+<div class="outline-text-4" id="text-org10adc79">
+<dl class="org-dl">
+<dt>Data Parallelism</dt><dd>The same data is distributed across multiple cores</dd>
+<dt>Task Parallelism</dt><dd>Tasks/Threads are distributed across multiple cores</dd>
+</dl>
+</div>
+</div>
+</div>
+</div>
+
 <div id="outline-container-org5180fcd" class="outline-2">
 <h2 id="org5180fcd">Threads</h2>
 <div class="outline-text-2" id="text-org5180fcd">
-<ul class="org-ul">
-<li>Threads go away when the parent is killed, processes are orphaned</li>
-</ul>
-</div>
-<div id="outline-container-org6499dd6" class="outline-3">
-<h3 id="org6499dd6">User Threads</h3>
-<div class="outline-text-3" id="text-org6499dd6">
 <p>
-User-level threads are things that exist in the user space in a <i>many-to-one</i> map to kernel threads.
+There are two types of threads that exist in our systems <b>Kernel Threads</b> and <b>User Threads</b>
+</p>
+<dl class="org-dl">
+<dt>User Threads</dt><dd>User-level threads are things that exist in the user space and are managed without kernel support.</dd>
+<dt>Kernel Threads</dt><dd>Threads supported by the kernel and managed directly by the Operating System.</dd>
+</dl>
+</div>
+
+<div id="outline-container-org8b57d54" class="outline-3">
+<h3 id="org8b57d54">Multithreading Models</h3>
+<div class="outline-text-3" id="text-org8b57d54">
+<p>
+Each <b>user thread</b> has to be mapped to a corresponding <b>kernel thread</b> in some fashion
+</p>
+</div>
+<div id="outline-container-org22209cc" class="outline-4">
+<h4 id="org22209cc">Many-to-One</h4>
+<div class="outline-text-4" id="text-org22209cc">
+<p>
+Maps multiple user threads to a single kernel thread.
 </p>
 <ul class="org-ul">
-<li>Looks multi-threaded but isn&rsquo;t actually</li>
-<li><i>One-to-one</i> mapping means every user thread has a kernel thread</li>
+<li>Today it&rsquo;s not very common because it doesn&rsquo;t take full advantage of multiple processing cores</li>
+<li>If a <b>user thread</b> makes a blocking call, none of the other threads mapped to the same <b>kernel thread</b> can progress</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org5c7fb88" class="outline-3">
-<h3 id="org5c7fb88">Kernel Threads</h3>
-<div class="outline-text-3" id="text-org5c7fb88">
+<div id="outline-container-org0fcd920" class="outline-4">
+<h4 id="org0fcd920">One-to-One</h4>
+<div class="outline-text-4" id="text-org0fcd920">
 <p>
-Threads supported by the kernel
+Each user thread is supported by its own dedicated kernel thread.
 </p>
+<ul class="org-ul">
+<li>Overhead caused by having to essentially create two threads (a <i>user</i> and a <i>kernel</i>) every time</li>
+<li>High coherency and parallelism</li>
+<li>There has to be some limit to the number of kernel threads allowed to be created</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga4e8eac" class="outline-4">
+<h4 id="orga4e8eac">Many-to-Many</h4>
+<div class="outline-text-4" id="text-orga4e8eac">
+<p>
+Many <b>user threads</b> are mapped to many <b>kernel threads</b>
+</p>
+<ul class="org-ul">
+<li>Should be the ideal case, not compromising in any way, but it is rarely seen on real systems</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="outline-container-orgfed9cac" class="outline-3">
+<h3 id="orgfed9cac">Thread Libraries</h3>
+<div class="outline-text-3" id="text-orgfed9cac">
+<p>
+My notes are a little bare here since we don&rsquo;t need to know the intricacies of specific libraries/implementations
+</p>
+</div>
+<div id="outline-container-orgec46280" class="outline-4">
+<h4 id="orgec46280">Pthreads</h4>
+<div class="outline-text-4" id="text-orgec46280">
+<p>
+This is the <i>POSIX Specification</i> for how threads should be created.
+</p>
+</div>
+</div>
+<div id="outline-container-org811be85" class="outline-4">
+<h4 id="org811be85">Windows</h4>
+</div>
+<div id="outline-container-org7ee25d5" class="outline-4">
+<h4 id="org7ee25d5">Java</h4>
+</div>
+<div id="outline-container-orgd7e6a73" class="outline-4">
+<h4 id="orgd7e6a73">Implicit Threading</h4>
+<div class="outline-text-4" id="text-orgd7e6a73">
+<p>
+A recent development in compilers and libraries put the management of threads in their hands. This allows a programmer to code normally, not worrying about threads, but threads will be created for them by the compiler. This is referred to as <b>Implicit Threading</b> since it happens without the programmer expressly creating threads.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbadd807" class="outline-3">
+<h3 id="orgbadd807">Thread Pools</h3>
+<div class="outline-text-3" id="text-orgbadd807">
+<p>
+Instead of creating a thread every time we need one, an amount of threads are created on startup and wait for work to be assigned to them
+</p>
+<ul class="org-ul">
+<li>Modifying an existing thread is faster than creating one</li>
+<li>Limits the number of threads that can exist at any given point</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orga8f9697" class="outline-3">
+<h3 id="orga8f9697">Issues</h3>
+<div class="outline-text-3" id="text-orga8f9697">
+</div>
+<div id="outline-container-org8c1fe30" class="outline-4">
+<h4 id="org8c1fe30">Process Creation Inside a Thread</h4>
+<div class="outline-text-4" id="text-org8c1fe30">
+<p>
+If a thread calls <code>fork()</code>, does the new process have a duplicate of all the threads or none?
+</p>
+<ul class="org-ul">
+<li>Some systems provide two functions for process creation, one for each case</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org3fcaa11" class="outline-4">
+<h4 id="org3fcaa11">Signal Delivering</h4>
+<div class="outline-text-4" id="text-org3fcaa11">
+<p>
+A <b>signal</b> is used to notify a process of some event. Once the event occurs, a signal is created, delivered to the process and then handled by the process. But what happens when a process has multiple threads, where should the <b>signal</b> be <i>delivered</i>?
+</p>
+<ul class="org-ul">
+<li>To the thread that the signal applies too</li>
+<li>Every thread in the process</li>
+<li>Certain threads in the process</li>
+<li>One thread to receive all signals</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4908ff3" class="outline-4">
+<h4 id="org4908ff3">Thread Cancellation</h4>
+<div class="outline-text-4" id="text-org4908ff3">
+<p>
+Killing a <i>thread</i> before it has completed is <b>thread cancellation</b>, it is handled in two different ways:
+</p>
+<dl class="org-dl">
+<dt>Asynchronous Cancellation</dt><dd>A thread kills the target thread immediately</dd>
+<dt>Deferred Cancellation</dt><dd>The target thread periodically checks if it needs to be terminated and then handles it itself</dd>
+</dl>
+
+<p>
+The issue with <b>thread cancellation</b> happens specifically with <b>asynchronous cancellation</b>: if a thread using a system resource is killed, the system resource may not be freed.
+</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-02-14 Tue 18:21</p>
+<p class="date">Created: 2023-03-01 Wed 10:52</p>
 </div>
 </body>
 </html>
