@@ -20,7 +20,7 @@ main {
 
 header {
     margin: 1em;
-    padding: 1em;
+    padding: 1em 0em;
     grid-area: header;
     flex-basis: 100%;
     text-align: left;

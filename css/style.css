@@ -182,6 +182,7 @@ details > .answer {
     padding: 1em;
     margin-right: 2em;
     overflow: scroll;
+    height: 80vh;
 }
 
 #table-of-contents > h2 {
