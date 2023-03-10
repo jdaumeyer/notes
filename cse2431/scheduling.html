@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-02-14 Tue 18:21 -->
+<!-- 2023-03-07 Tue 12:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Scheduling</title>
@@ -239,9 +239,9 @@
 </dl>
 
 
-<ul class="org-ul">
-<li>⬇ <i>want to minimize</i>, ⬆ <i>want to maximize</i></li>
-</ul>
+<p>
+⬇ want to <i>minimize</i>, ⬆ want to <i>maximize</i>
+</p>
 </div>
 </div>
 
@@ -249,32 +249,79 @@
 <h2 id="org140e072">Scheduling Algorithms</h2>
 <div class="outline-text-2" id="text-org140e072">
 <p>
-These will for sure be on the midterm
+There are many different algorithms to determine which process should be running. Each of them have their own benefits and drawbacks.
 </p>
-</div>
-<div id="outline-container-orgc56774d" class="outline-3">
-<h3 id="orgc56774d">Gantt Chart Problems</h3>
 </div>
 <div id="outline-container-org1263dc9" class="outline-3">
 <h3 id="org1263dc9">First Come First Serve</h3>
+<div class="outline-text-3" id="text-org1263dc9">
+<p>
+The first process to arrive is the first process to run.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-right" />
+
+<col  class="org-right" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Process</th>
+<th scope="col" class="org-right">Burst Time</th>
+<th scope="col" class="org-right">Arrival Time</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">\(P_1\)</td>
+<td class="org-right">5</td>
+<td class="org-right">0</td>
+</tr>
+
+<tr>
+<td class="org-left">\(P_2\)</td>
+<td class="org-right">17</td>
+<td class="org-right">2</td>
+</tr>
+
+<tr>
+<td class="org-left">\(p_3\)</td>
+<td class="org-right">12</td>
+<td class="org-right">12</td>
+</tr>
+
+<tr>
+<td class="org-left">\(P_4\)</td>
+<td class="org-right">4</td>
+<td class="org-right">15</td>
+</tr>
+</tbody>
+</table>
 </div>
+</div>
+
 <div id="outline-container-org6716763" class="outline-3">
 <h3 id="org6716763">Shortest Job First</h3>
 <div class="outline-text-3" id="text-org6716763">
-<ul class="org-ul">
-<li><b>Preemptive</b> vs. <b>Non-preemptive</b>
+<p>
+The job with the shortest remaining burst time is run. This can be <b>preemptive</b> or <b>non-preemptive</b>
+</p>
 <dl class="org-dl">
 <dt>Preemptive</dt><dd>Running shorter run time processes as they come in</dd>
 <dt>Non-preemptive</dt><dd>Finish the current process before looking for the next</dd>
-</dl></li>
-</ul>
+</dl>
 </div>
 </div>
 <div id="outline-container-orgd766c78" class="outline-3">
 <h3 id="orgd766c78">Round Robin (RR)</h3>
 <div class="outline-text-3" id="text-orgd766c78">
 <p>
-Yum!
+<i>Yum!</i> (I&rsquo;m sorry)
 </p>
 
 <p>
@@ -306,7 +353,7 @@ Processes are ranked on their priority (lower numbers typically mean high priori
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-02-14 Tue 18:21</p>
+<p class="date">Created: 2023-03-07 Tue 12:25</p>
 </div>
 </body>
 </html>

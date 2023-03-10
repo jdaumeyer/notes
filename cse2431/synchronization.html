@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2023-03-01 Wed 10:52 -->
+<!-- 2023-03-07 Tue 12:25 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Synchronization</title>
@@ -201,10 +201,9 @@
 <br />
 <span class="subtitle">Chapter 5</span>
 </h1>
-<ul class="org-ul">
-<li>This is stuff that are used in the real world outside of operating systems</li>
-<li>Have to wait on threads to end</li>
-</ul>
+<p>
+This is stuff that are used in the real world outside of operating systems
+</p>
 
 <div id="outline-container-orgd5f0de2" class="outline-2">
 <h2 id="orgd5f0de2">Synchronization</h2>
@@ -217,6 +216,40 @@ We can&rsquo;t predict when threads will run, they compete for resources
 <div id="outline-container-orgec2d5e4" class="outline-3">
 <h3 id="orgec2d5e4">Critical Section Problem</h3>
 <div class="outline-text-3" id="text-orgec2d5e4">
+<p>
+A <b>Critical section</b> is book-ended by both an <b>entry section</b> and an <b>exit section</b>.
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Entry Section</td>
+<td class="org-left">Manages requests to enter the critical section</td>
+</tr>
+
+<tr>
+<td class="org-left">Critical Section</td>
+<td class="org-left">A segment of code where processes can effect common variables</td>
+</tr>
+
+<tr>
+<td class="org-left">Exit Section</td>
+<td class="org-left">Signals that the critical section is free</td>
+</tr>
+
+<tr>
+<td class="org-left">Remainder Section</td>
+<td class="org-left">The rest of the code</td>
+</tr>
+</tbody>
+</table>
+
 <p>
 All process have some <i>critical section</i> or a shared resource. When one process is accessing a <i>critical section</i> no other processes should be allowed access at the same time. The problem is to design a protocol to ensure this.
 </p>
@@ -239,12 +272,13 @@ Wont work on modern systems because of Out of Order Execution, but still a great
 </p>
 <ul class="org-ul">
 <li>Assume only 2 processes (Process <code>i</code> and process <code>j</code>)</li>
-<li>Assume <code>load</code> and <code>store</code> instructions cannot be interupted</li>
+<li>Assume <code>load</code> and <code>store</code> instructions cannot be interrupted</li>
 <li>Assume two shared variables <code class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">turn</span>;</code> (which indicates who is allowed to enter the critical section) and <code class="src src-C"><span style="color: #81a2be;">boolean</span> <span style="color: #e4e4e5;">flag</span><span style="color: #81a2be;">[</span><span style="color: #d0b75a; font-weight: bold;">2</span><span style="color: #81a2be;">]</span>;</code> (indicates which process is ready to enter the critical section)</li>
 </ul>
 
 <div class="org-src-container">
 <label class="org-src-name"><span class="listing-number">Listing 1: </span>Code for Process <code>i</code></label><pre class="src src-C"><span style="color: #85678f;">while</span> <span style="color: #81a2be;">(</span><span style="color: #81a2be;">true</span><span style="color: #81a2be;">)</span> <span style="color: #81a2be;">{</span>
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">=== Entry Section ===</span><span style="color: #655c5a;"> */</span>
     flag<span style="color: #85678f;">[</span>i<span style="color: #85678f;">]</span> = <span style="color: #81a2be;">true</span>; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">This process is ready</span><span style="color: #655c5a;"> */</span>
     turn = j; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Let the other process go first</span><span style="color: #655c5a;"> */</span>
     <span style="color: #85678f;">while</span> <span style="color: #85678f;">(</span>flag<span style="color: #60b48a;">[</span>j<span style="color: #60b48a;">]</span> &amp;&amp; turn == j<span style="color: #85678f;">)</span>; <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Busy Loop</span>
@@ -252,12 +286,12 @@ Wont work on modern systems because of Out of Order Execution, but still a great
 <span style="color: #655c5a;">                                     is ready and it's currently their turn</span><span style="color: #655c5a;"> */</span>
 
     <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">If we get here, it's our turn and we are ready</span><span style="color: #655c5a;"> */</span>
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">=== Critical Section ===</span><span style="color: #655c5a;"> */</span>
 
-    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Critical Section</span><span style="color: #655c5a;"> */</span>
-
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">=== Exit Section ===</span><span style="color: #655c5a;"> */</span>
     flag<span style="color: #85678f;">[</span>i<span style="color: #85678f;">]</span> = <span style="color: #81a2be;">false</span>;
 
-    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">Remainder Section</span><span style="color: #655c5a;"> */</span>
+    <span style="color: #655c5a;">/* </span><span style="color: #655c5a;">=== Remainder Section ===</span><span style="color: #655c5a;"> */</span>
 
 <span style="color: #81a2be;">}</span>
 </pre>
@@ -267,17 +301,63 @@ Wont work on modern systems because of Out of Order Execution, but still a great
 </div>
 </div>
 
-
 <div id="outline-container-org2d10fe9" class="outline-2">
 <h2 id="org2d10fe9">Tools</h2>
 <div class="outline-text-2" id="text-org2d10fe9">
 </div>
+<div id="outline-container-org899cbf8" class="outline-3">
+<h3 id="org899cbf8">Atomics</h3>
+<div class="outline-text-3" id="text-org899cbf8">
+<p>
+Many computer systems have <b>atomic</b> instructions, meaning that they are uninterruptible until they finish execution. These can provide a solution to the <i>critical section problem</i>, using them to create <b>locks</b> which allow the other tools to work.
+</p>
+<dl class="org-dl">
+<dt><code>test_and_set(boolean *target)</code></dt><dd>return the value of <code>target</code> and then update it to <code>true</code>.</dd>
+<dt><code>compare_and_swap(int *value, int expected, int new_value)</code></dt><dd>if <code>value</code> is equal to <code>expected</code> then <code>value</code> will be set to <code>new_value</code>. The original <code>value</code> is always returned.</dd>
+</dl>
+</div>
+</div>
 <div id="outline-container-orgb5fe23b" class="outline-3">
 <h3 id="orgb5fe23b">Mutex Locks</h3>
+<div class="outline-text-3" id="text-orgb5fe23b">
+<p>
+<b>Mutex Locks</b> (short for <i>Mut</i> ual <i>Ex</i> clusion Locks) involve passing around a lock that allows access into the critical section.
+</p>
+<dl class="org-dl">
+<dt>Acquire Lock</dt><dd>Wait until the lock is available</dd>
+<dt>Release Lock</dt><dd>Set the lock to available</dd>
+</dl>
+</div>
 </div>
 <div id="outline-container-org9c8b8b5" class="outline-3">
 <h3 id="org9c8b8b5">Semaphores</h3>
+<div class="outline-text-3" id="text-org9c8b8b5">
+<p>
+A <b>semaphore</b> is an integer that is only accessible from the <b>atomic</b> operations <code>wait()</code> and <code>signal()</code>
+</p>
+<ul class="org-ul">
+<li><code>wait()</code> and <code>signal()</code> we both called <code>P()</code> and <code>V()</code> respectively from the Dutch words <i>proberen</i> (&ldquo;to test&rdquo;) and <i>verhogen</i> (&ldquo;to increment&rdquo;)</li>
+<li>When the value of the <b>semaphore</b> is less than or equal to 0, all resources are being used. When <code>signal()</code> is called, it increments the value of the <b>semaphore</b> thus freeing a resource.</li>
+</ul>
 </div>
+<div id="outline-container-orgf23fcbe" class="outline-4">
+<h4 id="orgf23fcbe">Binary Semaphore</h4>
+<div class="outline-text-4" id="text-orgf23fcbe">
+<p>
+A <b>Binary Semaphore</b> is essentially a <b>mutex lock</b> since it only allows for the values 0 and 1.
+</p>
+</div>
+</div>
+<div id="outline-container-orgbad83f1" class="outline-4">
+<h4 id="orgbad83f1">Counting Semaphore</h4>
+<div class="outline-text-4" id="text-orgbad83f1">
+<p>
+A <b>counting semaphore</b> is useful for a resource that will be accessed by a finite number of instances. The value of the semaphore will be set to the number of resources available.
+</p>
+</div>
+</div>
+</div>
+
 <div id="outline-container-org675550e" class="outline-3">
 <h3 id="org675550e">Monitors</h3>
 <div class="outline-text-3" id="text-org675550e">
@@ -294,6 +374,56 @@ An abstract data type with shared variables.
 <h2 id="org71d3c26">Problems</h2>
 <div class="outline-text-2" id="text-org71d3c26">
 </div>
+<div id="outline-container-orgc176b97" class="outline-3">
+<h3 id="orgc176b97">Bounded Buffer</h3>
+<div class="outline-text-3" id="text-orgc176b97">
+<p>
+We have a list of <i>buffers</i> that can only hold 1 item each. Some processes want to read from these buffers while others are writing to them. We want to ensure that every reader only reads from a buffer that has been written to, however this needs to work concurrently.
+For the <b>Bounded Buffer</b> problem, we have two types of processes:
+</p>
+<dl class="org-dl">
+<dt>Consumers</dt><dd>processes who <i>read from</i> the buffers</dd>
+<dt>Producers</dt><dd><p>
+processes who <i>write to</i> the buffers
+</p>
+
+<p>
+They both have the following shared information:
+</p>
+<div class="org-src-container">
+<pre class="src src-C"><span style="color: #81a2be;">int</span> <span style="color: #e4e4e5;">n</span>;
+<span style="color: #81a2be;">semaphore</span> <span style="color: #e4e4e5;">mutex</span> = <span style="color: #d0b75a; font-weight: bold;">1</span>;
+<span style="color: #81a2be;">semaphore</span> <span style="color: #e4e4e5;">empty</span> = n;
+<span style="color: #81a2be;">semaphore</span> <span style="color: #e4e4e5;">full</span> = <span style="color: #d0b75a; font-weight: bold;">0</span>;
+</pre>
+</div></dd>
+<dt>(no term)</dt><dd>Where <code>n</code> is the number of buffers.</dd>
+<dt>(no term)</dt><dd><code>mutex</code> ensures that only one process has access to the buffers at a time</dd>
+<dt>(no term)</dt><dd><code>empty</code> tracks the number of empty buffers</dd>
+<dt>(no term)</dt><dd><code>full</code> tracks the number of full buffers</dd>
+</dl>
+</div>
+</div>
+
+
+
+<div id="outline-container-org1643337" class="outline-3">
+<h3 id="org1643337">Readers Writers</h3>
+<div class="outline-text-3" id="text-org1643337">
+<p>
+We have a database and two types of processes that want to read from the database:
+</p>
+<dl class="org-dl">
+<dt>Readers</dt><dd>only read data from the database</dd>
+<dt>Writers</dt><dd>update data on the database both reading and writing</dd>
+</dl>
+<p>
+Now multiple <i>readers</i> having access to the database at a time is fine, the problem comes in when multiple <i>writers</i> have access. There are two ways to solve this problem, one where <i>readers</i> have priority and another where <i>writers</i> have priority instead.
+</p>
+</div>
+</div>
+
+
 <div id="outline-container-orgc90bf9b" class="outline-3">
 <h3 id="orgc90bf9b">Dining-Philosophers</h3>
 <div class="outline-text-3" id="text-orgc90bf9b">
@@ -310,7 +440,7 @@ The catch is there are only 5 single chopsticks for all 5 philosophers.
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Jackson Daumeyer</p>
-<p class="date">Created: 2023-03-01 Wed 10:52</p>
+<p class="date">Created: 2023-03-07 Tue 12:25</p>
 </div>
 </body>
 </html>
