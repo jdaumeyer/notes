@@ -86,14 +86,16 @@ pre .src {
  */
 table {
     margin: 0 auto;
-    border-top: 0px !important;
-    border-bottom: 0px !important;
+    border: none;
 }
 
 thead {
-    border-bottom: 2px solid var(--background);
+    border-bottom: 2px solid var(--foreground);
 }
 
+tbody {
+    border: none;
+}
 
 /*
  *
